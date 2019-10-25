@@ -21,16 +21,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Main Page",url:"index.html"},
-{text:"Classes",url:"annotated.html",children:[
-{text:"Class List",url:"annotated.html"},
-{text:"Class Index",url:"classes.html"},
-{text:"Class Members",url:"functions.html",children:[
-{text:"All",url:"functions.html"},
-{text:"Variables",url:"functions_vars.html"}]}]},
-{text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"},
-{text:"File Members",url:"globals.html",children:[
-{text:"All",url:"globals.html"},
-{text:"Functions",url:"globals_func.html"},
-{text:"Typedefs",url:"globals_type.html"}]}]}]}
+{text:"首页",url:"index.html"},
+{text:"类",url:"annotated.html",children:[
+{text:"类列表",url:"annotated.html"},
+{text:"类索引",url:"classes.html"},
+{text:"类成员",url:"functions.html",children:[
+{text:"全部",url:"functions.html"},
+{text:"变量",url:"functions_vars.html"}]}]},
+{text:"文件",url:"files.html",children:[
+{text:"文件列表",url:"files.html"},
+{text:"文件成员",url:"globals.html",children:[
+{text:"全部",url:"globals.html"},
+{text:"函数",url:"globals_func.html"},
+{text:"类型定义",url:"globals_type.html"}]}]}]}
