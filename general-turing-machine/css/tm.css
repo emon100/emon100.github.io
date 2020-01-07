@@ -1,0 +1,24 @@
+body{
+    padding-top: 20px;
+}
+.row1{
+    border-style: solid solid none;
+    text-align: center;
+}
+th{
+    width:18px;
+}
+.row2{
+    border-style: dotted solid solid solid;
+    color:red;
+    text-align: center;
+}
+.transition-function{
+    width: 40px;
+}
+.tape-symbol{
+    margin-right: 5px;
+}
+.transition-function{
+    margin-left: 5px;
+}
