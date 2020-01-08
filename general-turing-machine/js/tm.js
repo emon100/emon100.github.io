@@ -77,7 +77,7 @@ let app = {
         $("#end").val(this.ruleTable.final);
 
         var statesList = $("#states-list");
-        states-list.empty();
+        statesList.empty();
         let ol2 = document.createElement("ol");
         ol2.innerText="初始状态"+(this.ruleTable.initial==null?"为空":this.ruleTable.initial)+"\n结束状态"+(this.ruleTable.final==null?"为空":this.ruleTable.final);
         statesList.append(ol2);
