@@ -19,6 +19,10 @@ th{
 .tape-symbol{
     margin-right: 5px;
 }
+
+ol{
+    padding-left: 0px;
+}
 .transition-function{
     margin-left: 5px;
 }
