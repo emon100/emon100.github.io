@@ -4,6 +4,7 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width">
     <title>通用图灵机</title>
     <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -30,9 +31,9 @@
                 </div>
                 <div class="col-md-6">
                     <h2>
-                       当前图灵机状态移动函数等
+                        当前图灵机状态移动函数等
                     </h2>
-                    <ol>
+                    <ol id="states-list">
                         <li class="list-item">
                             Lorem ipsum dolor sit amet
                         </li>
@@ -80,7 +81,7 @@
                         <button id="submit">确定</button>
                         <div class="rules">
                             <br>
-                            <h2>添加图灵机规则</h2>
+                            <h2>修改图灵机规则</h2>
                             <input id='start' maxlength="3" value="initial">
                             <input id='end' maxlength="3" value="final">
 
@@ -88,10 +89,10 @@
                             <div id="function-tuple">
                                 <div id="function-tuple-1">
                                     <p style="font-size: 12px">(当前状态 带上符号)=>(下个状态 写入符号 移动方向)</p>
-                                    <input class="transition-function current-state" maxlength="3" value="current-state">
-                                    <input class="transition-function tape-symbol" maxlength="1" value="tape-symbol">=>
-                                    <input class="transition-function next-state" maxlength="3" value="next-state">
-                                    <input class="transition-function write-symbol" maxlength="3" value="write-symbol">
+                                    <input class="transition-function current-state" maxlength="3">
+                                    <input class="transition-function tape-symbol" maxlength="1">=>
+                                    <input class="transition-function next-state" maxlength="3" >
+                                    <input class="transition-function write-symbol" maxlength="1" >
                                     <select class="transition-function move">
                                         <option value="L">左</option>
                                         <option value="R">右</option>
@@ -100,17 +101,18 @@
                                 </div>
                             </div>
                             <br>
-                            <button onclick="app.addTransitionFunction">添加一个新的移动函数</button>
+                            <button class="btn btn-primary" id="addTransitionFunction" onclick="app.addTransitionFunction">添加一个新的/修改移动函数</button>
                             <br>
                         </div>
                         <br>
-                        <div class="controller">
-                            <br>
-                            <button id="left-btn"><</button>
-                            <button id="right-btn">></button>
-                        </div>
                     </div>
                 </div>
+            </div>
+            <div hidden>
+            <div class="controller">
+                <br>
+                <button id="left-btn"><</button>
+                <button id="right-btn">></button>
             </div>
             <div class="dropdown">
 
@@ -135,6 +137,7 @@
                 <button class="btn btn-secondary" type="button">
                     Justify
                 </button>
+            </div>
             </div>
         </div>
     </div>

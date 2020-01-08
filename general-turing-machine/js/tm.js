@@ -26,15 +26,34 @@ let app = {
     },
 
     moves : [],
-    test(){
+    preset1(){
+        this.tape=['B','0','0','1','1','0','0','1','1','0','B'];
         this.ruleTable.initial = "q0";
         this.ruleTable.final = "q2";
         this.head.index=1;
         this.head.currentState=this.ruleTable.initial;
 
 
-        var a = new Map([['0',{nextState:"q0",write:"1",move:1}]]);
+        var a = new Map();
         this.ruleTable.states.set("q0",a);
+        this.ruleTable.states.get('q0').set('0',{nextState:"q0",write:"1",move:1});
+        this.ruleTable.states.get("q0").set('1',{nextState:"q0",write:"0",move:1});
+        this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:-1});
+        var b = new Map([['0',{nextState:"q1",write:"w",move:-1}]]);
+        this.ruleTable.states.set("q1",b);
+        this.ruleTable.states.get("q1").set('1',{nextState:"q1",write:"w",move:-1});
+        this.ruleTable.states.get("q1").set('B',{nextState:"q2",write:"B",move:1});
+    },
+    preset2(){
+        this.ruleTable.initial = "q0";
+        this.ruleTable.final = "q2";
+        this.head.index=1;
+        this.head.currentState=this.ruleTable.initial;
+
+
+        var a = new Map();
+        this.ruleTable.states.set("q0",a);
+        this.ruleTable.states.get('q0').set('0',{nextState:"q0",write:"1",move:1});
         this.ruleTable.states.get("q0").set('1',{nextState:"q0",write:"0",move:1});
         this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:-1});
         var b = new Map([['0',{nextState:"q1",write:"w",move:-1}]]);
@@ -44,11 +63,24 @@ let app = {
     },
     start() {
         this.moves=[];
+        this.preset1();
+
         this.updateView();
-        this.test();
+    },
+    updateStatesView: function () {
+        $("#states-list").empty();
+        this.ruleTable.states.forEach((v,k) => {
+            var f = function (value, key,map){
+                let ol = document.createElement("ol");
+                ol.innerText = "δ("+k+" , "+key+") => δ("+value.nextState+" , "+value.write+" , "+value.move+")";
+                $("#states-list").append(ol);
+            };
+            v.forEach(f);
+        });
     },
 
     updateView(){
+        this.updateStatesView();
         this.displayTape();
         this.displayHead();
     },
@@ -84,6 +116,17 @@ let app = {
         alert("Haven't done yet")
     },
     parse(){
+        var initial = $("#start").val();
+        var final = $("#end").val;
+        var currentstate = $(".current-state").val();
+        var tapeSymbol = $(".tape-symbol").val();
+        var currentstate = $(".current-state").val();
+        var tapeSymbol = $(".tape-symbol").val();
+       console.log(initial);
+        console.log(final);
+        console.log(currentstate);
+        console.log(tapeSymbol);
+
     },
     oneStepBackward() {//回退一步
         if(this.moves.length!=0){
@@ -145,6 +188,9 @@ $(function () {//保证DOM加载再开始程序
     $('#onstepforward').click(function () {
         app.oneStepForward();
     });
+    $('#addTransitionFunction').click(function () {
+        app.parse();
+    })
     app.start();
 });
 
