@@ -200,8 +200,8 @@ let app = {
 
 $(function () {//保证DOM加载再开始程序
     $('#submit').click(function () {
+        app.initAll();
         app.putInputOnTape();
-        app.headInit();
         app.updateView();
     });
     $('#onstepback').click(function () {
