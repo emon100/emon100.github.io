@@ -17,149 +17,175 @@ let app = {
     tape : ['B','B'],//model
     head : {
         index : 1,
-        currentState : null
+        currentState : null,
+        moves : [],
+        init(){
+            this.index=1;
+            this.currentState=null;
+            this.moves=[];
+        }
     },
     ruleTable :{//规则表
+        description: null,
         states : new Map(),
         initial: null,
-        final: null
-    },
-
-    moves : [],
-    setPreset1(){
-        this.headInit();
-        this.ruleTable.initial = "q0";
-        this.ruleTable.final = "q2";
-        this.tape=['B','0','0','1','1','0','0','1','1','0','B'];
-
-        var a = new Map();
-        this.ruleTable.states.set("q0",a);
-        this.ruleTable.states.get('q0').set('0',{nextState:"q0",write:"1",move:1});
-        this.ruleTable.states.get("q0").set('1',{nextState:"q0",write:"0",move:1});
-        this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:0});
-
-        var b = new Map([['B',{nextState:"q2",write:"B",move:0}]]);
-        this.ruleTable.states.set("q1",b);
-
+        final: null,
+        init(){
+            this.description=null;
+            this.states =new Map();
+            this.initial=null;
+            this.final=null;
         },
-    setPreset2(){
-        this.headInit();
+        putState(current,symbol,next,write,move){//放入新的状态转移函数
+            if(this.states.get(current)===undefined){
+                let a = new Map([[symbol,{nextState:next,write:write,move:move}]]);
+                this.states.set(current,a);
+            }else{
+                this.states.get(current).set(symbol,{nextState:next,write:write,move:move});
+            }
+        }
+    },
+
+    setPreset1(){//预设1：计算按位取反
         this.ruleTable.initial = "q0";
-        this.ruleTable.final = "q2";
+        this.ruleTable.final = "q1";
         this.tape=['B','0','0','1','1','0','0','1','1','0','B'];
 
-        var a = new Map();
-        this.ruleTable.states.set("q0",a);
-        this.ruleTable.states.get('q0').set('0',{nextState:"q0",write:"1",move:1});
-        this.ruleTable.states.get("q0").set('1',{nextState:"q0",write:"0",move:1});
-        this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:-1});
-        var b = new Map([['0',{nextState:"q1",write:"w",move:-1}]]);
-        this.ruleTable.states.set("q1",b);
-        this.ruleTable.states.get("q1").set('1',{nextState:"q1",write:"w",move:-1});
-        this.ruleTable.states.get("q1").set('B',{nextState:"q2",write:"B",move:1});
+        this.ruleTable.putState('q0','0','q0',"1",1);
+        this.ruleTable.putState("q0",'1',"q0","0",1);
+        this.ruleTable.putState("q0",'B',"q1","B",0);
+        },
+    setPreset2(){//预设2：计算一进制m-n
+        this.ruleTable.initial = "q0";
+        this.ruleTable.final = "q6";
+        this.tape=['B','0','0','0','0','0','1','0','0','B'];
+
+        this.ruleTable.putState('q0','0','q1','B',1);
+        this.ruleTable.putState('q0','1','q5','B',1);
+        this.ruleTable.putState('q1','0','q1','0',1);
+        this.ruleTable.putState('q1','1','q2','1',1);
+        this.ruleTable.putState('q2','1','q2','1',1);
+        this.ruleTable.putState('q2','0','q4','1',-1);
+        this.ruleTable.putState('q2','B','q3','B',-1);
+        this.ruleTable.putState('q3','0','q3','0',-1);
+        this.ruleTable.putState('q3','1','q3','B',-1);
+        this.ruleTable.putState('q3','B','q6','0',0);
+        this.ruleTable.putState('q4','0','q4','0',-1);
+        this.ruleTable.putState('q4','1','q4','1',-1);
+        this.ruleTable.putState('q4','B','q0','B',1);
+        this.ruleTable.putState('q5','0','q5','B',1);
+        this.ruleTable.putState('q5','1','q5','B',1);
+        this.ruleTable.putState('q5','B','q6','B',0);
     },
-    headInit(){
-        this.head.index=1;
-        this.head.currentState=this.ruleTable.initial;
-  },
+
+    /*开始的函数*/
     start() {
         this.initAll();
         this.updateView();
     },
     initAll(){
-        this.headInit();
-        this.moves=[];
+        this.head.init();
         this.clearTape();
-        this.ruleTable={states: new Map(),initial: null,final: null};
+        this.ruleTable.init();
     },
+    /*刷新所有状态*/
     updateView(){
         this.updateStatesView();
-        this.displayTape();
-        this.displayHead();
+        this.updateTapeView();
+        this.updateHeadView();
     },
-    updateStatesView: function () {
+    /*刷新状态页面状态*/
+    updateStatesView() {
         $("#start").val(this.ruleTable.initial);
         $("#end").val(this.ruleTable.final);
 
-        var statesList = $("#states-list");
+        let statesList = $("#states-list");
         statesList.empty();
         let ol2 = document.createElement("ol");
-        ol2.innerText="初始状态"+(this.ruleTable.initial==null?"为空":this.ruleTable.initial)+"\n结束状态"+(this.ruleTable.final==null?"为空":this.ruleTable.final);
+        ol2.innerText="初始状态:"+(this.ruleTable.initial==null?"为空":this.ruleTable.initial)+"\n结束状态:"+(this.ruleTable.final==null?"为空":this.ruleTable.final);
         statesList.append(ol2);
         this.ruleTable.states.forEach((v,k) => {
-            var f = function (value, key){
+            let f = function (value, key){
                 let ol = document.createElement("ol");
                 ol.innerText = "δ("+k+" , "+key+") = δ("+value.nextState+" , "+value.write+" , "+(value.move === 1?'R':value.move === -1?'L':'S')+")";
                 statesList.append(ol);
             };
             v.forEach(f);
         });
+        if(this.head.currentState!==null) {
+            let ol3 = document.createElement("ol");
+            ol3.innerText = "当前状态:" + (this.head.currentState == null ? "未启动" : this.head.currentState);
+            statesList.append(ol3);
+        }
     },
-
-    displayHead(){//viewer刷新读写头
-        var row2 =$(".row2");
+    /*刷新读头状态*/
+    updateHeadView(){//viewer刷新读写头
+        let row2 =$(".row2");
             row2.empty();
         this.tape.forEach(function() {
             let col2 = document.createElement("th");
             col2.innerText;
-            $('.row2').append(col2);
+            row2.append(col2);
         });
-        row2.children()[this.head.index].innerText='▲';//设置箭头
+        row2.find('th').eq(this.head.index).text('▲');
     },
-    displayTape() {//viewer刷新纸带
-        var tape=this.tape;
-        $(".row1").empty();
-        tape.forEach(function(char){
+    /*刷新纸带状态*/
+    updateTapeView() {//viewer刷新纸带
+        let tape=this.tape;
+        let row1 =$(".row1");
+        row1.empty();
+        tape.forEach(function(symbol){
             let col1=document.createElement("th");
-            col1.innerText=char;
-            $('.row1').append(col1);
+            col1.innerText=symbol;
+            row1.append(col1);
         });
     },
+    /*将设置的内容放入纸带*/
     putInputOnTape(){//controller
-        this.headInit();
         this.clearTape();
         this.tape.pop();
         this.tape = this.tape.concat($('#add').val().split(''));
         this.tape.push('B');
     },
+    /*清空纸带*/
     clearTape(){
         this.tape = ['B','B'];
     },
+    /*修改起始结束状态*/
     changeInitFinal(){
-        var initial = $("#start").val();
-        var final = $("#end").val();
+        let initial = $("#start").val();
+        let final = $("#end").val();
         this.ruleTable.initial=initial;
         this.ruleTable.final=final;
         this.updateStatesView();
     },
-    changeTransitionFuncitons(){
+    /*修改移动函数*/
+    changeTransitionFunctions(){
 
-        var currentstate = $(".current-state").val();
-        var tapeSymbol = $(".tape-symbol").val();
-        var nextstate = $(".next-state").val();
-        var writeSymbol = $(".write-symbol").val();
-        var mo=$(".move");
-        var move = mo.val()==='L'?-1:mo.val()==='R'?1:0;
+        let currentState = $(".current-state").val();
+        let tapeSymbol = $(".tape-symbol").val();
+        let nextState = $(".next-state").val();
+        let writeSymbol = $(".write-symbol").val();
+        let mo=$(".move");
+        let move = mo.val()==='L'?-1:mo.val()==='R'?1:0;
 
-        var map = new Map();
-        if(this.ruleTable.states.get(currentstate)===undefined){
-            this.ruleTable.states.set(currentstate,map);
-        }
-        this.ruleTable.states.get(currentstate).set(tapeSymbol,{nextState:nextstate,write:writeSymbol,move:move});
+        this.ruleTable.putState(currentState,tapeSymbol,nextState,writeSymbol,move);
 
         this.updateStatesView();
     },
+    /*回退一步*/
     oneStepBackward() {//回退一步
-        if(this.moves.length!==0){
-            var M =this.moves.pop();
+        if(this.head.moves.length!==0){
+            let M =this.head.moves.pop();
             this.head.index=M.index;
             this.head.currentState=M.state;
             this.tape[this.head.index]=M.symbol;
             this.updateView();
         }else{
-            alert("can't go backward anymore");
+            $('#modal-container-4').modal('show');
         }
     },
+    /*前进一步*/
     oneStepForward(){//进行一步
         if(this.head.currentState===this.ruleTable.final){//终止
             $('#modal-container-1').modal('show');
@@ -169,10 +195,10 @@ let app = {
             $('#modal-container-3').modal('show');
             return;
         }
-        var currentSymbol = this.tape[this.head.index];
+        const currentSymbol = this.tape[this.head.index];
         this.head.currentState = this.head.currentState == null?this.ruleTable.initial:this.head.currentState;
-        var currentState = this.head.currentState;
-        var rule = this.ruleTable.states.get(currentState);
+        const currentState = this.head.currentState;
+        let rule = this.ruleTable.states.get(currentState);
 
         if(rule === undefined) {//无此状态
             $('#modal-container-2').modal('show');
@@ -183,8 +209,8 @@ let app = {
                 $('#modal-container-2').modal('show');
                 return;
             }
-            var M={state:this.head.currentState,symbol:this.tape[this.head.index],index:this.head.index};//当前状态备份
-            this.moves.push(M);//当前状态入栈
+            const M={state:this.head.currentState,symbol:this.tape[this.head.index],index:this.head.index};//当前状态备份
+            this.head.moves.push(M);//当前状态入栈
             this.head.currentState = rule.nextState;//设置状态
             this.tape[this.head.index]=rule.write;//写入纸带
             this.head.index += rule.move;//移动读头
@@ -195,32 +221,47 @@ let app = {
             }
         }
         this.updateView();
+    },
+    /*将目前的纸带和状态函数序列化*/
+    serialize(){
+        let tapeJson=JSON.stringify(this.tape);
+        let ruleJson=JSON.stringify(this.ruleTable.states);
+        console.log(tapeJson);
+        console.log(ruleJson);
     }
 };
 
-$(function () {//保证DOM加载再开始程序
-    $('#submit').click(function () {
+//保证DOM加载再开始程序
+$(function () {
+    $('#submit').on('click',function () {
+        app.head.init();
         app.putInputOnTape();
-        app.headInit();
-        app.updateView();
+        app.updateHeadView();
+        app.updateTapeView();
     });
-    $('#onstepback').click(function () {
+    $('#stepBackward').on('click',function () {
         app.oneStepBackward();
     });
-    $('#onstepforward').click(function () {
+    $('#stepForward').on('click',function () {
         app.oneStepForward();
     });
-    $('#change-initial-final').click(function () {
+    $('#change-initial-final').on('click',function () {
         app.changeInitFinal();
     });
-    $('#addTransitionFunction').click(function () {
-        app.changeTransitionFuncitons();
+    $('#updateTransitionFunction').on('click',function () {
+        app.changeTransitionFunctions();
     });
-    $('#preset1').click(function () {
+    $('#preset1').on('click',function () {
+        app.initAll();
         app.setPreset1();
         app.updateView();
     });
-    $('#customTuringMachine').click(function () {
+    $('#preset2').on('click',function () {
+        app.initAll();
+        app.setPreset2();
+        app.updateView();
+    });
+    $('#customTuringMachine').on('click',function () {
         app.initAll();
         app.updateView();
     });

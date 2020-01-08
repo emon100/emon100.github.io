@@ -13,34 +13,32 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-5">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col">
                     <div class="jumbotron">
-                        <h2>
+                        <h1 class="display-3">
                             通用图灵机演示
-                        </h2>
+                        </h1>
                         <p>
                             可以在下面设置开始状态，终止状态，移动函数等等。图灵机模型为一个向右无限延伸的纸带和一个读头。
                         </p>
                         <p>
-                            <a class="btn btn-primary btn-large" id="modal-568729" role="button" data-toggle="modal" href="#modal-container-568729">更多信息</a>
+                            <a class="btn btn-primary btn-large" id="modal-568729" role="button" data-toggle="modal"
+                               href="#modal-container-568729">更多信息</a>
                         </p>
                     </div>
+
                 </div>
-                <div class="col-md-6">
-
-                    <h2>
-                        图灵机状态/移动函数
-                    </h2>
-                    <br>
+            </div>
+            <div class="row">
+                <div class="col">
                     <div class="btn-group" role="group">
-
                         <button class="btn btn-secondary" id="preset1" type="button">
                             按位取反
                         </button>
-                        <button class="btn btn-secondary" type="button">
-                            预设2
+                        <button class="btn btn-secondary" id="preset2" type="button">
+                            一进制m-n
                         </button>
                         <button class="btn btn-secondary" type="button">
                             预设3
@@ -49,163 +47,191 @@
                             自定义
                         </button>
                     </div>
-                    <br>
-                    <ol class="states-list" id="states-list">
-                    </ol>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tape">
+            <br>
+            <div class="row align-items-md-center">
+                <div class="col">
+                    <div class="tape ">
                         <table>
-                            <tr class ="row1">
-                            <tr class ="row2">
+                            <tr class="row1">
+                            <tr class="row2">
                             </tr>
                         </table>
-                    </div>
-                    <div class="tape-manipulator">
                         <br>
-                        <button class="btn btn-dark" id="onstepback">后退一步</button>
-                        <button class="btn btn-primary" id="onstepforward">前进一步</button>
-                        <br>
-                        <br>
-                        <h2>设置纸带</h2>
-                        <input id="add" maxlength="20" value="1">
-                        <button id="submit">确定</button>
-                        <div class="rules"><br>
-                            <div>
-                            <h2>修改图灵机规则</h2>
-                                <p style="font-size: 12px"> 起始状态</p>
-                            <input id='start' style="width: 30px" maxlength="3">
-                                <br>
-                                <p style="font-size: 12px"> 终止状态</p>
-                                <input id='end' style="width: 30px" maxlength="3"><br><br>
-                                <button class="btn btn-primary" id="change-initial-final">修改</button>
-                        </div>
-                            <br>
-                            <h3>移动函数</h3>
-                            <div id="function-tuple">
-                                <div id="function-tuple-1">
-                                    <p style="font-size: 12px">δ(当前状态 带上符号) = (下个状态 写入符号 移动方向)</p>
-                                    <input class="transition-function current-state" maxlength="3" value="q0">
-                                    <input class="transition-function tape-symbol" maxlength="1" value="1">=>
-                                    <input class="transition-function next-state" maxlength="3" value="q1">
-                                    <input class="transition-function write-symbol" maxlength="1" value="5">
-                                    <select class="transition-function move">
-                                        <option value="L">左</option>
-                                        <option value="R">右</option>
-                                        <option value="S">停</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <button class="btn btn-primary" id="addTransitionFunction">添加一个新的/修改移动函数</button>
-                            <br>
-                        </div>
+                        <button class="btn btn-dark" id="stepBackward">回退一步</button>
+                        <button class="btn btn-primary" id="stepForward">执行一步</button>
                         <br>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-4">
+            <div class="tape-manipulator">
+                <br>
+                <h1>设置纸带</h1>
+                <input id="add" maxlength="20" value="1">
+                <button id="submit" class="btn btn-primary">确定</button>
+                <div class="rules"><br>
+                    <div>
+                        <h1>修改起终状态</h1>
+                        <p style="font-size: 12px"> 起始状态</p>
+                        <input id='start' style="width: 30px" maxlength="3">
+                        <br>
+                        <p style="font-size: 12px"> 终止状态</p>
+                        <input id='end' style="width: 30px" maxlength="3"><br><br>
+                        <button class="btn btn-primary" id="change-initial-final">修改</button>
+                    </div>
+                    <br>
+                    <h1>移动函数</h1>
+                    <div id="function-tuple">
+                        <div id="function-tuple-1">
+                            <p style="font-size: 12px">δ(当前状态 带上符号) = (下个状态 写入符号 移动方向)</p>
+                            <input class="transition-function current-state" maxlength="3" value="q0">
+                            <input class="transition-function tape-symbol" maxlength="1" value="1">=>
+                            <input class="transition-function next-state" maxlength="3" value="q1">
+                            <input class="transition-function write-symbol" maxlength="1" value="5">
+                            <select class="transition-function move">
+                                <option value="L">左</option>
+                                <option value="R">右</option>
+                                <option value="S">停</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" id="updateTransitionFunction">添加一个新的/修改移动函数</button>
+                    <br>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h1> 图灵机当前状态与<br>移动函数</h1>
+            <ol class="states-list" id="states-list">
+            </ol>
         </div>
     </div>
 </div>
 <div id="modals">
-<div class="modal fade" id="modal-container-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabe1">
-                    已到达终止状态。
-                </h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
+    <div class="modal fade" id="modal-container-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabe1">
+                        已到达终止状态。
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
+
         </div>
 
     </div>
 
-</div>
+    <div class="modal fade" id="modal-container-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabe2">
+                        无相应状态
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
 
-<div class="modal fade" id="modal-container-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabe2">
-                    无相应状态
-                </h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
         </div>
 
     </div>
 
-</div>
+    <div class="modal fade" id="modal-container-3" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel3">
+                        错误！
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    读头向左端移动越界。
+                </div>
+                <div class="modal-footer">
 
-<div class="modal fade" id="modal-container-3" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel3">
-                    错误！
-                </h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
-            <div class="modal-body">
-                读头向左端移动越界。
-            </div>
-            <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
         </div>
 
     </div>
 
-</div>
+    <div class="modal fade" id="modal-container-4" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel4">
+                        回退结束
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
 
-<div class="modal fade" id="modal-container-568729" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel0">
-                    更多信息
-                </h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
-            <div class="modal-body">
-                用基本图灵机做的一个演示。制作：王一蒙
-            </div>
-            <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
-            </div>
         </div>
 
     </div>
 
-</div>
+    <div class="modal fade" id="modal-container-568729" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel0">
+                        更多信息
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    用基本图灵机做的一个演示。制作：王一蒙
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </div>
 </body>
 </html>
