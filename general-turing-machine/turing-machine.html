@@ -6,7 +6,6 @@
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/tm.css">
     <script src="./js/tm.js"></script>
@@ -25,20 +24,31 @@
                             可以在下面设置开始状态，终止状态，移动函数等等。图灵机模型为一个向右无限延伸的纸带和一个读头。
                         </p>
                         <p>
-                            <a class="btn btn-primary btn-large" id="modal-568729"role="button" class="btn" data-toggle="modal" href="#modal-container-568729">更多信息</a>
+                            <a class="btn btn-primary btn-large" id="modal-568729" role="button" data-toggle="modal" href="#modal-container-568729">更多信息</a>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-6">
+
                     <h2>
-                        当前图灵机状态移动函数等
+                        图灵机状态/移动函数
                     </h2>
+                    <br>
+                    <div class="btn-group" role="group">
+
+                        <button class="btn btn-secondary" type="button" id="preset1">
+                            按位取反
+                        </button>
+                        <button class="btn btn-secondary" type="button">
+                            预设2
+                        </button>
+                        <button class="btn btn-secondary" type="button">
+                            预设3
+                        </button>
+
+                    </div>
+                    <br>
                     <ol id="states-list">
-                        <li class="list-item">l
-                            Lorem ipsum dolor sit amet
-                        </li>
-                        <li class="list-item">
-                            Consectetur adipiscing elit
                     </ol>
                 </div>
             </div>
@@ -53,19 +63,24 @@
                     </div>
                     <div class="tape-manipulator">
                         <br>
-                        <button id="onstepback">后退一步</button>
-                        <button id="onstepforward">前进一步</button>
+                        <button class="btn btn-dark" id="onstepback">后退一步</button>
+                        <button class="btn btn-primary" id="onstepforward">前进一步</button>
                         <br>
                         <br>
                         <h2>设置纸带</h2>
                         <input id="add" maxlength="20" value="1">
                         <button id="submit">确定</button>
                         <div class="rules"><br>
-                            <div hidden>
+                            <div>
                             <h2>修改图灵机规则</h2>
-                            <input id='start' maxlength="3" value="initial">
-                            <input id='end' maxlength="3" value="final">
+                                <p style="font-size: 12px"> 起始状态</p>
+                            <input id='start' style="width: 30px" maxlength="3">
+                                <br>
+                                <p style="font-size: 12px"> 终止状态</p>
+                                <input id='end' style="width: 30px" maxlength="3"><br><br>
+                                <button class="btn btn-primary" id="change-initial-final">修改</button>
                         </div>
+                            <br>
                             <h3>移动函数</h3>
                             <div id="function-tuple">
                                 <div id="function-tuple-1">
@@ -82,7 +97,7 @@
                                 </div>
                             </div>
                             <br>
-                            <button class="btn btn-primary" id="addTransitionFunction" onclick="app.addTransitionFunction">添加一个新的/修改移动函数</button>
+                            <button class="btn btn-primary" id="addTransitionFunction">添加一个新的/修改移动函数</button>
                             <br>
                         </div>
                         <br>
@@ -104,21 +119,7 @@
                     <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </div>
-            <div class="btn-group" role="group">
 
-                <button class="btn btn-secondary" type="button">
-                    Left
-                </button>
-                <button class="btn btn-secondary" type="button">
-                    Center
-                </button>
-                <button class="btn btn-secondary" type="button">
-                    Right
-                </button>
-                <button class="btn btn-secondary" type="button">
-                    Justify
-                </button>
-            </div>
             </div>
         </div>
     </div>
