@@ -36,7 +36,7 @@
                     <br>
                     <div class="btn-group" role="group">
 
-                        <button class="btn btn-secondary" type="button" id="preset1">
+                        <button class="btn btn-secondary" id="preset1" type="button">
                             按位取反
                         </button>
                         <button class="btn btn-secondary" type="button">
@@ -45,7 +45,9 @@
                         <button class="btn btn-secondary" type="button">
                             预设3
                         </button>
-
+                        <button class="btn btn-secondary" id="customTuringMachine" type="button">
+                            自定义
+                        </button>
                     </div>
                     <br>
                     <ol class="states-list" id="states-list">
@@ -84,7 +86,7 @@
                             <h3>移动函数</h3>
                             <div id="function-tuple">
                                 <div id="function-tuple-1">
-                                    <p style="font-size: 12px">(当前状态 带上符号)=>(下个状态 写入符号 移动方向)</p>
+                                    <p style="font-size: 12px">δ(当前状态 带上符号) = (下个状态 写入符号 移动方向)</p>
                                     <input class="transition-function current-state" maxlength="3" value="q0">
                                     <input class="transition-function tape-symbol" maxlength="1" value="1">=>
                                     <input class="transition-function next-state" maxlength="3" value="q1">
@@ -104,27 +106,10 @@
                     </div>
                 </div>
             </div>
-            <div hidden>
-            <div class="controller">
-                <br>
-                <button id="left-btn"><</button>
-                <button id="right-btn">></button>
-            </div>
-            <div class="dropdown">
-
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                    Action
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-
-            </div>
         </div>
     </div>
 </div>
-
+<div id="modals">
 <div class="modal fade" id="modal-container-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -221,6 +206,6 @@
     </div>
 
 </div>
-
+</div>
 </body>
 </html>

@@ -36,11 +36,11 @@ let app = {
         this.ruleTable.states.set("q0",a);
         this.ruleTable.states.get('q0').set('0',{nextState:"q0",write:"1",move:1});
         this.ruleTable.states.get("q0").set('1',{nextState:"q0",write:"0",move:1});
-        this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:-1});
+        this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:0});
 
-        var b = new Map([['B',{nextState:"q2",write:"B",move:1}]]);
+        var b = new Map([['B',{nextState:"q2",write:"B",move:0}]]);
         this.ruleTable.states.set("q1",b);
-        this.updateView();
+
         },
     setPreset2(){
         this.headInit();
@@ -63,8 +63,14 @@ let app = {
         this.head.currentState=this.ruleTable.initial;
   },
     start() {
-        this.moves=[];
+        this.initAll();
         this.updateView();
+    },
+    initAll(){
+        this.headInit();
+        this.moves=[];
+        this.clearTape();
+        this.ruleTable={states: new Map(),initial: null,final: null};
     },
     updateView(){
         this.updateStatesView();
@@ -83,7 +89,7 @@ let app = {
         this.ruleTable.states.forEach((v,k) => {
             var f = function (value, key){
                 let ol = document.createElement("ol");
-                ol.innerText = "δ("+k+" , "+key+") => δ("+value.nextState+" , "+value.write+" , "+(value.move === 1?'R':value.move === -1?'L':'S')+")";
+                ol.innerText = "δ("+k+" , "+key+") = δ("+value.nextState+" , "+value.write+" , "+(value.move === 1?'R':value.move === -1?'L':'S')+")";
                 statesList.append(ol);
             };
             v.forEach(f);
@@ -132,7 +138,8 @@ let app = {
         var tapeSymbol = $(".tape-symbol").val();
         var nextstate = $(".next-state").val();
         var writeSymbol = $(".write-symbol").val();
-        var move = $(".move").val()==='L'?-1:$(".move").val()==='R'?1:0;
+        var mo=$(".move");
+        var move = mo.val()==='L'?-1:mo.val()==='R'?1:0;
 
         var map = new Map();
         if(this.ruleTable.states.get(currentstate)===undefined){
@@ -211,6 +218,11 @@ $(function () {//保证DOM加载再开始程序
     });
     $('#preset1').click(function () {
         app.setPreset1();
+        app.updateView();
+    });
+    $('#customTuringMachine').click(function () {
+        app.initAll();
+        app.updateView();
     });
     app.start();
 });
