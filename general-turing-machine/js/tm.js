@@ -69,6 +69,9 @@ let app = {
     },
     updateStatesView: function () {
         $("#states-list").empty();
+        let ol2 = document.createElement("ol");
+        ol2.innerText="初始状态"+this.ruleTable.initial+"\n结束状态"+this.ruleTable.final;
+        $("#states-list").append(ol2);
         this.ruleTable.states.forEach((v,k) => {
             var f = function (value, key,map){
                 let ol = document.createElement("ol");
@@ -120,12 +123,17 @@ let app = {
         var final = $("#end").val;
         var currentstate = $(".current-state").val();
         var tapeSymbol = $(".tape-symbol").val();
-        var currentstate = $(".current-state").val();
-        var tapeSymbol = $(".tape-symbol").val();
-       console.log(initial);
-        console.log(final);
-        console.log(currentstate);
-        console.log(tapeSymbol);
+        var nextstate = $(".next-state").val();
+        var writeSymbol = $(".write-symbol").val();
+        var move = $(".move").val()=='L'?-1:$(".move").val()=='R'?1:0;
+
+        var map = new Map();
+        if(this.ruleTable.states.get(currentstate)==undefined){
+            this.ruleTable.states.set(currentstate,map);
+        }
+        this.ruleTable.states.get(currentstate).set(tapeSymbol,{nextState:nextstate,write:writeSymbol,move:move});
+
+        this.updateStatesView();
 
     },
     oneStepBackward() {//回退一步

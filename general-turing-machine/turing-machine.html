@@ -34,30 +34,11 @@
                         当前图灵机状态移动函数等
                     </h2>
                     <ol id="states-list">
-                        <li class="list-item">
+                        <li class="list-item">l
                             Lorem ipsum dolor sit amet
                         </li>
                         <li class="list-item">
                             Consectetur adipiscing elit
-                        </li>
-                        <li class="list-item">
-                            Integer molestie lorem at massa
-                        </li>
-                        <li class="list-item">
-                            Facilisis in pretium nisl aliquet
-                        </li>
-                        <li class="list-item">
-                            Nulla volutpat aliquam velit
-                        </li>
-                        <li class="list-item">
-                            Faucibus porta lacus fringilla vel
-                        </li>
-                        <li class="list-item">
-                            Aenean sit amet erat nunc
-                        </li>
-                        <li class="list-item">
-                            Eget porttitor lorem
-                        </li>
                     </ol>
                 </div>
             </div>
@@ -79,20 +60,20 @@
                         <h2>设置纸带</h2>
                         <input id="add" maxlength="20" value="1">
                         <button id="submit">确定</button>
-                        <div class="rules">
-                            <br>
+                        <div class="rules"><br>
+                            <div hidden>
                             <h2>修改图灵机规则</h2>
                             <input id='start' maxlength="3" value="initial">
                             <input id='end' maxlength="3" value="final">
-
+                        </div>
                             <h3>移动函数</h3>
                             <div id="function-tuple">
                                 <div id="function-tuple-1">
                                     <p style="font-size: 12px">(当前状态 带上符号)=>(下个状态 写入符号 移动方向)</p>
-                                    <input class="transition-function current-state" maxlength="3">
-                                    <input class="transition-function tape-symbol" maxlength="1">=>
-                                    <input class="transition-function next-state" maxlength="3" >
-                                    <input class="transition-function write-symbol" maxlength="1" >
+                                    <input class="transition-function current-state" maxlength="3" value="q0">
+                                    <input class="transition-function tape-symbol" maxlength="1" value="1">=>
+                                    <input class="transition-function next-state" maxlength="3" value="q1">
+                                    <input class="transition-function write-symbol" maxlength="1" value="5">
                                     <select class="transition-function move">
                                         <option value="L">左</option>
                                         <option value="R">右</option>
