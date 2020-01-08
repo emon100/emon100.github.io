@@ -27,7 +27,7 @@ let app = {
 
     moves : [],
     setPreset1(){
-        this.headInit();
+        this.initAll();
         this.ruleTable.initial = "q0";
         this.ruleTable.final = "q2";
         this.tape=['B','0','0','1','1','0','0','1','1','0','B'];
@@ -43,7 +43,7 @@ let app = {
 
         },
     setPreset2(){
-        this.headInit();
+        this.initAll();
         this.ruleTable.initial = "q0";
         this.ruleTable.final = "q2";
         this.tape=['B','0','0','1','1','0','0','1','1','0','B'];
