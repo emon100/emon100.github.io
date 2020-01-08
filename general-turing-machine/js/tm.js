@@ -37,10 +37,9 @@ let app = {
         this.ruleTable.states.get('q0').set('0',{nextState:"q0",write:"1",move:1});
         this.ruleTable.states.get("q0").set('1',{nextState:"q0",write:"0",move:1});
         this.ruleTable.states.get("q0").set('B',{nextState:"q1",write:"B",move:-1});
-        var b = new Map([['0',{nextState:"q1",write:"w",move:-1}]]);
+
+        var b = new Map([['B',{nextState:"q2",write:"B",move:1}]]);
         this.ruleTable.states.set("q1",b);
-        this.ruleTable.states.get("q1").set('1',{nextState:"q1",write:"w",move:-1});
-        this.ruleTable.states.get("q1").set('B',{nextState:"q2",write:"B",move:1});
         this.updateView();
         },
     setPreset2(){
