@@ -81,6 +81,7 @@ let app = {
     /*开始的函数*/
     start() {
         this.initAll();
+        this.setPreset1();
         this.updateView();
     },
     initAll(){
@@ -99,6 +100,10 @@ let app = {
         $("#start").val(this.ruleTable.initial);
         $("#end").val(this.ruleTable.final);
 
+        let ol3 = document.createElement("ol");
+        ol3.innerText = "当前状态:" + (this.head.currentState == null ? "未启动" : this.head.currentState);
+        $('#states-indicator').empty().append(ol3);
+
         let statesList = $("#states-list");
         statesList.empty();
         let ol2 = document.createElement("ol");
@@ -112,11 +117,6 @@ let app = {
             };
             v.forEach(f);
         });
-        if(this.head.currentState!==null) {
-            let ol3 = document.createElement("ol");
-            ol3.innerText = "当前状态:" + (this.head.currentState == null ? "未启动" : this.head.currentState);
-            statesList.append(ol3);
-        }
     },
     /*刷新读头状态*/
     updateHeadView(){//viewer刷新读写头
@@ -157,7 +157,6 @@ let app = {
         let final = $("#end").val();
         this.ruleTable.initial=initial;
         this.ruleTable.final=final;
-        this.updateStatesView();
     },
     /*修改移动函数*/
     changeTransitionFunctions(){
@@ -171,7 +170,15 @@ let app = {
 
         this.ruleTable.putState(currentState,tapeSymbol,nextState,writeSymbol,move);
 
-        this.updateStatesView();
+    },
+    /*重新开始*/
+    restartMachine(){
+        while(this.head.moves.length!==0) {
+            let M = this.head.moves.pop();
+            this.head.index=M.index;
+            this.tape[this.head.index] = M.symbol;
+        }
+        this.head.init();
     },
     /*回退一步*/
     oneStepBackward() {//回退一步
@@ -180,7 +187,6 @@ let app = {
             this.head.index=M.index;
             this.head.currentState=M.state;
             this.tape[this.head.index]=M.symbol;
-            this.updateView();
         }else{
             $('#modal-container-4').modal('show');
         }
@@ -202,7 +208,6 @@ let app = {
 
         if(rule === undefined) {//无此状态
             $('#modal-container-2').modal('show');
-            return;
         }else {//此状态无读到此字符的操作
             rule = rule.get(currentSymbol);
             if(rule === undefined){
@@ -217,10 +222,8 @@ let app = {
             if(this.head.index===this.tape.length){this.tape.push('B');}//向右延伸
             if(this.head.index<0){
                 $('#modal-container-3').modal('show');
-                return;
             }
         }
-        this.updateView();
     },
     /*将目前的纸带和状态函数序列化*/
     serialize(){
@@ -239,17 +242,25 @@ $(function () {
         app.updateHeadView();
         app.updateTapeView();
     });
+    $('#restartMachine').on('click',function () {
+        app.restartMachine();
+        app.updateView();
+    });
     $('#stepBackward').on('click',function () {
         app.oneStepBackward();
+        app.updateView();
     });
     $('#stepForward').on('click',function () {
         app.oneStepForward();
+        app.updateView();
     });
     $('#change-initial-final').on('click',function () {
         app.changeInitFinal();
+        app.updateStatesView();
     });
     $('#updateTransitionFunction').on('click',function () {
         app.changeTransitionFunctions();
+        app.updateStatesView();
     });
     $('#preset1').on('click',function () {
         app.initAll();
