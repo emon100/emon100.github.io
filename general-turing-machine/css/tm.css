@@ -20,14 +20,10 @@ th{
 }
 
 ol{
-    padding-left: 0px;
-}
-
-.transition-function{
-
+    padding-left: 0;
 }
 
 .transition-function-input{
-    width: 40px;
+    width: 20px;
 }
 

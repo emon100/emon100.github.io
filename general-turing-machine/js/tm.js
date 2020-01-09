@@ -161,11 +161,11 @@ let app = {
     /*修改移动函数*/
     changeTransitionFunctions(){
 
-        let currentState = $(".current-state").val();
-        let tapeSymbol = $(".tape-symbol").val();
-        let nextState = $(".next-state").val();
-        let writeSymbol = $(".write-symbol").val();
-        let mo=$(".move");
+        let currentState = $("#current-state").val();
+        let tapeSymbol = $("#tape-symbol").val();
+        let nextState = $("#next-state").val();
+        let writeSymbol = $("#write-symbol").val();
+        let mo=$("#move");
         let move = mo.val()==='L'?-1:mo.val()==='R'?1:0;
 
         this.ruleTable.putState(currentState,tapeSymbol,nextState,writeSymbol,move);
