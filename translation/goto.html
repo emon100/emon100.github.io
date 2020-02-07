@@ -618,11 +618,11 @@
                     </p>
 
                     <p>
-                        这种混淆是以下事实的结果：不受约束的goto 语句可以在控制完成之前将控制权从循环中移出，并且同样可以将控制权转移到已经迭代的循环中间。两种情况都使修改循环迭代堆栈中的计数器的方式变得复杂。
+                        以下事实导致了这种混乱：不受约束的goto 语句可以在控制完成之前将控制权从循环中移出，并且同样可以将控制权转移到已经迭代的循环中间。两种情况都使修改循环迭代堆栈中的计数器的方式变得复杂。
                     </p>
 
                     <p>
-                        除此之外，还有存在 非本地 (non-local) goto 的可能性, 即将控制权从当前正在执行的子过程转移回先前调用的子过程，这实际上通过使整个调用堆栈的值无效来真正破坏执行状态。
+                        除此之外，还有存在 非局部 (non-local) goto 的可能性, 即将控制权从当前正在执行的子过程转移回先前调用的子过程，这实际上通过使整个调用堆栈的值无效来真正破坏执行状态。
                     </p>
 
                     <p>
@@ -642,7 +642,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-11"></a>
                     <p>
-                        现在的 <b>goto</b> 语句太原始了；太多地把程序弄得一团糟。如果控制goto的使用，它还是可以考虑并被欣赏的。我并不是说我提及的语句在满足所有需要的意义上是详尽无遗的，但是无论提出什么语句（例如 终止语句 (abortion clauses)），它们都是用有用且易于管理的方式满足了维护一个描述流程的，与程序员无关的 坐标系 (a programmer independent coordinate system) 的要求。
+                        现在的 <b>goto</b> 语句太原始了；太多地把程序弄得一团糟。如果控制goto的使用，它还是可以被考虑使用并被欣赏的。我并不是说我详尽无遗的提及了可满足所有需要的语句，但是无论提出什么语句（例如 终止语句 (abortion clauses)），它们都用有用且易于管理的方式满足了维护一个描述流程的，与程序员无关的坐标系 (a programmer independent coordinate system) 的要求。
                     </p>
                     <p></p>
                 </font>
@@ -656,11 +656,11 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra 说的 goto 语句所代表的其实是 非结构化 (unstructured) goto，也就是，在其他结构化语言中没有任何限制的使用的 goto 语句。
+                        Dijkstra 说的 goto 语句所代表的其实是 非结构化 (unstructured) goto，也就是在其他结构化语言中没有任何限制的使用的 goto 语句。
                     </p>
 
                     <p>
-                        限制 goto 控制一些简单的结构良好的，例如从循环中提前退出，错误处理 (error handling)（又称异常 (exceptions)）等，将goto语句带回到  结构化的控制流修改领域 (structured control flow modification)。但是，如果没有强制实施这些限制的规则，就不能说某种语言提供的 goto 语句结构合理。
+                        把 goto 语句的使用限制在一些简单的、结构良好的控制，例如从循环中提前退出，错误处理 (error handling)（又称异常 (exceptions)）等等可以将 goto 语句带回到 结构化的控制流修正领域 (structured control flow modification)。但是，如果某种语言没有强制实施这些限制的规则，就不能说这语言提供的 goto 语句结构合理。
                     </p>
 
                     <p>
@@ -729,7 +729,7 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra 指出，可以将 goto 语句（仅）用于 提示退出，我们将其称为 致命异常(fatal exceptions)。对于缺少健壮的异常处理机制的语言，goto 可能是唯一的实用替代品。
+                        Dijkstra 指出，可以将 goto 语句（仅）用于 提示退出 (alarm exits)，我们将其称为 致命异常(fatal exceptions)。对于缺少健壮的异常处理机制的语言，goto 可能是唯一的实用替代品。
                     </p>
 
                     <p>
@@ -759,11 +759,11 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra 提到了流程图 (flow diagrams)，它反映了当时程序设计的最新水平。从那时起，编程技术经历了结构化编程，自顶向下编程，面向对象编程，组件编程，方面编程等阶段的发展。然而，尽管在设计上进行了所有这些高级准备，但 Dijkstra 关于非结构化程序流的主要观点仍然与现在一样有效。
+                        Dijkstra 提到了流程图 (flow diagrams)，它反映了当时程序设计的最新水平。从那时起，编程技术经历了结构化编程 (structured programming)，自顶向下编程 (top-down programming)，面向对象编程 (object-oriented programming)，组件编程 (component programming)，切面编程 (aspect programming) 等阶段的发展。然而，尽管在设计上的这些进步，但 Dijkstra 关于非结构化程序流的主要观点历久弥新。
                     </p>
 
                     <p>
-                        必须指出的是，Dijkstra对这个问题的最终评论似乎暗示着，从一个人自己的程序中完全删除所有 goto 是一个坏主意。虽然他说，已证明对任何给定的程序 goto 语句其实都是多余的，Dijkstra 仍然承认，消除<b>所有</b> 在程序中的 goto 语句会使程序的控制流更加难以理解。
+                        必须指出的是，Dijkstra对这个问题的最终评论似乎暗示着，从自己一个人编写的程序中完全删除所有 goto 是一个坏主意。虽然 Dijkstra 说已证明对任何给定的程序 goto 语句其实都是多余的，他仍然承认，消除<b>所有</b> 在程序中的 goto 语句会使程序的控制流更加难以理解。
 
                     </p>
 
