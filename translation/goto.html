@@ -1,0 +1,2563 @@
+
+<!-- saved from url=(0039)http://david.tribble.com/text/goto.html -->
+<html lang="zh">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta name="revision" content="1.1, 2005-11-27">
+<meta name="supersedes" content="1.0, 2005-02-26">
+<!-- Other previous revisions:
+  content="0.4 Draft, 2005-01-30">
+  content="0.3 Draft, 2005-01-01"
+  content="0.2 Draft, 2004-12-29"
+  content="0.1 Draft, 2004-12-29"
+!-->
+<meta name="title" content="重新审视《GOTO 语句被认为有害》">
+<meta name="author" content="David R. Tribble">
+<meta name="copyright" content="Copyright ©2005 by David R. Tribble, all rights reserved.">
+<meta name="description" content="Dijkstra&#39;s famous letter with modern annotations and commentary">
+
+<meta name="keywords" content="computer science, programming, structured programming, goto">
+<meta name="keywords" content="go to statement, jump instruction, branch instruction">
+<meta name="keywords" content="conditional clause, alternative clause, repetitive clause">
+<meta name="keywords" content="program intelligibility, program sequencing, tao of goto" "="">
+<meta name="source" content="text/goto.html">
+<meta name="voluntary content rating" content="general">
+<meta name="author-email" content="mailto:david@tribble.com">
+<meta name="author-home-page-url" content="http://david.tribble.com/">
+<meta name="author-pgp-key-url" content="http://david.tribble.com/pgpkey.htm">
+<meta name="robots" content="index, follow">
+
+<title>重新审视《GOTO 语句被认为有害》</title>
+
+</head>
+
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+<body bgcolor="#FCFFF0">
+<font face="helvetica,arial,sans serif">
+
+<a name="top"></a>
+<h1 align="center">
+    重新审视 <br>
+    《GOTO 语句被认为有害》
+</h1>
+
+<hr width="50%">
+
+<h2 align="center">
+ David R. Tribble <br>
+ 修订版本 1.1, 2005-11-27
+</h2>
+<h3 align="center">
+    Emon Wang <br>
+    翻译版本 0.1，2020-2-7
+</h3>
+<!-- ------------------------------- -->
+<hr width="50%">
+
+<p>
+<bl>
+ </bl></p><li>
+  <a href="#intro">       介绍</a>
+ </li><li>
+  <a href="#background">  背景</a>
+ </li><li>
+  <a href="#part-1">      第一部分 - Dijkstra 的信与批注</a>
+ </li><li>
+  <a href="#part-2">      第二部分 - 结构化编程</a>
+ </li><li>
+  <a href="#part-3">      第三部分 - Goto 还有使用必要性吗？</a>
+ </li><li>
+  <a href="#conclusion">  总结 - Goto 的使用之道</a>
+ </li><li>
+  <a href="#references">  参考文献</a>
+
+<p></p>
+
+<p></p>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="intro"></a>
+    <h2> 介绍 </h2>
+
+    <p>
+        这是对 <b>Edsger W. Dijkstra</b> 于1968年致计算机科学协会 (CACM) 通讯的信件的讨论和分析，
+        他在信中呼吁废除编程语言中的 <b>goto</b> 语句。
+    </p>
+
+    <p>
+        自首次发表以来，这封信已经名闻遐迩（或声名狼藉，取决于您对goto语句的感受），并可能是有关程序设计被引用最多的文档。但它可能也是程序设计史上被阅读最少的文档。
+    </p>
+
+    <p>
+        大多数程序员都听过“永不使用 goto 语句”的格言，但在今天，很少有计算机科学专业的学生从Dijkstra反对 goto 的历史背景中受益。现代编程的教条已经接受了“ goto 语句是邪恶的”的神话，但阅读原始文本能阐明这种教条的信念完全没抓住重点。
+    </p>
+
+    <p>
+        写那副信时使用 goto 语句手动编写<b>迭代循环</b>，<b>if-then</b>和其他控制结构是被人们接受的编程方式，大多数编程语言对我们今天认为理所当然的基本控制流语句都不支持或者仅提供了非常有限的形式。Dijkstra并不是想说 goto 的<b>所有</b>用途都不好，而是应该存在高级控制结构，且正确使用它们将消除当时流行的 goto 的<b>大多数</b>用途。Dijkstra仍然允许将goto用于更复杂的编程控制结构。
+    </p>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="background"></a>
+    <h2> 背景 </h2>
+
+    <p>
+        Dijkstra和其他人（C. A. R. Hoare，Niklaus Wirth等人）在早期为新兴的计算机编程学科提供的工作的重要性不可低估。他们对于建立计算机科学这门严谨的学科以及将算法编程作为数学和逻辑学的官方分支有极有指导意义的贡献。
+    </p>
+
+    <p>
+        计算机科学形成初期，Dijkstra就像他的大多数同事一样，是一位接受过大量数学培训的学者。因此，毫不奇怪，计算机科学的许多早期工作都是为了使计算机编程成为一门严格的工程学科而在数学和逻辑方面具有扎实的基础。希望能够开发出能够证明程序正确性的编程语言。这种称为 <i>形式验证</i> 的理论是一小套编程结构（如<b>if-then-else</b> ，<b>循环语句</b>，<b>原始数据类型</b>等)可以被设计出且强大到能定义任何可能的编程任务，并且这些编程任务可以在数学上证明是正确的（即没有逻辑错误）。
+    </p>
+
+    <p>
+        这项运动始于1950年代后期，其精神类似于早期大卫·希尔伯特（David Hilbert）所说的<i>希尔伯特纲领</i>（Hilbert's programme)的数学运动。这个数学运动旨在将所有数学用自然数的组成部分以及简单的逻辑和算术规则编纂为一套完整的，包罗万象的法则。唉，哥德尔不完备定理使这个梦想破灭，它证明有存在于逻辑可证明性领域之外的数学真理（和非真理）。
+    </p>
+
+    <p>
+        在形式验证运动和牛顿物理学之间可以得出另一个相似之处：在牛顿运动定律被接受的早期，许多人渴望相信物理宇宙是确定性的，只要事先对所涉及的质量和动量有足够的了解，所有运动和活动最终都可以被以任意精度计算。遗憾的是，海森堡，玻尔等人的发现带来了量子力学的到来，从而结束了这一信念。他们意识到，在粒子层面上，所有物理行为本质上都是概率性和随机性的，因此是不可预测的。
+    </p>
+
+    <p>
+        同样，形式验证的目标最终被认为是行不通的。Dijkstra后来放弃探索程序可证明性而转向了研究准确的的<i>程序生成</i> (program derivation) 的技术。此技术是为了用方法论使程序员能够以有条理的方式构造程序，确保程序表现出正确的行为。该研究领域与自顶向下设计(top-down design)和功能分解(functional decomposition)的技术有很多共同点。
+    </p>
+
+    <p>
+        还应该认识到，今天被认为是理所当然的许多编程术语在1968年还没有被牢固地确立。当时对于用于编程概念的术语有很多辩论和讨论。我们今天使用的很多术语花了很多年才被广泛接受。
+    </p>
+
+    <p>
+        Dijkstra名副其实是一名院士，他在著作中倾向于使用技术上繁琐的词汇。这在一定程度上可以解释为什么很少有人读过他著名的“GOTO”信。值得注意的是，他鄙视用“ bug ”一词来表示编程错误，而宁愿用“ error ”一词。当然，今天这两个术语仍然在编程语境下使用，但 error 是由任何一个人或一台机器产生了错误（因为它总是有）， bug 仅用于人造系统领域，特别是可编程计算机，以表示设计中的特定故障或意外的执行结果。术语 debug 也应运而生，以表示在系统中查找和删除 bug 的特定活动。如果只留下 error 一词， debug 这个好词也不会出现。
+    </p>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="part-1"></a>
+    <h1 align="center"> 第一部分 </h1>
+
+    <a name="Dijkstra-letter"></a>
+    <h2> Dijkstra的信，带评注 </h2>
+
+    <p>
+        接下来是Dijkstra在1968年写给CACM的著名的“GOTO”信，以及从历史角度讨论这封信细节的评注。
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <table cols="3" border="0">
+        <tbody><tr>
+            <td width="20%"></td>
+            <td width="55%"></td>
+            <td width="25%"></td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <h2 align="center">
+                        Go To Statement Considered Harmful <br>
+                        <i>Edsger W. Dijkstra</i>
+                    </h2>
+
+                    <p>
+                        Reprinted from <i>Communications of the ACM</i>, <br>
+                        <a href="http://www.acm.org/classics/oct95/">Vol. 11, No. 3, March 1968, pp. 147-148</a>. <br>
+                        Copyright ©1968, Association for Computing Machinery, Inc.
+                    </p>
+
+                    <!-- OMITTED [from the original]
+                    <p>
+                    <i>
+                    This is a digitized copy derived from an ACM copyrighted work.
+                    It&nbsp;is not guaranteed to be an accurate copy of the author's original
+                    work.
+                    </i>
+                    </p>
+                    !-->
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0"><!-- OLD bgcolor="#F6F4E4" -->
+                <font color="#000000" face="helvetica,arial">
+                    <h2 align="right">
+                        Annotations by <br>
+                        <i>David R. Tribble</i>
+                    </h2>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <p>
+                        编辑：
+                    </p>
+
+                    <a name="para-1"></a>
+                    <p>
+                        数年来我观察到，程序员的素质是他们程序中 <b>goto</b> 语句出现密度的递减函数。最近我发现了为什么使用 <b>goto</b> 语句会造成灾难性的后果，因此我深信应该从所有“高级”编程语言（即除普通机器代码之外的所有内容）中废除 <b>goto</b> 语句。当时我并不十分重视这个发现。现在，这个主题在最近讨论中的出现敦促了我将我的想法发表。
+                    </p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra介绍他已经注意到 goto 语句在很大程度上不利于它们所在的程序。他认为程序员使用的goto越多，程序员的能力就越差。
+                    </p>
+
+                    <p>
+                        他建议应从所有高级编程语言中废除 goto 语句。他甚至暗示应该从<b>所有</b>编程语言（可能包括机器代码）中删除 goto ，人们不禁要问这如何实现。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-2"></a>
+                    <p>
+                        我的第一句话是，尽管程序员的活动(activity) 在他完成了一个正确程序的时候就结束了， 然而它真正的主体部分，其实是这个程序所控制的流程，因为它必须要实现程序员所期望的效果，也必须在动态特性上满足编程者所期望的规范。不过，一旦程序被编写完成，相关流程(process) 的完成就交给机器了。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        这一段技术密集的词汇是Dijkstra学术写作风格的典型代表。
+                    </p>
+                    <p>
+                        这仅意味着程序员执行的实际活动不仅是编写程序，还包括控制在计算机上执行代码时代码的行为。但他说，一旦程序员编写了一个工作程序，程序的实际执行就完全只靠机器本身控制。
+                    </p>
+
+                    <p>
+                        Dijkstra使用“正确”一词来描述没有错误的程序，或者按照目前的说法，没有bug。该术语反映了当时的代码可以进行“形式化验证”的信念，即代码可以进行一系列的数学和逻辑操作，证明该代码包含错误（逻辑错误，约束错误，不变错误...），或者没有，因此可以<i>证明是正确的</i>。正如上面的<a href="#background">背景</a>部分所述，计算机科学家（或至少程序员）今天并不以这种方式考虑编程。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-3"></a>
+                    <p>
+                        我的第二句话是，我们的智力很适合掌握静态关系，而我们想象随时间变化的动态流程的能力相对较弱。出于这个原因，我们（既然明智的程序员意识到了我们的局限性）应该尽力缩短静态程序和动态流程之间的概念鸿沟，以尽可能让程序（在文本空间中扩展）和流程（在时间中扩展）之间的对应关联清晰。
+                    </p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra在这里观察到，与动态关系相比，人类更擅长想象静态关系。因此他认为，将两种关系表示为程序代码时，我们应将两者之间的差异最小化，以便在源代码本身的结构中明显看出程序的动态（非恒定）方面。
+                    </p>
+
+                    <p>
+                        对当前大多数以线性，按语句顺序的方式运行的编程语言来说这说法都是对的。但是，当我们观察到现实世界中的编程任务必须处理的复杂性（例如多任务，多线程，中断处理，易失性硬件寄存器，虚拟内存分页，设备延迟，实时事件处理等等，仅举几例）时，在某种程度上，Dijkstra的原则尚未完全实现。简单的一次执行一行的程序执行模型已不足解决当今的编程问题。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-4"></a>
+                    <p>
+                        现在让我们考虑如何表示一个流程的进度 (progress of a process)。（您可能会以一种非常具体的方式考虑这个问题：假设一个流程（按时间顺序的一串行为）在某个行为 (action) 之后停止，我们必须修正哪些数据才能重做整个流程直到停止的那一点？）假设程序文本纯粹是赋值语句的序列（为方便讨论，赋值语句被视为单个行为的描述），则表示进度只要指向两个 <i>连续的行为的描述</i> (successive action descriptions) 之间的一点就够了。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra开始构建 程序执行 (program execution) 的正式定义，或他所谓的 流程进度(progress of a process) 。接下来的讨论类似于在 C 和 C++（和其他）语言所采用的执行模型的正式定义中使用的 序列点 (sequence points) 的定义。
+                    </p>
+
+                    <p>
+                        必须记住，我们今天想当然的许多术语在当时还没有牢固地确立，并且没有普遍接受的语言或伪语言用于论述算法和程序。当然，今天的作者会使用诸如 C，Java，Pascal，LISP 之类的具体语言，或者与这些语言中的一种非常相似的伪语言作为 通用语言 来说明编程概念。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-4b"></a>
+                    <p>
+                        （在没有 <b>goto</b> 语句的情况下，我可以允许自己在上一句的后三个词(successive action descriptions)中出现句法歧义：如果我们将它们解释成为“连续的（行为的描述）”，则表示在文本空间中是连续的；如果我们将它们解释为“（连续的行为）的描述”则是指时间上连续的。）让我们将指向文本中适当位置的指针称为“文本索引 (textual index)”。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra在典型的学术风格中运用了一些语言上的小聪明，使词组 连续的行为的描述 具有两种不同的含义。这反映了他前面提到的编程任务的双重性质：这些任务与依次执行一个语句（或行为）的顺序性质有关，即程序的源代码由单独的语句（行为）组成序列以反映语句执行的的时间顺序。
+                    </p>
+
+                    <p>
+                        他的术语 文本索引 (textual index) 实质上是一个 程序计数器 （Program Counter）。但是，他试图超越简单地跟踪当前执行线程的位置，而在源代码文本中的语句与程序执行状态之间建立显式连接。因此，更好的术语可能是 语句指针 (statement pointer) 。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-5"></a>
+                    <p>
+                        当我们纳入 条件语句
+                        (<b>if</b>&nbsp;<i>B</i>&nbsp;<b>then</b>&nbsp;<i>A</i>)，
+                        可选择的条件语句
+                        (<b>if</b>&nbsp;<i>B</i> <b>then</b>&nbsp;<i>A</i><sub>1</sub>
+                        <b>else</b>&nbsp;<i>A</i><sub>2</sub>)，
+                        由C. A. R. Hoare引入的 选择语句
+                        (<b>case</b>[i]&nbsp;<b>of</b>
+                        (<i>A</i><sub>1</sub>, <i>A</i><sub>2</sub>, ···,
+                        <i>A<sub>n</sub></i>))，或J. McCarthy引入的 条件表达式
+                        (<i>B</i><sub>1</sub>&nbsp;→&nbsp;<i>E</i><sub>1</sub>,
+                        <i>B</i><sub>2</sub>&nbsp;→&nbsp;<i>E</i><sub>2</sub>,
+                        ···,
+                        <i>B<sub>n</sub></i>&nbsp;→&nbsp;<i>E<sub>n</sub></i>)，
+                        事实上，流程进度还是由 文本索引 表示。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+
+                        Dijkstra引入了更复杂的流控制语句 (flow control statements)，例如 <b>if-then-else</b>条件语句和<b>case</b> （又称为<b>select</b>或<b>switch</b>）选择语句，并指出这些不会改变其 文本索引 （或 语句指针 ）的基本性质。
+
+                    </p>
+
+                    <p>
+                        这反映了这样一个事实，即当时人们在为编程语言和一般编程理论制定最佳的最小流控制结构集方面(minimal set of flow control structures)付出了很多努力。绝非偶然的是，大多数结构类似于ALGOL支持的控制结构，因为许多从事或影响ALGOL设计的人都是写了大量关于编程的东西的学者。
+                    </p>
+
+                    <p>
+                        所有这些工作的主要目标是创建一个不仅可以用于实际编程语言的命名法，而且还可以直接用于编程算法的数学公式化。如上面的<a href="#background">背景</a>部分所述，这反映了一种信念，即可以以某种形式表达程序，从而可以用数学方式证明其正确性。
+
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-6"></a>
+                    <p>
+                        一旦我们的语言里包括了 子过程 (procedures)，我们就必须承认单一的文本索引已不再足够描述流程进度。在文本索引指向子过程体内部的情况下，只有当我们还同时给出是在哪一处调用子过程时才能表示动态流程的进度。包含了子过程，我们可以通过一系列文本索引来表征流程的进度，该序列的长度等于子过程调用的动态深度。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        这表明，如果程序使用 子过程 （通常称为 过程 ，函数 或 方法 ）， 则单个语句指针不足以定义正在执行的程序的状态 。为了处理这种额外的复杂性，Dijkstra定义了 一系列文本索引 (a sequence of textual indices)。
+
+                    </p>
+
+                    <p>
+                        这表示了现代术语称为 调用栈 (call stack)的信息，它是程序计数器（也称为 返回地址 ）的数组，每个计数器都指定从其进行过程调用的最后一条语句。但由于他正在建立文本索引与程序执行状态之间的显式关系，因此将调用堆栈视为语句指针数组会更正确。所需的语句指针的数量仅仅是执行中给定点当前处于活动状态的过程调用的数量，即调用堆栈的深度。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-7"></a>
+                    <p>
+                        现在让我们考虑 重复语句 (repetition clauses)（例如， <b>while</b> <i>B</i> <b>repeat</b> <i>A</i> 或 <b>repeat</b> <i>A</i> <b>until</b> <i>B</i>）。从逻辑上讲，这样的语句现在是多余的，因为我们可以借助递归过程来表示重复。出于现实的原因，我不希望将它们排除在外：一方面，重复语句在当今的设备已经相当好地实现了；另一方面，称为“归纳法”的推理模式使我们有足够的智力掌握重复语句产生的过程。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra添加了重复控制流语句。他顺便指出，这样的重复语句完全没有必要，因为可以用等效的递归调用来代替它们。
+                    </p>
+
+                    <p>
+                        这反映了一个事实，当时递归非常流行，许多人（尤其是学术界人士）认为递归是表示程序和算法的一种高级形式。流行的原因是，递归定义具有严格的数学历史，特别是 递归公式 (recursive formulas) 和 递推关系 (recurrence relations) 。 递归公式 和 递推关系 处理递归定义的序列，其中序列中的每个元素都用简单的术语和该序列中的先前元素进行定义。两个经典示例是阶乘函数
+                        <b>n!&nbsp;=&nbsp;n(n-1)!</b>,
+                        ，以及斐波那契数列
+                        <b>F<sub>i</sub>&nbsp;=&nbsp;F<sub>i-2</sub>&nbsp;+&nbsp;F<sub>i-1</sub></b>.
+                    </p>
+
+                    <p>
+                        这是典型的学术观察。从理论上讲，可以将任何循环语句替换为递归调用，并且某些语言（例如LISP）实际上支持递归编程风格（也称为 函数编程 ）。但是，对于大多数编程应用程序以及大多数编程语言实际支持的应用程序而言，递归仅扮演次要的角色（但仍然非常有用）。
+                    </p>
+
+                    <p>
+                        Dijkstra提到，迭代语句可以在 资源有限的设备 (finite equipment)上实现 ，这当然是所有实际存在的计算机的本质，无论它们拥有多少虚拟内存。这种微妙的方式承认某些形式的递归需要潜在的无限资源（即无限调用堆栈）。考虑一个典型的嵌入式应用程序，它具有一个主程序循环，该循环轮询一个事件，处理该事件，然后等待下一个事件，永远这么循环。这样的无限循环确实可以写成尾递归过程调用，但是那有什么意义呢？使用这种更复杂的为了递归而递归的方式将无法在大多数实际的系统上进行编程。
+                    </p>
+
+                    <p>
+                        Dijkstra似乎暗示着迭代循环（归纳）语句在理论上比递归更难掌握，这是只有数学家会说的那种东西。
+                    </p>
+
+                    <p>
+                        <b>迭代</b>, 动词. - 参见 <i>迭代</i>.
+                        <!-- OMITTED
+                        <br>
+                        This is a more correct variation of the more famous definition:
+                        <br>
+                        <b>recurse</b>, v. - See <i>recurse</i> (but in a different dictionary).
+                        !-->
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-7b"></a>
+                    <p>
+                        加上重复语句，文本索引已不足以描述流程的进度。然而，在每次进入重复语句时，我们都可以关联一个所谓的“动态索引”(dynamic index)，从而无休止地记录当前进入的重复语句的次序。由于重复语句（就像过程调用一样）可以嵌套应用，因此我们发现，过程的进度现在可以通过文本索引和/或动态索引的（混合）序列来唯一地表示。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        通过添加重复控制结构，我们需要一种不仅指定当前语句的方法，而且还需要跟踪当前正在执行每个循环的哪次 迭代 。因此，就像嵌套过程调用一样，我们必须使用  循环迭代堆栈 (loop iteration stack) 来跟踪这些迭代计数，每个（嵌套）循环有一个条目，Dijkstra称之为 动态索引序列 (dynamic index sequence)。
+                    </p>
+
+                    <p>
+                        因此，将它们组合到一起，我们有一个 文本索引序列  （ 调用堆栈 ）和一个 动态索引序列  （ 循环迭代堆栈），它们共同定义了正在执行的程序的当前状态。
+                    </p>
+
+                    <p>
+                        <i>（嵌套？）</i>
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-8"></a>
+                    <p>
+                        <!-- Note: "the" was not present in the original document -->要点是这些索引的值不在程序员的控制范围之内。无论程序员是否期望，这些索引的值都是通过程序的编写或流程的动态演变生成的。这些索引提供了独立的坐标来描述流程的进度。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra再次指出，显而易见的是，一旦编写并运行了程序，程序员将不再对实际程序执行具有任何控制权。执行由执行过程中任何给定时间点的调用堆栈和循环迭代堆栈的内容表示——Dijkstra称为程序执行的 独立坐标 (independent coordinates)，而我们可以将其简称为程序的 状态 (state)或 执行历史 (execution history)。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-9"></a>
+                    <p>
+                        为什么我们需要这样的独立坐标？原因是——这似乎是顺序流程所固有的——我们只能根据流程的进度来解释变量的值。
+                        如果我们希望计算一个最初是空的房间其中的人数<i>n</i>那么只要看到有人进入房间，我们就可以通过将<i>n</i> 增加一 。在此刻之间，我们观察到有人进入房间但尚未执行随后的<i>n</i>的增加 , <i>n</i> 的值等于房间中的人数减去一
+                    </p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra指出，只有在给定的时间点之前准确地知道了程序的执行历史，才能知道程序中给定变量的值。换句话说，程序以 确定性的(deterministic) 方式执行，并且应该有可能通过执行历史（或程序状态的历史），确定任何变量到执行期间的任何时刻的值。
+                    </p>
+
+                    <p>
+                        Dijkstra引入了在程序语句完成之前的 中间时刻 (in-between moment) 的概念。这类似于在 C和 C++ 等语言中指定的 序列点 的概念，序列点精确定义了何时发生行为以及以什么顺序发生，同样重要的是，哪些行为没被定义。
+                    </p>
+
+                    <p>
+                        程序的执行仅在特定的序列点（通常发生在语句的末尾，函数调用之前）和子表达式求值的特定点上被良好地定义。在任何两个序列点之间，程序的状态都没有明确定义，这意味着，到达下一个序列点之前，程序变量的值处于不确定（或中间）状态。
+
+                    </p>
+
+                    <p>
+                        Dijkstra给出了一个简单的例子：增加一个计数器，或例如 <b>n&nbsp;=&nbsp;n+1</b>的语句
+                        当实际执行此语句时，在某个时刻会已经读取 <b>n</b> 的先前值并将其添加一，但是尚未将新值写回到变量 <b>n</b>。
+                        这是他所指的 中间 状态，或者是两个 序列点 之间的执行状态 , 在此期间变量 <b>n</b> 仍包含其旧值而不是其新值。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-10"></a>
+                    <p>
+                        <b>goto</b> 语句的滥用会导致很难找到有意义的 坐标集 (set of coordinates) 来描述流程进度。通常，人们也会考虑一些精心选择的变量的值，但这是不可能的，因为要知道，这些值的理解与流程进度有关！当然，使用 <b>goto</b> 语句，仍然可以通过计数器来唯一地描述进度，该计数器对自程序启动以来 执行的行为个数 (number of actions performed) 进行计数（即一种标准化的时钟 (normalized clock)）。困难在于，尽管这样的坐标是各不相同的，但却完全无济于事。因为在这样<i>n</i> 居然等于房间人数减一的坐标系统中，定义所有的流程点变得极度复杂！
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        终于在这里，我们达到了Dijkstra关于底层的 goto 陈述的论点的症结。本质上，Dijkstra 认为，在程序中对goto语句的“无限制使用”会模糊程序的执行状态和历史记录，因此在任何给定时刻，调用堆栈和循环迭代堆栈的值不再足以确定程序变量的值。
+                    </p>
+
+                    <p>
+                        这种混淆是以下事实的结果：不受约束的goto 语句可以在控制完成之前将控制权从循环中移出，并且同样可以将控制权转移到已经迭代的循环中间。两种情况都使修改循环迭代堆栈中的计数器的方式变得复杂。
+                    </p>
+
+                    <p>
+                        除此之外，还有存在 非本地 (non-local) goto 的可能性, 即将控制权从当前正在执行的子过程转移回先前调用的子过程，这实际上通过使整个调用堆栈的值无效来真正破坏执行状态。
+                    </p>
+
+                    <p>
+                        Dijkstra陈述了在 中间时刻 将控制从循环或过程中移出的特定示例，这使执行状态从该点开始一直不确定。
+                    </p>
+
+                    <p>
+                        另一种说法是，goto  可以使应该由程序结构保证违背的 程序不变量 (program invariants) 无效 。他在此处使用的示例不变式是，计数器 <b>n</b> 始终表示房间中的人数。允许非结构化的goto更改执行过程可能导致不变量变为无效（即可变），从而使<b>n</b>的值变得毫无意义，或者至少使从执行历史中确定其真实值极为困难。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-11"></a>
+                    <p>
+                        现在的 <b>goto</b> 语句太原始了；太多地把程序弄得一团糟。如果控制goto的使用，它还是可以考虑并被欣赏的。我并不是说我提及的语句在满足所有需要的意义上是详尽无遗的，但是无论提出什么语句（例如 终止语句 (abortion clauses)），它们都是用有用且易于管理的方式满足了维护一个描述流程的，与程序员无关的 坐标系 (a programmer independent coordinate system) 的要求。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra 说的 goto 语句所代表的其实是 非结构化 (unstructured) goto，也就是，在其他结构化语言中没有任何限制的使用的 goto 语句。
+                    </p>
+
+                    <p>
+                        限制 goto 控制一些简单的结构良好的，例如从循环中提前退出，错误处理 (error handling)（又称异常 (exceptions)）等，将goto语句带回到  结构化的控制流修改领域 (structured control flow modification)。但是，如果没有强制实施这些限制的规则，就不能说某种语言提供的 goto 语句结构合理。
+                    </p>
+
+                    <p>
+                        Dijkstra承认并非某种语言提供的所有流控制结构都可以满足所有编程需求。这意味着对于那些需要更复杂的流控制的罕见编程情况，goto仍然占有一席之地。
+                    </p>
+
+                    <p>
+                        Dijkstra提到了 终止语句 (abortion clauses) 或现在通常称为  异常处理程序 (exception handlers)的内容，暗示这些东西实际上是可以通过定义使其在结构化语言的范围内表现良好的花哨 goto ，即这些 goto 不会以偶然的方式破坏执行状态
+                    </p>
+
+                    <p>
+                        像 Ada，C ++，Java 和其他面向对象语言的异常处理语句在大多数情况下都遵循该原则，因此当这些语言引发异常时，执行状态（包括全局变量和局部变量，过程调用堆栈，堆等）以干净且可预测的方式更改。
+                    </p>
+
+                    <p>
+                        更多原始语言（例如 FORTRAN，COBOL，C，Pascal 等）可以提供某些原始异常处理机制，但是使用它们不能保证干净地保留执行状态或正确释放分配的资源。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-12"></a>
+                    <p>
+                        用公正的承认来结束这篇文章是很难的。我要判断我的思想受到谁影响吗？很显然，我并不是没受到 Peter Landin 和 Christopher Strachey 的影响。最后，我想记录一下（我记得很清楚） Heinz Zemanek 在1959年初在哥本哈根举行的 pre-ALGOL 会议上如何明确表达了他的疑问，即对 <b>goto</b> 语句是否语法上应与赋值语句一视同仁。在一定程度上，我责怪自己没有描绘出他讲话的后果。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra在此说明在影响了他的人。参见<a href="#background">背景</a>，ALGOL 语言设计的许多人也参与了有关正确的语言设计和正确的程序控制流程结构的讨论。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-13"></a>
+                    <p>
+                        <b>goto</b> 语句不合需要的说法并非新鲜事物。我记得已经阅读了明确的建议，建议上明确推荐只用 <b>goto</b> 提示退出 (alarm exits)，但是我无法对其进行跟踪。据推测，它是由C. A. R. Hoare制造的。在[<a href="#WIRTH66">1</a>, Sec.&nbsp;3.2.1] Wirth and Hoare 共同朝着推动 <b>case</b> 语句 的方向发表了看法：
+                    </p><blockquote>
+                    “与条件语句类似，它比 <b>goto</b>语句和 switch 更清晰地反映了程序的动态结构，并且消除了在程序中引入大量 标签 (labels) 的需要。”
+                </blockquote>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra 指出，可以将 goto 语句（仅）用于 提示退出，我们将其称为 致命异常(fatal exceptions)。对于缺少健壮的异常处理机制的语言，goto 可能是唯一的实用替代品。
+                    </p>
+
+                    <p>
+                        Dijkstra 提到了 Hoare 和 Wirth 提出的 <b>case</b> （或 <b>select</b>）控制流结构的设计。今天，我们认为这种控制结构是理所当然的，但是当时它的优点仍在争论中。Dijkstra 提醒我们，它最初是作为笨拙地使用 <b>if</b> , <b>goto</b> 和 <b>label</b> 的笨拙替代方案的。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="para-14"></a>
+                    <p>
+                        在 [<a href="#BOHM66">2</a>] 中，Guiseppe Jacopini 似乎证明了 <b>go&nbsp;to</b> 语句的（逻辑）多余。但是，不建议您尝试将某个流程图机械地转换为 无跳跃 (jump-less) 的流程图。不要期望这样得到的流程图比原始流程图更透明。
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td bgcolor="#F0F8FF">&nbsp;</td>
+            <td colspan="2" bgcolor="#F0F0E0">
+                <font color="#000000" face="helvetica,arial">
+                    <p>
+                        Dijkstra 提到了流程图 (flow diagrams)，它反映了当时程序设计的最新水平。从那时起，编程技术经历了结构化编程，自顶向下编程，面向对象编程，组件编程，方面编程等阶段的发展。然而，尽管在设计上进行了所有这些高级准备，但 Dijkstra 关于非结构化程序流的主要观点仍然与现在一样有效。
+                    </p>
+
+                    <p>
+                        必须指出的是，Dijkstra对这个问题的最终评论似乎暗示着，从一个人自己的程序中完全删除所有 goto 是一个坏主意。虽然他说，已证明对任何给定的程序 goto 语句其实都是多余的，Dijkstra 仍然承认，消除<b>所有</b> 在程序中的 goto 语句会使程序的控制流更加难以理解。
+
+                    </p>
+
+                    <p>
+                        他实际上是在论证程序中的某些 goto 可能有用，并且实际上可能会使程序更易于理解。因此，可以肯定地说Dijkstra认为goto语句是<i>有害的</i> ，但不是<i>致命的</i>，并且肯定不是<i>无用的</i>。
+                    </p>
+                </font>
+            </td>
+        </tr>
+
+        <!-- ------------------------------- -->
+        <tr>
+            <td colspan="2" bgcolor="#F0F8FF">
+                <font color="#0000B0" face="times,times roman,serif" size="+1">
+                    <a name="Dijkstra-references"></a>
+                    <h3>References:</h3>
+
+                    <p></p>
+                    <ol type="1">
+                        <li> <!-- 1. -->
+                            <a name="WIRTH66"></a>
+                            Wirth, Niklaus, and Hoare C.&nbsp;A.&nbsp;R. <br>
+                            A contribution to the development of ALGOL. <br>
+                            <i>Comm. ACM 9</i> (June 1966), 413-432.
+
+                            <p>
+                            </p></li><li> <!-- 2. -->
+                        <a name="BOHM66"></a>
+                        Böhm, Corrado, and Jacopini Guiseppe. <br>
+                        Flow diagrams, Turing machines and languages with only two formation rules.
+                        <br>
+                        <i>Comm. ACM 9</i> (May 1966), 366-371.
+                        <p></p>
+                    </li></ol>
+
+                    <a name="signed"></a>
+                    <p>
+                        Edsger W. Dijkstra <br>
+                        <i>Technological University <br>
+                            Eindhoven, The Netherlands</i>
+                    </p>
+                    <p></p>
+                </font>
+            </td>
+            <td bgcolor="#F0F0E0">&nbsp;</td>
+        </tr>
+
+        </tbody></table>
+
+    <p></p>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="part-2"></a>
+    <h1 align="center"> Part II </h1>
+
+    <a name="structured-programming"></a>
+    <h2> Structured Programming </h2>
+
+    <p>
+        Have programming languages evolved since Dijkstra's letter was published
+        to the point that <b>goto</b> is no longer needed?
+    </p>
+
+    <p>
+        Since the 1960s, several advances in programming theory have occurred.
+        The discipline of programming has progressed through several phases, with each
+        new advance being touted as the next "better" way of programming.
+        A&nbsp;brief list of some of these advancements:
+
+    </p><ul>
+    <li> <i>structured programming</i>
+    </li><li> <i>functional decomposition</i>
+</li><li> <i>top-down design and step-wise refinement</i>
+</li><li> <i>bottom-up design</i>
+</li><li> <i>iterative design</i>
+</li><li> <i>third generation languages</i>
+</li><li> <i>fourth generation languages</i>
+</li><li> <i>fifth generation languages</i>
+</li><li> <i>object-oriented programming</i>
+</li><li> <i>components</i>
+</li><li> <i>programming patterns</i>
+</li><li> <i>aspect programming</i>
+</li></ul>
+    <p></p>
+
+    <p>
+        Each approach caused a paradigm shift in programming theory,
+        affecting the way programmers wrote their programs on a day-to-day basis as
+        well as changing the way programming languages were designed and the
+        features they provided.
+        But all of these advancements affected the structure of programs at levels
+        above that of simple execution statements, i.e., at levels involving
+        procedures, data objects, program modules, etc.
+        The fundamental approach of programming at the lowest level, at the sequential
+        <i>statement</i> level, is still the same as it was back in the early days of
+        the first programming languages such as FORTRAN and COBOL.
+    </p>
+
+    <p>
+        The following sections describe the program flow constructs that are commonly
+        available in most of today's programming languages.
+        These have remained pretty much the same since their introduction at the
+        advent of structured programming.
+        (The constructs are shown in a pseudo-language instead of any specific
+        language.)
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="if-then-else"></a>
+    <h3> if-then-else </h3>
+
+    <p>
+        All structured programming languages provide some form of the
+        <b>if-then</b> flow control construct:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>if</b> <i>conditional_expression</i> <b>then</b>
+    <i>statement<sub>1</sub></i>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        and the <b>if-then-else</b> construct:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>if</b> <i>conditional_expression</i> <b>then</b>
+    <i>statement<sub>1</sub></i>
+<b>else</b>
+    <i>statement<sub>2</sub></i>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        This second construct is the most obvious replacement for the unstructured
+        <i>test-and-goto</i> construct:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>if</b> <i>conditional_expression</i> <b>then</b>
+    <i>statement<sub>1</sub></i>
+    <b>goto</b> endif1
+else1:
+    <i>statement<sub>2</sub></i>
+endif1:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        The <b>if-then</b> statement can be implemented in machine code as something
+        like the following:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># if-then statement
+    move <i>expression</i>, reg1
+    <b>jump</b> not <i>condition</i>, label1
+    <i>statement<sub>1</sub></i>
+label1:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        And likewise for the <b>if-then-else</b> statement:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># if-then-else statement
+    move <i>expression</i>, reg1
+    <b>jump</b> not <i>condition</i>, label1
+    <i>statement<sub>1</sub></i>
+    <b>jump</b> label2
+label1:
+    <i>statement<sub>2</sub></i>
+label2:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        A common programming idiom is to write multiple <b>if-then</b> statements
+        in a sequence:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>if</b> <i>condition<sub>1</sub></i> <b>then</b>
+    <i>statement<sub>1</sub></i>
+<b>else if</b> <i>condition<sub>2</sub></i> <b>then</b>
+    <i>statement<sub>2</sub></i>
+<b>else if</b> <i>condition<sub>3</sub></i> <b>then</b>
+    <i>statement<sub>3</sub></i>
+<b>else</b>
+    <i>statement<sub>4</sub></i>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        It is more difficult in some languages (especially some older languages)
+        to write multiple <b>if-then</b> sequences, so the construct ends up looking
+        like the following code, which is functionally equivalent but harder to read:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>if</b> <i>condition<sub>1</sub></i> <b>then</b>
+    <i>statement<sub>1</sub></i>
+<b>else</b>
+    <b>if</b> <i>condition<sub>2</sub></i> <b>then</b>
+        <i>statement<sub>2</sub></i>
+    <b>else</b>
+        <b>if</b> <i>condition<sub>3</sub></i> <b>then</b>
+            <i>statement<sub>3</sub></i>
+        <b>else</b>
+            <i>statement<sub>4</sub></i>
+        <b>end</b>
+    <b>end</b>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Some languages provide a separate keyword for the <b>else-if</b> combination
+        (variously called <b>elseif</b>, <b>elsif</b>, and <b>elif</b>), but the effect
+        is the same.
+        Some languages also provide a separate keyword for the last <b>else</b> clause
+        in a multiple <b>if-then</b> sequence
+        (e.g., <b>otherwise</b> or <b>default</b>).
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="select"></a>
+    <h3> select </h3>
+
+    <p>
+        Most structured programming languages provide some kind of multiple
+        selection control construct
+        (variously known as <b>case</b>, <b>select</b>, <b>switch</b>, <b>examine</b>,
+        <b>inspect</b>, <b>choose</b>, <b>when</b>, etc.).
+        This is designed to replace the multiple <b>if-then</b> construct, making it
+        more obvious what the intended meaning is, i.e., selecting one of several
+        choices for a given expression value:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>select</b> <i>expression</i> <b>in</b>
+    <b>case</b> <i>constant<sub>1</sub></i>:
+        <i>statement<sub>1</sub></i>
+
+    <b>case</b> <i>constant<sub>2</sub></i>:
+        <i>statement<sub>2</sub></i>
+
+    <b>case</b> <i>constant<sub>3</sub></i>:
+        <i>statement<sub>3</sub></i>
+
+    <b>default</b>:
+        <i>statement<sub>4</sub></i>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        This is equivalent to the sequence of multiple <b>if-then</b> statements
+        shown above, with the <b>default</b> selection acting the part of the last
+        <b>else</b> clause.
+        Some older languages do not provide a <b>default</b> or <b>otherwise</b> clause.
+    </p>
+
+    <p>
+        The <b>select</b> statement can be implemented in machine code as something like
+        the following:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># select statement
+    move <i>expression</i>, reg1
+    cmp  reg1, <i>constant<sub>1</sub></i>
+    <b>jump</b> not equal, label1
+    <i>statement<sub>1</sub></i>
+    <b>jump</b> label4
+label1:
+    cmp  reg1, <i>constant<sub>2</sub></i>
+    <b>jump</b> not equal, label2
+    <i>statement<sub>2</sub></i>
+    <b>jump</b> label4
+label2:
+    cmp  reg1, <i>constant<sub>3</sub></i>
+    <b>jump</b> not equal, label3
+    <i>statement<sub>3</sub></i>
+    <b>jump</b> label4
+label3:
+    <i>statement<sub>4</sub></i>
+label4:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        More efficient implementations are possible, such as using an index into a
+        jump table, or rearranging the comparisons to emulate an unrolled binary search,
+        etc.
+        Some CPUs provide special instructions for implementing <b>select</b>
+        statements directly in machine code by utilizing a small jump table.
+    </p>
+
+    <p>
+        Some languages (notably C, C++, Java, C#, and other languages derived from C)
+        allow for more complicated control flow by allowing each <b>case</b> statement
+        to "fall through" to the next <b>case</b> clause.
+        Purists say this sullies an otherwise logically clean control construct,
+        while pragmatists say that it allows for more efficient code in many
+        difficult programming situations.
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="do-while"></a>
+    <h3> do-while </h3>
+
+    <p>
+        This is the simplest form of iteration provided by most structured programming
+        languages.
+        Two variants are generally provided, one with the conditional test before the
+        loop body (providing at least one iteration):
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>do</b>
+    <i>statements</i>
+<b>while</b> <i>conditional_expression</i>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        The other form places the conditional test after
+        the loop body (providing zero or more iterations):
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>while</b> <i>conditional_expression</i> <b>do</b>
+    <i>statements</i>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        These constructs are functionally equivalent to the following code that
+        uses goto:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># do-while
+loop:
+    <i>statements</i>
+    if <i>conditional_expression</i>
+        <b>goto</b> loop
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        And:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># while-do
+loop:
+    if not <i>conditional_expression</i>
+        <b>goto</b> endloop
+    <i>statements</i>
+    <b>goto</b> loop
+endloop:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        These constructs can be implemented in machine code as something like the
+        following:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># do-while statement
+label1:
+    <i>statements</i>
+    move <i>expression</i>, reg1
+    <b>jump</b> <i>condition</i>, label1
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># while-do statement
+label1:
+    move <i>expression</i>, reg1
+    <b>jump</b> not <i>condition</i>, label2
+    <i>statements</i>
+    <b>jump</b> label1
+label2:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Some languages provide other variants of the <b>do-while</b> statement, e.g.,
+        <b>do-until</b> (which reverses the sense of the conditional expression).
+    </p>
+
+    <p>
+        Some languages allow for more complicated flow control by providing clauses
+        for terminating a loop iteration early (a <b>break</b> statement)
+        or skipping the rest of the loop body and forcing the next loop iteration
+        (a <b>continue</b> statement).
+        These constructs allow for the <i>loop-and-a-half</i> situations that sometimes
+        arise (which is discussed further below).
+    </p>
+
+    <p>
+        Some languages allow breaking out of nested loops with a
+        <b>labeled break</b> construct.
+        (This is discussed further in
+        Example <a href="#example-l-1">L-1</a> and
+        Example <a href="#example-n-1">N-1</a> below.)
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="for-loop"></a>
+    <h3> for-loop </h3>
+
+    <p>
+        Most structured programming languages provide a more complex iteration construct
+        that allows a counter or array index to be incremented or decremented with
+        each iteration.
+        This construct is functionally equivalent to a <b>do-while</b> loop,
+        but provides a clearer intent of the controlling entity (the counter or index)
+        of the loop iterations:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
+    <i>statements</i>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        This is equivalent to the following unstructured code that uses goto:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre>    i = <i>low_value</i>
+loop:
+    if i &gt; <i>high_value</i>
+        <b>goto</b> endloop
+    <i>statements</i>
+    i = i + <i>increment</i>
+    <b>goto</b> loop
+endloop:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        This construct can be implemented in machine code as something like the
+        following:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre># for-loop statement
+    move <i>low_value</i>, reg1
+label1:
+    cmp  reg1, <i>high_value</i>
+    <b>jump</b> greater, label2
+    <i>statements</i>
+    add  <i>increment</i>, reg1
+    <b>jump</b> label1
+label2:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        To fully support the <b>for-loop</b>, a language should handle negative
+        increment values as well.
+    </p>
+
+    <p>
+        The form of the <b>for-loop</b> shown above iterates the body of the loop
+        zero or more times.
+        Other <b>for-loop</b> variants test the control variable (a.k.a. the
+        <i>loop index</i>) after the loop body, which makes the loop iterate at
+        least once.
+    </p>
+
+    <p>
+        Other variants of the <b>for-loop</b> allow more than one loop counter
+        (or <i>loop index</i>) to be specified.
+    </p>
+
+    <p>
+        A common programming problem is handling <i>loop-and-a-half</i> constructs,
+        i.e., a loop that must be terminated upon some condition in the middle of
+        its loop body, so that some portion of the loop body is not executed during the
+        last iteration.
+        The following code uses a <b>break</b> statement to do this:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
+    <i>statements<sub>1</sub></i>
+    if <i>condition</i>
+        <b>break</b>
+    <i>statements<sub>2</sub></i>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Some languages provide special syntax specifically for terminating a loop in
+        the middle of its body:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
+    <i>statements<sub>1</sub></i>
+<b>exit when</b> <i>condition</i>
+    <i>statements<sub>2</sub></i>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Like the <b>break</b> statement, the <b>exit&nbsp;when</b> clause allows the
+        loop to be terminated after the first half of its body has been executed but
+        before the rest of the body is executed.
+        Both forms replace the use of an explicit goto, as shown in the
+        following code:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
+    <i>statements<sub>1</sub></i>
+    if <i>condition</i>
+        <b>goto</b> endloop
+    <i>statements<sub>2</sub></i>
+<b>end</b>
+endloop:
+    ...
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        A related programming problem is coding a loop to execute a portion of its body
+        and then skip the rest if some condition occurs, forcing the next iteration of
+        the loop.
+        Some languages provide a <b>continue</b> statement for this:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
+    <i>statements<sub>1</sub></i>
+    if <i>condition</i>
+        <b>continue</b>
+    <i>statements<sub>2</sub></i>
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        This replaces the use of an explicit goto, as shown in the following
+        code:
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
+        <tbody><tr>
+            <td>
+<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
+    <i>statements<sub>1</sub></i>
+    if <i>condition</i>
+        <b>goto</b> nextloop
+    <i>statements<sub>2</sub></i>
+nextloop:
+<b>end</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p></p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="other-languages"></a>
+    <h2> Other Approaches </h2>
+
+    <p>
+        Several structured programming languages do not provide goto statements at all,
+        including Modula-2, Modula-3, Oberon, Eiffel, and Java,
+        on the assumption that the other flow control mechanisms they do provide are
+        sufficient for all programming tasks and thus goto statements should
+        never be needed.
+        This is not always a good assumption to make when designing a programming
+        language.
+        Language designers cannot anticipate all possible programming scenarios,
+        and providing an "escape mechanism" out of the normal control structures gives
+        the programmer the ability to program around the syntactic limitations imposed
+        by the language when the need arises.
+        (Some examples of inadequate flow control constructs are discussed in more
+        detail below.)
+    </p>
+
+    <p>
+        It is also worth noting that there are programming languages that do not provide
+        structured flow control constructs at all.
+        Many <i>functional programming</i> languages, such as LISP, Scheme, and Prolog,
+        do not provide traditional structured flow control constructs beyond
+        <b>if-then-else</b> or only provide very simple forms of them.
+        Iteration in such languages is generally accomplished using some form of
+        recursion, and these languages are in fact tailored specifically for recursive
+        tasks and data structures.
+        But what such languages lack in structured flow statements, they generally
+        make up for by providing powerful <i>dynamic programming</i> mechanisms and
+        extremely flexible non-homogeneous data types.
+    </p>
+
+    <p></p>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="part-3"></a>
+    <h1 align="center"> Part III </h1>
+
+    <a name="is-goto-necessary"></a>
+    <h2> Is Goto Still Necessary? </h2>
+
+    <p>
+        Good programming language design dictates that a language should provide a
+        sufficiently complete and powerful set of flow control constructs in order to
+        make it relatively easy to write efficient code for any programming task.
+        A&nbsp;language should not be overly ambitious by providing too many different
+        ways to do the same thing, while at the same time it should not be anemic by
+        providing too few ways for programming ideas to be expressed.
+        The set of flow control statements and clauses provided should be powerful and
+        flexible enough so that a programmer can express his ideas clearly and succintly
+        without having to resort to the use of extraneous control variables or to
+        rearrange his code unnaturally just to get around the syntactical restrictions
+        of the language.
+    </p>
+
+    <p>
+        The following sections discuss two major programming problems that traditionally
+        have been solved by using goto statements.
+        These problems are presented in the light of current programming techniques,
+        with an eye to seeing if the programming languages currently available are
+        sufficiently advanced to handle them without using goto.
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%></hr>
+
+<a name=" loop-exits"="">
+    <h3> Loop Exits </h3>
+
+    <p>
+        Dijkstra's call for the complete elimination of goto statements
+        is fine in theory, but would it work in practice?
+        The control flow statements described above are sufficient for most programming
+        logic, but there are programming situations that require more powerful
+        constructs.
+    </p>
+
+    <p>
+        A common use for goto statements is to exit early from within loops,
+        especially if the exit must break out from within two or more levels of nested
+        loops.
+        C&nbsp;provides simple loop escape mechanisms, i.e., the <b>break</b> and
+        <b>continue</b> statements.
+    </p>
+
+    <a name="example-l-1"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example L-1 - Loop Exit Using Break</b></center>
+                </font>
+                <pre>//<i> Simple loop with an early exit</i>
+
+for (;;)
+{
+    int   ch;
+
+    ch = read();
+    if (ch == EOF)
+        <b>break;</b>                  //<i> With a loop escape</i>
+
+    parse(ch);
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <!-- ------------------------------- -->
+    <p>
+        In order to exit a loop early without using such mechanisms, a trade-off must be
+        made in which an additional flag (boolean) variable to signal completion of
+        the loop is used.
+        This incurs the overhead of an extra variable and an extra test of that variable
+        at the top of each loop.
+    </p>
+
+    <!-- ------------------------------- -->
+    <a name="example-l-2"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example L-2 - Loop Exit Without Using Break</b></center>
+                </font>
+                <pre>//<i> Simple loop with no loop escape mechanism</i>
+
+bool  <b>incomplete</b> = true;
+
+while (<b>incomplete</b>)
+{
+    int   ch;
+
+    ch = read();
+    if (ch == EOF)
+        <b>incomplete</b> = false;     //<i> Without a loop escape</i>
+    else
+        parse(ch);
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        For more complicated exits from loops, namely breaking out of a loop iteration
+        that is nested within two or more levels of loops, more extensive support is
+        required of the language.
+        Some languages, such as Java, provide the capability of breaking out of loops
+        that are prefixed with label names.
+    </p>
+
+    <!-- ------------------------------- -->
+    <a name="example-n-1"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example N-1 - Exiting a Nested Loop</b></center>
+                </font>
+                <pre>//<i> [Java]</i>
+//<i> Exiting a nested loop</i>
+
+<b>readLoop:</b>
+    <b>for</b> (;;)
+    {
+        char[]  line;
+
+        line = readLine();
+        if (line.length &gt; 0)
+        {
+            <b>for</b> (int i = 0;  i &lt; line.length;  i++)
+            {
+                int   ch;
+
+                ch = line[i];
+                if (ch == '#')
+                    <b>break readLoop;</b>     //<i> Exit outer for-loop</i>
+
+                parse(ch);
+            }
+        }
+        else
+            return;
+    }
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <!-- ------------------------------- -->
+    <p>
+        Other languages, such as C and C++, do not provide a mechanism to exit more than
+        one level of loop nesting, so goto statements must be employed.
+    </p>
+
+    <!-- ------------------------------- -->
+    <a name="example-n-2"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example N-2 - Exiting a Nested Loop</b></center>
+                </font>
+                <pre>//<i> [C / C++]</i>
+//<i> Exiting a nested loop without labeled loops</i>
+
+    <b>for</b> (;;)
+    {
+        char  line[80];
+        int   len;
+
+        len = readLine(line);
+        if (len &gt; 0)
+        {
+            <b>for</b> (int i = 0;  i &lt; len;  i++)
+            {
+                int   ch;
+
+                ch = line[i];
+                if (ch == '#')
+                    <b>goto endReadLoop;</b>   //<i> Exit outer for-loop</i>
+
+                parse(ch);
+            }
+        }
+        else
+            return;
+    }
+<b>endReadLoop:;</b>
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        This is about as clean as the Java code and just as efficient.
+    </p>
+
+    <!-- ------------------------------- -->
+    <p>
+        The alternative is to use an extra variable and extra <b>if</b>
+        statements to avoid the use of gotos, as in
+        Example <a href="#example-l-2">L-2</a>.
+    </p>
+
+    <!-- ------------------------------- -->
+    <a name="example-n-3"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example N-3 - Exiting a Nested Loop Without Goto</b></center>
+                </font>
+                <pre>//<i> [C / C++]</i>
+//<i> Exiting a nested loop without goto</i>
+
+    bool  <b>notDone</b> =  true;
+
+    <b>while</b> (<b>notDone</b>)
+    {
+        char  line[80];
+        int   len;
+
+        len = readLine(line);
+        if (len &gt; 0)
+        {
+            <b>for</b> (int i = 0;  <b>notDone</b>  &amp;&amp;  i &lt; len;  i++)
+            {
+                int   ch;
+
+                ch = line[i];
+                if (ch == '#')
+                    <b>notDone</b> = false;    //<i> Exit outer while-loop</i>
+                else
+                    parse(ch);
+            }
+        }
+        else
+            return;
+    }
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p></p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="discussion-3"></a>
+    <a name="error-handling"></a>
+    <h3> Exception Handling </h3>
+
+    <p>
+        Another common use for goto statements is in the handling of
+        <i>exceptions</i>, or what Dijkstra called <i>abortion clauses</i>.
+        Some languages (notably the more recent object-oriented languages) provide
+        <i>exception handling</i> mechanisms for dealing with <i>synchronous</i>
+        error conditions, while older languages do not.
+    </p>
+
+    <p>
+        The code below is a C function that utilizes goto statements
+        fairly effectively for error handling and recovery.
+        Since C does not not have any kind of exception handling mechanism,
+        well-crafted goto statements provide a reasonable substitute.
+    </p>
+
+    <p>
+        Consider a procedure that performs four operations:
+    </p><ol type="1">
+    <li> Allocate a control object.
+    </li><li> Save a copy of a specified file name.
+</li><li> Open the named file.
+</li><li> Read a header block from the opened file.
+</li></ol>
+    <p></p>
+
+    <p>
+        The following example, written in C, does these operations:
+    </p>
+
+    <a name="example-e-1"></a>
+    <p>
+    </p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example E-1 - Error Handling Using Gotos</b></center>
+                </font>
+                <pre>//<i> open_control() -- [C]</i>
+//<i> Open a file and assign it a control object.</i>
+//<i> Returns the control object on success, or NULL on failure.</i>
+
+struct Control * open_control(const char *fname)
+{
+    struct Control *  ctl = NULL;
+    FILE *            fp =  NULL;
+
+    //<i> 1. Allocate a control object</i>
+    ctl = malloc(sizeof(struct Control));
+    memset(ctl, 0, sizeof(struct Control));
+    if (ctl == NULL)                        // <b>E-1</b>
+        <b>goto fail;</b>
+
+    //<i> 2. Save the file name</i>
+    ctl-&gt;name = malloc(strlen(fname)+1);
+    if (ctl-&gt;name == NULL)                  // <b>E-2</b>
+        <b>goto fail;</b>
+    strcpy(ctl-&gt;name, fname);
+
+    //<i> 3. Open the named file</i>
+    fp = fopen(fname, "rb");
+    if (fp == NULL)                         // <b>E-3</b>
+        <b>goto fail;</b>
+    ctl-&gt;fp = fp;
+
+    //<i> 4. Read the file header block</i>
+    if (!read_header(ctl))                  // <b>E-4</b>
+        <b>goto fail;</b>
+
+    //<i> Return success</i>
+    return ctl;
+
+<b>fail:</b>
+    //<i> Failure occurred, clean up allocated resources</i>
+    if (ctl != NULL)
+    {
+        if (ctl-&gt;fp != NULL)
+            fclose(ctl-&gt;fp);                // <b>H-3</b>
+        if (ctl-&gt;name != NULL)
+            free(ctl-&gt;name);                // <b>H-2</b>
+        free(ctl);                          // <b>H-1</b>
+    }
+
+    //<i> Return failure</i>
+    return NULL;
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Any of the four operations can fail, which causes the whole function to fail.
+        After each failure, however, resources must be deallocated.
+        Thus a failure at point E-1 requires corresponding clean-up code
+        at point H-1, and likewise for failures at E-2 and E-3.
+        These clean-up operations are performed in the reverse order in which their
+        corresponding allocation operations are performed.
+    </p>
+
+    <p>
+        This type of use of goto statements is generally accepted as a
+        "correct" use of goto.
+        Specifically, using gotos for error handling is generally
+        considered acceptable programming style, at least for languages (like C) that do
+        not provide exception handling control structures.
+    </p>
+
+    <p>
+        One must be careful, however, to make it obvious that the goto
+        statements are for error handling, e.g., by choosing an appropriately
+        descriptive name for the goto label.
+    </p>
+
+    <!-- ------------------------------- -->
+    <p>
+        If we apply Dijkstra's maxim and remove all of the gotos,
+        we get something like the following.
+    </p>
+
+    <a name="example-e-2"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example E-2 - Error Handling With Gotos Removed</b></center>
+                </font>
+                <pre>//<i> open_control() -- [C, version 2, without gotos]</i>
+//<i> Open a file and assign it a control object.</i>
+//<i> Returns the control object on success, or NULL on failure.</i>
+
+struct Control * open_control(const char *fname)
+{
+    struct Control *  ctl = NULL;
+    FILE *            fp =  NULL;
+
+    //<i> 1. Allocate a control object</i>
+    ctl = malloc(sizeof(struct Control));
+    memset(ctl, 0, sizeof(struct Control));
+    if (ctl == NULL)                        // <b>E-1</b>
+    {
+        //<i> Failure, clean up</i>
+        <b>return NULL;</b>
+    }
+
+    //<i> 2. Save the file name</i>
+    ctl-&gt;name = malloc(strlen(fname)+1);
+    if (ctl-&gt;name == NULL)                  // <b>E-2</b>
+    {
+        //<i> Failure, clean up</i>
+        free(ctl);                          // <b>H-1</b>
+        <b>return NULL;</b>
+    }
+    strcpy(ctl-&gt;name, fname);
+
+    //<i> 3. Open the named file</i>
+    fp = fopen(fname, "rb");
+    if (fp == NULL)                         // <b>E-3</b>
+    {
+        //<i> Failure, clean up</i>
+        free(ctl-&gt;name);                    // <b>H-2</b>
+        free(ctl);                          // <b>H-1</b>
+        <b>return NULL;</b>
+    }
+    ctl-&gt;fp = fp;
+
+    //<i> 4. Read the file header block</i>
+    if (!read_header(ctl))                  // <b>E-4</b>
+    {
+        //<i> Failure, clean up</i>
+        fclose(ctl-&gt;fp);                    // <b>H-3</b>
+        free(ctl-&gt;name);                    // <b>H-2</b>
+        free(ctl);                          // <b>H-1</b>
+        <b>return NULL;</b>
+    }
+
+    //<i> Success</i>
+    return ctl;
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        The problem with this style of error handling is that we end up with a lot of
+        duplicated clean-up code.
+    </p>
+
+    <!-- ------------------------------- -->
+    <p>
+        This suggests an alternate style which also does not use gotos
+        but avoids code duplication.
+    </p>
+
+    <a name="example-e-3"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example E-3 - Error Handling With Gotos Removed</b></center>
+                </font>
+                <pre>//<i> open_control() -- [C, version 3, without gotos]</i>
+//<i> Open a file and assign it a control object.</i>
+//<i> Returns the control object on success, or NULL on failure.</i>
+
+struct Control * open_control(const char *fname)
+{
+    struct Control *  ctl = NULL;
+    FILE *            fp =  NULL;
+    int               err = 0;
+
+    //<i> 1. Allocate a control object</i>
+    ctl = malloc(sizeof(struct Control));
+    memset(ctl, 0, sizeof(struct Control));
+    if (ctl == NULL)                        // <b>E-1</b>
+        <b>err = 1;</b>
+
+    //<i> 2. Save the file name</i>
+    if (<b>err</b> == 0)
+    {
+        ctl-&gt;name = malloc(strlen(fname)+1);
+        if (ctl-&gt;name == NULL)              // <b>E-2</b>
+            <b>err = 2;</b>
+        else
+            strcpy(ctl-&gt;name, fname);
+    }
+
+    //<i> 3. Open the named file</i>
+    if (<b>err</b> == 0)
+    {
+        fp = fopen(fname, "rb");
+        if (fp == NULL)                     // <b>E-3</b>
+            <b>err = 3;</b>
+        else
+            ctl-&gt;fp = fp;
+    }
+
+    //<i> 4. Read the file header block</i>
+    if (<b>err</b> == 0)
+    {
+        if (!read_header(ctl))              // <b>E-4</b>
+            <b>err = 4;</b>
+    }
+
+    //<i> Check for success</i>
+    if (<b>err</b> == 0)
+        return ctl;
+
+    //<i> Failure, clean up</i>
+    if (err &gt; 3)
+        fclose(ctl-&gt;fp);                    // <b>H-3</b>
+    if (err &gt; 2)
+        free(ctl-&gt;name);                    // <b>H-2</b>
+    if (err &gt; 1)
+        free(ctl);                          // <b>H-1</b>
+
+    return NULL;
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Note that, as before, the clean-up operations are performed in the reverse order
+        that their corresponding allocation operations are performed.
+    </p>
+
+    <p>
+        This style of error handling comes close to being as clean and succint as
+        the style used in Example <a href="#example-e-1">E-1</a>.
+        However, it requires an additional error indicator variable and extra
+        conditional (<b>if</b>) statements.
+    </p>
+
+    <!-- ------------------------------- -->
+    <p>
+        If the function of Example <a href="#example-e-1">E-1</a> is written
+        in C++, it can take advantage of the fact that C++ supports an
+        exception handling mechanism (i.e., <b>try-catch</b> statements),
+        which makes the error handling in the code more obvious:
+    </p>
+
+    <a name="example-t-1"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example T-1 - Error Handling Without Gotos</b></center>
+                </font>
+                <pre>//<i> openControl() -- [C++]</i>
+//<i> Open a file and assign it a control object.</i>
+//<i> Returns the control object on success, or NULL on failure.</i>
+
+Control * openControl(const char *fname)
+{
+    Control *   ctl =   NULL;
+    FILE *      fp =    NULL;
+
+    <b>try</b>
+    {
+        //<i> 1. Allocate a control object</i>
+        ctl = new Control;
+        if (ctl == NULL)                    // <b>E-1</b>
+            <b>throw 1;</b>
+
+        //<i> 2. Save the file name</i>
+        ctl-&gt;name = new char[::strlen(fname)+1];
+        if (ctl-&gt;name == NULL)              // <b>E-2</b>
+            <b>throw 2;</b>
+        ::strcpy(ctl-&gt;name, fname);
+
+        //<i> 3. Open the named file</i>
+        fp = ::fopen(fname, "rb");
+        if (fp == NULL)                     // <b>E-3</b>
+            <b>throw 3;</b>
+        ctl-&gt;fp = fp;
+
+        //<i> 4. Read the file header block</i>
+        if (not ctl-&gt;readHeader())          // <b>E-4</b>
+            <b>throw 4;</b>
+
+        //<i> Return success</i>
+        return ctl;
+    }
+    <b>catch</b> (int err)
+    {
+        //<i> Failure occurred, clean up allocated resources</i>
+        if (ctl != NULL)
+        {
+            if (ctl-&gt;fp != NULL)
+                ::fclose(ctl-&gt;fp);          // <b>H-3</b>
+
+            if (ctl-&gt;name != NULL)
+                delete[] ctl-&gt;name;         // <b>H-2</b>
+
+            delete ctl;                     // <b>H-1</b>
+        }
+
+        //<i> Return failure</i>
+        return NULL;
+    }
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        Note that the amount of work required to clean up after a failure is exactly
+        the same as in Example <a href="#example-e-1">E-1</a>.
+        Moreover, the explicit use of a <b>try-catch</b> statement
+        makes it obvious that the code is for error handling and recovery.
+    </p>
+
+    <!-- ------------------------------- -->
+    <p>
+        Since C++ is an object-oriented language, and thus allows the programmer to have
+        more explicit control over object allocation and deallocation, we can make the
+        destructor function for <b>Control</b> objects perform most of the
+        clean-up operations.
+        Moving the operations at H-2 and H-3 into the
+        destructor allows us to write a simpler <b>catch</b> clause to handle
+        failures.
+    </p>
+
+    <a name="example-t-2"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example T-2 - Error Handling Without Gotos</b></center>
+                </font>
+                <pre>//<i> openControl() -- [C++, version 2]</i>
+//<i> Open a file and assign it a control object.</i>
+//<i> Returns the control object on success, or NULL on failure.</i>
+
+Control * openControl(const char *fname)
+{
+    Control *   ctl =   NULL;
+    FILE *      fp =    NULL;
+
+    <b>try</b>
+    {
+        <i>... same as Example T-1 ...</i>
+    }
+    <b>catch</b> (int err)
+    {
+        //<i> Failure occurred, clean up</i>
+        delete ctl;                         // <b>H-1, H-2, H-3</b>
+
+        //<i> Return failure</i>
+        return NULL;
+    }
+}
+
+
+//<i> Control::~Control() -- destructor</i>
+
+<b>Control::~Control()</b>
+{
+    //<i> Clean up allocated resources</i>
+    if (this-&gt;fp != NULL)
+        ::fclose(this-&gt;fp);                 // <b>H-3</b>
+    this-&gt;fp = NULL;
+
+    if (this-&gt;name != NULL)
+        delete[] this-&gt;name;                // <b>H-2</b>
+    this-&gt;name = NULL;
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        While the <b>try-catch</b> solution is cleaner than using <b>goto</b>s,
+        it has the disadvantage of requiring more overhead for managing
+        the <b>try</b> and <b>catch</b> clauses, which can be fairly expensive.
+    </p>
+
+    <!-- ------------------------------- -->
+    <a name="finally-clause"></a>
+    <p>
+        Some languages, such as Java, provide a <b>finally</b> clause as part
+        of the <b>try-catch</b> statement to provide a way to
+        specify actions that must be taken regardless of whether or not an exception
+        occurs.
+    </p>
+
+    <a name="example-t-3"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Example T-3 - finally clause</b></center>
+                </font>
+                <pre>//<i> [Java]</i>
+
+void write3(Resource dest, Item[] data)
+{
+    <b>try</b>
+    {
+        dest.acquire();
+        dest.write(data[0]);
+        dest.write(data[1]);
+        dest.write(data[2]);
+    }
+    <b>catch</b> (ResourceException ex)
+    {
+        //<i> Failure occurred, clean up</i>
+        log.error(ex);
+        dest.reset();
+    }
+    <b>finally</b>
+    {
+        //<i> Always executed</i>
+        dest.release();
+    }
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <!-- ------------------------------- -->
+    <a name="retry-clause"></a>
+    <p>
+        Other languages, such as Eiffel, provide a <b>retry</b> statement as
+        part of exception handling to allow a procedure body to be executed again after
+        an exception is caught, presumably after some corrective actions are performed.
+    </p>
+
+    <!-- +INCOMPLETE
+    <a name="example-t-4"></a>
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+     <tr>
+      <td>
+    <font face="helvetica,arial,sans serif">
+     <center><b>Example T-4 - 'retry' statement</b></center>
+    </font>
+    <pre>
+    //<i> [Eiffel]</i>
+
+    method ...
+    +REWRITE                                                    +REWRITE
+    +REWRITE                                                    +REWRITE
+    +REWRITE                                                    +REWRITE
+    </pre>
+      </td>
+     </tr>
+    </table>
+
+    <p></p>
+    !-- +INCOMPLETE -->
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="conclusion"></a>
+    <h1 align="center"> Conclusion </h1>
+
+    <a name="the-tao-of-goto"></a>
+    <h2> The Tao of Goto </h2>
+
+    <p>
+        It is obvious that loop escape and exception handler statements make for more
+        readable and more efficient code.
+        Of&nbsp;course, such flow control mechanisms are actually just fancy
+        gotos in disguise, being implemented underneath using
+        machine code jump instructions.
+        However, they do not corrupt or obfuscate the program execution state.
+        So&nbsp;judging them by Dijkstra's principle of being able to track program
+        execution deterministically, they are acceptable control flow mechanisms for
+        high-level languages.
+    </p>
+
+    <p>
+        Examples <a href="#example-t-2">T-2</a> and <a href="#example-n-1">N-1</a>
+        demonstrate that Dijkstra's maxim can be achieved <i>provided</i> that the
+        programming language provides a reasonable set of control structures that can
+        serve in place of simple goto statements.
+    </p>
+
+    <p>
+        Examples <a href="#example-e-1">E-1</a> and <a href="#example-n-2">N-2</a>
+        demonstrate the corollary to this,
+        that if a programming language does <i>not</i> provide reasonably powerful flow
+        control structures, there are programming problems that can be solved reasonably
+        well <i>only</i> by resorting to the use of goto statements.
+    </p>
+
+    <p>
+        Some structured programming languages do not provide goto
+        statements at all.
+        Languages such as Smalltalk, Eiffel, and Java provide control statements for
+        early and nested loop exits and exception handling, so goto is not really
+        needed.
+        Other languages such as Modula-2 and Oberon also do not provide
+        goto, but appear to lack enough flow control constructs to
+        make it convenient to write early loop exits and exception handling code;
+        it would seem that such languages were linguistic experiments that took
+        Dijkstra's maxim too far and failed.
+    </p>
+
+    <p>
+        Dijkstra's belief that unstructured goto statements are
+        detrimental to good programming is still true.
+        A&nbsp;properly designed language should provide flow control constructs that
+        are powerful enough to deal with almost any programming problem.
+        By&nbsp;the same token, programmers who must use languages that do not provide
+        sufficiently flexible flow control statements should exercise restraint when
+        using unstructured alternatives.
+        This is the Tao of goto: knowing when to use it for good
+        and when not to use it for evil.
+    </p>
+
+    <!-- ------------------------------- -->
+    <hr width="50%">
+
+    <a name="example-last"></a>
+    <p>
+        In parting, I can't resist giving one last example of goto statements.
+        I&nbsp;came across this code in an LR parser library I used as part of a larger
+        compiler project (circa 1988).
+        It&nbsp;is a marvelous little gem of programming succintness and simplicity.
+        <!-- ACKNOWLEDGEMENT
+        This code was originally written by Paul Mann, as part of his LALR compiler
+        generator product.
+        I think I have correctly captured the essence of it, but I could have made an
+        error in remembering.
+        !-->
+    </p>
+
+    <p></p>
+    <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
+        <tbody><tr>
+            <td>
+                <font face="helvetica,arial,sans serif">
+                    <center><b>Last Example - Nontrivial Gotos</b></center>
+                </font>
+                <pre>int parse()
+{
+    Token   tok;
+
+reading:
+    tok = gettoken();
+    if (tok == END)
+        return ACCEPT;
+shifting:
+    if (shift(tok))
+        <b>goto</b> reading;
+reducing:
+    if (reduce(tok))
+        <b>goto</b> shifting;
+    return ERROR;
+}
+</pre>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <p>
+        I leave it as an exercise for the reader to rewrite this without
+        using goto statements.
+    </p>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="references"></a>
+    <h2>References</h2>
+
+    <p></p>
+    <ol type="A">
+        <a name="ref-gtch"></a>
+        <li>
+            <b>Go To Considered Harmful</b> <br>
+            Edsger W. Dijkstra <br>
+            Letter to <i>Communications of the ACM</i> (CACM) <br>
+            vol. 11 no. 3, March 1968, pp. 147-148. <br>
+            Online at:
+            <a href="http://www.acm.org/classics/oct95/">www.acm.org/classics/oct95</a>
+
+            <p>
+                <a name="ref-ewd"></a>
+            </p></li><li>
+        Biography of <b>Edsger W. Dijkstra</b> <br>
+        born May 1930, died Aug 2002 <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/Dijkstra">en.wikipedia.org/wiki/Dijkstra</a>
+        <p></p>
+
+        <p>
+            <a name="ref-carh"></a>
+        </p></li><li>
+        Biography of <b>C.&nbsp;A.&nbsp;R. (Tony) Hoare</b> <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/C._A._R._Hoare">en.wikipedia.org/wiki/C._A._R._Hoare</a>
+        <p></p>
+
+        <p>
+            <a name="ref-nw"></a>
+        </p></li><li>
+        Biography of <b>Niklaus Wirth</b> <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/Wirth">en.wikipedia.org/wiki/Wirth</a> <br>
+        Home page:
+        <a href="http://www.cs.inf.ethz.ch/~wirth">www.cs.inf.ethz.ch/~wirth</a>
+        <p></p>
+
+        <p>
+            <a name="ref-gs"></a>
+        </p></li><li>
+        <b>Goto</b> programming statement <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/GOTO">en.wikipedia.org/wiki/GOTO</a>
+        <p></p>
+
+        <p>
+            <a name="ref-fv"></a>
+        </p></li><li>
+        <b>Formal Verification</b> <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/Formal_verification">en.wikipedia.org/wiki/Formal_verification</a>
+        <p></p>
+
+        <p>
+            <a name="ref-pd"></a>
+        </p></li><li>
+        <b>Program Derivation</b> <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/Program_derivation">en.wikipedia.org/wiki/Program_derivation</a>
+        <p></p>
+
+        <p>
+            <a name="ref-hl"></a>
+        </p></li><li>
+        <b>Hoare Logic</b> <br>
+        Wikipedia:
+        <a href="http://en.wikipedia.org/wiki/Hoare_logic">en.wikipedia.org/wiki/Hoare_logic</a>
+        <p></p>
+
+        <p>
+            <a name="ref-abcp"></a>
+        </p></li><li>
+        <b>An Axiomatic Basis For Computer Programming</b> <br>
+        C.&nbsp;A.&nbsp;R. (Tony) Hoare <br>
+        <i>Communications of the ACM</i> (CACM) <br>
+        v.12 n.10, Oct 1969 <br>
+        <a href="http://portal.acm.org/citation.cfm?doid=363235.363259">portal.acm.org/citation.cfm?doid=363235.363259</a>
+        (subscription required)
+        <p></p>
+
+        <p>
+            <a name="ref-pln"></a>
+        </p></li><li>
+        <b>Programming Language Newsgroups</b> <br>
+        <a href="http://groups-beta.google.com/groups/dir?q=comp.lang">groups.google.com/groups/dir?q=comp.lang.*</a> <br>
+        <p></p>
+
+        <!-- DO NOT ADD (requires subscription)
+         <p>
+         <a name="ref-grg"></a>
+         <li>
+          <b>Getting Rid of goto</b> <br>
+          Pete Becker <br>
+          C/C++ Users Journal <br>
+          Dec 1995, pp.83-85.
+         </p>
+        !-->
+
+        <!-- DO NOT ADD (requires subscription)
+         <p>
+         <a name="ref-aslg"></a>
+         <li>
+          <b>Another Slap at Lowly goto</b> <br>
+          Aaron Garth Enright and Linda M. Wilkens <br>
+          C/C++ Users Journal <br>
+          Dec 1995, pp.49-52.
+         </p>
+        !-->
+
+    </li></ol>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+    <hr>
+
+    <a name="copyright"></a>
+    <p>
+        <i>
+            The original letter by Dijkstra quoted in this document is
+            Copyright ©1968 by the
+            <a href="http://www.acm.org">Association for Computing Machinery</a> (ACM).
+            <!--
+            Direct quoting of the original text for purposes of criticism and analysis
+            is covered by the "fair use" section (§107) of U.S. copyright law.
+            !-->
+            All other text in this document is
+            Copyright ©2005 by
+            <a href="mailto:david@tribble.com">David R. Tribble</a>.
+        </i></p><i>
+
+    <a name="this-doc"></a>
+    <p>
+        This document is:
+        <a href="http://david.tribble.com/text/goto.html">http://david.tribble.com/text/goto.html</a>.
+    </p>
+
+</i></font><i>
+
+
+    <!--
+
+    -----BEGIN PGP SIGNATURE-----
+    Version: PGPfreeware 7.0.3 for non-commercial use <http://www.pgp.com>
+
+    iQA/AwUBQ4n38HS9RCOKzj55EQJRcQCgg0r+L4Xch9ZGeLRSWp2dFIIbRVAAoMKY
+    Epr/Q9O2c57utny1IlsfQXpo
+    =emCo
+    -----END PGP SIGNATURE-----
+    !-->
+</i></li><div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
+    <div class="xl-chrome-ext-bar__logo"></div>
+
+    <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
+    <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
+</div></body></html>
