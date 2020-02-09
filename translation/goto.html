@@ -1,5 +1,7 @@
 
 <!-- saved from url=(0039)http://david.tribble.com/text/goto.html -->
+<!--suppress ALL -->
+<!DOCTYPE html>
 <html lang="zh">
 
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,7 +22,8 @@
 <meta name="keywords" content="computer science, programming, structured programming, goto">
 <meta name="keywords" content="go to statement, jump instruction, branch instruction">
 <meta name="keywords" content="conditional clause, alternative clause, repetitive clause">
-<meta name="keywords" content="program intelligibility, program sequencing, tao of goto" "="">
+<meta name="keywords" content="program intelligibility, program sequencing, tao of goto">
+<meta name="keywords" content="goto有害论, Dijkstra">
 <meta name="source" content="text/goto.html">
 <meta name="voluntary content rating" content="general">
 <meta name="author-email" content="mailto:david@tribble.com">
@@ -36,7 +39,7 @@
 <!-- ----------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------- -->
 <body bgcolor="#FCFFF0">
-<font face="helvetica,arial,sans serif">
+<hr style="font-family: helvetica,arial,sans serif; ">
 
 <a name="top"></a>
 <h1 align="center">
@@ -50,6 +53,8 @@
  David R. Tribble <br>
  修订版本 1.1, 2005-11-27
 </h2>
+<hr width="50%">
+
 <h3 align="center">
     Emon Wang <br>
     翻译版本 0.1，2020-2-7
@@ -57,22 +62,21 @@
 <!-- ------------------------------- -->
 <hr width="50%">
 
-<p>
-<bl>
- </bl></p><li>
+    <li>
   <a href="#intro">       介绍</a>
  </li><li>
   <a href="#background">  背景</a>
  </li><li>
   <a href="#part-1">      第一部分 - Dijkstra 的信与批注</a>
  </li><li>
-  <a href="#part-2">      第二部分 - 结构化编程</a>
+  <a href="#part-2">      第二部分 - 结构化程序设计</a>
  </li><li>
   <a href="#part-3">      第三部分 - Goto 还有使用必要性吗？</a>
  </li><li>
   <a href="#conclusion">  总结 - Goto 的使用之道</a>
  </li><li>
   <a href="#references">  参考文献</a>
+</li>
 
 <p></p>
 
@@ -82,8 +86,7 @@
     <!-- ----------------------------------------------------------------------- -->
     <hr>
 
-    <a name="intro"></a>
-    <h2> 介绍 </h2>
+    <h2 id="intro"> 介绍 </h2>
 
     <p>
         这是对 <b>Edsger W. Dijkstra</b> 于1968年致计算机科学协会 (CACM) 通讯的信件的讨论和分析，
@@ -99,7 +102,7 @@
     </p>
 
     <p>
-        写那副信时使用 goto 语句手动编写<b>迭代循环</b>，<b>if-then</b>和其他控制结构是被人们接受的编程方式，大多数编程语言对我们今天认为理所当然的基本控制流语句都不支持或者仅提供了非常有限的形式。Dijkstra并不是想说 goto 的<b>所有</b>用途都不好，而是应该存在高级控制结构，且正确使用它们将消除当时流行的 goto 的<b>大多数</b>用途。Dijkstra仍然允许将goto用于更复杂的编程控制结构。
+        写那封信时，使用 goto 语句手动编写<b>迭代循环</b>，<b>if-then</b>和其他控制结构是被人们接受的编程方式，大多数编程语言对我们今天认为理所当然的基本控制流语句都不支持或者仅提供了非常有限的形式。Dijkstra 并不是想说 goto 的<b>所有</b>用途都不好，而是应该存在高级控制结构，且正确使用它们将消除当时流行的 goto 的<b>大多数</b>用途。Dijkstra 仍然允许将 goto 用于更复杂的编程控制结构。
     </p>
 
 
@@ -195,8 +198,9 @@
             <td colspan="2" bgcolor="#F0F0E0"><!-- OLD bgcolor="#F6F4E4" -->
                 <font color="#000000" face="helvetica,arial">
                     <h2 align="right">
-                        Annotations by <br>
-                        <i>David R. Tribble</i>
+
+                        <i>David R. Tribble </i>的<br>
+                        评注
                     </h2>
                 </font>
             </td>
@@ -241,7 +245,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-2"></a>
                     <p>
-                        我的第一句话是，尽管程序员的活动(activity) 在他完成了一个正确程序的时候就结束了， 然而它真正的主体部分，其实是这个程序所控制的流程，因为它必须要实现程序员所期望的效果，也必须在动态特性上满足编程者所期望的规范。不过，一旦程序被编写完成，相关流程(process) 的完成就交给机器了。
+                        我的第一句话是，尽管程序员的活动(activity) 在他完成了一个正确程序的时候就结束了， 然而它真正的主体部分，其实是这个程序所控制的流程(process)，因为它必须要实现程序员所期望的效果，也必须在动态特性上满足编程者所期望的规范。不过，一旦程序被编写完成，相关流程的完成就交给机器了。
                     </p>
                     <p></p>
                 </font>
@@ -255,7 +259,7 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        这一段技术密集的词汇是Dijkstra学术写作风格的典型代表。
+                        这一段技术密集的措辞是Dijkstra学术写作风格的典型代表。
                     </p>
                     <p>
                         这仅意味着程序员执行的实际活动不仅是编写程序，还包括控制在计算机上执行代码时代码的行为。但他说，一旦程序员编写了一个工作程序，程序的实际执行就完全只靠机器本身控制。
@@ -759,11 +763,11 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra 提到了流程图 (flow diagrams)，它反映了当时程序设计的最新水平。从那时起，编程技术经历了结构化编程 (structured programming)，自顶向下编程 (top-down programming)，面向对象编程 (object-oriented programming)，组件编程 (component programming)，切面编程 (aspect programming) 等阶段的发展。然而，尽管在设计上的这些进步，但 Dijkstra 关于非结构化程序流的主要观点历久弥新。
+                        Dijkstra 提到了流程图 (flow diagrams)，这反映了当时程序设计的最新水平。从那时起，编程技术经历了结构化编程 (structured programming)，自顶向下编程 (top-down programming)，面向对象编程 (object-oriented programming)，组件编程 (component programming)，切面编程 (aspect programming) 等阶段的发展。然而，尽管在程序语言设计上的这些进步，但 Dijkstra 关于 非结构化程序流 的主要观点历久弥新。
                     </p>
 
                     <p>
-                        必须指出的是，Dijkstra对这个问题的最终评论似乎暗示着，从自己一个人编写的程序中完全删除所有 goto 是一个坏主意。虽然 Dijkstra 说已证明对任何给定的程序 goto 语句其实都是多余的，他仍然承认，消除<b>所有</b> 在程序中的 goto 语句会使程序的控制流更加难以理解。
+                        必须指出的是，Dijkstra对这个问题的最终评论似乎暗示着，从一个人编写的程序中完全删除所有 goto 是一个坏主意。虽然 Dijkstra 说已证明对任何给定的程序 goto 语句其实都是多余的，他仍然承认，消除<b>所有</b> 在程序中的 goto 语句会使程序的控制流更加难以理解。
 
                     </p>
 
@@ -819,114 +823,97 @@
     <!-- ----------------------------------------------------------------------- -->
     <hr>
 
-    <a name="part-2"></a>
-    <h1 align="center"> Part II </h1>
+    <h1 id="part-2" align="center"> 第二部分 </h1>
 
-    <a name="structured-programming"></a>
-    <h2> Structured Programming </h2>
+
+    <h2 id="structured-programming"> 结构化程序设计 </h2>
 
     <p>
-        Have programming languages evolved since Dijkstra's letter was published
-        to the point that <b>goto</b> is no longer needed?
+        自从 Dijkstra 的那封信发表以来，程序语言是否已经发展到了 <b>goto</b> 语句不在被需要的地步？
     </p>
 
     <p>
-        Since the 1960s, several advances in programming theory have occurred.
-        The discipline of programming has progressed through several phases, with each
-        new advance being touted as the next "better" way of programming.
-        A&nbsp;brief list of some of these advancements:
+        20世纪60年代以来，编程语言的理论已经出现了几次进步。
+        编程语言的范式已经发生了不少进步，而且每一个进步都吹嘘自己是新的“更好的”程序设计方法。
+        下面是这些进步的一个简表:
 
     </p><ul>
-    <li> <i>structured programming</i>
-    </li><li> <i>functional decomposition</i>
-</li><li> <i>top-down design and step-wise refinement</i>
-</li><li> <i>bottom-up design</i>
-</li><li> <i>iterative design</i>
-</li><li> <i>third generation languages</i>
-</li><li> <i>fourth generation languages</i>
-</li><li> <i>fifth generation languages</i>
-</li><li> <i>object-oriented programming</i>
-</li><li> <i>components</i>
-</li><li> <i>programming patterns</i>
-</li><li> <i>aspect programming</i>
+    <li> <i>结构化程序设计 (Structured Programming)</i>
+    </li><li> <i>功能分解法 (functional decomposition)</i>
+</li><li> <i>自顶向下设计,逐步求精 (top-down design and step-wise refinement)</i>
+</li><li> <i>自底向上设计 (bottom-up design)</i>
+</li><li> <i>迭代式设计 (iterative design)</i>
+</li><li> <i>第三代编程语言 (third generation languages)</i>
+</li><li> <i>第四代编程语言 (fourth generation languages)</i>
+</li><li> <i>第五代编程语言 (fifth generation languages)</i>
+</li><li> <i>面对对象程序设计 (object-oriented programming)</i>
+</li><li> <i>组件编程 (components)</i>
+</li><li> <i>编程模式 (programming patterns)</i>
+</li><li> <i>切面编程 (aspect programming)</i>
 </li></ul>
     <p></p>
 
     <p>
-        Each approach caused a paradigm shift in programming theory,
-        affecting the way programmers wrote their programs on a day-to-day basis as
-        well as changing the way programming languages were designed and the
-        features they provided.
-        But all of these advancements affected the structure of programs at levels
-        above that of simple execution statements, i.e., at levels involving
-        procedures, data objects, program modules, etc.
-        The fundamental approach of programming at the lowest level, at the sequential
-        <i>statement</i> level, is still the same as it was back in the early days of
-        the first programming languages such as FORTRAN and COBOL.
+        每一个方法都导致了编程语言理论的范式转变、影响了程序员日常编写程序的方式并改变了编程语言的设计方式及其提供的功能。
+        但是所有这些进步在比简单执行语句更高的级别（即在 子过程 (procedure)，数据对象 (data objects)，程序模块 (program modules) 等的结构）影响了程序的结构。
+        在最底层的 语句序列的级别 ( sequential statement level)进行编程的基本方法与最初的编程语言（如FORTRAN和COBOL）。
     </p>
 
     <p>
-        The following sections describe the program flow constructs that are commonly
-        available in most of today's programming languages.
-        These have remained pretty much the same since their introduction at the
-        advent of structured programming.
-        (The constructs are shown in a pseudo-language instead of any specific
-        language.)
+        以下各节描述了当今大多数编程语言中普遍可用的程序流结构。自从结构化编程问世以来，它们几乎保持不变。（这些构造以伪语言而不是任何特定语言显示。）
     </p>
 
     <!-- ------------------------------- -->
     <hr width="50%">
 
-    <a name="if-then-else"></a>
-    <h3> if-then-else </h3>
+    <h3 id="if-then-else"> if-then-else </h3>
 
     <p>
-        All structured programming languages provide some form of the
-        <b>if-then</b> flow control construct:
+        所有结构化编程语言提供某种形式的
+        <b>if-then</b> 流控制结构：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>if</b> <i>conditional_expression</i> <b>then</b>
-    <i>statement<sub>1</sub></i>
+<pre><b>if</b> <i>条件表达式</i> <b>then</b>
+    <i>语句<sub>1</sub></i>
 </pre>
             </td>
         </tr>
         </tbody></table>
 
     <p>
-        and the <b>if-then-else</b> construct:
+        以及 <b>if-then-else</b> 结构:
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>if</b> <i>conditional_expression</i> <b>then</b>
-    <i>statement<sub>1</sub></i>
+<pre><b>if</b> <i>条件表达式</i> <b>then</b>
+    <i>语句<sub>1</sub></i>
 <b>else</b>
-    <i>statement<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 </pre>
             </td>
         </tr>
         </tbody></table>
 
     <p>
-        This second construct is the most obvious replacement for the unstructured
-        <i>test-and-goto</i> construct:
+        这第二个结构最明显的替代了 非结构化的 <i>测试转向 (test-and-goto)</i> 结构:
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>if</b> <i>conditional_expression</i> <b>then</b>
-    <i>statement<sub>1</sub></i>
+<pre><b>if</b> <i>条件表达式</i> <b>then</b>
+    <i>语句<sub>1</sub></i>
     <b>goto</b> endif1
 else1:
-    <i>statement<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 endif1:
     ...
 </pre>
@@ -935,8 +922,7 @@ endif1:
         </tbody></table>
 
     <p>
-        The <b>if-then</b> statement can be implemented in machine code as something
-        like the following:
+        <b>if-then</b> 语句 可以被表示成类似下面的机器码:
     </p>
 
     <p></p>
@@ -946,7 +932,7 @@ endif1:
 <pre># if-then statement
     move <i>expression</i>, reg1
     <b>jump</b> not <i>condition</i>, label1
-    <i>statement<sub>1</sub></i>
+    <i>语句<sub>1</sub></i>
 label1:
     ...
 </pre>
@@ -955,20 +941,20 @@ label1:
         </tbody></table>
 
     <p>
-        And likewise for the <b>if-then-else</b> statement:
+        <b>if-then-else</b> 语句的机器码表示类似:
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre># if-then-else statement
+<pre># if-then-else 语句
     move <i>expression</i>, reg1
     <b>jump</b> not <i>condition</i>, label1
-    <i>statement<sub>1</sub></i>
+    <i>语句<sub>1</sub></i>
     <b>jump</b> label2
 label1:
-    <i>statement<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 label2:
     ...
 </pre>
@@ -977,47 +963,44 @@ label2:
         </tbody></table>
 
     <p>
-        A common programming idiom is to write multiple <b>if-then</b> statements
-        in a sequence:
+        常见的一种编程习惯是把多个 <b>if-then</b> 语句写成一个序列:
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>if</b> <i>condition<sub>1</sub></i> <b>then</b>
-    <i>statement<sub>1</sub></i>
-<b>else if</b> <i>condition<sub>2</sub></i> <b>then</b>
-    <i>statement<sub>2</sub></i>
-<b>else if</b> <i>condition<sub>3</sub></i> <b>then</b>
-    <i>statement<sub>3</sub></i>
+<pre><b>if</b> <i>条件<sub>1</sub></i> <b>then</b>
+    <i>语句<sub>1</sub></i>
+<b>else if</b> <i>条件<sub>2</sub></i> <b>then</b>
+    <i>语句<sub>2</sub></i>
+<b>else if</b> <i>条件<sub>3</sub></i> <b>then</b>
+    <i>语句<sub>3</sub></i>
 <b>else</b>
-    <i>statement<sub>4</sub></i>
+    <i>语句<sub>4</sub></i>
 </pre>
             </td>
         </tr>
         </tbody></table>
 
     <p>
-        It is more difficult in some languages (especially some older languages)
-        to write multiple <b>if-then</b> sequences, so the construct ends up looking
-        like the following code, which is functionally equivalent but harder to read:
+        在某些语言 (尤其是某些较老的语言) 里连写多个 <b>if-then</b> 很难，所以结构最后看上去像下面的代码，该代码功能等效但更难阅读：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>if</b> <i>condition<sub>1</sub></i> <b>then</b>
-    <i>statement<sub>1</sub></i>
+<pre><b>if</b> <i>条件<sub>1</sub></i> <b>then</b>
+    <i>语句<sub>1</sub></i>
 <b>else</b>
-    <b>if</b> <i>condition<sub>2</sub></i> <b>then</b>
-        <i>statement<sub>2</sub></i>
+    <b>if</b> <i>条件<sub>2</sub></i> <b>then</b>
+        <i>语句<sub>2</sub></i>
     <b>else</b>
-        <b>if</b> <i>condition<sub>3</sub></i> <b>then</b>
-            <i>statement<sub>3</sub></i>
+        <b>if</b> <i>条件<sub>3</sub></i> <b>then</b>
+            <i>语句<sub>3</sub></i>
         <b>else</b>
-            <i>statement<sub>4</sub></i>
+            <i>语句<sub>4</sub></i>
         <b>end</b>
     <b>end</b>
 <b>end</b>
@@ -1027,46 +1010,41 @@ label2:
         </tbody></table>
 
     <p>
-        Some languages provide a separate keyword for the <b>else-if</b> combination
-        (variously called <b>elseif</b>, <b>elsif</b>, and <b>elif</b>), but the effect
-        is the same.
-        Some languages also provide a separate keyword for the last <b>else</b> clause
-        in a multiple <b>if-then</b> sequence
-        (e.g., <b>otherwise</b> or <b>default</b>).
+        某些语言给 <b>else-if</b> 这个组合提供了单独的关键字
+        (如 <b>elseif</b>, <b>elsif</b> 和 <b>elif</b>)但它们的效果是一样的。
+        某些语言还给 <b>if-then</b> 序列最后的 <b>else</b> 语句提供了单独的关键字
+        (如 <b>otherwise</b> 或 <b>default</b>).
     </p>
 
     <!-- ------------------------------- -->
     <hr width="50%">
 
     <a name="select"></a>
-    <h3> select </h3>
+    <h3> 选择语句 </h3>
 
     <p>
-        Most structured programming languages provide some kind of multiple
-        selection control construct
-        (variously known as <b>case</b>, <b>select</b>, <b>switch</b>, <b>examine</b>,
-        <b>inspect</b>, <b>choose</b>, <b>when</b>, etc.).
-        This is designed to replace the multiple <b>if-then</b> construct, making it
-        more obvious what the intended meaning is, i.e., selecting one of several
-        choices for a given expression value:
+        大多数结构化的编程语言都提供某种类型的 多个选择 的控制结构
+        (如 <b>case</b>, <b>select</b>, <b>switch</b>, <b>examine</b>,
+        <b>inspect</b>, <b>choose</b>, <b>when</b>, 诸如此类).
+        设计出这个语句旨在替换 多个<b>if-then</b>的序列，让原本的意图更清楚，即，用给定的表达式值来选择多个选项之一：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>select</b> <i>expression</i> <b>in</b>
-    <b>case</b> <i>constant<sub>1</sub></i>:
-        <i>statement<sub>1</sub></i>
+<pre><b>select</b> <i>表达式</i> <b>in</b>
+    <b>case</b> <i>常量<sub>1</sub></i>:
+        <i>语句<sub>1</sub></i>
 
-    <b>case</b> <i>constant<sub>2</sub></i>:
-        <i>statement<sub>2</sub></i>
+    <b>case</b> <i>常量<sub>2</sub></i>:
+        <i>语句<sub>2</sub></i>
 
-    <b>case</b> <i>constant<sub>3</sub></i>:
-        <i>statement<sub>3</sub></i>
+    <b>case</b> <i>常量<sub>3</sub></i>:
+        <i>语句<sub>3</sub></i>
 
     <b>default</b>:
-        <i>statement<sub>4</sub></i>
+        <i>语句<sub>4</sub></i>
 <b>end</b>
 </pre>
             </td>
@@ -1074,39 +1052,36 @@ label2:
         </tbody></table>
 
     <p>
-        This is equivalent to the sequence of multiple <b>if-then</b> statements
-        shown above, with the <b>default</b> selection acting the part of the last
-        <b>else</b> clause.
-        Some older languages do not provide a <b>default</b> or <b>otherwise</b> clause.
+        这与之前展示的的多个 <b>if-then</b> 语句序列是等价的，其中 <b>default</b> 充当最后的 <b>else</b> 语句.
+        某些语言不提供 <b>default</b> 或 <b>otherwise</b> 语句。
     </p>
 
     <p>
-        The <b>select</b> statement can be implemented in machine code as something like
-        the following:
+        <b>select</b> 语句可以在被表示成如下的机器码：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre># select statement
+<pre># select 语句
     move <i>expression</i>, reg1
     cmp  reg1, <i>constant<sub>1</sub></i>
     <b>jump</b> not equal, label1
-    <i>statement<sub>1</sub></i>
+    <i>语句<sub>1</sub></i>
     <b>jump</b> label4
 label1:
     cmp  reg1, <i>constant<sub>2</sub></i>
     <b>jump</b> not equal, label2
-    <i>statement<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
     <b>jump</b> label4
 label2:
     cmp  reg1, <i>constant<sub>3</sub></i>
     <b>jump</b> not equal, label3
-    <i>statement<sub>3</sub></i>
+    <i>语句<sub>3</sub></i>
     <b>jump</b> label4
 label3:
-    <i>statement<sub>4</sub></i>
+    <i>语句<sub>4</sub></i>
 label4:
     ...
 </pre>
@@ -1115,20 +1090,13 @@ label4:
         </tbody></table>
 
     <p>
-        More efficient implementations are possible, such as using an index into a
-        jump table, or rearranging the comparisons to emulate an unrolled binary search,
-        etc.
-        Some CPUs provide special instructions for implementing <b>select</b>
-        statements directly in machine code by utilizing a small jump table.
+        可能有效率更高的实现，例如 在跳转表中使用索引 (using an index into a jump table)或者把这些比较的次序比较重新排列以模拟展开后的二分搜索。
+有些 CPU 提供了特殊的指令将 <b>select</b> 语句在机器码上实现成小的跳转表
     </p>
 
     <p>
-        Some languages (notably C, C++, Java, C#, and other languages derived from C)
-        allow for more complicated control flow by allowing each <b>case</b> statement
-        to "fall through" to the next <b>case</b> clause.
-        Purists say this sullies an otherwise logically clean control construct,
-        while pragmatists say that it allows for more efficient code in many
-        difficult programming situations.
+        某些语言 (特别是 C, C++, Java, C#, 还有其他语法从 C 派生的语言)
+        通过允许每个 <b>case</b> 语句“落入”下一个 <b>case</b> 语句，从而允许更为复杂的控制流。纯粹主义者说，这会破坏逻辑上原本干净的控制结构，而实用主义者则说，它让许多困难的编程情况下代码更高效。
     </p>
 
     <!-- ------------------------------- -->
@@ -1546,10 +1514,9 @@ nextloop:
     </p>
 
     <!-- ------------------------------- -->
-    <hr width="50%></hr>
+    <hr width="50%">
 
-<a name=" loop-exits"="">
-    <h3> Loop Exits </h3>
+    <h3 id="loop-exits"> Loop Exits </h3>
 
     <p>
         Dijkstra's call for the complete elimination of goto statements
@@ -2542,7 +2509,7 @@ reducing:
         <a href="http://david.tribble.com/text/goto.html">http://david.tribble.com/text/goto.html</a>.
     </p>
 
-</i></font><i>
+</i></span><i>
 
 
     <!--
@@ -2555,9 +2522,5 @@ reducing:
     =emCo
     -----END PGP SIGNATURE-----
     !-->
-</i></li><div class="xl-chrome-ext-bar" id="xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}" style="display: none;">
-    <div class="xl-chrome-ext-bar__logo"></div>
-
-    <a id="xl_chrome_ext_download" href="javascript:;" class="xl-chrome-ext-bar__option">下载视频</a>
-    <a id="xl_chrome_ext_close" href="javascript:;" class="xl-chrome-ext-bar__close"></a>
-</div></body></html>
+</i>
+</body></html>
