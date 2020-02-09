@@ -57,7 +57,7 @@
 
 <h3 align="center">
     Emon Wang <br>
-    翻译版本 0.1，2020-2-7
+    翻译版本 0.2，2020-2-7
 </h3>
 <!-- ------------------------------- -->
 <hr width="50%">
@@ -73,7 +73,7 @@
  </li><li>
   <a href="#part-3">      第三部分 - Goto 还有使用必要性吗？</a>
  </li><li>
-  <a href="#conclusion">  总结 - Goto 的使用之道</a>
+  <a href="#conclusion">  总结 - Goto 之道</a>
  </li><li>
   <a href="#references">  参考文献</a>
 </li>
@@ -216,7 +216,7 @@
 
                     <a name="para-1"></a>
                     <p>
-                        数年来我观察到，程序员的素质是他们程序中 <b>goto</b> 语句出现密度的递减函数。最近我发现了为什么使用 <b>goto</b> 语句会造成灾难性的后果，因此我深信应该从所有“高级”编程语言（即除普通机器代码之外的所有内容）中废除 <b>goto</b> 语句。当时我并不十分重视这个发现。现在，这个主题在最近讨论中的出现敦促了我将我的想法发表。
+                        数年来我观察到，程序员的素质是他们程序中 <b>go to</b> 语句出现密度的递减函数。最近我发现了为什么使用 <b>go to</b> 语句会造成灾难性的后果，因此我深信应该从所有“高级”编程语言（即除普通机器代码之外的所有内容）中废除 <b>go to</b> 语句。当时我并不十分重视这个发现。现在，这个主题在最近讨论中的出现敦促了我将我的想法发表。
                     </p>
                 </font>
             </td>
@@ -245,7 +245,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-2"></a>
                     <p>
-                        我的第一句话是，尽管程序员的活动(activity) 在他完成了一个正确程序的时候就结束了， 然而它真正的主体部分，其实是这个程序所控制的流程(process)，因为它必须要实现程序员所期望的效果，也必须在动态特性上满足编程者所期望的规范。不过，一旦程序被编写完成，相关流程的完成就交给机器了。
+                        我的第一句话是，尽管程序员的活动(activity) 在他完成了一个正确程序就结束了， 然而程序员的活动真正的主体部分，其实是这个程序所控制的流程(process)，因为这个流程必须要达到程序员所期望的效果，也必须在动态的表现上满足编程者所期望的规范。不过，一旦程序被编写完成，相关流程的完成就交给机器了。
                     </p>
                     <p></p>
                 </font>
@@ -262,11 +262,11 @@
                         这一段技术密集的措辞是Dijkstra学术写作风格的典型代表。
                     </p>
                     <p>
-                        这仅意味着程序员执行的实际活动不仅是编写程序，还包括控制在计算机上执行代码时代码的行为。但他说，一旦程序员编写了一个工作程序，程序的实际执行就完全只靠机器本身控制。
+                        这句话仅意味着程序员执行的实际活动不仅是编写程序，还包括控制在代码在机器执行时代码的行为。然而他说，一旦程序员编写了一个工作程序，程序的实际执行就完全只靠机器本身控制。
                     </p>
 
                     <p>
-                        Dijkstra使用“正确”一词来描述没有错误的程序，或者按照目前的说法，没有bug。该术语反映了当时的代码可以进行“形式化验证”的信念，即代码可以进行一系列的数学和逻辑操作，证明该代码包含错误（逻辑错误，约束错误，不变错误...），或者没有，因此可以<i>证明是正确的</i>。正如上面的<a href="#background">背景</a>部分所述，计算机科学家（或至少程序员）今天并不以这种方式考虑编程。
+                        Dijkstra使用“正确”一词来描述没有 错误 (error) ，或者按照目前的说法，没有 bug 的程序。“错误”一词反映了当时可以写出能进行“形式化验证”的代码的信念，即代码可以进行一系列的数学和逻辑操作，证明该代码包含错误（逻辑错误，约束错误 (constraint error)，不变错误 (invariant error) ...），或代码没有错误即可以<i>证明是正确的</i>。正如上面的<a href="#background">背景</a>部分所述，计算机科学家（或至少程序员）今天并不以这种方式考虑编程。
                     </p>
                 </font>
             </td>
@@ -291,11 +291,11 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra在这里观察到，与动态关系相比，人类更擅长想象静态关系。因此他认为，将两种关系表示为程序代码时，我们应将两者之间的差异最小化，以便在源代码本身的结构中明显看出程序的动态（非恒定）方面。
+                        Dijkstra在这里观察到，与动态关系相比，人类更擅长想象静态关系。因此他认为，将两种关系用程序代码来表达时，我们应将两种关系之间的差异最小化，以便在源代码本身的结构中明显看出程序的动态（非恒定）方面。
                     </p>
 
                     <p>
-                        对当前大多数以线性，按语句顺序的方式运行的编程语言来说这说法都是对的。但是，当我们观察到现实世界中的编程任务必须处理的复杂性（例如多任务，多线程，中断处理，易失性硬件寄存器，虚拟内存分页，设备延迟，实时事件处理等等，仅举几例）时，在某种程度上，Dijkstra的原则尚未完全实现。简单的一次执行一行的程序执行模型已不足解决当今的编程问题。
+                        对当前大多数以线性，按语句顺序的方式运行的编程语言来说这说法都是对的。但是，当我们观察到现实世界中的编程任务必须处理的复杂性（例如多任务，多线程，中断处理，易失性硬件寄存器，虚拟内存分页，设备延迟，实时事件处理等等，仅举几例）时，在某种程度上，Dijkstra的行为准则尚未完全实现。简单的一次执行一行的程序执行模型已不足解决当今的编程问题。
                     </p>
                 </font>
             </td>
@@ -307,7 +307,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-4"></a>
                     <p>
-                        现在让我们考虑如何表示一个流程的进度 (progress of a process)。（您可能会以一种非常具体的方式考虑这个问题：假设一个流程（按时间顺序的一串行为）在某个行为 (action) 之后停止，我们必须修正哪些数据才能重做整个流程直到停止的那一点？）假设程序文本纯粹是赋值语句的序列（为方便讨论，赋值语句被视为单个行为的描述），则表示进度只要指向两个 <i>连续的行为的描述</i> (successive action descriptions) 之间的一点就够了。
+                        现在让我们考虑如何表示一个流程的进度 (progress of a process)。（您可能会以一种非常具体的方式考虑这个问题：假设一个流程（按时间顺序的一串行为(action) ）在某个行为之后停止，我们必须确定哪些数据才能重新到流程停止的那一点？）假设程序文本纯粹是赋值语句的序列（为方便讨论，赋值语句被视为单个行为的描述），则表示进度只要指向程序文本中两个 <i>连续的行为的描述</i> (successive action descriptions) 之间的一点就够了。
                     </p>
                     <p></p>
                 </font>
@@ -337,7 +337,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-4b"></a>
                     <p>
-                        （在没有 <b>goto</b> 语句的情况下，我可以允许自己在上一句的后三个词(successive action descriptions)中出现句法歧义：如果我们将它们解释成为“连续的（行为的描述）”，则表示在文本空间中是连续的；如果我们将它们解释为“（连续的行为）的描述”则是指时间上连续的。）让我们将指向文本中适当位置的指针称为“文本索引 (textual index)”。
+                        （在没有 <b>go to</b> 语句的情况下，我可以允许自己在上一句的后三个词(successive action description)中出现句法歧义：如果我们将它们解释成为“连续的（行为的描述）”，则表示在文本空间中是连续的；如果我们将它们解释为“（连续的行为）的描述”则是指时间上连续的。）让我们将指向文本中适当位置的指针称为“文本索引 (textual index)”。
                     </p>
                     <p></p>
                 </font>
@@ -355,7 +355,7 @@
                     </p>
 
                     <p>
-                        他的术语 文本索引 (textual index) 实质上是一个 程序计数器 （Program Counter）。但是，他试图超越简单地跟踪当前执行线程的位置，而在源代码文本中的语句与程序执行状态之间建立显式连接。因此，更好的术语可能是 语句指针 (statement pointer) 。
+                        他的术语 文本索引 (textual index) 实质上是一个 程序计数器 （program counter）。但是，他试图超越简单地跟踪当前线程 (thread) 执行到的位置，而在源代码文本中的语句与程序执行状态之间建立显式连接。因此，更好的术语可能是 语句指针 (statement pointer) 。
                     </p>
                 </font>
             </td>
@@ -367,20 +367,20 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-5"></a>
                     <p>
-                        当我们纳入 条件语句
+                        当我们纳入 条件语句 (conditional clause)
                         (<b>if</b>&nbsp;<i>B</i>&nbsp;<b>then</b>&nbsp;<i>A</i>)，
-                        可选择的条件语句
+                        可选择的条件语句 (alternative clauses)
                         (<b>if</b>&nbsp;<i>B</i> <b>then</b>&nbsp;<i>A</i><sub>1</sub>
                         <b>else</b>&nbsp;<i>A</i><sub>2</sub>)，
-                        由C. A. R. Hoare引入的 选择语句
+                        由C. A. R. Hoare引入的 选择语句 (choice clause)
                         (<b>case</b>[i]&nbsp;<b>of</b>
                         (<i>A</i><sub>1</sub>, <i>A</i><sub>2</sub>, ···,
-                        <i>A<sub>n</sub></i>))，或J. McCarthy引入的 条件表达式
+                        <i>A<sub>n</sub></i>))，或J. McCarthy引入的 条件表达式 (conditional expression)
                         (<i>B</i><sub>1</sub>&nbsp;→&nbsp;<i>E</i><sub>1</sub>,
                         <i>B</i><sub>2</sub>&nbsp;→&nbsp;<i>E</i><sub>2</sub>,
                         ···,
                         <i>B<sub>n</sub></i>&nbsp;→&nbsp;<i>E<sub>n</sub></i>)，
-                        事实上，流程进度还是由 文本索引 表示。
+                        事实上，流程进度还是由一个 文本索引 表示。
                     </p>
                     <p></p>
                 </font>
@@ -395,7 +395,7 @@
                 <font color="#000000" face="helvetica,arial">
                     <p>
 
-                        Dijkstra引入了更复杂的流控制语句 (flow control statements)，例如 <b>if-then-else</b>条件语句和<b>case</b> （又称为<b>select</b>或<b>switch</b>）选择语句，并指出这些不会改变其 文本索引 （或 语句指针 ）的基本性质。
+                        Dijkstra引入了更复杂的流控制语句 (flow control statement)，例如 <b>if-then-else</b>条件语句和<b>case</b> （又称为<b>select</b>或<b>switch</b>）选择语句，并指出这些不会改变其 文本索引 （或 语句指针 ）的基本性质。
 
                     </p>
 
@@ -417,7 +417,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-6"></a>
                     <p>
-                        一旦我们的语言里包括了 子过程 (procedures)，我们就必须承认单一的文本索引已不再足够描述流程进度。在文本索引指向子过程体内部的情况下，只有当我们还同时给出是在哪一处调用子过程时才能表示动态流程的进度。包含了子过程，我们可以通过一系列文本索引来表征流程的进度，该序列的长度等于子过程调用的动态深度。
+                        一旦我们的语言里包括了 子过程 (procedure)，我们就必须承认单一的文本索引已不再足够描述流程进度。在文本索引指向子过程体内部的情况下，只有当我们还同时给出是在哪一处调用子过程时才能表示动态流程的进度。包含了子过程，我们可以通过一系列文本索引来表征流程的进度，该序列的长度等于子过程调用的动态深度。
                     </p>
                     <p></p>
                 </font>
@@ -431,12 +431,12 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        这表明，如果程序使用 子过程 （通常称为 过程 ，函数 或 方法 ）， 则单个语句指针不足以定义正在执行的程序的状态 。为了处理这种额外的复杂性，Dijkstra定义了 一系列文本索引 (a sequence of textual indices)。
+                        这表明，如果程序使用 子过程 （通常称为过程，函数或方法）， 则单个语句指针不足以定义正在执行的程序的状态 。为了处理这种额外的复杂性，Dijkstra定义了 一系列文本索引 (a sequence of textual indices)。
 
                     </p>
 
                     <p>
-                        这表示了现代术语称为 调用栈 (call stack)的信息，它是程序计数器（也称为 返回地址 ）的数组，每个计数器都指定从其进行过程调用的最后一条语句。但由于他正在建立文本索引与程序执行状态之间的显式关系，因此将调用堆栈视为语句指针数组会更正确。所需的语句指针的数量仅仅是执行中给定点当前处于活动状态的过程调用的数量，即调用堆栈的深度。
+                        现代术语称此为 调用栈 (call stack)，它是程序计数器（也称为 返回地址 ）的数组，每个计数器都指定从其进行过程调用的最后一条语句。但由于他正在建立文本索引与程序执行状态之间的关联，因此将调用堆栈视为语句指针数组会更正确。所需的语句指针的数量仅仅是执行中给定的一点调用的处于活动状态的子过程数量，即调用栈的深度。
                     </p>
                 </font>
             </td>
@@ -448,7 +448,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-7"></a>
                     <p>
-                        现在让我们考虑 重复语句 (repetition clauses)（例如， <b>while</b> <i>B</i> <b>repeat</b> <i>A</i> 或 <b>repeat</b> <i>A</i> <b>until</b> <i>B</i>）。从逻辑上讲，这样的语句现在是多余的，因为我们可以借助递归过程来表示重复。出于现实的原因，我不希望将它们排除在外：一方面，重复语句在当今的设备已经相当好地实现了；另一方面，称为“归纳法”的推理模式使我们有足够的智力掌握重复语句产生的过程。
+                        现在让我们考虑 重复语句 (repetition clause)（例如， <b>while</b> <i>B</i> <b>repeat</b> <i>A</i> 或 <b>repeat</b> <i>A</i> <b>until</b> <i>B</i>）。从逻辑上讲，这样的语句是多余的，因为我们可以借助递归过程来表示重复。出于现实的原因，我不希望将它们排除在外：一方面，重复语句在当今的设备已经相当好地实现了；另一方面，称为“归纳法”的推理模式使我们有足够的智力掌握重复语句产生的过程。
                     </p>
                     <p></p>
                 </font>
@@ -466,9 +466,8 @@
                     </p>
 
                     <p>
-                        这反映了一个事实，当时递归非常流行，许多人（尤其是学术界人士）认为递归是表示程序和算法的一种高级形式。流行的原因是，递归定义具有严格的数学历史，特别是 递归公式 (recursive formulas) 和 递推关系 (recurrence relations) 。 递归公式 和 递推关系 处理递归定义的序列，其中序列中的每个元素都用简单的术语和该序列中的先前元素进行定义。两个经典示例是阶乘函数
-                        <b>n!&nbsp;=&nbsp;n(n-1)!</b>,
-                        ，以及斐波那契数列
+                        这反映了一个事实，当时递归非常流行，许多人（尤其是学术界人士）认为递归是表示程序和算法的一种高级形式。流行的原因是，递归定义具有严格的数学历史，特别是 递归公式 (recursive formula) 和 递推关系 (recurrence relation) 。 递归公式 和 递推关系 处理递归定义的序列，其中序列中的每个元素都用简单的术语和该序列中的先前元素进行定义。两个经典示例是阶乘函数
+                        <b>n!&nbsp;=&nbsp;n(n-1)!</b>， 以及斐波那契数列
                         <b>F<sub>i</sub>&nbsp;=&nbsp;F<sub>i-2</sub>&nbsp;+&nbsp;F<sub>i-1</sub></b>.
                     </p>
 
@@ -477,7 +476,7 @@
                     </p>
 
                     <p>
-                        Dijkstra提到，迭代语句可以在 资源有限的设备 (finite equipment)上实现 ，这当然是所有实际存在的计算机的本质，无论它们拥有多少虚拟内存。这种微妙的方式承认某些形式的递归需要潜在的无限资源（即无限调用堆栈）。考虑一个典型的嵌入式应用程序，它具有一个主程序循环，该循环轮询一个事件，处理该事件，然后等待下一个事件，永远这么循环。这样的无限循环确实可以写成尾递归过程调用，但是那有什么意义呢？使用这种更复杂的为了递归而递归的方式将无法在大多数实际的系统上进行编程。
+                        Dijkstra提到，迭代语句可以在 资源有限的设备 (finite equipment)上实现 ，这当然是所有实际存在的计算机的本质，无论它们拥有多少虚拟内存。这种微妙的方式承认某些形式的递归需要潜在的无限资源（即无限调用堆栈）。考虑一个典型的嵌入式应用程序，它具有一个主程序循环，该循环轮询一个事件，处理该事件，然后等待下一个事件，永远这么循环。这样的无限循环确实可以写成尾递归过程调用，但是那有什么意义呢？使用这种更复杂的、为了递归而递归的方式将无法在大多数实际的系统上进行编程。
                     </p>
 
                     <p>
@@ -503,7 +502,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-7b"></a>
                     <p>
-                        加上重复语句，文本索引已不足以描述流程的进度。然而，在每次进入重复语句时，我们都可以关联一个所谓的“动态索引”(dynamic index)，从而无休止地记录当前进入的重复语句的次序。由于重复语句（就像过程调用一样）可以嵌套应用，因此我们发现，过程的进度现在可以通过文本索引和/或动态索引的（混合）序列来唯一地表示。
+                        加上重复语句，文本索引已不足以描述流程的进度。然而，在每次进入重复语句时，我们都可以关联一个所谓的“动态索引”(dynamic index)，从而无休止地记录当前进入的重复语句的次序。由于重复语句（就像过程调用一样）可以嵌套应用，因此我们发现，流程的进度现在可以通过文本索引和/或动态索引的（混合）序列来唯一地表示。
                     </p>
                     <p></p>
                 </font>
@@ -551,7 +550,7 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra再次指出，显而易见的是，一旦编写并运行了程序，程序员将不再对实际程序执行具有任何控制权。执行由执行过程中任何给定时间点的调用堆栈和循环迭代堆栈的内容表示——Dijkstra称为程序执行的 独立坐标 (independent coordinates)，而我们可以将其简称为程序的 状态 (state)或 执行历史 (execution history)。
+                        Dijkstra再次指出，显而易见的是，一旦编写并运行了程序，程序员将不再对实际程序执行具有任何控制权。程序的执行情况由执行过程中任何给定时间点的调用堆栈和循环迭代堆栈的内容表示—— Dijkstra 称为程序执行的 独立坐标 (independent coordinate)，而我们可以将其简称为程序的 状态 (state)或 执行历史 (execution history)。
                     </p>
                 </font>
             </td>
@@ -564,7 +563,7 @@
                     <a name="para-9"></a>
                     <p>
                         为什么我们需要这样的独立坐标？原因是——这似乎是顺序流程所固有的——我们只能根据流程的进度来解释变量的值。
-                        如果我们希望计算一个最初是空的房间其中的人数<i>n</i>那么只要看到有人进入房间，我们就可以通过将<i>n</i> 增加一 。在此刻之间，我们观察到有人进入房间但尚未执行随后的<i>n</i>的增加 , <i>n</i> 的值等于房间中的人数减去一
+                        如果我们希望计算一个最初是空的房间其中的人数 <i>n</i> 那么只要看到有人进入房间，我们就可以通过将 <i>n</i> 增加一 。在此刻之间，我们观察到有人进入房间但尚未执行随后的 <i>n</i> 的增加 ,  <i>n</i> 的值等于房间中的人数减去一
                     </p>
                 </font>
             </td>
@@ -604,7 +603,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-10"></a>
                     <p>
-                        <b>goto</b> 语句的滥用会导致很难找到有意义的 坐标集 (set of coordinates) 来描述流程进度。通常，人们也会考虑一些精心选择的变量的值，但这是不可能的，因为要知道，这些值的理解与流程进度有关！当然，使用 <b>goto</b> 语句，仍然可以通过计数器来唯一地描述进度，该计数器对自程序启动以来 执行的行为个数 (number of actions performed) 进行计数（即一种标准化的时钟 (normalized clock)）。困难在于，尽管这样的坐标是各不相同的，但却完全无济于事。因为在这样<i>n</i> 居然等于房间人数减一的坐标系统中，定义所有的流程点变得极度复杂！
+                        <b>go to</b> 语句的滥用会导致很难找到有意义的 坐标集 (set of coordinates) 来描述流程进度。通常，人们也会考虑一些精心选择的变量的值，但这是不可能的，因为要知道，这些值的理解与流程进度有关！当然，使用 <b>go to</b> 语句，仍然可以通过计数器来唯一地描述进度，该计数器对自程序启动以来 执行的行为个数 (number of actions performed) 进行计数（即一种标准化的时钟 (normalized clock)）。困难在于，尽管这样的坐标是各不相同的，但却完全无济于事。因为在这样 <i>n</i> 居然等于房间人数减一的坐标系统中，定义所有的流程点变得极度复杂！
                     </p>
                     <p></p>
                 </font>
@@ -618,11 +617,11 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        终于在这里，我们达到了Dijkstra关于底层的 goto 陈述的论点的症结。本质上，Dijkstra 认为，在程序中对goto语句的“无限制使用”会模糊程序的执行状态和历史记录，因此在任何给定时刻，调用堆栈和循环迭代堆栈的值不再足以确定程序变量的值。
+                        终于在这里，我们达到了Dijkstra关于底层的 goto 陈述的论点的症结。本质上，Dijkstra 认为，在程序中对 goto 语句的“无限制使用”会模糊程序的执行状态和历史记录，因此在任何给定时刻，调用堆栈和循环迭代堆栈的值不再足以确定程序变量的值。
                     </p>
 
                     <p>
-                        以下事实导致了这种混乱：不受约束的goto 语句可以在控制完成之前将控制权从循环中移出，并且同样可以将控制权转移到已经迭代的循环中间。两种情况都使修改循环迭代堆栈中的计数器的方式变得复杂。
+                        以下事实导致了这种混乱：不受约束的 goto 语句可以在控制完成之前将控制权从循环中移出，并且同样可以将控制权转移到已经迭代的循环中间。两种情况都使修改循环迭代堆栈中的计数器的方式变得复杂。
                     </p>
 
                     <p>
@@ -646,7 +645,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-11"></a>
                     <p>
-                        现在的 <b>goto</b> 语句太原始了；太多地把程序弄得一团糟。如果控制goto的使用，它还是可以被考虑使用并被欣赏的。我并不是说我详尽无遗的提及了可满足所有需要的语句，但是无论提出什么语句（例如 终止语句 (abortion clauses)），它们都用有用且易于管理的方式满足了维护一个描述流程的，与程序员无关的坐标系 (a programmer independent coordinate system) 的要求。
+                        现在的 <b>go to</b> 语句太原始了；太多地把程序弄得一团糟。如果控制goto的使用，它还是可以被考虑使用并被欣赏的。我并不是说我详尽无遗的提及了可满足所有需要的语句，但是无论提出什么语句（例如 终止语句 (abortion clauses)），它们都用有用且易于管理的方式满足了维护一个描述流程的，与程序员无关的坐标系 (a programmer independent coordinate system) 的要求。
                     </p>
                     <p></p>
                 </font>
@@ -664,15 +663,15 @@
                     </p>
 
                     <p>
-                        把 goto 语句的使用限制在一些简单的、结构良好的控制，例如从循环中提前退出，错误处理 (error handling)（又称异常 (exceptions)）等等可以将 goto 语句带回到 结构化的控制流修正领域 (structured control flow modification)。但是，如果某种语言没有强制实施这些限制的规则，就不能说这语言提供的 goto 语句结构合理。
+                        把 goto 语句的使用限制在一些简单的、结构良好的控制，例如从循环中提前退出，错误处理 (error handling)（又称异常 (exception)）等等可以将 goto 语句带回到 结构化的控制流修正领域 (structured control flow modification)。但是，如果某种语言没有强制实施这些限制的规则，就不能说这语言提供的 goto 语句结构合理。
                     </p>
 
                     <p>
-                        Dijkstra承认并非某种语言提供的所有流控制结构都可以满足所有编程需求。这意味着对于那些需要更复杂的流控制的罕见编程情况，goto仍然占有一席之地。
+                        Dijkstra承认并非某种语言提供的所有流控制结构都可以满足所有编程需求。这意味着对于那些需要更复杂的流控制的罕见编程情况，goto 仍然占有一席之地。
                     </p>
 
                     <p>
-                        Dijkstra提到了 终止语句 (abortion clauses) 或现在通常称为  异常处理程序 (exception handlers)的内容，暗示这些东西实际上是可以通过定义使其在结构化语言的范围内表现良好的花哨 goto ，即这些 goto 不会以偶然的方式破坏执行状态
+                        Dijkstra提到了 终止语句 (abortion clause) 或现在通常称为  异常处理程序 (exception handlers)的内容，暗示这些东西实际上是可以通过定义使其在结构化语言的范围内表现良好的花哨 goto ，即这些 goto 不会以偶然的方式破坏执行状态
                     </p>
 
                     <p>
@@ -692,7 +691,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-12"></a>
                     <p>
-                        用公正的承认来结束这篇文章是很难的。我要判断我的思想受到谁影响吗？很显然，我并不是没受到 Peter Landin 和 Christopher Strachey 的影响。最后，我想记录一下（我记得很清楚） Heinz Zemanek 在1959年初在哥本哈根举行的 pre-ALGOL 会议上如何明确表达了他的疑问，即对 <b>goto</b> 语句是否语法上应与赋值语句一视同仁。在一定程度上，我责怪自己没有描绘出他讲话的后果。
+                        用公正的承认来结束这篇文章是很难的。我要判断我的思想受到谁影响吗？很显然，我并不是没受到 Peter Landin 和 Christopher Strachey 的影响。最后，我想记录一下（我记得很清楚） Heinz Zemanek 在1959年初在哥本哈根举行的 pre-ALGOL 会议上如何明确表达了他的疑问，即对 <b>go to</b> 语句是否语法上应与赋值语句一视同仁。在一定程度上，我责怪自己没有描绘出他讲话的后果。
                     </p>
                     <p></p>
                 </font>
@@ -718,9 +717,9 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-13"></a>
                     <p>
-                        <b>goto</b> 语句不合需要的说法并非新鲜事物。我记得已经阅读了明确的建议，建议上明确推荐只用 <b>goto</b> 提示退出 (alarm exits)，但是我无法对其进行跟踪。据推测，它是由C. A. R. Hoare制造的。在[<a href="#WIRTH66">1</a>, Sec.&nbsp;3.2.1] Wirth and Hoare 共同朝着推动 <b>case</b> 语句 的方向发表了看法：
+                        <b>go to</b> 语句不合需要的说法并非新鲜事物。我记得已经阅读了明确的建议，建议上明确推荐只用 <b>go to</b> 提示退出 (alarm exit)，但是我无法对其进行跟踪。据推测，它是由C. A. R. Hoare制造的。在[<a href="#WIRTH66">1</a>, Sec.&nbsp;3.2.1] Wirth and Hoare 共同朝着推动 <b>case</b> 语句 的方向发表了看法：
                     </p><blockquote>
-                    “与条件语句类似，它比 <b>goto</b>语句和 switch 更清晰地反映了程序的动态结构，并且消除了在程序中引入大量 标签 (labels) 的需要。”
+                    “与条件语句类似，它比 <b>go to</b> 语句和 switch 更清晰地反映了程序的动态结构，并且消除了在程序中引入大量 标签 (labels) 的需要。”
                 </blockquote>
                 </font>
             </td>
@@ -733,7 +732,7 @@
             <td colspan="2" bgcolor="#F0F0E0">
                 <font color="#000000" face="helvetica,arial">
                     <p>
-                        Dijkstra 指出，可以将 goto 语句（仅）用于 提示退出 (alarm exits)，我们将其称为 致命异常(fatal exceptions)。对于缺少健壮的异常处理机制的语言，goto 可能是唯一的实用替代品。
+                        Dijkstra 指出，可以将 goto 语句（仅）用于 提示退出 (alarm exit)，我们将其称为 致命异常(fatal exception)。对于缺少健壮的异常处理机制的语言，goto 可能是唯一的实用替代品。
                     </p>
 
                     <p>
@@ -749,7 +748,7 @@
                 <font color="#0000B0" face="times,times roman,serif" size="+1">
                     <a name="para-14"></a>
                     <p>
-                        在 [<a href="#BOHM66">2</a>] 中，Guiseppe Jacopini 似乎证明了 <b>go&nbsp;to</b> 语句的（逻辑）多余。但是，不建议您尝试将某个流程图机械地转换为 无跳跃 (jump-less) 的流程图。不要期望这样得到的流程图比原始流程图更透明。
+                        在 [<a href="#BOHM66">2</a>] 中，Guiseppe Jacopini 似乎证明了 <b>go to</b> 语句的（逻辑）多余。但是，不建议您尝试将某个流程图机械地转换为 无跳跃 (jump-less) 的流程图。不要期望这样得到的流程图比原始流程图更透明。
                     </p>
                     <p></p>
                 </font>
@@ -922,7 +921,7 @@ endif1:
         </tbody></table>
 
     <p>
-        <b>if-then</b> 语句 可以被表示成类似下面的机器码:
+        <b>if-then</b> 语句 可以被下面的机器码实现:
     </p>
 
     <p></p>
@@ -941,7 +940,7 @@ label1:
         </tbody></table>
 
     <p>
-        <b>if-then-else</b> 语句的机器码表示类似:
+        <b>if-then-else</b> 语句的机器码实现类似:
     </p>
 
     <p></p>
@@ -1057,14 +1056,14 @@ label2:
     </p>
 
     <p>
-        <b>select</b> 语句可以在被表示成如下的机器码：
+        <b>select</b> 语句可以被下面的机器码实现：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre># select 语句
+<pre># select statement
     move <i>expression</i>, reg1
     cmp  reg1, <i>constant<sub>1</sub></i>
     <b>jump</b> not equal, label1
@@ -1102,14 +1101,10 @@ label4:
     <!-- ------------------------------- -->
     <hr width="50%">
 
-    <a name="do-while"></a>
-    <h3> do-while </h3>
+    <h3 id="do-while"> do-while </h3>
 
     <p>
-        This is the simplest form of iteration provided by most structured programming
-        languages.
-        Two variants are generally provided, one with the conditional test before the
-        loop body (providing at least one iteration):
+        这是大部分结构化编程语言提供的最简单的迭代形式。通常提供两种变体，一种在循环体之前进行条件测试（至少迭代一次）：
     </p>
 
     <p></p>
@@ -1117,24 +1112,23 @@ label4:
         <tbody><tr>
             <td>
 <pre><b>do</b>
-    <i>statements</i>
-<b>while</b> <i>conditional_expression</i>
+    <i>语句</i>
+<b>while</b> <i>条件表达式</i>
 </pre>
             </td>
         </tr>
         </tbody></table>
 
     <p>
-        The other form places the conditional test after
-        the loop body (providing zero or more iterations):
+        另一种形式是将条件测试放在循环体之后（零次或多次迭代）：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>while</b> <i>conditional_expression</i> <b>do</b>
-    <i>statements</i>
+<pre><b>while</b> <i>条件表达式</i> <b>do</b>
+    <i>语句</i>
 <b>end</b>
 </pre>
             </td>
@@ -1142,8 +1136,7 @@ label4:
         </tbody></table>
 
     <p>
-        These constructs are functionally equivalent to the following code that
-        uses goto:
+        这些结构在功能上等效于使用goto的以下代码:
     </p>
 
     <p></p>
@@ -1152,8 +1145,8 @@ label4:
             <td>
 <pre># do-while
 loop:
-    <i>statements</i>
-    if <i>conditional_expression</i>
+    <i>语句</i>
+    if <i>条件表达式</i>
         <b>goto</b> loop
 </pre>
             </td>
@@ -1161,7 +1154,7 @@ loop:
         </tbody></table>
 
     <p>
-        And:
+        和:
     </p>
 
     <p></p>
@@ -1170,9 +1163,9 @@ loop:
             <td>
 <pre># while-do
 loop:
-    if not <i>conditional_expression</i>
+    if not <i>条件表达式</i>
         <b>goto</b> endloop
-    <i>statements</i>
+    <i>语句</i>
     <b>goto</b> loop
 endloop:
     ...
@@ -1182,8 +1175,7 @@ endloop:
         </tbody></table>
 
     <p>
-        These constructs can be implemented in machine code as something like the
-        following:
+        这些结构可以被下面的机器码实现:
     </p>
 
     <p></p>
@@ -1192,7 +1184,7 @@ endloop:
             <td>
 <pre># do-while statement
 label1:
-    <i>statements</i>
+    <i>语句</i>
     move <i>expression</i>, reg1
     <b>jump</b> <i>condition</i>, label1
     ...
@@ -1209,7 +1201,7 @@ label1:
 label1:
     move <i>expression</i>, reg1
     <b>jump</b> not <i>condition</i>, label2
-    <i>statements</i>
+    <i>语句</i>
     <b>jump</b> label1
 label2:
     ...
@@ -1219,48 +1211,35 @@ label2:
         </tbody></table>
 
     <p>
-        Some languages provide other variants of the <b>do-while</b> statement, e.g.,
-        <b>do-until</b> (which reverses the sense of the conditional expression).
+        一些语言提供了 <b>do-while</b>语句的其他变体，例如 <b>do-until</b> (颠倒了条件表达式的含义).
     </p>
 
     <p>
-        Some languages allow for more complicated flow control by providing clauses
-        for terminating a loop iteration early (a <b>break</b> statement)
-        or skipping the rest of the loop body and forcing the next loop iteration
-        (a <b>continue</b> statement).
-        These constructs allow for the <i>loop-and-a-half</i> situations that sometimes
-        arise (which is discussed further below).
+        一些语言通过提供子句来提早终止循环迭代 (<b>break</b> 语句) 或跳过循环主体的其余部分并强制进行下一个循环迭代 ( <b>continue</b> 语句).
+        ，从而实现更复杂的流控制。这些构造允许有时会出现 半循环 (loop-and-a-half)的情况（下面将进一步讨论）。
     </p>
 
     <p>
-        Some languages allow breaking out of nested loops with a
-        <b>labeled break</b> construct.
-        (This is discussed further in
-        Example <a href="#example-l-1">L-1</a> and
-        Example <a href="#example-n-1">N-1</a> below.)
+        一些语言允许使用 标记的 break 构造打破嵌套循环。
+            （这将在下面的示例 <a href="#example-l-1">L-1</a>和示例 <a href="#example-n-1">N-1</a> 中进一步讨论。）
     </p>
 
     <!-- ------------------------------- -->
     <hr width="50%">
 
     <a name="for-loop"></a>
-    <h3> for-loop </h3>
+    <h3> for 循环 </h3>
 
     <p>
-        Most structured programming languages provide a more complex iteration construct
-        that allows a counter or array index to be incremented or decremented with
-        each iteration.
-        This construct is functionally equivalent to a <b>do-while</b> loop,
-        but provides a clearer intent of the controlling entity (the counter or index)
-        of the loop iterations:
+        大多数结构化编程语言提供了更复杂的迭代构造，该构造允许计数器或数组索引随每次迭代递增或递减。此构造在功能上等同于 <b>do-while</b> 循环，但提供了循环迭代的控制实体（计数器或索引）的清晰意图：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
-    <i>statements</i>
+<pre><b>for</b> i = <i>低值</i> <b>to</b> <i>高值</i> <b>by</b> <i>增量</i> <b>do</b>
+    <i>语句</i>
 <b>end</b>
 </pre>
             </td>
@@ -1268,19 +1247,19 @@ label2:
         </tbody></table>
 
     <p>
-        This is equivalent to the following unstructured code that uses goto:
+        这等效于以下使用goto的非结构化代码：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre>    i = <i>low_value</i>
+<pre>    i = <i>低值</i>
 loop:
-    if i &gt; <i>high_value</i>
+    if i &gt; <i>高值</i>
         <b>goto</b> endloop
-    <i>statements</i>
-    i = i + <i>increment</i>
+    <i>语句</i>
+    i = i + <i>增量</i>
     <b>goto</b> loop
 endloop:
     ...
@@ -1290,21 +1269,19 @@ endloop:
         </tbody></table>
 
     <p>
-        This construct can be implemented in machine code as something like the
-        following:
+        这个结构可以被下面的机器码实现:
     </p>
 
-    <p></p>
     <table rows="1" cols="1" bgcolor="#FFFFC0" width="80%" align="center">
         <tbody><tr>
             <td>
 <pre># for-loop statement
-    move <i>low_value</i>, reg1
+    move <i>低值</i>, reg1
 label1:
-    cmp  reg1, <i>high_value</i>
+    cmp  reg1, <i>高值</i>
     <b>jump</b> greater, label2
-    <i>statements</i>
-    add  <i>increment</i>, reg1
+    <i>语句</i>
+    add  <i>增量</i>, reg1
     <b>jump</b> label1
 label2:
     ...
@@ -1314,40 +1291,30 @@ label2:
         </tbody></table>
 
     <p>
-        To fully support the <b>for-loop</b>, a language should handle negative
-        increment values as well.
+        为了完全支持 <b>for 循环</b>，语言也应该处理负增量值。
     </p>
 
     <p>
-        The form of the <b>for-loop</b> shown above iterates the body of the loop
-        zero or more times.
-        Other <b>for-loop</b> variants test the control variable (a.k.a. the
-        <i>loop index</i>) after the loop body, which makes the loop iterate at
-        least once.
+        上面显示的 <b>for 循环</b> 的形式将循环主体迭代零次或多次。其他 <b>for 循环</b> 变体在循环体之后测试控制变量 (又叫 <i>循环索引</i>) 这使循环至少迭代一次。
     </p>
 
     <p>
-        Other variants of the <b>for-loop</b> allow more than one loop counter
-        (or <i>loop index</i>) to be specified.
+        <b>for 循环</b> 的其他变体允许指定多个循环计数器（又叫循环索引）
     </p>
 
     <p>
-        A common programming problem is handling <i>loop-and-a-half</i> constructs,
-        i.e., a loop that must be terminated upon some condition in the middle of
-        its loop body, so that some portion of the loop body is not executed during the
-        last iteration.
-        The following code uses a <b>break</b> statement to do this:
+        一个常见的编程问题是处理 半循环 (loop-and-a-half) 的构造，即必须在某个条件下在其循环主体的中间终止一个循环，以便在最后一次迭代期间不执行循环主体的某些部分。以下代码使用 <b>break</b> 语句执行此操作：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
-    <i>statements<sub>1</sub></i>
-    if <i>condition</i>
+<pre><b>for</b> i = <i>低值</i> <b>to</b> <i>高值</i> <b>by</b> <i>增量</i> <b>do</b>
+    <i>语句<sub>1</sub></i>
+    if <i>条件</i>
         <b>break</b>
-    <i>statements<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 <b>end</b>
 </pre>
             </td>
@@ -1355,18 +1322,17 @@ label2:
         </tbody></table>
 
     <p>
-        Some languages provide special syntax specifically for terminating a loop in
-        the middle of its body:
+        某些语言提供特殊的语法，专门用于在循环主体的中间终止循环：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
-    <i>statements<sub>1</sub></i>
-<b>exit when</b> <i>condition</i>
-    <i>statements<sub>2</sub></i>
+<pre><b>for</b> i = <i>低值</i> <b>to</b> <i>高值</i> <b>by</b> <i>增量</i> <b>do</b>
+    <i>语句<sub>1</sub></i>
+<b>exit when</b> <i>条件</i>
+    <i>语句<sub>2</sub></i>
 <b>end</b>
 </pre>
             </td>
@@ -1374,22 +1340,18 @@ label2:
         </tbody></table>
 
     <p>
-        Like the <b>break</b> statement, the <b>exit&nbsp;when</b> clause allows the
-        loop to be terminated after the first half of its body has been executed but
-        before the rest of the body is executed.
-        Both forms replace the use of an explicit goto, as shown in the
-        following code:
+        与 <b>break</b> 语句一样， <b>exit&nbsp;when</b> 子句允许执行循环主体的前半部分之后在主体的其余部分执行之前终止。两种形式都代替了显式使用goto，如以下代码：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
-    <i>statements<sub>1</sub></i>
-    if <i>condition</i>
+<pre><b>for</b> i = <i>低值</i> <b>to</b> <i>高值</i> <b>by</b> <i>增量</i> <b>do</b>
+    <i>语句<sub>1</sub></i>
+    if <i>条件</i>
         <b>goto</b> endloop
-    <i>statements<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 <b>end</b>
 endloop:
     ...
@@ -1399,21 +1361,17 @@ endloop:
         </tbody></table>
 
     <p>
-        A related programming problem is coding a loop to execute a portion of its body
-        and then skip the rest if some condition occurs, forcing the next iteration of
-        the loop.
-        Some languages provide a <b>continue</b> statement for this:
+        一个相关的编程问题是使循环执行循环主体的一部分，然后在发生某些情况时跳过循环的其余部分强制执行循环的下一次迭代。一些语言为此提供了一个 <b>continue</b> 语句：
     </p>
 
-    <p></p>
     <table rows="1" cols="1" bgcolor="#E0FFE0" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
-    <i>statements<sub>1</sub></i>
-    if <i>condition</i>
+<pre><b>for</b> i = <i>低值</i> <b>to</b> <i>高值</i> <b>by</b> <i>增量</i> <b>do</b>
+    <i>语句<sub>1</sub></i>
+    if <i>条件</i>
         <b>continue</b>
-    <i>statements<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 <b>end</b>
 </pre>
             </td>
@@ -1421,19 +1379,18 @@ endloop:
         </tbody></table>
 
     <p>
-        This replaces the use of an explicit goto, as shown in the following
-        code:
+        这代替了显式使用一个 goto 语句，如下所示：
     </p>
 
     <p></p>
     <table rows="1" cols="1" bgcolor="#E8E8E8" width="80%" align="center">
         <tbody><tr>
             <td>
-<pre><b>for</b> i = <i>low_value</i> <b>to</b> <i>high_value</i> <b>by</b> <i>increment</i> <b>do</b>
-    <i>statements<sub>1</sub></i>
-    if <i>condition</i>
+<pre><b>for</b> i = <i>低值</i> <b>to</b> <i>高值</i> <b>by</b> <i>增量</i> <b>do</b>
+    <i>语句<sub>1</sub></i>
+    if <i>条件</i>
         <b>goto</b> nextloop
-    <i>statements<sub>2</sub></i>
+    <i>语句<sub>2</sub></i>
 nextloop:
 <b>end</b>
 </pre>
@@ -1447,91 +1404,48 @@ nextloop:
     <hr width="50%">
 
     <a name="other-languages"></a>
-    <h2> Other Approaches </h2>
+    <h2> 其他途径 </h2>
 
     <p>
-        Several structured programming languages do not provide goto statements at all,
-        including Modula-2, Modula-3, Oberon, Eiffel, and Java,
-        on the assumption that the other flow control mechanisms they do provide are
-        sufficient for all programming tasks and thus goto statements should
-        never be needed.
-        This is not always a good assumption to make when designing a programming
-        language.
-        Language designers cannot anticipate all possible programming scenarios,
-        and providing an "escape mechanism" out of the normal control structures gives
-        the programmer the ability to program around the syntactic limitations imposed
-        by the language when the need arises.
-        (Some examples of inadequate flow control constructs are discussed in more
-        detail below.)
+        一些结构化编程语言，包括 Modula-2，Modula-3，Oberon，Eiffel 和 Java，假设它们提供的其他流控制机制足以完成所有编程任务所以永远都不需要 goto 语句，因此它们根本不提供 goto 语句。在设计编程语言时，这并不总是一个好的假设。语言设计人员无法预见所有可能的编程方案，并且在常规控制结构之外提供“逃逸机制 (escape mechanism) ”可使程序员能够在需要时绕过语言所施加的语法限制进行编程。(下面将详细讨论流控制结构不足的一些示例。)
     </p>
 
     <p>
-        It is also worth noting that there are programming languages that do not provide
-        structured flow control constructs at all.
-        Many <i>functional programming</i> languages, such as LISP, Scheme, and Prolog,
-        do not provide traditional structured flow control constructs beyond
-        <b>if-then-else</b> or only provide very simple forms of them.
-        Iteration in such languages is generally accomplished using some form of
-        recursion, and these languages are in fact tailored specifically for recursive
-        tasks and data structures.
-        But what such languages lack in structured flow statements, they generally
-        make up for by providing powerful <i>dynamic programming</i> mechanisms and
-        extremely flexible non-homogeneous data types.
+        还值得注意的是，有些编程语言根本不提供结构化的流控制构造。
+        许多 <i>函数式编程语言</i> 如 LISP, Scheme 和 Prolog，没有提供 <b>if-then-else</b>之外的，或者仅提供了形式非常简单的传统结构化流控制结构。  迭代在这些语言一般使用递归来实现，且实际上这些语言是专门为递归任务和数据结构量身定制的。
+        但是这类语言通常通过提供强大的 动态编程 (dynamic programming)</i> 机制和极其灵活的 非均匀数据类型 (non-homogeneous data type) 来弥补他们缺乏的结构化流控制语句。
     </p>
-
-    <p></p>
 
 
     <!-- ----------------------------------------------------------------------- -->
     <hr>
 
     <a name="part-3"></a>
-    <h1 align="center"> Part III </h1>
+    <h1 align="center"> 第三部分 </h1>
 
     <a name="is-goto-necessary"></a>
-    <h2> Is Goto Still Necessary? </h2>
+    <h2> Goto 还有使用必要性吗？ </h2>
 
     <p>
-        Good programming language design dictates that a language should provide a
-        sufficiently complete and powerful set of flow control constructs in order to
-        make it relatively easy to write efficient code for any programming task.
-        A&nbsp;language should not be overly ambitious by providing too many different
-        ways to do the same thing, while at the same time it should not be anemic by
-        providing too few ways for programming ideas to be expressed.
-        The set of flow control statements and clauses provided should be powerful and
-        flexible enough so that a programmer can express his ideas clearly and succintly
-        without having to resort to the use of extraneous control variables or to
-        rearrange his code unnaturally just to get around the syntactical restrictions
-        of the language.
+        良好的编程语言设计要求一种语言应提供足够完整且功能强大的流控制结构集，使得用这门语言为任何编程任务编写高效的代码相对容易。一种语言不应过分雄心勃勃，提供太多不同的方式来完成相同的事情，而与此同时，它也不应提供过少的表达的方式而表达能力不足。提供的流控制语句集应该足够强大和灵活，以便程序员可以清晰，简洁地表达自己的思想，而不必只是为了避开语言的语法限制而求助于使用无关的控制变量或不自然地重新布置他的代码。
     </p>
 
     <p>
-        The following sections discuss two major programming problems that traditionally
-        have been solved by using goto statements.
-        These problems are presented in the light of current programming techniques,
-        with an eye to seeing if the programming languages currently available are
-        sufficiently advanced to handle them without using goto.
+        以下各节讨论了两个主要的编程问题，这两个问题传统上使用 goto 语句解决。这些问题是根据当前的编程技术提出的，目的是看看当前可用的编程语言是否先进到可在不使用goto的情况下进行处理这些问题。
     </p>
 
     <!-- ------------------------------- -->
     <hr width="50%">
 
-    <h3 id="loop-exits"> Loop Exits </h3>
+    <h3 id="loop-exits"> 退出循环 </h3>
 
     <p>
-        Dijkstra's call for the complete elimination of goto statements
-        is fine in theory, but would it work in practice?
-        The control flow statements described above are sufficient for most programming
-        logic, but there are programming situations that require more powerful
-        constructs.
+        Dijkstra 呼吁完全消除 goto 语句的呼吁在理论上是可以的，但在实践中行得通吗？上面描述的控制流语句对于大多数编程逻辑而言已足够，但是在某些编程情况下，需要更强大的结构。
     </p>
 
     <p>
-        A common use for goto statements is to exit early from within loops,
-        especially if the exit must break out from within two or more levels of nested
-        loops.
-        C&nbsp;provides simple loop escape mechanisms, i.e., the <b>break</b> and
-        <b>continue</b> statements.
+        goto 语句常用在于循环内尽早退出，特别是如果必须从两层或更多层的嵌套循环内退出的情形。C&nbsp;语言提供了简单的循环逃逸机制，即 <b>break</b> 和
+        <b>continue</b> 语句。
     </p>
 
     <a name="example-l-1"></a>
@@ -1540,9 +1454,9 @@ nextloop:
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example L-1 - Loop Exit Using Break</b></center>
+                    <center><b>例 L-1 - 用 Break 退出循环</b></center>
                 </font>
-                <pre>//<i> Simple loop with an early exit</i>
+                <pre>//<i> 一个要提前退出的简单循环</i>
 
 for (;;)
 {
@@ -1561,11 +1475,7 @@ for (;;)
 
     <!-- ------------------------------- -->
     <p>
-        In order to exit a loop early without using such mechanisms, a trade-off must be
-        made in which an additional flag (boolean) variable to signal completion of
-        the loop is used.
-        This incurs the overhead of an extra variable and an extra test of that variable
-        at the top of each loop.
+        为了在不使用此类机制的情况下尽早退出循环，必须进行权衡，其中使用一个附加标志（布尔）变量来表示循环已完成。这会在每个循环的顶部有产生额外变量和测试该变量的额外开销。
     </p>
 
     <!-- ------------------------------- -->
@@ -1575,9 +1485,9 @@ for (;;)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example L-2 - Loop Exit Without Using Break</b></center>
+                    <center><b>例 L-2 - 不用 Break 退出循环</b></center>
                 </font>
-                <pre>//<i> Simple loop with no loop escape mechanism</i>
+                <pre>//<i> 一个没有循环逃逸机制的简单循环 </i>
 
 bool  <b>incomplete</b> = true;
 
@@ -1597,11 +1507,7 @@ while (<b>incomplete</b>)
         </tbody></table>
 
     <p>
-        For more complicated exits from loops, namely breaking out of a loop iteration
-        that is nested within two or more levels of loops, more extensive support is
-        required of the language.
-        Some languages, such as Java, provide the capability of breaking out of loops
-        that are prefixed with label names.
+        退出更复杂的循环，即两个或更多层的嵌套循环，需要该语言进一步的支持。某些语言（例如 Java）提供了离开以标签名称为前缀的循环的功能。
     </p>
 
     <!-- ------------------------------- -->
@@ -1611,10 +1517,10 @@ while (<b>incomplete</b>)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example N-1 - Exiting a Nested Loop</b></center>
+                    <center><b>例 N-1 - 退出嵌套循环</b></center>
                 </font>
                 <pre>//<i> [Java]</i>
-//<i> Exiting a nested loop</i>
+//<i>退出一个嵌套循环</i>
 
 <b>readLoop:</b>
     <b>for</b> (;;)
@@ -1630,7 +1536,7 @@ while (<b>incomplete</b>)
 
                 ch = line[i];
                 if (ch == '#')
-                    <b>break readLoop;</b>     //<i> Exit outer for-loop</i>
+                    <b>break readLoop;</b>     //<i> 退出外层 for 循环 </i>
 
                 parse(ch);
             }
@@ -1645,8 +1551,7 @@ while (<b>incomplete</b>)
 
     <!-- ------------------------------- -->
     <p>
-        Other languages, such as C and C++, do not provide a mechanism to exit more than
-        one level of loop nesting, so goto statements must be employed.
+        其他语言（例如 C 和 C++）没有提供退出多层的循环嵌套的机制，因此必须使用 goto 语句。
     </p>
 
     <!-- ------------------------------- -->
@@ -1656,10 +1561,10 @@ while (<b>incomplete</b>)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example N-2 - Exiting a Nested Loop</b></center>
+                    <center><b>例 N-2 - 退出嵌套循环</b></center>
                 </font>
                 <pre>//<i> [C / C++]</i>
-//<i> Exiting a nested loop without labeled loops</i>
+//<i> 在没有标签前缀的情况下退出一个嵌套循环</i>
 
     <b>for</b> (;;)
     {
@@ -1675,7 +1580,7 @@ while (<b>incomplete</b>)
 
                 ch = line[i];
                 if (ch == '#')
-                    <b>goto endReadLoop;</b>   //<i> Exit outer for-loop</i>
+                    <b>goto endReadLoop;</b>   //<i> 退出外层 for 循环</i>
 
                 parse(ch);
             }
@@ -1690,14 +1595,12 @@ while (<b>incomplete</b>)
         </tbody></table>
 
     <p>
-        This is about as clean as the Java code and just as efficient.
+        这和Java代码一样干净，效率也很高。
     </p>
 
     <!-- ------------------------------- -->
     <p>
-        The alternative is to use an extra variable and extra <b>if</b>
-        statements to avoid the use of gotos, as in
-        Example <a href="#example-l-2">L-2</a>.
+        替代方法是使用一个额外的变量和一个额外的 <b>if</b> 语句来避免使用gotos，如示例 <a href="#example-l-2">L-2</a>.
     </p>
 
     <!-- ------------------------------- -->
@@ -1707,10 +1610,10 @@ while (<b>incomplete</b>)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example N-3 - Exiting a Nested Loop Without Goto</b></center>
+                    <center><b>例 N-3 - 不用 goto 退出嵌套循环</b></center>
                 </font>
                 <pre>//<i> [C / C++]</i>
-//<i> Exiting a nested loop without goto</i>
+//<i>不用 goto 退出嵌套循环</i>
 
     bool  <b>notDone</b> =  true;
 
@@ -1728,7 +1631,7 @@ while (<b>incomplete</b>)
 
                 ch = line[i];
                 if (ch == '#')
-                    <b>notDone</b> = false;    //<i> Exit outer while-loop</i>
+                    <b>notDone</b> = false;    //<i> 退出外层 while 循环</i>
                 else
                     parse(ch);
             }
@@ -1748,35 +1651,31 @@ while (<b>incomplete</b>)
 
     <a name="discussion-3"></a>
     <a name="error-handling"></a>
-    <h3> Exception Handling </h3>
+    <h3> 异常处理 </h3>
 
     <p>
-        Another common use for goto statements is in the handling of
-        <i>exceptions</i>, or what Dijkstra called <i>abortion clauses</i>.
-        Some languages (notably the more recent object-oriented languages) provide
-        <i>exception handling</i> mechanisms for dealing with <i>synchronous</i>
-        error conditions, while older languages do not.
+        goto 语句的另一个常见用法是处理
+        <i>异常</i>，或Dijkstra所谓的 <i>终止子句</i>.
+        某些语言（尤其是较新的面向对象的语言）提供了用于处理 <i>同步</i>错误情况下的
+        <i>异常处理</i> 机制，而较旧的语言则没有。
     </p>
 
     <p>
-        The code below is a C function that utilizes goto statements
-        fairly effectively for error handling and recovery.
-        Since C does not not have any kind of exception handling mechanism,
-        well-crafted goto statements provide a reasonable substitute.
+        下面的代码是 C 函数，该函数相当有效地利用 goto 语句进行错误处理和恢复。由于 C 没有任何类型的异常处理机制，因此精心设计的 goto 语句提供了合理的替代方案。
     </p>
 
     <p>
-        Consider a procedure that performs four operations:
+        考虑一个执行四个操作的子过程：
     </p><ol type="1">
-    <li> Allocate a control object.
-    </li><li> Save a copy of a specified file name.
-</li><li> Open the named file.
-</li><li> Read a header block from the opened file.
+    <li> 分配控制对象。
+    </li><li> 保存指定文件名的副本。
+</li><li> 打开命名文件。
+</li><li> 从打开的文件中读取文件头块。
 </li></ol>
     <p></p>
 
     <p>
-        The following example, written in C, does these operations:
+        以下用 C 编写的示例执行了这些操作：
     </p>
 
     <a name="example-e-1"></a>
@@ -1786,44 +1685,44 @@ while (<b>incomplete</b>)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example E-1 - Error Handling Using Gotos</b></center>
+                    <center><b>例 E-1 - 用 goto 处理错误</b></center>
                 </font>
                 <pre>//<i> open_control() -- [C]</i>
-//<i> Open a file and assign it a control object.</i>
-//<i> Returns the control object on success, or NULL on failure.</i>
+//<i> 打开一个文件并给他分配一个控制对象。</i>
+//<i> 成功时返回控制对象的指针， 失败时返回 NULL。</i>
 
 struct Control * open_control(const char *fname)
 {
     struct Control *  ctl = NULL;
     FILE *            fp =  NULL;
 
-    //<i> 1. Allocate a control object</i>
+    //<i> 1. 分配一个控制对象</i>
     ctl = malloc(sizeof(struct Control));
     memset(ctl, 0, sizeof(struct Control));
     if (ctl == NULL)                        // <b>E-1</b>
         <b>goto fail;</b>
 
-    //<i> 2. Save the file name</i>
+    //<i> 2. 储存文件名</i>
     ctl-&gt;name = malloc(strlen(fname)+1);
     if (ctl-&gt;name == NULL)                  // <b>E-2</b>
         <b>goto fail;</b>
     strcpy(ctl-&gt;name, fname);
 
-    //<i> 3. Open the named file</i>
+    //<i> 3. 打开该名字的文件</i>
     fp = fopen(fname, "rb");
     if (fp == NULL)                         // <b>E-3</b>
         <b>goto fail;</b>
     ctl-&gt;fp = fp;
 
-    //<i> 4. Read the file header block</i>
+    //<i> 4. 读打开的文件的文件头块</i>
     if (!read_header(ctl))                  // <b>E-4</b>
         <b>goto fail;</b>
 
-    //<i> Return success</i>
+    //<i> 返回成功的结果 </i>
     return ctl;
 
 <b>fail:</b>
-    //<i> Failure occurred, clean up allocated resources</i>
+    //<i> 发生失败，释放分配的资源 </i>
     if (ctl != NULL)
     {
         if (ctl-&gt;fp != NULL)
@@ -1833,7 +1732,7 @@ struct Control * open_control(const char *fname)
         free(ctl);                          // <b>H-1</b>
     }
 
-    //<i> Return failure</i>
+    //<i> 返回失败的结果</i>
     return NULL;
 }
 </pre>
@@ -1842,32 +1741,20 @@ struct Control * open_control(const char *fname)
         </tbody></table>
 
     <p>
-        Any of the four operations can fail, which causes the whole function to fail.
-        After each failure, however, resources must be deallocated.
-        Thus a failure at point E-1 requires corresponding clean-up code
-        at point H-1, and likewise for failures at E-2 and E-3.
-        These clean-up operations are performed in the reverse order in which their
-        corresponding allocation operations are performed.
+        四个操作中的任何一个都可能失败，从而导致整个函数失败。但是，每次失败后，必须释放分配资源。因此，在 E-1 点发生故障需要在 H-1 点处有相应的清理代码，同样对于 E-2 和 E-3 发生故障也是如此。这些清除操作以与分配资源顺序相反的顺序执行。
     </p>
 
     <p>
-        This type of use of goto statements is generally accepted as a
-        "correct" use of goto.
-        Specifically, using gotos for error handling is generally
-        considered acceptable programming style, at least for languages (like C) that do
-        not provide exception handling control structures.
+        通常认为这种 goto 语句的使用是 goto 的“正确”使用。具体而言，至少对于不提供异常处理控制结构的语言（如 C）而言，通常认为将 goto 用于错误处理是可接受的编程风格。
     </p>
 
     <p>
-        One must be careful, however, to make it obvious that the goto
-        statements are for error handling, e.g., by choosing an appropriately
-        descriptive name for the goto label.
+        但是，必须格外小心，使 goto 语句明显被用于错误处理，例如，为 goto 的标签选择适当的描述性名称。
     </p>
 
     <!-- ------------------------------- -->
     <p>
-        If we apply Dijkstra's maxim and remove all of the gotos,
-        we get something like the following.
+        如果我们应用 Dijkstra 的箴言并删除所有的 goto 语句，我们将得到类似以下的内容。
     </p>
 
     <a name="example-e-2"></a>
@@ -1876,58 +1763,58 @@ struct Control * open_control(const char *fname)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example E-2 - Error Handling With Gotos Removed</b></center>
+                    <center><b>例 E-2 - 无 goto 的错误处理</b></center>
                 </font>
-                <pre>//<i> open_control() -- [C, version 2, without gotos]</i>
-//<i> Open a file and assign it a control object.</i>
-//<i> Returns the control object on success, or NULL on failure.</i>
+                <pre>//<i> open_control() -- [C，版本2，没有goto]</i>
+//<i> 打开一个文件并给他分配一个控制对象。</i>
+//<i> 成功时返回控制对象的指针， 失败时返回 NULL。</i>
 
 struct Control * open_control(const char *fname)
 {
     struct Control *  ctl = NULL;
     FILE *            fp =  NULL;
 
-    //<i> 1. Allocate a control object</i>
+    //<i> 1. 分配一个控制对象</i>
     ctl = malloc(sizeof(struct Control));
     memset(ctl, 0, sizeof(struct Control));
     if (ctl == NULL)                        // <b>E-1</b>
     {
-        //<i> Failure, clean up</i>
+        //<i> 失败，释放资源 </i>
         <b>return NULL;</b>
     }
 
-    //<i> 2. Save the file name</i>
+    //<i> 2. 储存文件名</i>
     ctl-&gt;name = malloc(strlen(fname)+1);
     if (ctl-&gt;name == NULL)                  // <b>E-2</b>
     {
-        //<i> Failure, clean up</i>
+        //<i> 失败，释放资源</i>
         free(ctl);                          // <b>H-1</b>
         <b>return NULL;</b>
     }
     strcpy(ctl-&gt;name, fname);
 
-    //<i> 3. Open the named file</i>
+    //<i> 3. 打开该名字的文件</i>
     fp = fopen(fname, "rb");
     if (fp == NULL)                         // <b>E-3</b>
     {
-        //<i> Failure, clean up</i>
+        //<i> 失败，释放资源</i>
         free(ctl-&gt;name);                    // <b>H-2</b>
         free(ctl);                          // <b>H-1</b>
         <b>return NULL;</b>
     }
     ctl-&gt;fp = fp;
 
-    //<i> 4. Read the file header block</i>
+    //<i> 4. 读打开的文件的文件头块</i>
     if (!read_header(ctl))                  // <b>E-4</b>
     {
-        //<i> Failure, clean up</i>
+        //<i> 失败，释放资源</i>
         fclose(ctl-&gt;fp);                    // <b>H-3</b>
         free(ctl-&gt;name);                    // <b>H-2</b>
         free(ctl);                          // <b>H-1</b>
         <b>return NULL;</b>
     }
 
-    //<i> Success</i>
+    //<i> 成功 </i>
     return ctl;
 }
 </pre>
@@ -1936,14 +1823,12 @@ struct Control * open_control(const char *fname)
         </tbody></table>
 
     <p>
-        The problem with this style of error handling is that we end up with a lot of
-        duplicated clean-up code.
+        这种错误处理方式的问题在于，我们最终得到了很多重复的清理代码。
     </p>
 
     <!-- ------------------------------- -->
     <p>
-        This suggests an alternate style which also does not use gotos
-        but avoids code duplication.
+        这暗示了一种不使用 goto 但可以避免代码重复的替代形式。
     </p>
 
     <a name="example-e-3"></a>
@@ -1952,11 +1837,11 @@ struct Control * open_control(const char *fname)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example E-3 - Error Handling With Gotos Removed</b></center>
+                    <center><b>例 E-3 - 无 goto 的错误处理</b></center>
                 </font>
-                <pre>//<i> open_control() -- [C, version 3, without gotos]</i>
-//<i> Open a file and assign it a control object.</i>
-//<i> Returns the control object on success, or NULL on failure.</i>
+                <pre>//<i> open_control() -- [C，版本3， 无 goto]</i>
+//<i> 打开一个文件并给他分配一个控制对象。</i>
+//<i> 成功时返回控制对象的指针， 失败时返回 NULL。</i>
 
 struct Control * open_control(const char *fname)
 {
@@ -1964,13 +1849,13 @@ struct Control * open_control(const char *fname)
     FILE *            fp =  NULL;
     int               err = 0;
 
-    //<i> 1. Allocate a control object</i>
+    //<i> 1. 分配一个控制对象</i>
     ctl = malloc(sizeof(struct Control));
     memset(ctl, 0, sizeof(struct Control));
     if (ctl == NULL)                        // <b>E-1</b>
         <b>err = 1;</b>
 
-    //<i> 2. Save the file name</i>
+    //<i> 2. 储存文件名</i>
     if (<b>err</b> == 0)
     {
         ctl-&gt;name = malloc(strlen(fname)+1);
@@ -1980,7 +1865,7 @@ struct Control * open_control(const char *fname)
             strcpy(ctl-&gt;name, fname);
     }
 
-    //<i> 3. Open the named file</i>
+    //<i> 3. 打开该文件</i>
     if (<b>err</b> == 0)
     {
         fp = fopen(fname, "rb");
@@ -1990,18 +1875,18 @@ struct Control * open_control(const char *fname)
             ctl-&gt;fp = fp;
     }
 
-    //<i> 4. Read the file header block</i>
+    //<i> 4. 读打开的文件的文件头块</i>
     if (<b>err</b> == 0)
     {
         if (!read_header(ctl))              // <b>E-4</b>
             <b>err = 4;</b>
     }
 
-    //<i> Check for success</i>
+    //<i> 检测是否成功 </i>
     if (<b>err</b> == 0)
         return ctl;
 
-    //<i> Failure, clean up</i>
+    //<i> 失败，释放资源</i>
     if (err &gt; 3)
         fclose(ctl-&gt;fp);                    // <b>H-3</b>
     if (err &gt; 2)
@@ -2017,23 +1902,16 @@ struct Control * open_control(const char *fname)
         </tbody></table>
 
     <p>
-        Note that, as before, the clean-up operations are performed in the reverse order
-        that their corresponding allocation operations are performed.
+        注意，如前所述，释放操作以与执行它们相应的分配操作相反的顺序执行。
     </p>
 
     <p>
-        This style of error handling comes close to being as clean and succint as
-        the style used in Example <a href="#example-e-1">E-1</a>.
-        However, it requires an additional error indicator variable and extra
-        conditional (<b>if</b>) statements.
+        这种错误处理风格几乎与示例 <a href="#example-e-1">E-1</a> 使用的风格一样简洁明了。但是，它需要附加的错误指示符变量和附加的条件（<b>if</b>）语句。
     </p>
 
     <!-- ------------------------------- -->
     <p>
-        If the function of Example <a href="#example-e-1">E-1</a> is written
-        in C++, it can take advantage of the fact that C++ supports an
-        exception handling mechanism (i.e., <b>try-catch</b> statements),
-        which makes the error handling in the code more obvious:
+        如果示例 <a href="#example-e-1">E-1</a>的功能是用C ++编写的，则可以利用C ++支持异常处理机制（即 <b>try-catch</b> 语句）这一事实，从而使代码中的错误处理更加明显：
     </p>
 
     <a name="example-t-1"></a>
@@ -2042,11 +1920,11 @@ struct Control * open_control(const char *fname)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example T-1 - Error Handling Without Gotos</b></center>
+                    <center><b>Example T-1 - 无 goto 的错误处理</b></center>
                 </font>
                 <pre>//<i> openControl() -- [C++]</i>
-//<i> Open a file and assign it a control object.</i>
-//<i> Returns the control object on success, or NULL on failure.</i>
+//<i> 打开一个文件并给他分配一个控制对象。</i>
+//<i> 成功时返回控制对象的指针， 失败时返回 NULL。</i>
 
 Control * openControl(const char *fname)
 {
@@ -2055,33 +1933,33 @@ Control * openControl(const char *fname)
 
     <b>try</b>
     {
-        //<i> 1. Allocate a control object</i>
+        //<i> 1. 分配一个控制对象</i>
         ctl = new Control;
         if (ctl == NULL)                    // <b>E-1</b>
             <b>throw 1;</b>
 
-        //<i> 2. Save the file name</i>
+        //<i> 2. 储存文件名</i>
         ctl-&gt;name = new char[::strlen(fname)+1];
         if (ctl-&gt;name == NULL)              // <b>E-2</b>
             <b>throw 2;</b>
         ::strcpy(ctl-&gt;name, fname);
 
-        //<i> 3. Open the named file</i>
+        //<i> 3. 打开该文件</i>
         fp = ::fopen(fname, "rb");
         if (fp == NULL)                     // <b>E-3</b>
             <b>throw 3;</b>
         ctl-&gt;fp = fp;
 
-        //<i> 4. Read the file header block</i>
+        //<i> 4. 读打开的文件的文件头块</i>
         if (not ctl-&gt;readHeader())          // <b>E-4</b>
             <b>throw 4;</b>
 
-        //<i> Return success</i>
+        //<i> 成功 </i>
         return ctl;
     }
     <b>catch</b> (int err)
     {
-        //<i> Failure occurred, clean up allocated resources</i>
+        //<i> 发生错误，释放资源 </i>
         if (ctl != NULL)
         {
             if (ctl-&gt;fp != NULL)
@@ -2093,7 +1971,7 @@ Control * openControl(const char *fname)
             delete ctl;                     // <b>H-1</b>
         }
 
-        //<i> Return failure</i>
+        //<i> 失败 </i>
         return NULL;
     }
 }
@@ -2103,21 +1981,12 @@ Control * openControl(const char *fname)
         </tbody></table>
 
     <p>
-        Note that the amount of work required to clean up after a failure is exactly
-        the same as in Example <a href="#example-e-1">E-1</a>.
-        Moreover, the explicit use of a <b>try-catch</b> statement
-        makes it obvious that the code is for error handling and recovery.
+        请注意，发生故障后清理所需的工作量与示例 <a href="#example-e-1">E-1</a>完全相同。此外，显式使用 <b>try-catch</b> 语句使代码明显用于错误处理和恢复。
     </p>
 
     <!-- ------------------------------- -->
     <p>
-        Since C++ is an object-oriented language, and thus allows the programmer to have
-        more explicit control over object allocation and deallocation, we can make the
-        destructor function for <b>Control</b> objects perform most of the
-        clean-up operations.
-        Moving the operations at H-2 and H-3 into the
-        destructor allows us to write a simpler <b>catch</b> clause to handle
-        failures.
+        由于C ++是一种面向对象的语言，因此允许程序员对对象的分配和释放进行更明确的控制，因此我们可以使 <b>Control</b> 对象的析构函数执行大多数清理操作。将H-2和H-3处的操作移到析构函数中，使我们可以编写一个更简单的 <b>catch</b> 语句来处理故障。
     </p>
 
     <a name="example-t-2"></a>
@@ -2126,11 +1995,11 @@ Control * openControl(const char *fname)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example T-2 - Error Handling Without Gotos</b></center>
+                    <center><b>Example T-2 - 无 goto 的错误处理</b></center>
                 </font>
-                <pre>//<i> openControl() -- [C++, version 2]</i>
-//<i> Open a file and assign it a control object.</i>
-//<i> Returns the control object on success, or NULL on failure.</i>
+                <pre>//<i> openControl() -- [C++, 版本2]</i>
+//<i> 打开一个文件并给他分配一个控制对象。</i>
+//<i> 成功时返回控制对象的指针， 失败时返回 NULL。</i>
 
 Control * openControl(const char *fname)
 {
@@ -2139,14 +2008,14 @@ Control * openControl(const char *fname)
 
     <b>try</b>
     {
-        <i>... same as Example T-1 ...</i>
+        <i>... 与例 T-1 相同 ...</i>
     }
     <b>catch</b> (int err)
     {
-        //<i> Failure occurred, clean up</i>
+        //<i> 发生错误，释放资源</i>
         delete ctl;                         // <b>H-1, H-2, H-3</b>
 
-        //<i> Return failure</i>
+        //<i> 失败</i>
         return NULL;
     }
 }
@@ -2156,7 +2025,7 @@ Control * openControl(const char *fname)
 
 <b>Control::~Control()</b>
 {
-    //<i> Clean up allocated resources</i>
+    //<i> 释放分配的资源</i>
     if (this-&gt;fp != NULL)
         ::fclose(this-&gt;fp);                 // <b>H-3</b>
     this-&gt;fp = NULL;
@@ -2171,18 +2040,13 @@ Control * openControl(const char *fname)
         </tbody></table>
 
     <p>
-        While the <b>try-catch</b> solution is cleaner than using <b>goto</b>s,
-        it has the disadvantage of requiring more overhead for managing
-        the <b>try</b> and <b>catch</b> clauses, which can be fairly expensive.
+        虽然用 <b>try-catch</b> 的解决方案比使用 <b>goto</b> 的更干净，但它的缺点是管理 <b>try</b> 和 <b>catch</b> 语句需要更多的开销，这可能会非常昂贵。
     </p>
 
     <!-- ------------------------------- -->
     <a name="finally-clause"></a>
     <p>
-        Some languages, such as Java, provide a <b>finally</b> clause as part
-        of the <b>try-catch</b> statement to provide a way to
-        specify actions that must be taken regardless of whether or not an exception
-        occurs.
+        某些语言（例如Java）把 <b>finally</b> 语句作为 <b>try-catch</b> 语句的一部分提供，以提供一种方法来指定不管是否发生异常都必须执行的操作。
     </p>
 
     <a name="example-t-3"></a>
@@ -2191,7 +2055,7 @@ Control * openControl(const char *fname)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Example T-3 - finally clause</b></center>
+                    <center><b>例 T-3 - finally 语句</b></center>
                 </font>
                 <pre>//<i> [Java]</i>
 
@@ -2206,13 +2070,13 @@ void write3(Resource dest, Item[] data)
     }
     <b>catch</b> (ResourceException ex)
     {
-        //<i> Failure occurred, clean up</i>
+        //<i> 发生错误，释放资源</i>
         log.error(ex);
         dest.reset();
     }
     <b>finally</b>
     {
-        //<i> Always executed</i>
+        //<i> 总是执行</i>
         dest.release();
     }
 }
@@ -2224,9 +2088,7 @@ void write3(Resource dest, Item[] data)
     <!-- ------------------------------- -->
     <a name="retry-clause"></a>
     <p>
-        Other languages, such as Eiffel, provide a <b>retry</b> statement as
-        part of exception handling to allow a procedure body to be executed again after
-        an exception is caught, presumably after some corrective actions are performed.
+        其他语言，例如Eiffel，提供了 <b>retry</b> 语句作为异常处理的一部分，以允许在捕获到异常之后（大概是在执行某些纠正措施之后）再次执行过程主体。
     </p>
 
     <!-- +INCOMPLETE
@@ -2258,10 +2120,10 @@ void write3(Resource dest, Item[] data)
     <hr>
 
     <a name="conclusion"></a>
-    <h1 align="center"> Conclusion </h1>
+    <h1 align="center"> 总结 </h1>
 
     <a name="the-tao-of-goto"></a>
-    <h2> The Tao of Goto </h2>
+    <h2> Goto 之道 </h2>
 
     <p>
         It is obvious that loop escape and exception handler statements make for more
@@ -2361,8 +2223,7 @@ reducing:
         </tbody></table>
 
     <p>
-        I leave it as an exercise for the reader to rewrite this without
-        using goto statements.
+        我把不使用 goto 语句重写这段代码留作读者的练习。
     </p>
 
 
