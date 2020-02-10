@@ -828,12 +828,12 @@
     <h2 id="structured-programming"> 结构化程序设计 </h2>
 
     <p>
-        自从 Dijkstra 的那封信发表以来，程序语言是否已经发展到了 <b>goto</b> 语句不在被需要的地步？
+        自从 Dijkstra 的那封信发表以来，程序语言是否已经发展到了 <b>goto</b> 语句不再被需要的地步？
     </p>
 
     <p>
         20世纪60年代以来，编程语言的理论已经出现了几次进步。
-        编程语言的范式已经发生了不少进步，而且每一个进步都吹嘘自己是新的“更好的”程序设计方法。
+        编程语言的范式已经发生了不少进步，而且每一个进步都吹嘘自己是未来的“更好的”程序设计方法。
         下面是这些进步的一个简表:
 
     </p><ul>
@@ -1413,7 +1413,7 @@ nextloop:
     <p>
         还值得注意的是，有些编程语言根本不提供结构化的流控制构造。
         许多 <i>函数式编程语言</i> 如 LISP, Scheme 和 Prolog，没有提供 <b>if-then-else</b>之外的，或者仅提供了形式非常简单的传统结构化流控制结构。  迭代在这些语言一般使用递归来实现，且实际上这些语言是专门为递归任务和数据结构量身定制的。
-        但是这类语言通常通过提供强大的 动态编程 (dynamic programming)</i> 机制和极其灵活的 非均匀数据类型 (non-homogeneous data type) 来弥补他们缺乏的结构化流控制语句。
+        但是这类语言通常通过提供强大的 动态编程 (dynamic programming) 机制和极其灵活的 非均匀数据类型 (non-homogeneous data type) 来弥补他们缺乏的结构化流控制语句。
     </p>
 
 
@@ -1431,7 +1431,7 @@ nextloop:
     </p>
 
     <p>
-        以下各节讨论了两个主要的编程问题，这两个问题传统上使用 goto 语句解决。这些问题是根据当前的编程技术提出的，目的是看看当前可用的编程语言是否先进到可在不使用goto的情况下进行处理这些问题。
+        以下各节讨论了两个主要的编程问题，这两个问题传统上使用 goto 语句解决。这些问题是根据当前的编程技术提出的，目的是看看目前存在的编程语言是否先进到可在不使用goto的情况下处理这些问题。
     </p>
 
     <!-- ------------------------------- -->
@@ -1655,9 +1655,8 @@ while (<b>incomplete</b>)
 
     <p>
         goto 语句的另一个常见用法是处理
-        <i>异常</i>，或Dijkstra所谓的 <i>终止子句</i>.
-        某些语言（尤其是较新的面向对象的语言）提供了用于处理 <i>同步</i>错误情况下的
-        <i>异常处理</i> 机制，而较旧的语言则没有。
+        <i>异常</i>，或Dijkstra所谓的 <i>终止语句</i>.
+        某些语言（尤其是较新的面向对象的语言）提供了用于处理 <i>同步</i>错误的        <i>异常处理</i> 机制，而较旧的语言则没有。
     </p>
 
     <p>
@@ -1911,7 +1910,7 @@ struct Control * open_control(const char *fname)
 
     <!-- ------------------------------- -->
     <p>
-        如果示例 <a href="#example-e-1">E-1</a>的功能是用C ++编写的，则可以利用C ++支持异常处理机制（即 <b>try-catch</b> 语句）这一事实，从而使代码中的错误处理更加明显：
+        如果示例 <a href="#example-e-1">E-1</a>的功能是用 C++ 编写的，则可以利用 C++ 支持异常处理机制（即 <b>try-catch</b> 语句）这一事实，从而使代码中的错误处理更加明显：
     </p>
 
     <a name="example-t-1"></a>
@@ -2088,7 +2087,7 @@ void write3(Resource dest, Item[] data)
     <!-- ------------------------------- -->
     <a name="retry-clause"></a>
     <p>
-        其他语言，例如Eiffel，提供了 <b>retry</b> 语句作为异常处理的一部分，以允许在捕获到异常之后（大概是在执行某些纠正措施之后）再次执行过程主体。
+        其他语言，例如Eiffel，提供了 <b>retry</b> 语句作为异常处理的一部分，以允许在捕获到异常之后（大概是在执行某些纠正措施之后）再次执行过程。
     </p>
 
     <!-- +INCOMPLETE
@@ -2125,56 +2124,24 @@ void write3(Resource dest, Item[] data)
     <a name="the-tao-of-goto"></a>
     <h2> Goto 之道 </h2>
 
-    <p>
-        It is obvious that loop escape and exception handler statements make for more
-        readable and more efficient code.
-        Of&nbsp;course, such flow control mechanisms are actually just fancy
-        gotos in disguise, being implemented underneath using
-        machine code jump instructions.
-        However, they do not corrupt or obfuscate the program execution state.
-        So&nbsp;judging them by Dijkstra's principle of being able to track program
-        execution deterministically, they are acceptable control flow mechanisms for
-        high-level languages.
+    <p>显然，循环逃逸机制和异常处理语句使代码更具可读性也更高效。当然，这种流控制机制实际上只是变相的 goto 语句，是在底层使用机器码 jump 指令实现的。 但它们不会破坏或混淆程序的执行状态。因此，根据 Dijkstra 的“可以确定地跟踪程序执行”的行为准则来判断的话，高级语言可以接受它们这些控制流机制。
     </p>
 
     <p>
-        Examples <a href="#example-t-2">T-2</a> and <a href="#example-n-1">N-1</a>
-        demonstrate that Dijkstra's maxim can be achieved <i>provided</i> that the
-        programming language provides a reasonable set of control structures that can
-        serve in place of simple goto statements.
+        例 <a href="#example-t-2">T-2</a> 和例 <a href="#example-n-1">N-1</a> 证明，<i>只要</i>编程语言提供一组合理的控制结构来代替简单的 goto 语句，就可以满足 Dijkstra 的箴言。
     </p>
 
     <p>
-        Examples <a href="#example-e-1">E-1</a> and <a href="#example-n-2">N-2</a>
-        demonstrate the corollary to this,
-        that if a programming language does <i>not</i> provide reasonably powerful flow
-        control structures, there are programming problems that can be solved reasonably
-        well <i>only</i> by resorting to the use of goto statements.
+        例 <a href="#example-e-1">E-1</a> 和例 <a href="#example-n-2">N-2</a>
+        证明，如果一种编程语言没有提供合理且强大的流控制结构，那么<i>只有</i>依靠使用 goto 语句才能合理地解决某些编程问题。
     </p>
 
     <p>
-        Some structured programming languages do not provide goto
-        statements at all.
-        Languages such as Smalltalk, Eiffel, and Java provide control statements for
-        early and nested loop exits and exception handling, so goto is not really
-        needed.
-        Other languages such as Modula-2 and Oberon also do not provide
-        goto, but appear to lack enough flow control constructs to
-        make it convenient to write early loop exits and exception handling code;
-        it would seem that such languages were linguistic experiments that took
-        Dijkstra's maxim too far and failed.
+        一些结构化的编程语言根本不提供goto语句。诸如 Smalltalk，Eiffel 和 Java 之类的语言为早期和嵌套循环退出以及异常处理提供了控制语句，因此实际上并不需要 goto。一些其他语言（例如Modula-2和Oberon）也未提供 goto 语句 ，但似乎也缺少足够的流控制结构，因此无法方便地编写提前退出循环和异常处理的代码。看上去这些语言是失败的语言实验，因为它们呆板地遵循了 Dijkstra 的箴言。
     </p>
 
     <p>
-        Dijkstra's belief that unstructured goto statements are
-        detrimental to good programming is still true.
-        A&nbsp;properly designed language should provide flow control constructs that
-        are powerful enough to deal with almost any programming problem.
-        By&nbsp;the same token, programmers who must use languages that do not provide
-        sufficiently flexible flow control statements should exercise restraint when
-        using unstructured alternatives.
-        This is the Tao of goto: knowing when to use it for good
-        and when not to use it for evil.
+        Dijkstra 认为非结构化的 goto 语句不利于良好的编程的信念仍然是正确的。正确设计的语言应提供足够强大的流控制结构，以应对几乎所有编程问题。同样，当必须使用流控制语句不够灵活的语言时，程序员应在使用非结构化替代方案时保持克制。这就是 goto 之道：知道何时将其善用，知道何时不将其恶用。
     </p>
 
     <!-- ------------------------------- -->
@@ -2182,10 +2149,7 @@ void write3(Resource dest, Item[] data)
 
     <a name="example-last"></a>
     <p>
-        In parting, I can't resist giving one last example of goto statements.
-        I&nbsp;came across this code in an LR parser library I used as part of a larger
-        compiler project (circa 1988).
-        It&nbsp;is a marvelous little gem of programming succintness and simplicity.
+        离别时，我忍不住给出 goto 语句的最后一个示例。我在一个较大的编译器项目（大约于1988年）中使用的LR解析器的库中遇到了此代码。它是一颗精炼和简单的编程凝聚的非凡的宝石。
         <!-- ACKNOWLEDGEMENT
         This code was originally written by Paul Mann, as part of his LALR compiler
         generator product.
@@ -2199,7 +2163,7 @@ void write3(Resource dest, Item[] data)
         <tbody><tr>
             <td>
                 <font face="helvetica,arial,sans serif">
-                    <center><b>Last Example - Nontrivial Gotos</b></center>
+                    <center><b>最后一例 - 不可小觑的 Goto</b></center>
                 </font>
                 <pre>int parse()
 {
@@ -2370,7 +2334,7 @@ reducing:
         <a href="http://david.tribble.com/text/goto.html">http://david.tribble.com/text/goto.html</a>.
     </p>
 
-</i></span><i>
+</i><i>
 
 
     <!--
