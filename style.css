@@ -1,0 +1,144 @@
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+h1, h2 {
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+body {
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font: 14px / 1.428 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 10%;
+}
+
+header {
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    border-radius: 6px;
+    padding: 48px 2rem;
+    background-color: #eee;
+}
+
+header h1 {
+    margin: 20px 0 10px 0;
+    font-size: 5rem;
+}
+
+header h2 {
+    margin: 20px 0 10px 0;
+}
+
+header p {
+    margin: 0 0 15px 0;
+    font-size: 21px;
+    font-weight: 200;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+nav section {
+    padding: 2%;
+    width:30%
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 9px;
+    }
+    nav {
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
+    nav section {
+        width: 100%;
+    }
+}
+
+nav section h2 {
+    /*text-align: center;*/
+    margin: 20px 0 10px 0;
+}
+
+nav section ul {
+    margin: 0;
+    padding: 0 40px 0 0 ;
+    list-style-type: none;
+}
+
+nav section ul li {
+    margin: 0 0 10px 0;
+}
+
+.button {
+    box-sizing: border-box;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #2e6da4;
+    border-radius: 4px;
+    padding: 6px 12px;
+    background-color: #337ab7;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    cursor: help;
+}
+
+.button:focus, .button:hover {
+    color: #fff;
+    border-color: #204d74;
+    background-color: #286090;
+    text-decoration: none;
+}
+@font-face{font-family:'FontAwesome';src:url('https://cdn.staticfile.org/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0');src:url('https://cdn.staticfile.org/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),url('https://cdn.staticfile.org/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff2'),url('https://cdn.staticfile.org/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),url('https://cdn.staticfile.org/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),url('https://cdn.staticfile.org/font-awesome/4.7.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');font-weight:normal;font-style:normal}
+
+.icon{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+.icon::before {
+    font: 24px / 1 FontAwesome;
+}
+
+.icon-wordpress::before {
+    content: "\f19a";
+}
+
+.icon-github::before {
+    content: "\f09b";
+}
+
+.icon-user-circle:before {
+    content: "\f2bd";
+}
+
+.icon-search::before {
+    content: "\f002";
+}
+
+.icon-shopping-cart::before {
+    content: "\f07a";
+}
