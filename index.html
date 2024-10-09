@@ -1,53 +1,439 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emon100's main page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Yimeng Wang - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="bg-gray-100 font-sans flex flex-col min-h-full">
+    <header class="bg-blue-600 text-white py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <span lang="en">Welcome to My Portfolio</span>
+                <span lang="zh" class="hidden">欢迎来到我的作品集</span>
+            </h1>
+            <p class="text-xl">
+                <span lang="en">I'm Yimeng Wang, a full-stack developer passionate about creating innovative solutions.</span>
+                <span lang="zh" class="hidden">我是王一蒙，一名热衷于创造创新解决方案的全栈开发者。</span>
+            </p>
+        </div>
+    </header>
 
-<body>
-    <div class="container">
-        <header>
-            <h1>Greetings!</h1>
-            <h2>I'm Emon.</h2>
-            <p>This page shows what I have created and who I am.</p>
-        </header>
-        <nav>
-            <section>
-                <h2>Something</h2>
-                <ul>
-                    <li><a class="icon icon-wordpress" href="//blog.emon100.com/">Emon100's blog</a></li>
-                    <li><a class="icon icon-wordpress" href="http://fankasy.xyz/">Lian200's blog</a></li>
-                    <li><a class="icon icon-github" href="https://github.com/emon100">Emon100's GitHub</a></li>
-                    <li><a href="/turing-machine/">通用图灵机</a></li>
-                    <li><a href="/goto-translation/">重新审视 《GOTO 语句被认为有害》</a></li>
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-xl font-semibold text-blue-600">Yimeng Wang</a>
+                <div class="space-x-4">
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600">
+                        <span lang="en">Projects</span>
+                        <span lang="zh" class="hidden">项目</span>
+                    </a>
+                    <a href="#skills" class="text-gray-600 hover:text-blue-600">
+                        <span lang="en">Skills</span>
+                        <span lang="zh" class="hidden">技能</span>
+                    </a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600">
+                        <span lang="en">Contact</span>
+                        <span lang="zh" class="hidden">联系</span>
+                    </a>
+                    <button id="languageToggle" class="text-gray-600 cursor-pointer">
+                        <span lang="en">中文</span>
+                        <span lang="zh" class="hidden">English</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <section id="resume" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">
+                <span lang="en">Resume</span>
+                <span lang="zh" class="hidden">个人简历</span>
+            </h2>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden p-6">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/3 mb-6 md:mb-0 md:mr-6">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold mb-4">
+                                <span lang="en">Yimeng Wang</span>
+                                <span lang="zh" class="hidden">王一蒙</span>
+                            </h3>
+                            <p class="text-gray-600 mb-2">
+                                <a href="mailto:emonwang.ymw@outlook.com" class="flex items-center justify-center">
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    <span lang="en">emonwang.ymw@outlook.com</span>
+                                    <span lang="zh" class="hidden">emonwang.ymw@outlook.com</span>
+                                </a>
+                            </p>
+                            <p class="text-gray-600 mb-4">
+                                <a href="https://github.com/emon100" target="_blank" class="flex items-center justify-center">
+                                    <i class="fab fa-github mr-2"></i>
+                                    github.com/emon100
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-4">
+                                <span lang="en">Education</span>
+                                <span lang="zh" class="hidden">教育背景</span>
+                            </h3>
+                            <div class="mb-4">
+                                <h4 class="text-xl font-medium">
+                                    <span lang="en">Northeastern University (CN), Bachelor of Computer Science</span>
+                                    <span lang="zh" class="hidden">东北大学，计算机科学与技术，本科</span>
+                                </h4>
+                                <p class="text-gray-600">2018.09 - 2022.06</p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>GPA 3.94 / 5.00</li>
+                                    <li>
+                                        <span lang="en">Rank: 29 / 272</span>
+                                        <span lang="zh" class="hidden">名次: 29 / 272</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-4">
+                                <span lang="en">Project Experience</span>
+                                <span lang="zh" class="hidden">项目经验</span>
+                            </h3>
+                            <div class="mb-4">
+                                <h4 class="text-xl font-medium">
+                                    <span lang="en">AI-powered paper search engine, Team Lead</span>
+                                    <span lang="zh" class="hidden">AI-powered paper search engine, Team Lead</span>
+                                </h4>
+                                <p class="text-gray-600">2019.10 - 2021.4</p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>
+                                        <span lang="en">Collaborated with a team of students in Northeastern University(CN) in NEU's NLP lab</span>
+                                        <span lang="zh" class="hidden">与东北大学NLP实验室的学生团队合作</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Completed project analysis, tech stack selection, API design, and implementation</span>
+                                        <span lang="zh" class="hidden">完成项目分析、技术栈选择、API设计和实现</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Tech stack: Vue.js (front-end), Nest.js (back-end), ElasticSearch (database)</span>
+                                        <span lang="zh" class="hidden">技术栈：Vue.js (前端), Nest.js (后端), ElasticSearch (数据库)</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Responsible for setting up and deploying ElasticSearch, data cleaning, writing the Nest.js back-end, and developing a portion of the uni-app front-end, as well as implementing CI/CD for the system</span>
+                                        <span lang="zh" class="hidden">负责ElasticSearch的搭建和部署、数据清洗、Nest.js后端编写、部分uni-app前端开发以及系统CI/CD实现</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Migrated the Nest.js back-end service to Tencent Cloud Functions, reducing cloud server memory usage by 50%</span>
+                                        <span lang="zh" class="hidden">将Nest.js后端服务迁移到腾讯云函数，减少50%的云服务器内存使用</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Enabled full-text search on over 50,000 documents from ACL with multiple filtering conditions, achieving an average retrieval time of under 200 milliseconds</span>
+                                        <span lang="zh" class="hidden">实现对ACL的5万多篇文档的全文搜索，支持多种过滤条件，平均检索时间低于200毫秒</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Trained and deployed a seq2seq model in production to extract abstractions from papers fetched in a single query</span>
+                                        <span lang="zh" class="hidden">训练并在生产环境部署seq2seq模型，用于提取单次查询获取的论文摘要</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-4">
+                                <span lang="en">Work Experience</span>
+                                <span lang="zh" class="hidden">工作经验</span>
+                            </h3>
+                            <div class="mb-4">
+                                <h4 class="text-xl font-medium">
+                                    <span lang="en">Bytedance, Cloud Storage Backend Engineer</span>
+                                    <span lang="zh" class="hidden">字节跳动，云存储后端工程师</span>
+                                </h4>
+                                <p class="text-gray-600">
+                                    <span lang="en">2022.7 - Present</span>
+                                    <span lang="zh" class="hidden">2022.7 - 至今</span>
+                                </p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>
+                                        <span lang="en">Design and implement features using Golang to enhance availability in a distributed object storage system, achieving a high SLA of 99.95%. Supporting more than 100k TCP connections per node</span>
+                                        <span lang="zh" class="hidden">使用Golang设计和实现功能，提高分布式对象存储系统的可用性，实现99.95%的高SLA。每个节点支持超过10万TCP连接</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Lead a team of 6 software engineers (SWEs) and 3 site reliability engineers (SREs) to execute availability projects on a distributed logging system, reducing system downtime by 50%</span>
+                                        <span lang="zh" class="hidden">领导6名软件工程师（SWE）和3名站点可靠性工程师（SRE）团队执行分布式日志系统的可用性项目，将系统停机时间减少50%</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Conduct training sessions on distributed object and logging systems for international Site Reliability Engineers in English, which helped them successfully manage daily operational tasks</span>
+                                        <span lang="zh" class="hidden">用英语为国际站点可靠性工程师进行分布式对象和日志系统培训，帮助他们成功管理日常运营任务</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Maintain an existing system while executing its deprecation, achieving the fastest deprecation process in our team history</span>
+                                        <span lang="zh" class="hidden">在执行系统弃用的同时维护现有系统，实现了团队历史上最快的弃用流程</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-4">
+                                <span lang="en">Skills</span>
+                                <span lang="zh" class="hidden">专业技能</span>
+                            </h3>
+                            <h4 class="text-xl font-medium mb-2">
+                                <span lang="en">Technical Skills</span>
+                                <span lang="zh" class="hidden">技术技能</span>
+                            </h4>
+                            <ul class="list-disc list-inside text-gray-600 mb-4">
+                                <li>
+                                    <span lang="en">AI: Trained and deployed seq2seq models in production. Used Hugging Face framework for model fine-tuning, with prompt engineering experience</span>
+                                    <span lang="zh" class="hidden">AI: 在生产环境中训练和部署seq2seq模型。使用Hugging Face框架进行模型微调，有提示工程经验</span>
+                                </li>
+                                <li>
+                                    <span lang="en">Programming Languages: Proficient in HTML, CSS, JavaScript, Python, TypeScript, SQL, Bash, and C/C++</span>
+                                    <span lang="zh" class="hidden">编程语言: 精通HTML, CSS, JavaScript, Python, TypeScript, SQL, Bash和C/C++</span>
+                                </li>
+                                <li>
+                                    <span lang="en">Front-end: Proficient in Vue.js, familiar with React development</span>
+                                    <span lang="zh" class="hidden">前端: 精通Vue.js，熟悉React开发</span>
+                                </li>
+                                <li>
+                                    <span lang="en">Back-end: Proficient in back-end development (Python + Flask, Node.js + Nest.js)</span>
+                                    <span lang="zh" class="hidden">后端: 精通后端开发 (Python + Flask, Node.js + Nest.js)</span>
+                                </li>
+                                <li>
+                                    <span lang="en">Databases: Familiar with SQL (MySQL) and NoSQL (MongoDB, Redis, Elasticsearch) databases</span>
+                                    <span lang="zh" class="hidden">数据库: 熟悉SQL (MySQL) 和NoSQL (MongoDB, Redis, Elasticsearch) 数据库</span>
+                                </li>
+                                <li>
+                                    <span lang="en">Tools: Familiar with Linux, Git, Vim, Docker, and other tools</span>
+                                    <span lang="zh" class="hidden">工具: 熟悉Linux, Git, Vim, Docker等多种工具</span>
+                                </li>
+                            </ul>
+                            <h4 class="text-xl font-medium mb-2">
+                                <span lang="en">Soft Skills</span>
+                                <span lang="zh" class="hidden">软技能</span>
+                            </h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>
+                                    <span lang="en">Experience: Experienced in designing and implementing scalable AI-driven full-stack applications and distributed systems. Familiar with Agile development methods</span>
+                                    <span lang="zh" class="hidden">经验: 有设计和实现可扩展的AI驱动全栈应用和分布式系统的经验。熟悉敏捷开发方法</span>
+                                </li>
+                                <li>
+                                    <span lang="en">Communication: Excellent communication skills, able to convey complex technical concepts to different audiences, including training international Site Reliability Engineers on distributed object and logging systems in English</span>
+                                    <span lang="zh" class="hidden">沟通: 优秀的沟通技能，能够向不同背景的受众传达复杂的技术概念，包括用英语为国际站点可靠性工程师进行分布式对象和日志系统培训</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">
+                <span lang="en">About Me</span>
+                <span lang="zh" class="hidden">关于我</span>
+            </h2>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden p-6">
+                <p class="mb-4">
+                    <span lang="en">Trying to learn a tiny bit of Everything. Once had a deep dive into learning programming languages. Now trying to figure out how distributed systems work.</span>
+                    <span lang="zh" class="hidden">尝试学习各种知识。曾深入研究编程语言，现在正努力理解分布式系统的工作原理。</span>
+                </p>
+                <h3 class="text-2xl font-semibold mb-4">
+                    <span lang="en">What I know</span>
+                    <span lang="zh" class="hidden">我的技能</span>
+                </h3>
+                <p class="mb-4">
+                    <span lang="en">From peers, side-projects, doing schoolwork and internships in Tencent and Alibaba, I gained:</span>
+                    <span lang="zh" class="hidden">通过同行交流、个人项目、学校作业以及在腾讯和阿里巴巴的实习,我获得了以下经验:</span>
+                </p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>
+                        <span lang="en">Languages: JavaScript/TypeScript, C++, Python, Java, Rust, Go, HTML, CSS, SQL, Racket...</span>
+                        <span lang="zh" class="hidden">编程语言: JavaScript/TypeScript, C++, Python, Java, Rust, Go, HTML, CSS, SQL, Racket...</span>
+                    </li>
+                    <li>
+                        <span lang="en">Technology Stacks: JavaScript(Node.js, React, Vue, etc), GUI(Qt, Swing, ImGui, etc), Backend(Flask, Gin, Spring Boot, etc), DataBase(PostgreSQL, MongoDB, ElasticSearch)...</span>
+                        <span lang="zh" class="hidden">技术栈: JavaScript(Node.js, React, Vue等), GUI(Qt, Swing, ImGui等), 后端(Flask, Gin, Spring Boot等), 数据库(PostgreSQL, MongoDB, ElasticSearch)...</span>
+                    </li>
+                    <li>
+                        <span lang="en">Domain Knowledge: Using Cloud(VMs, Object Storage, Network, Serverless), Fullstack Development, Compiler Implementation(LLVM, ANTLR), Distributed Storage and Computing(Ceph, HDFS, Hadoop), Functional Programming(Learned by Reading SICP)</span>
+                        <span lang="zh" class="hidden">领域知识: 云计算(虚拟机, 对象存储, 网络, 无服务器), 全栈开发, 编译器实现(LLVM, ANTLR), 分布式存储和计算(Ceph, HDFS, Hadoop), 函数式编程(通过阅读SICP学习)</span>
+                    </li>
                 </ul>
-                <a href="#" class="button">View details »</a>
-            </section>
-            <section>
-                <h2>Constructing....</h2>
-                <ul>
-                    <li><a class="icon icon-user-circle" href="/">This main page</a></li>
-                    <li><a href="/ds1/">数据结构实验1</a></li>
-                    <li><a href="/deque/">数据结构实验5</a></li>
-                    <!--<li><a class="icon icon-search" href="//www.emon100.me/kingglory">A database of King glory</a></li>
-                    <li><a class="icon icon-shopping-cart" href="http://buy.emon100.me/">An online store simulator</a> 
-                    </li> -->
-                    <li><a href="/WebGL-hello/">Learning webgl</a></li>
-                </ul>
-                <a href="#" class="button">View details »</a>
-            </section>
-            <section>
-                <h2>Planing</h2>
-                <p>Fix this page. Fix myself.</p>
-                <a href="#" class="button">View details »</a>
-            </section>
-        </nav>
-    </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">
+                <span lang="en">Featured Projects</span>
+                <span lang="zh" class="hidden">精选项目</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span lang="en">Personal Blog</span>
+                            <span lang="zh" class="hidden">个人博客</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">A WordPress-based blog showcasing my thoughts and experiences.</span>
+                            <span lang="zh" class="hidden">基于WordPress的博客，展示我的想法和经验。</span>
+                        </p>
+                        <a href="//blog.emon100.com/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <i class="fab fa-wordpress mr-2"></i>
+                            <span lang="en">Visit Blog</span>
+                            <span lang="zh" class="hidden">访问博客</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span lang="en">Universal Turing Machine</span>
+                            <span lang="zh" class="hidden">通用图灵机</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">Explore the concepts and implementation of Turing machines.</span>
+                            <span lang="zh" class="hidden">探索图灵机的概念和实现。</span>
+                        </p>
+                        <a href="/turing-machine/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <span lang="en">View Project</span>
+                            <span lang="zh" class="hidden">查看项目</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span lang="en">GOTO Statement Research</span>
+                            <span lang="zh" class="hidden">GOTO语句研究</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">Reconsidering the harmfulness of the GOTO statement.</span>
+                            <span lang="zh" class="hidden">重新审视《GOTO 语句被认为有害》。</span>
+                        </p>
+                        <a href="/goto-translation/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <span lang="en">Read Article</span>
+                            <span lang="zh" class="hidden">阅读文章</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span lang="en">Data Structures Experiment 1</span>
+                            <span lang="zh" class="hidden">数据结构实验1</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">Explore the implementation of basic data structures.</span>
+                            <span lang="zh" class="hidden">探索基础数据结构的实现。</span>
+                        </p>
+                        <a href="/ds1/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <span lang="en">View Experiment</span>
+                            <span lang="zh" class="hidden">查看实验</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span lang="en">Data Structures Experiment 5</span>
+                            <span lang="zh" class="hidden">数据结构实验5</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">Delve into advanced data structures.</span>
+                            <span lang="zh" class="hidden">深入研究高级数据结构。</span>
+                        </p>
+                        <a href="/deque/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <span lang="en">View Experiment</span>
+                            <span lang="zh" class="hidden">查看实验</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span lang="en">WebGL Learning</span>
+                            <span lang="zh" class="hidden">WebGL学习</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">Explore the basics of WebGL and its applications.</span>
+                            <span lang="zh" class="hidden">探索WebGL的基础知识和应用。</span>
+                        </p>
+                        <a href="/WebGL-hello/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <span lang="en">View Project</span>
+                            <span lang="zh" class="hidden">查看项目</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section id="friends" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8">
+                <span lang="en">Friends</span>
+                <span lang="zh" class="hidden">友情链接</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Lian200's blog</h3>
+                        <p class="text-gray-600 mb-4">
+                            <span lang="en">Explore Lian200's thoughts and experiences.</span>
+                            <span lang="zh" class="hidden">探索Lian200的思考和经验。</span>
+                        </p>
+                        <a href="http://fankasy.xyz/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                            <i class="fab fa-wordpress mr-2"></i>
+                            <span lang="en">Visit Blog</span>
+                            <span lang="zh" class="hidden">访问博客</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="text-3xl font-bold mb-8">
+                <span lang="en">Contact Me</span>
+                <span lang="zh" class="hidden">联系我</span>
+            </h2>
+            <p class="mb-4">
+                <span lang="en">I'm always open to new opportunities and collaborations. Feel free to reach out!</span>
+                <span lang="zh" class="hidden">我始终对新的机会和合作持开放态度。欢迎随时联系我！</span>
+            </p>
+            <!-- 联系部分的按钮文本也需要修改 -->
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>
+                <span lang="en">&copy; 2023 Yimeng Wang. All rights reserved.</span>
+                <span lang="zh">&copy; 2023 王一蒙. 保留所有权利。</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageToggle = document.getElementById('languageToggle');
+            languageToggle.addEventListener('click', () => {
+                document.documentElement.lang = document.documentElement.lang === 'en' ? 'zh' : 'en';
+                document.querySelectorAll('[lang]').forEach(el => {
+                    el.classList.toggle('hidden', el.lang !== document.documentElement.lang);
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
