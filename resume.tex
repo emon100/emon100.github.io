@@ -1,0 +1,335 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = en_US
+% choose Xelatex compiler 选择Xelatex进行编译
+
+% 英文部分需要全部弄一遍
+
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} 
+\usepackage{linespacing_fix}
+\usepackage{cite}
+\usepackage{comment}
+
+% you should read https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes to learn basic latex
+
+% read manual https://github.com/xiangrongjingujiu/latex-languageSelection
+\usepackage[Chinese]{languageSelection}
+
+% read manual https://github.com/xiangrongjingujiu/latex-note-plus
+\usepackage[color=blue]{notePlus} 
+
+
+\begin{document}
+\pagenumbering{gobble}
+
+% "%"后面的所有内容是注释而非代码，不会输出到最后的PDF中
+% 使用本模板，只需要参照输出的PDF，在本文档的相应位置做简单替换即可
+% 修改之后，输出更新后的PDF，只需要点击Overleaf中的"Recompile"按钮即可
+
+% 填写你的名字
+\CN{
+  \name{王一蒙}
+}
+\EN{
+  \name{Yimeng Wang}
+}
+%**********************************相关信息****************************************
+% \otherInfo后面的四个大括号里的所有信息都会在一行输出，最多使用四个大括号，填写四个信息
+% 如果选择不填信息，那么大括号必须空着不写，而不能删除大括号。
+% 如果想要把信息写两行，那就用两次指令\otherInfo{}{}{}{}即可
+\CN{
+  \info {手机：(+86) 13169927376}{邮箱：emon100@qq.com}{}{}
+%  \info{性别：男}{籍贯：江南}{}{}
+  \info {github.com/emon100}{}{}{}%{emon100.com}
+}
+
+\EN{
+  \info{mobile: (+86) 13169927376}{email: emon100@qq.com}{}{}
+%  \info{Gender: Male}{Hometown: South China}{}{}
+  \info {github.com/emon100}{}{}{}{}%{emon100.com}
+}
+
+%*********************************照片**********************************************
+%照片需要放到images文件夹下，名字必须是you.jpg，如果不需要照片可以注释掉此行命令
+%0.15的意思是，照片的大小是0.15倍，调整大小，避免遮挡文字
+\yourphoto{0.15}
+%**********************************正文**********************************************
+
+
+%***大标题，下面有横线做分割
+%***一般的标题有：教育背景，实习（项目）经历，工作经历，自我评价，求职意向，等等
+\CN{
+  \section{教育背景}
+}
+\EN{
+  \section{EDUCATION}
+}
+
+%***********一行子标题**************
+%***第一个大括号里的内容向左对齐，第二个大括号里的内容向右对齐
+%***\textbf{}括号里的字是粗体，\textit{}括号里的字是斜体
+\CN{
+  \datedsubsection{\textbf{东北大学}，计算机科学与技术，\textit{本科}}{2018年9月 - 2022年6月}
+}
+\EN{
+  \datedsubsection{\textbf{Northeastern University}, Computer Science and Technology, \textit{Bachelor}}{Sep 2018 - Jun 2022}
+}
+
+
+%***********列举*********************
+%***可添加多个\item，得到多个列举项，类似的也可以用\textbf{}、\textit{}做强调
+\CN{
+  \begin{itemize} [parsep=1ex]
+    \item {GPA}：3.94 / 5.00
+    \item \textbf {名次}：29 / 272
+  \end{itemize}
+}
+\EN{
+  \begin{itemize} [parsep=1ex]
+    \item \textbf{GPA}: 3.94 / 5.00
+    \item \textbf{Ranking}: 29 / 272
+  \end{itemize}
+}
+
+\CN{
+  \section{职业经历}
+}
+\EN{
+  \section{PROFESSIONAL EXPERIENCE}
+}
+\CN{
+  \datedsubsection{\textbf{字节跳动}：对象存储-研发工程师}{2022年7月至今}
+  \datedsubsection{\textbf{腾讯微信事业部}：增值业务部-微信游戏-研发工程师实习}{2021年7月-2021年10月}
+  \datedsubsection{\textbf{阿里云}：跨平台技术与基础服务-研发工程师实习}{2021年6月-2021年7月}
+}
+\EN{
+  \datedsubsection{\textbf{ByteDance}: Object Storage - R\&D Engineer}{Jul 2022 - Present}
+  \datedsubsection{\textbf{Tencent WeChat Group}: Wechat Games - R\&D Intern}{Jul 2021 - Oct 2021}
+  \datedsubsection{\textbf{Alibaba Cloud}: Cross-Platform Technology \& Infrastructure - R\&D Intern}{Jun 2021 - Jul 2021}
+}
+
+% \more{这是一条笔记，详细用法参见notePlus的说明}
+% [*] 使用AI润色一次
+% [*] 数字核对一次，都用相对数字，不要用绝对数字
+% [*] 数字标粗。
+
+
+\CN{
+  \section{项目经历}
+}
+\EN{
+  \section{Projects}
+}
+% \more{面试：对每一个项目，要从需求提出/怎么进行设计/方案设计/开发/测试/效果}
+% \more{简历：STAR法则，主要写作用。 每个经历都要写几条经历}
+\CN{
+  \datedsubsection{\textbf{字节跳动}，TOS对象存储-存储研发工程师}{2022年7月至今}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{TOS稳定性核心功能贡献者}：
+    为了实现对象存储SLA保持在\textbf{99.995\%}，无\textbf{P0/P1}事故，MTTR<\textbf{30}分钟的目标。作为TOS网关服务相关功能的负责人，我拆解出\textbf{5}个改进项并设计实现，覆盖连接管理、限流降级、熔断机制、内存优化等核心问题，同时输出通用组件支持其他服务。
+      \begin{itemize}[parsep=0.5ex]
+
+    %Slowloris attack/DDos 
+    \item \textbf {设计实现高并发连接数管理中间件预防服务过载} ：在连接控制上，TOS之前有以下问题：「慢连接/空闲链接影响服务利用率」、「单业务流量突增/被限流导致的连接数突增影响其他业务」。因此，我在网关服务内设计实现了一个连接管理中间件，支持「慢连接/空闲连接检测」，「单桶连接数控制」两大特性，改进后主动管理连接数，使得单机空闲连接数大幅下降，经压测验证，单机可支撑空闲/慢客户端数从\textbf{10k}上升到\textbf{100k}。同时我推动TOS两大网关组件都接入此中间件，上线月均预防\textbf{1}次因业务使用方式有误导致的连接数事故。
+
+    
+    %QPS来点绝对数字的对比
+    \item \textbf {设计改进服务降级中间件预防服务雪崩} ：在限流上，TOS之前缺失以下能力：「错误限流」，「提示客户端退避重试」。因此我从网关服务和SDK两侧同时推动改进：网关服务内部增加中间件，在过载时降低返错频次，并拒绝响应新连接，为正常请求保留处理能力。同时改进服务端错误响应和SDK错误处理逻辑，服务端返回错误时提供退避重试相关提示，SDK内部提供官方的支持退避重试的重试器。改进并配置合适参数后，经压测，过载时成功QPS下降幅度从\textbf{50\%}改进到\textbf{10\%}，且用户对服务降级的有损感知下降。
+
+    
+    \item \textbf {接入RPC熔断中间件} ：TOS网关服务此前缺失熔断能力，受下游服务单点故障影响。因此我在网关服务上接入RPC熔断中间件，通过让网关服务探测到RPC失败率大于阈值后熔断并更换节点重试解决了此问题，为网关服务提供熔断和重试能力。上线后月均预防\textbf{8}次因下游服务单点故障引发的报警。
+
+    %"内部 IO 的吞吐量提升了 5% 并降低端到端时延 2ms" 可对比优化前后的绝对值（如原吞吐量是多少）
+    % https://bytedance.larkoffice.com/docx/EnnddDSNjo9deyxEG3Qck1BHnlf
+    % 小对象（4kb），128并发，750qps，cpu 9%->3%, 2.4ms -> 2.2ms
+    \item \textbf {开发实现 IO 流程增加对象池/内存监控中间件}：TOS网关服务内部读写底层存储过程中由于 分配buffer / GC 导致了「高并发场景下出现OOM无法快速恢复」的问题。我在网关服务读写流程内部添加了一个对象池，通过预分配不同大小的缓冲区提升了性能，经压测，对于相同QPS下小对象的并发读取，GC的CPU消耗降低\textbf{50\%}并降低平均端到端时延\textbf{10\%}。同时我在服务内实现内存监控中间件，通过Go runtime/metrics包对内存进行监控并在超出水位时主动进行服务降级拒绝新请求。
+    
+    
+    \item \textbf {设计稳定性二期方案如细粒度资源管理/隔离} ：基于此前设计的各类连接数和请求控制中间件，进一步改进，可采用请求染色思想（基于标记的流量区分）识别各类型连接和请求，网关内部可定义对连接和请求的拦截放行规则，并且与运维平台相联动，可以增强半自动/自动化应急处理能力。
+    \end{itemize}
+  \end{itemize}
+   
+%\more{尽量每个方向只有一句}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{TOS服务质量体系负责人}：TOS服务在逐渐收敛从用户处获取到的质量问题数量，因此我通过进一步建设功能测试流水线并修复一系列安全漏洞和用户问题来解决。
+    
+    \begin{itemize}[parsep=0.5ex]
+        \item \textbf {建设多云功能测试流水线} ：TOS特殊的多云架构使得原有的功能测试无法覆盖整个多云测试环境。我通过修改测试框架，系统化验证复杂情况如跨云存储中各种情况的笛卡尔积，确保了多云架构中的功能一致性。在流水线上线后，发现\textbf{10}余个多云相关Bug并提交，有效增强了TOS的质量。
+        
+        \item \textbf {修复GCS导致的安全漏洞} ：安全部门反映外部漏洞，定位到与URL中特殊转义对象名解析有关。通过阅读RFC文档，定位修复+新增打点验证效果，确认修复多云场景下，使用谷歌GCS的桶的相关安全漏洞。
+    
+        \item \textbf {提升 Node.js SDK crc64 性能}：用户反馈 Node.js SDK 计算对象crc64速度太慢,我定位问题+调研解决方案。使用 WASM 加速计算原先的\textbf{1MB/s}速度到\textbf{200MB/s}，解决了TOS Node.js SDK的性能问题。
+
+        \item \textbf {修复 Python SDK 返错丢失问题}：用户反馈 Python SDK 无法接收报错。通过抓包，跟踪系统调用等方式定位到 urllib3 处理 RST 连接时丢弃数据。通过让 TOS 网关服务在关闭连接时，先发送FIN再发送RST，优雅断开连接，解决此问题 。
+
+        \item \textbf {修复 OSS SDK 无法解析返错问题}：修复对象名不为UTF-8编码的情况下，OSS Go SDK无法解析返错导致的TOS业务问题。我定位到SDK缺少了一段处理XML解析错误的逻辑，修复后快速发版解决问题。
+    \end{itemize}
+  \end{itemize}
+
+% \more{尽量说出花来}
+   \begin{itemize}[parsep=0.5ex]
+    \item \textbf{TOS用户平台负责人}：TOS服务内部具有一个专门的控制面服务，我在接手期间发现之前的遗留问题并进行修改，提高了人效且增强了功能。在接手期间共开发了X个特性。
+      \begin{itemize}[parsep=0.5ex]
+        \item \textbf{控制面标准化} ：完成了一轮用户平台重构，面对多区域部署复杂度高的问题，消除 90\% 硬编码逻辑，实现配置化管理，使新增控制面部署人力成本降低，代码改动量从 900 行→100 行配置，支撑全平台多区域服务快速扩展"。
+
+        \item \textbf{开发调试简单化} ：通过接入框架，建设开发专用测试集群，使得用户平台的开发调试流程从之前的需在测试集群反复上线简化到在本地可以启动服务并调试测试，每次修改完代码看到效果的时长从10min简化到5s。同时我将此方法在团队内推广。
+    
+        \item \textbf{开发实现TOS生命周期规则翻译到多云（OSS/S3/GCS/Azure）}：之前TOS不支持多云桶使用生命周期规则，我通过在用户平台支持解析和转换TOS生命周期规则到其他云平台，协助支持了多桶场景TOS生命周期规则的上线。
+      \end{itemize}
+    \end{itemize}
+
+
+%   \more{需要解释为什么从对象存储去帮助日志服务}
+    \begin{itemize}[parsep=0.5ex]
+        \item \textbf{流式日志存储 SparkSQL 分布式离线分析功能Owner}：因为对象存储和日志存储的合作，支持流式日志的相关工作。用户有对大量日志数据进行数据分析的需求，我在接手后完成离线查询功能的开发支持此用户需求，并为其添加限流功能。
+        \begin{itemize}[parsep=0.5ex]
+            \item \textbf{开发分布式离线分析功能}：我通过利用 Spark 的扩展能力，通过扩展Datasource API将底层存储引擎抽象成 Spark 支持的数据源，并添加SQL解析，谓词/列下推等逻辑，分区查询逻辑，支持用户使用Spark SQL查询此数据源。用户使用 Spark SQL 查询日志数据可以将日志数据导出为 Hive 表，并进行更进一步的其他SQL查询。日志导出条数从\textbf{万}级提升至\textbf{千万}级。
+            \item \textbf{系统化解决存储引擎过载}：流式日志分布式离线分析时启动的Spark Worker过多会导致底层存储引擎过载，进而影响业务写日志以及其他方式查询日志的能力。我通过使用读写分离的部署架构，为分布式离线分析创建独立计算存储引擎集群，同时添加分布式限流能力，系统化解决此问题。上线后每周平均减少\textbf{5}个因为离线查询导致的过载告警。
+        \end{itemize}
+    \end{itemize}
+
+
+    \begin{itemize}[parsep=0.5ex]
+    \item  \textbf{Streamlog 流式日志服务稳定性}：从Streamlog团队接手相关工作。
+    \begin{itemize}[parsep=0.5ex]
+        \item \textbf{梳理稳定性问题场景}与SRE合作，寻找部署架构中的风险和遗留问题，推动完成30+日常遗留问题。与QA同学合作梳理应急场景进行演习。
+        \item \textbf{Streamlog 流式日志搭建应急体系}：完成全区域的告警/监控大盘建设。编写应急SOP并推广给团队，推动应急小工具上线，消除告警噪音，实现平均修复时间 < 15 min，事故数下降（2023年7个->2024年1个）。
+    \end{itemize}
+        
+    \begin{itemize}[parsep=0.5ex]
+        \item  \textbf{流式日志 计费服务Owner}：2024年初开始从流式日志 团队接手相关工作，对流式日志服务进行定价，成本核算等经营工作。并编写相关服务向用户收取费用账单。
+        \begin{itemize}[parsep=0.5ex]
+            \item \textbf{获得年度降价工作突出奖}：在过去接手的一年内，与SRE合作分析Streamlog经营数据，通过治理业务方的使用方式，日志存储的TTL/计费方式，降低业务成本以及服务存储成本。此优化工作获得公司奖项\textbf{「年度降价工作突出奖」}。
+            \item \textbf{重构和开发计费服务}：重构计费算法，使其更加准确，且完成全区域计费上线。支持内外统一工作，将火山日志服务计费数据转换到内场。
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+}
+
+
+\EN{
+  \datedsubsection{\textbf{Cash bank}， clerk}{1930.09}
+  \begin{itemize}[parsep=0.5ex]
+    \item The company of the father of the betrothed fiancee in high school
+  \end{itemize}
+}
+
+ \CN{
+   \datedsubsection{\textbf{阿里云}，跨平台技术与基础服务}{2021.6-2021.7}
+   \begin{itemize}[parsep=0.5ex]
+     \item \textbf{实习}
+       \begin{itemize}[parsep=0.5ex]
+     \item \textbf {设计与实现了一个Spring应用的静态分析程序}：在程序已编译打包的受限条件下，利用ASM库提供的字节码解析能力，编写静态分析程序，不用运行和修改应用即可提取某个Spring应用中暴露的HTTP API的相关信息。在此程序基础上同时还实现了一个API兼容性检测工具，可比较同一个应用程序不同版本暴露的API间的差异。基于前缀树算法，可以区分某路径下API的增删与某路径API的参数变动。
+     \end{itemize}
+   \end{itemize}
+ }
+ \EN{
+  \datedsubsection{\textbf{Alibaba Cloud}, Cross-Platform Technology and Infrastructure}{Jun 2021 - Jul 2021}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{Intern}
+      \begin{itemize}[parsep=0.5ex]
+        \item \textbf{Designed and implemented a static analysis tool for Spring applications}: Extracted HTTP API information from compiled packages using ASM, and developed an API compatibility checker based on prefix tree algorithms.
+      \end{itemize}
+  \end{itemize}
+ }
+ \CN{
+   \datedsubsection{\textbf{腾讯}，微信事业群——增值业务部}{2021.7-2021.10}
+   \begin{itemize}[parsep=0.5ex]
+     \item \textbf{实习}
+       \begin{itemize}[parsep=0.5ex]
+     \item \textbf {设计与实现了一个爬虫系统}：为了帮助运营和产品获取到游戏产品在部分社交网站的数据，设计并实现了一个爬虫系统。此系统遵守robots.txt协议，可以对部分平台的相关信息进行抓取。
+     \end{itemize}
+   \end{itemize}
+ }
+ \EN{
+  \datedsubsection{\textbf{Tencent}, WeChat Group - WeChat Games}{Jul 2021 - Oct 2021}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{Intern}
+      \begin{itemize}[parsep=0.5ex]
+        \item \textbf{Designed and implemented a web crawler system}: Collected data from social platforms in compliance with robots.txt to support operations and product teams.
+      \end{itemize}
+  \end{itemize}
+ }
+
+ 
+\CN{
+  \datedsubsection{\textbf{AI驱动的论文检索引擎}，项目负责人}{2019.10 - 2021.4}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{学校大创项目}：前端Vue.js，后端Nest.js，数据库为ElasticSearch。应用Seq2seq模型。
+    \begin{itemize}[parsep=0.5ex]
+        \item 完成了项目分析、技术栈选型、API设计与实现。支持对5万余篇ACL论文进行多条件全文检索，平均检索响应时间低于200毫秒。
+        \item 将Nest.js后端服务迁移至腾讯云函数，云服务器内存使用降低了50\%。
+        \item 在生产环境中训练并部署了seq2seq模型，实现了对单次查询获取论文的摘要抽取。
+        \item 负责ElasticSearch的搭建与部署、数据清洗、Nest.js后端开发，以及部分uni-app前端开发，并实现了系统的CI/CD流程。
+      \end{itemize}
+   
+  \end{itemize}
+}
+\EN{
+  \datedsubsection{\textbf{AI-powered paper search engine}, Team Lead}{2019.10 - 2021.4}
+  \begin{itemize}[parsep=0.5ex]
+    \item Collaborated with a team of students in Northeastern University(CN) in NEU's NLP lab. 
+    \item Completed project analysis, tech stack selection, API design, and implementation together.
+    \item Tech stack: Vue.js (front-end), Nest.js (back-end), ElasticSearch (database).
+    \item Responsible for setting up and deploying ElasticSearch, data cleaning, writing the Nest.js back-end, and developing a portion of the uni-app front-end, as well as implementing CI/CD for the system.
+    \item Migrated the Nest.js back-end service to Tencent Cloud Functions, reducing cloud server memory usage by 50\%.
+    \item Enabled full-text search on over 50,000 documents from ACL with multiple filtering conditions, achieving an average retrieval time of under 200 milliseconds.
+    \item Trained and deployed a seq2seq model in production to extract abstractions from papers fetched in a single query.
+  \end{itemize}
+}
+
+\CN{
+  \section{专业技能}
+}
+\EN{
+  \section{Skills}
+}
+
+\CN{
+  \datedsubsection{\textbf{编程语言和相关技能}}{}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{Go， Python， C/C++}：熟练使用，熟悉工具链和语言特性。
+    \item \textbf{SQL， Scala， Java}：常用水平，工作中经常接触。
+    \item \textbf{其他技能}：英语TOEFL 98分。腾讯云架构工程师认证.
+  \end{itemize}
+}
+
+\EN{
+  \datedsubsection{\textbf{Programming Languages and Skills}}{}
+  \begin{itemize}[parsep=0.5ex]
+    \item \textbf{Go, Python, C/C++}: Proficient, familiar with toolchains and language features.
+    \item \textbf{SQL, Scala, Java}: Working knowledge, frequently used in work.
+    \item \textbf{Other Skills}: TOEFL 98. Tencent Cloud Architect Certification.
+  \end{itemize}
+}
+
+
+% \CN{
+% \section{简历写作注意事项}
+% 
+% 写作时不要泛泛而谈太笼统，要应用STAR原则，即Situation（情景）、Task（任务）、Action（行动）和Result（结果）四个英文单词的首字母组合。
+% 
+% \begin{itemize}[parsep=0.5ex]
+%   \item S指的是situation，事情是在什么情况下发生
+%   \item T指的是task，你是如何明确你的目标的
+%   \item A指的是action，针对这样的情况分析，你采用了什么行动方式
+%   \item R指的是result，结果怎样，在这样的情况下你学习到了什么
+% \end{itemize}
+% }
+% 
+% \EN{
+% \section{Resume writing notes}
+% 
+% 
+% \begin{itemize}[parsep=0.5ex]
+%   \item S refers to the situation， under what circumstances did things happen
+%   \item T refers to the task， how do you define your goal
+%   \item A refers to the action， what kind of action did you take in this situation analysis
+%   \item R refers to result， what is the result， what did you learn in this situation
+% \end{itemize}
+% }
+
+
+\end{document}

@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yimeng Wang - Full Stack Developer</title>
+    <title>Yimeng Wang - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 font-sans flex flex-col min-h-full">
+    
+    <!--
     <header class="bg-blue-600 text-white py-16">
         <div class="container mx-auto text-center">
             <h1 class="text-5xl font-bold mb-4">
@@ -22,11 +24,13 @@
             </p>
         </div>
     </header>
+    -->
 
     <nav class="bg-white shadow-md sticky top-0 z-10">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-xl font-semibold text-blue-600">Yimeng Wang</a>
+                <a href="#" lang="en" class="text-xl font-semibold text-blue-600">Yimeng Wang</a>
+                <a href="#" lang="zh" class="text-xl font-semibold text-blue-600 hidden" class="text-xl font-semibold text-blue-600">王一蒙</a>
                 <div class="space-x-4">
                     <a href="#projects" class="text-gray-600 hover:text-blue-600">
                         <span lang="en">Projects</span>
@@ -39,6 +43,10 @@
                     <a href="#contact" class="text-gray-600 hover:text-blue-600">
                         <span lang="en">Contact</span>
                         <span lang="zh" class="hidden">联系</span>
+                    </a>
+                    <a href="//blog.emon100.com/" class="text-gray-600 hover:text-blue-600">
+                        <span lang="en">Blog</span>
+                        <span lang="zh" class="hidden">博客</span>
                     </a>
                     <button id="languageToggle" class="text-gray-600 cursor-pointer">
                         <span lang="en">中文</span>
@@ -66,8 +74,8 @@
                             <p class="text-gray-600 mb-2">
                                 <a href="mailto:emonwang.ymw@outlook.com" class="flex items-center justify-center">
                                     <i class="fas fa-envelope mr-2"></i>
-                                    <span lang="en">emonwang.ymw@outlook.com</span>
-                                    <span lang="zh" class="hidden">emonwang.ymw@outlook.com</span>
+                                    <span lang="en">emonwang.ymw At outlook.com</span>
+                                    <span lang="zh" class="hidden">emonwang.ymw At outlook.com</span>
                                 </a>
                             </p>
                             <p class="text-gray-600 mb-4">
@@ -101,56 +109,13 @@
                         </div>
                         <div class="mb-6">
                             <h3 class="text-2xl font-semibold mb-4">
-                                <span lang="en">Project Experience</span>
-                                <span lang="zh" class="hidden">项目经验</span>
-                            </h3>
-                            <div class="mb-4">
-                                <h4 class="text-xl font-medium">
-                                    <span lang="en">AI-powered paper search engine, Team Lead</span>
-                                    <span lang="zh" class="hidden">AI-powered paper search engine, Team Lead</span>
-                                </h4>
-                                <p class="text-gray-600">2019.10 - 2021.4</p>
-                                <ul class="list-disc list-inside text-gray-600 mt-2">
-                                    <li>
-                                        <span lang="en">Collaborated with a team of students in Northeastern University(CN) in NEU's NLP lab</span>
-                                        <span lang="zh" class="hidden">与东北大学NLP实验室的学生团队合作</span>
-                                    </li>
-                                    <li>
-                                        <span lang="en">Completed project analysis, tech stack selection, API design, and implementation</span>
-                                        <span lang="zh" class="hidden">完成项目分析、技术栈选择、API设计和实现</span>
-                                    </li>
-                                    <li>
-                                        <span lang="en">Tech stack: Vue.js (front-end), Nest.js (back-end), ElasticSearch (database)</span>
-                                        <span lang="zh" class="hidden">技术栈：Vue.js (前端), Nest.js (后端), ElasticSearch (数据库)</span>
-                                    </li>
-                                    <li>
-                                        <span lang="en">Responsible for setting up and deploying ElasticSearch, data cleaning, writing the Nest.js back-end, and developing a portion of the uni-app front-end, as well as implementing CI/CD for the system</span>
-                                        <span lang="zh" class="hidden">负责ElasticSearch的搭建和部署、数据清洗、Nest.js后端编写、部分uni-app前端开发以及系统CI/CD实现</span>
-                                    </li>
-                                    <li>
-                                        <span lang="en">Migrated the Nest.js back-end service to Tencent Cloud Functions, reducing cloud server memory usage by 50%</span>
-                                        <span lang="zh" class="hidden">将Nest.js后端服务迁移到腾讯云函数，减少50%的云服务器内存使用</span>
-                                    </li>
-                                    <li>
-                                        <span lang="en">Enabled full-text search on over 50,000 documents from ACL with multiple filtering conditions, achieving an average retrieval time of under 200 milliseconds</span>
-                                        <span lang="zh" class="hidden">实现对ACL的5万多篇文档的全文搜索，支持多种过滤条件，平均检索时间低于200毫秒</span>
-                                    </li>
-                                    <li>
-                                        <span lang="en">Trained and deployed a seq2seq model in production to extract abstractions from papers fetched in a single query</span>
-                                        <span lang="zh" class="hidden">训练并在生产环境部署seq2seq模型，用于提取单次查询获取的论文摘要</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <h3 class="text-2xl font-semibold mb-4">
                                 <span lang="en">Work Experience</span>
                                 <span lang="zh" class="hidden">工作经验</span>
                             </h3>
                             <div class="mb-4">
                                 <h4 class="text-xl font-medium">
-                                    <span lang="en">Bytedance, Cloud Storage Backend Engineer</span>
-                                    <span lang="zh" class="hidden">字节跳动，云存储后端工程师</span>
+                                    <span lang="en">ByteDance, Object Storage - R&D Engineer</span>
+                                    <span lang="zh" class="hidden">字节跳动，对象存储-研发工程师</span>
                                 </h4>
                                 <p class="text-gray-600">
                                     <span lang="en">2022.7 - Present</span>
@@ -158,20 +123,75 @@
                                 </p>
                                 <ul class="list-disc list-inside text-gray-600 mt-2">
                                     <li>
-                                        <span lang="en">Design and implement features using Golang to enhance availability in a distributed object storage system, achieving a high SLA of 99.95%. Supporting more than 100k TCP connections per node</span>
-                                        <span lang="zh" class="hidden">使用Golang设计和实现功能，提高分布式对象存储系统的可用性，实现99.95%的高SLA。每个节点支持超过10万TCP连接</span>
+                                        <span lang="en">TOS stability core feature contributor: Designed and implemented 5 improvements for TOS gateway service to maintain 99.995% SLA, no P0/P1 incidents, and MTTR &lt; 30 minutes</span>
+                                        <span lang="zh" class="hidden">TOS稳定性核心功能贡献者：为了实现对象存储SLA保持在99.995%，无P0/P1事故，MTTR &lt; 30分钟的目标，设计实现了5个改进项</span>
                                     </li>
                                     <li>
-                                        <span lang="en">Lead a team of 6 software engineers (SWEs) and 3 site reliability engineers (SREs) to execute availability projects on a distributed logging system, reducing system downtime by 50%</span>
-                                        <span lang="zh" class="hidden">领导6名软件工程师（SWE）和3名站点可靠性工程师（SRE）团队执行分布式日志系统的可用性项目，将系统停机时间减少50%</span>
-                                    </li>
-                                    <li>
+                                        <span lang="en">TOS service quality system owner: Built multi-cloud functional test pipeline, fixed security vulnerabilities, and improved SDK performance</span>
+                                        <span lang="zh" class="hidden">TOS服务质量体系负责人：建设多云功能测试流水线，修复安全漏洞，提升SDK性能</span>
                                         <span lang="en">Conduct training sessions on distributed object and logging systems for international Site Reliability Engineers in English, which helped them successfully manage daily operational tasks</span>
-                                        <span lang="zh" class="hidden">用英语为国际站点可靠性工程师进行分布式对象和日志系统培训，帮助他们成功管理日常运营任务</span>
+                                        <span lang="zh" class="hidden">用英语为海外站点可靠性工程师进行分布式对象和日志系统培训，帮助他们成功管理日常运营任务</span>
                                     </li>
                                     <li>
-                                        <span lang="en">Maintain an existing system while executing its deprecation, achieving the fastest deprecation process in our team history</span>
-                                        <span lang="zh" class="hidden">在执行系统弃用的同时维护现有系统，实现了团队历史上最快的弃用流程</span>
+                                        <span lang="en">TOS user platform owner: Standardized control plane, simplified development and debugging, implemented lifecycle rules translation</span>
+                                        <span lang="zh" class="hidden">TOS用户平台负责人：控制面标准化，开发调试简单化，实现生命周期规则翻译</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-xl font-medium">
+                                    <span lang="en">Tencent WeChat Group, WeChat Games - R&D Intern</span>
+                                    <span lang="zh" class="hidden">腾讯微信事业群，微信游戏-研发工程师实习</span>
+                                </h4>
+                                <p class="text-gray-600">2021.7 - 2021.10</p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>
+                                        <span lang="en">Designed and implemented a web crawler system in compliance with robots.txt to support operations and product teams</span>
+                                        <span lang="zh" class="hidden">设计与实现了一个爬虫系统，遵守robots.txt协议，支持运营和产品团队</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="text-xl font-medium">
+                                    <span lang="en">Alibaba Cloud, Cross-Platform Technology & Infrastructure - R&D Intern</span>
+                                    <span lang="zh" class="hidden">阿里云，跨平台技术与基础服务-研发工程师实习</span>
+                                </h4>
+                                <p class="text-gray-600">2021.6 - 2021.7</p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>
+                                        <span lang="en">Designed and implemented a static analysis tool for Spring applications using ASM, and developed an API compatibility checker</span>
+                                        <span lang="zh" class="hidden">设计与实现了一个Spring应用的静态分析程序，使用ASM库，并开发了API兼容性检测工具</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-4">
+                                <span lang="en">Project Experience</span>
+                                <span lang="zh" class="hidden">项目经验</span>
+                            </h3>
+                            <div class="mb-4">
+                                <h4 class="text-xl font-medium">
+                                    <span lang="en">AI-powered paper search engine, Team Lead</span>
+                                    <span lang="zh" class="hidden">AI驱动的论文检索引擎，项目负责人</span>
+                                </h4>
+                                <p class="text-gray-600">2019.10 - 2021.4</p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>
+                                        <span lang="en">Tech stack: Vue.js (front-end), Nest.js (back-end), ElasticSearch (database)</span>
+                                        <span lang="zh" class="hidden">技术栈：Vue.js (前端), Nest.js (后端), ElasticSearch (数据库)</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Enabled full-text search on over 50,000 documents from ACL with multiple filtering conditions, achieving an average retrieval time of under 200 milliseconds</span>
+                                        <span lang="zh" class="hidden">实现对ACL的5万多篇文档的全文搜索，支持多种过滤条件，平均检索时间低于200毫秒</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Migrated the Nest.js back-end service to Tencent Cloud Functions, reducing cloud server memory usage by 50%</span>
+                                        <span lang="zh" class="hidden">将Nest.js后端服务迁移到腾讯云函数，减少50%的云服务器内存使用</span>
+                                    </li>
+                                    <li>
+                                        <span lang="en">Trained and deployed a seq2seq model in production to extract abstractions from papers fetched in a single query</span>
+                                        <span lang="zh" class="hidden">训练并在生产环境部署seq2seq模型，用于提取单次查询获取的论文摘要</span>
                                     </li>
                                 </ul>
                             </div>
@@ -187,6 +207,8 @@
                             </h4>
                             <ul class="list-disc list-inside text-gray-600 mb-4">
                                 <li>
+                                    <span lang="en">Programming Languages: Proficient in Go, Python, C/C++; Working knowledge of SQL, Scala, Java</span>
+                                    <span lang="zh" class="hidden">编程语言: 精通Go, Python, C/C++；熟悉SQL, Scala, Java</span>
                                     <span lang="en">AI: Trained and deployed seq2seq models in production. Used Hugging Face framework for model fine-tuning, with prompt engineering experience</span>
                                     <span lang="zh" class="hidden">AI: 在生产环境中训练和部署seq2seq模型。使用Hugging Face框架进行模型微调，有提示工程经验</span>
                                 </li>
