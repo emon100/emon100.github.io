@@ -1,0 +1,11 @@
+{
+  "title": "多页向导表单",
+  "fields": [
+    { "label": "姓名", "type": "text", "name": "name" },
+    { "label": "邮箱", "type": "email", "name": "mail" },
+    { "label": "国家", "type": "select", "name": "nation" },
+    { "label": "城市", "type": "text", "name": "city2" },
+    { "label": "公司", "type": "text", "name": "corp" },
+    { "label": "职位", "type": "text", "name": "role" }
+  ]
+}

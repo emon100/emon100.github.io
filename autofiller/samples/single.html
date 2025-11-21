@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>单页标准表单</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px }
+    form { max-width: 560px }
+    .row { display: flex; gap: 12px }
+    label { display: block; margin: 8px 0 }
+  </style>
+</head>
+<body>
+  <h1>单页标准表单</h1>
+  <form>
+    <label for="fullName">姓名</label>
+    <input id="fullName" name="fullName" type="text" placeholder="张三" value="张三" />
+
+    <div class="row">
+      <div style="flex:1">
+        <label for="email">邮箱</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com" value="zhangsan@example.com" />
+      </div>
+      <div style="flex:1">
+        <label for="phone">电话</label>
+        <input id="phone" name="phone" type="tel" placeholder="13800000000" value="13800000000" />
+      </div>
+    </div>
+
+    <label for="company">公司</label>
+    <input id="company" name="company" type="text" placeholder="某某科技" value="某某科技" />
+
+    <label for="title">职位</label>
+    <input id="title" name="title" type="text" placeholder="产品经理" value="产品经理" />
+
+    <label for="country">国家</label>
+    <select id="country" name="country">
+      <option value="">选择国家</option>
+      <option value="CN" selected>中国</option>
+      <option value="US">美国</option>
+      <option value="JP">日本</option>
+    </select>
+
+    <label for="city">城市</label>
+    <input id="city" name="city" type="text" placeholder="北京" value="北京" />
+
+    <label for="address">地址</label>
+    <textarea id="address" name="address" placeholder="街道门牌">北京市朝阳区XX路100号</textarea>
+
+    <div style="margin-top:12px; display:flex; gap:8px">
+      <button type="button" id="saveBtn">保存</button>
+      <button type="submit">下一步</button>
+    </div>
+  </form>
+  <script>
+    const collect = () => {
+      const form = document.querySelector('form')
+      const inputs = Array.from(form.querySelectorAll('input, select, textarea'))
+      const entries = {}
+      inputs.forEach(el => { const k = el.name; let v = ''; if (!k) return; if (el.tagName.toLowerCase()==='select') v = el.value; else v = el.value || ''; entries[k] = v })
+      return entries
+    }
+    const save = () => {
+      const key = 'afp:dataset'
+      let cur = null
+      try { cur = JSON.parse(localStorage.getItem(key)||'null') } catch(e) { cur = null }
+      const before = cur && cur.entries ? cur.entries : {}
+      const now = collect()
+      const merged = Object.assign({}, before, now)
+      const next = { entries: merged, updatedAt: Date.now() }
+      localStorage.setItem(key, JSON.stringify(next))
+      const tip = document.createElement('div')
+      tip.style.position = 'fixed'; tip.style.right = '16px'; tip.style.bottom = '80px'; tip.style.zIndex = '999999'; tip.style.background = '#10b981'; tip.style.color = '#fff'; tip.style.padding = '8px 12px'; tip.style.borderRadius = '6px'; tip.textContent = '已保存'
+      document.body.appendChild(tip)
+      setTimeout(() => { try { document.body.removeChild(tip) } catch(e){} }, 1500)
+    }
+    document.getElementById('saveBtn').addEventListener('click', () => { save() })
+    document.querySelector('form').addEventListener('submit', e => { e.preventDefault(); save() })
+  </script>
+</body>
+</html>

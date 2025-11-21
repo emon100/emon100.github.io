@@ -1,0 +1,7 @@
+<form title="条件分支表单">
+  <field label="角色" type="select" name="roleSel" />
+  <field label="学校" type="text" name="school" />
+  <field label="学号" type="text" name="stuId" />
+  <field label="单位" type="text" name="org" />
+  <field label="工号" type="text" name="empId" />
+</form>

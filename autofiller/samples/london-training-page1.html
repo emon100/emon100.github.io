@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>London Training Contract — Page 1</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px }
+    form { max-width: 800px }
+    .section { margin: 16px 0 }
+    .row { display: flex; gap: 12px }
+    .col { flex: 1 }
+    label { display: block; margin: 8px 0 }
+  </style>
+</head>
+<body>
+  <h1>London Training Contract — Page 1</h1>
+  <form>
+    <div class="section">
+      <h2>Personal information</h2>
+      <div class="row">
+        <div class="col">
+          <label for="firstName">First name</label>
+          <input id="firstName" name="firstName" type="text" placeholder="John" />
+        </div>
+        <div class="col">
+          <label for="lastName">Last name</label>
+          <input id="lastName" name="lastName" type="text" placeholder="Doe" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="name@example.com" />
+        </div>
+        <div class="col">
+          <label for="emailConfirmation">Confirm your email</label>
+          <input id="emailConfirmation" name="emailConfirmation" type="email" placeholder="name@example.com" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" placeholder="London" />
+        </div>
+        <div class="col">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" placeholder="+44 20 0000 0000" />
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Experience</h2>
+      <div style="margin:8px 0">
+        <button type="button" id="addExp">Add experience</button>
+      </div>
+      <div id="expContainer">
+      <div class="row" data-exp-index="1">
+        <div class="col">
+          <label for="expTitle_1">Title</label>
+          <input id="expTitle_1" name="expTitle_1" type="text" placeholder="Analyst" />
+        </div>
+        <div class="col">
+          <label for="expCompany_1">Company</label>
+          <input id="expCompany_1" name="expCompany_1" type="text" placeholder="Clifford Chance" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="expLocation_1">Office location</label>
+          <input id="expLocation_1" name="expLocation_1" type="text" placeholder="London" />
+        </div>
+        <div class="col">
+          <label for="expDesc_1">Description</label>
+          <textarea id="expDesc_1" name="expDesc_1" rows="3" placeholder="Responsibilities..."></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="expFrom_1">From</label>
+          <input id="expFrom_1" name="expFrom_1" type="month" />
+        </div>
+        <div class="col">
+          <label for="expTo_1">To</label>
+          <input id="expTo_1" name="expTo_1" type="month" />
+        </div>
+      </div>
+      <label><input id="expCurrent_1" name="expCurrent_1" type="checkbox" /> I currently work here</label>
+      </div>
+    </div>
+
+    <div style="margin-top:12px">
+      <button type="submit">Next</button>
+    </div>
+  </form>
+  <script>
+    document.querySelector('form').addEventListener('submit', e => {
+      e.preventDefault()
+      location.href = 'london-training-page2.html'
+    })
+    ;(function(){
+      let idx = 1
+      const cont = document.getElementById('expContainer')
+      const add = document.getElementById('addExp')
+      const tpl = (i) => `
+        <hr style="margin:12px 0" />
+        <div class=\"row\" data-exp-index=\"${i}\">
+          <div class=\"col\">
+            <label for=\"expTitle_${i}\">Title</label>
+            <input id=\"expTitle_${i}\" name=\"expTitle_${i}\" type=\"text\" placeholder=\"Analyst\" />
+          </div>
+          <div class=\"col\">
+            <label for=\"expCompany_${i}\">Company</label>
+            <input id=\"expCompany_${i}\" name=\"expCompany_${i}\" type=\"text\" placeholder=\"Company\" />
+          </div>
+        </div>
+        <div class=\"row\">
+          <div class=\"col\">
+            <label for=\"expLocation_${i}\">Office location</label>
+            <input id=\"expLocation_${i}\" name=\"expLocation_${i}\" type=\"text\" placeholder=\"City\" />
+          </div>
+          <div class=\"col\">
+            <label for=\"expDesc_${i}\">Description</label>
+            <textarea id=\"expDesc_${i}\" name=\"expDesc_${i}\" rows=\"3\" placeholder=\"Responsibilities...\"></textarea>
+          </div>
+        </div>
+        <div class=\"row\">
+          <div class=\"col\">
+            <label for=\"expFrom_${i}\">From</label>
+            <input id=\"expFrom_${i}\" name=\"expFrom_${i}\" type=\"month\" />
+          </div>
+          <div class=\"col\">
+            <label for=\"expTo_${i}\">To</label>
+            <input id=\"expTo_${i}\" name=\"expTo_${i}\" type=\"month\" />
+          </div>
+        </div>
+        <label><input id=\"expCurrent_${i}\" name=\"expCurrent_${i}\" type=\"checkbox\" /> I currently work here</label>
+        <div style=\"margin:6px 0\">
+          <button type=\"button\" class=\"removeExp\">Remove this experience</button>
+        </div>
+      `
+      add.onclick = () => {
+        idx++
+        const wrap = document.createElement('div')
+        wrap.innerHTML = tpl(idx)
+        cont.appendChild(wrap)
+        const btn = wrap.querySelector('.removeExp')
+        btn.onclick = () => { cont.removeChild(wrap) }
+      }
+    })()
+  </script>
+</body>
+</html>

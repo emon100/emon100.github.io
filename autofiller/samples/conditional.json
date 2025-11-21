@@ -1,0 +1,10 @@
+{
+  "title": "条件分支表单",
+  "fields": [
+    { "label": "角色", "type": "select", "name": "roleSel" },
+    { "label": "学校", "type": "text", "name": "school" },
+    { "label": "学号", "type": "text", "name": "stuId" },
+    { "label": "单位", "type": "text", "name": "org" },
+    { "label": "工号", "type": "text", "name": "empId" }
+  ]
+}

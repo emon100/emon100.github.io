@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>条件分支表单</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px }
+    .hidden { display:none }
+  </style>
+</head>
+<body>
+  <h1>条件分支表单</h1>
+  <form id="cond">
+    <label>角色
+      <select id="roleSel" name="roleSel">
+        <option value="">选择</option>
+        <option value="student">学生</option>
+        <option value="teacher">教师</option>
+      </select>
+    </label>
+
+    <div id="studentFields" class="hidden">
+      <label>学校<input id="school" name="school" type="text" placeholder="XX大学"></label>
+      <label>学号<input id="stuId" name="stuId" type="text" placeholder="2025xxxx"></label>
+    </div>
+
+    <div id="teacherFields" class="hidden">
+      <label>单位<input id="org" name="org" type="text" placeholder="XX中学"></label>
+      <label>工号<input id="empId" name="empId" type="text" placeholder="T12345"></label>
+    </div>
+
+    <div style="margin-top:12px">
+      <button type="submit">提交</button>
+    </div>
+  </form>
+  <script>
+    const sel = document.getElementById('roleSel')
+    const student = document.getElementById('studentFields')
+    const teacher = document.getElementById('teacherFields')
+    const update = () => {
+      const v = sel.value
+      student.classList.toggle('hidden', v !== 'student')
+      teacher.classList.toggle('hidden', v !== 'teacher')
+    }
+    sel.onchange = update
+    sel.value = 'student'
+    update()
+    document.querySelector('form').addEventListener('submit', e => { e.preventDefault() })
+  </script>
+</body>
+</html>

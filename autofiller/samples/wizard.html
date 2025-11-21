@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多页向导表单</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px }
+    .step { display: none }
+    .step.active { display: block }
+    .nav { margin: 12px 0 }
+  </style>
+</head>
+<body>
+  <h1>多页向导表单</h1>
+  <form id="wiz">
+    <div class="step active" id="s1">
+      <h2>基本信息</h2>
+      <label>姓名<input id="name" name="name" type="text" placeholder="李四"></label>
+      <label>邮箱<input id="mail" name="mail" type="email" placeholder="xx@yy.com"></label>
+      <div class="nav"><button type="button" id="next1">下一步</button></div>
+    </div>
+    <div class="step" id="s2">
+      <h2>地址信息</h2>
+      <label>国家<select id="nation" name="nation"><option value="">选择</option><option>中国</option><option>美国</option></select></label>
+      <label>城市<input id="city2" name="city2" type="text" placeholder="上海"></label>
+      <div class="nav"><button type="button" id="prev2">上一步</button> <button type="button" id="next2">下一步</button></div>
+    </div>
+    <div class="step" id="s3">
+      <h2>确认提交</h2>
+      <label>公司<input id="corp" name="corp" type="text" placeholder="某某公司"></label>
+      <label>职位<input id="role" name="role" type="text" placeholder="工程师"></label>
+      <div class="nav"><button type="button" id="prev3">上一步</button> <button type="submit">提交</button></div>
+    </div>
+  </form>
+  <script>
+    const show = id => {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'))
+      document.getElementById(id).classList.add('active')
+    }
+    document.getElementById('next1').onclick = () => show('s2')
+    document.getElementById('prev2').onclick = () => show('s1')
+    document.getElementById('next2').onclick = () => show('s3')
+    document.getElementById('prev3').onclick = () => show('s2')
+    document.getElementById('wiz').addEventListener('submit', e => { e.preventDefault() })
+  </script>
+</body>
+</html>

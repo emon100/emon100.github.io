@@ -1,0 +1,7 @@
+<form title="不规范表单">
+  <field label="姓名" type="text" name="nm" />
+  <field label="邮箱" type="email" name="em" />
+  <field label="公司" type="text" name="co" />
+  <field label="手机" type="tel" name="ph" />
+  <field label="地址" type="textarea" name="addr" />
+</form>

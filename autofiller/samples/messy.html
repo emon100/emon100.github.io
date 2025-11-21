@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>不规范表单</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 20px }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+    .box { border: 1px dashed #aaa; padding: 8px }
+  </style>
+</head>
+<body>
+  <h1>不规范表单</h1>
+  <form>
+    <div class="grid">
+      <div class="box">
+        <div>👤</div>
+        <input id="nm" name="nm" type="text" placeholder="姓名" />
+      </div>
+      <div class="box">
+        <div>📧</div>
+        <input id="em" name="em" type="email" placeholder="邮箱地址" />
+      </div>
+      <div class="box">
+        <div>🏢</div>
+        <input id="co" name="co" type="text" placeholder="公司" />
+      </div>
+      <div class="box">
+        <div>📱</div>
+        <input id="ph" name="ph" type="tel" placeholder="手机" />
+      </div>
+      <div class="box" style="grid-column: span 2">
+        <div>📍</div>
+        <textarea id="addr" name="addr" placeholder="地址"></textarea>
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <button type="submit">提交</button>
+    </div>
+  </form>
+  <script>
+    document.querySelector('form').addEventListener('submit', e => { e.preventDefault() })
+  </script>
+</body>
+</html>

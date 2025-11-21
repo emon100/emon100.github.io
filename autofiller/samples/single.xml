@@ -1,0 +1,10 @@
+<form title="单页标准表单">
+  <field label="姓名" type="text" name="fullName" />
+  <field label="邮箱" type="email" name="email" />
+  <field label="电话" type="tel" name="phone" />
+  <field label="公司" type="text" name="company" />
+  <field label="职位" type="text" name="title" />
+  <field label="国家" type="select" name="country" />
+  <field label="城市" type="text" name="city" />
+  <field label="地址" type="textarea" name="address" />
+</form>

@@ -1,0 +1,10 @@
+{
+  "title": "不规范表单",
+  "fields": [
+    { "label": "姓名", "type": "text", "name": "nm" },
+    { "label": "邮箱", "type": "email", "name": "em" },
+    { "label": "公司", "type": "text", "name": "co" },
+    { "label": "手机", "type": "tel", "name": "ph" },
+    { "label": "地址", "type": "textarea", "name": "addr" }
+  ]
+}

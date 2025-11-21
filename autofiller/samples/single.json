@@ -1,0 +1,13 @@
+{
+  "title": "单页标准表单",
+  "fields": [
+    { "label": "姓名", "type": "text", "name": "fullName" },
+    { "label": "邮箱", "type": "email", "name": "email" },
+    { "label": "电话", "type": "tel", "name": "phone" },
+    { "label": "公司", "type": "text", "name": "company" },
+    { "label": "职位", "type": "text", "name": "title" },
+    { "label": "国家", "type": "select", "name": "country" },
+    { "label": "城市", "type": "text", "name": "city" },
+    { "label": "地址", "type": "textarea", "name": "address" }
+  ]
+}

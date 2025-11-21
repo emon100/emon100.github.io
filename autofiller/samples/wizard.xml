@@ -1,0 +1,8 @@
+<form title="多页向导表单">
+  <field label="姓名" type="text" name="name" />
+  <field label="邮箱" type="email" name="mail" />
+  <field label="国家" type="select" name="nation" />
+  <field label="城市" type="text" name="city2" />
+  <field label="公司" type="text" name="corp" />
+  <field label="职位" type="text" name="role" />
+</form>
