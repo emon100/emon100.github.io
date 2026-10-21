@@ -1,0 +1,123 @@
+{
+  "status": "manual_model_colored",
+  "checkedAt": "2026-10-17 Asia/Singapore",
+  "resource": "multi-image-to-3d",
+  "taskId": null,
+  "consumedCredits": null,
+  "estimatedCredits": 35,
+  "priceSource": "https://docs.meshy.ai/en/api/pricing",
+  "cliVersion": "0.4.0",
+  "inputs": [
+    {
+      "id": "front",
+      "path": "media/official-images/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "width": 2200,
+      "height": 1040,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "正前，灯、鼻部、宽度分区",
+      "sha256": "ba430d2177eba7f84f8d70d16af95ae758e2323d8c4d22df08ce58c0844aa647",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "side",
+      "path": "media/official-images/Roadster-02-Pilot-Desktop.jpg",
+      "width": 3440,
+      "height": 1024,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-02-Pilot-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "近侧视，全车比例、轮拱、玻璃轮廓与展示版轮毂",
+      "sha256": "133de595f3cb7742f5bb2c24d8e9c41aef06dcd1a63507e2daaddc1c4a71c16a",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "front_three_quarter",
+      "path": "media/official-images/Roadster-08-End-Desktop.jpg",
+      "width": 2800,
+      "height": 2074,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-08-End-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "前3/4，车头折线、肩部曲面和风挡",
+      "sha256": "342e862f7239479b0d1994d1f842e50d05e926b8fd4c9158c02cc9f011bcc71b",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "rear_overview",
+      "path": "media/official-images/Roadster-01-Hero-Desktop.jpg",
+      "width": 4200,
+      "height": 1698,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-01-Hero-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "高位后视，尾部收放形态与车壳轮廓",
+      "sha256": "146fa8e72191775d53c6fa59325a1e4b97958a53621c03dd7b30c6a1a8a8a3eb",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    }
+  ],
+  "requestedParameters": {
+    "ai_model": "meshy-7.1",
+    "geometry_resolution": "2k",
+    "should_texture": true,
+    "texture_resolution": "4k",
+    "enable_pbr": true,
+    "should_remesh": false,
+    "image_enhancement": false,
+    "remove_lighting": true,
+    "multi_view_thumbnails": true,
+    "alpha_thumbnail": true,
+    "target_formats": [
+      "glb"
+    ]
+  },
+  "limitations": [
+    "官网展示车的车壳复原，不等于Rocket飞行原型的准确CAD。",
+    "参考均为关门、尾翼收纳形态；背部输入主体较小，结构可能被补全。",
+    "没有官方尺寸；下载原件不自动缩放成假定尺寸。",
+    "轮胎、车壳、风扇和喷口可能合为一个网格；不能直接当作物理碰撞或执行器模型。",
+    "图片版权归Tesla；未确认开放再利用许可。"
+  ],
+  "authenticated": true,
+  "verified": true,
+  "createAttempts": 1,
+  "operationId": "roadster-fourviews-20261017",
+  "balanceBefore": 100,
+  "error": {
+    "httpStatus": 402,
+    "cliExitCode": 9,
+    "message": "NoMorePendingTasks: Task creation on the free plan is no longer supported. To continue creating tasks, please upgrade your plan.",
+    "accountUrl": "https://www.meshy.ai/settings/subscription"
+  },
+  "deliveredAssets": [],
+  "balanceAfter": 100,
+  "chargeNote": "拒绝前后余额均为100；因无任务，consumed_credits字段不存在。",
+  "userDecision": "暂不升级，继续其他路线",
+  "manualAsset": {
+    "source": "用户手动调用 Meshy 后提供",
+    "inputFile": "Meshy_AI_Silver_Wedge_Concept_1016195900_generate.glb",
+    "sourceSha256": "7618981f62b20e4841f03128601e9ed5e430d31913a125875340e245fd1b632c",
+    "generationInputs": "未提供，不能等同于之前CLI计划的四张图片",
+    "cleanFile": "roadster-meshy-clean.glb",
+    "cleanSha256": "9c49fcd7f229099fb3012557adce609302ff6e3b33108ec9854ee0faee822b16",
+    "cleanup": "删除独立外围四墙组件，汽车几何保持原样",
+    "texture": "原文件无UV、贴图、法线或材质"
+  },
+  "materialAsset": {
+    "file": "materials-reviewed/roadster-meshy-colored.glb",
+    "source": "Kimi k3/max规则 + Codex修订和贴图烘焙",
+    "sha256": "e9ed120df616742c35f77976f276e1e68890cd65e2d79f5248966c389dc3ad80",
+    "triangles": 40564,
+    "imagesEmbedded": 4,
+    "evidence": "material-provenance.json"
+  }
+}

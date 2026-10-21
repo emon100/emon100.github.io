@@ -1,0 +1,23 @@
+{
+  "revision": "quaternion-recovery-v3-r1",
+  "status": "passed",
+  "tests": 7,
+  "suite": "test_frozen.py",
+  "suiteSha256": "5dbe2d5b2c9e9822cba7e800fbf972307b944ad1be80c8acac7053313efba73c",
+  "controllerSha256": "5aa754c6891df657ddab8a583b5c9005adeedd531a982c83a3fcef9a695363a2",
+  "sourceSha256": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+  "allocatorSha256": "b27fe8aa3c3c466cabbf5372f56acdf2c9fba1343b43eab07df43574936659a2",
+  "predictorSha256": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7",
+  "reportedAt": "2026-10-16T23:41:26.955524+00:00",
+  "coverage": [
+    "zero world horizontal target and bounded jets",
+    "PD plus governor plus gyro torque bookkeeping",
+    "predictor input immutability and ratio meanings",
+    "actual overspeed braking time",
+    "disabled jets remove authority",
+    "empty gas natural fall",
+    "nominal9m stable contacts for1second"
+  ],
+  "fullRolloutsExecuted": 1,
+  "notice": "Records the completed test_frozen.py invocation; these tests do not replace fixed/new-seed evaluation or full browser engine parity."
+}

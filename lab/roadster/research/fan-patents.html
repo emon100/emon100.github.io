@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="风扇两件专利一个能量预算">风扇：两件专利，一个能量预算</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>专利</th>
+<th>核心结构</th>
+<th>不足以证明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>US12746987B1</strong>，2026-09-29，Electric fan car</td>
+<td>车底进气、车尾扩压通道与电动涵道风扇；图2示例有4个风扇</td>
+<td>Roadster实际风扇功率、推力或已采用全部实施例</td>
+</tr>
+<tr>
+<td><strong>US12377920B1</strong>，2025-08-05，Adaptive vehicle
+aerodynamics for downforce</td>
+<td>可展开裙边、分区低压、多模式风机与传感控制</td>
+<td>实车最终裙边结构与控制参数</td>
+</tr>
+</tbody>
+</table>
+<p>来源：<a
+href="https://patentsgazette.uspto.gov/week39/OG/html/1550-5/US12746987-20260929.html">USPTO公告</a>
+· <a href="patents/US12746987B1.pdf">原始PDF</a> · <a
+href="https://patents.google.com/patent/US12377920B1/en">第二件专利全文</a>。专利披露可行构型，不是实测性能报告。</p>
+<h2 id="仿真怎么算">仿真怎么算</h2>
+<ul>
+<li><strong>近表面吸附</strong>：<code>D=Δp·Aeff</code>。密封间隙增大或车腹离开表面，压差效果衰减。</li>
+<li><strong>风扇排气反作用</strong>：沿配置的车身固定方向作用，不能默认指向世界竖直上方。</li>
+<li><strong>共用功率</strong>：吸附所需压差功与排气动能占同一份风机功率。离面后不能既保留完整吸附力，又额外得到完整自由喷流推力。</li>
+<li><strong>冷气喷口另算</strong>：消耗储气质量，受总冲量、最大推力与力矩约束。</li>
+</ul>
+<p>理想开放桨盘有
+<code>Pideal=T^(3/2)/√(2ρA)</code>，真实涵道、车身和地效会改变工作点。该关系仅作功率量级约束，不能拿单体静推力代替整车下压力。<a
+href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/propeller-thrust/">NASA动量理论</a></p>
+<p>所有未知功率、面积、漏气和控制限幅集中在仿真配置，并做敏感性测试。</p>
+</body>
+</html>

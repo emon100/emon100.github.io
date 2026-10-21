@@ -1,0 +1,272 @@
+{
+  "date": "2026-10-19",
+  "model": "typesafe/jev-1.14",
+  "conclusion": "本轮冻结等待的 4 次真实实验中，0 次达到平稳落地标准。即使把模型等待时间从物理过程里去掉，这组直接喷口决策仍未稳定接住车。响应速度之外，协调多个喷口、提前刹转和减速落地也需要验证。 所有请求、原始回答和失败轨迹可下载。",
+  "runs": [
+    {
+      "file": "level-20-frozen.json.gz",
+      "label": "正立下降 · 3 m / 冻结等待",
+      "status": "hard_contact",
+      "success": false,
+      "controlPeriod": 0.02,
+      "calls": 73,
+      "wallSeconds": 75.15832225,
+      "latency": {
+        "median": 973.7831249999945,
+        "p95": 1306.0872920000002
+      },
+      "cost": 0.013873440000000006,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.7848288319276047,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": -195.3939076280098,
+        "fuelUsed": 42.077966298677396,
+        "fuelLeft": 217.92203370132242,
+        "duration": 1.460000000000001,
+        "turnProgress": 0,
+        "peakHeight": 3,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 1.3536382278927834,
+        "maxTotalContactForce": 322204.1318941138,
+        "stableSeconds": 0,
+        "bodyContact": false,
+        "hardContact": true,
+        "turnAngle": 0,
+        "turnComplete": true,
+        "finalTilt": 1.0576470273722445,
+        "finalSpeed": 3.1509197367226216,
+        "finalLongitudinalSpeed": -0.5819643802678524,
+        "finalLateralSpeed": 2.5950493741421727,
+        "finalVerticalSpeed": -1.4741178935664843,
+        "peakJetHorizontalForce": 18604.956169768426,
+        "jetHorizontalImpulse": [
+          -3143.1043092841237,
+          6864.171165123632
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.012572865012748,
+        "horizontalDisplacement": 2.028040676346682
+      }
+    },
+    {
+      "file": "level-100-frozen.json.gz",
+      "label": "正立下降 · 3 m / 冻结等待",
+      "status": "hard_contact",
+      "success": false,
+      "controlPeriod": 0.1,
+      "calls": 14,
+      "wallSeconds": 13.381320125,
+      "latency": {
+        "median": 901.2439580000009,
+        "p95": 1428.0869589999993
+      },
+      "cost": 0.0026265959999999997,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.461936430762874,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": -274.14553245145385,
+        "fuelUsed": 49.399678631965294,
+        "fuelLeft": 210.60032136803426,
+        "duration": 1.340000000000001,
+        "turnProgress": 0,
+        "peakHeight": 3,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 4.479779225769735,
+        "maxTotalContactForce": 634534.8023948724,
+        "stableSeconds": 0,
+        "bodyContact": false,
+        "hardContact": true,
+        "turnAngle": 0,
+        "turnComplete": true,
+        "finalTilt": 0.27696355340543133,
+        "finalSpeed": 3.197797248334077,
+        "finalLongitudinalSpeed": -0.9137444034840726,
+        "finalLateralSpeed": -1.7028187007703095,
+        "finalVerticalSpeed": 2.040778344734076,
+        "peakJetHorizontalForce": 12853.240508891786,
+        "jetHorizontalImpulse": [
+          -2113.824583224868,
+          -5060.757345759189
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 0.7325005585349713,
+        "horizontalDisplacement": 0.6809791255965413
+      }
+    },
+    {
+      "file": "banked-20-frozen.json.gz",
+      "label": "侧倾 20° · 6 m / 冻结等待",
+      "status": "body_contact",
+      "success": false,
+      "controlPeriod": 0.02,
+      "calls": 209,
+      "wallSeconds": 187.553807875,
+      "latency": {
+        "median": 862.8367919999873,
+        "p95": 1134.0645829999994
+      },
+      "cost": 0.03972481800000002,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 6.209362776061028,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": -224.04742981639095,
+        "fuelUsed": 105.08129242494509,
+        "fuelLeft": 154.91870757505467,
+        "duration": 4.179999999999762,
+        "turnProgress": 0.1254596359406705,
+        "peakHeight": 7.8440589408653265,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 13.198967944528261,
+        "maxTotalContactForce": 2688262.078953161,
+        "stableSeconds": 0,
+        "bodyContact": true,
+        "hardContact": true,
+        "turnAngle": 0,
+        "turnComplete": true,
+        "finalTilt": 1.353154872679127,
+        "finalSpeed": 4.235438769900205,
+        "finalLongitudinalSpeed": 1.1814542879963987,
+        "finalLateralSpeed": -1.1387668049786202,
+        "finalVerticalSpeed": 0.4110578169346151,
+        "peakJetHorizontalForce": 17360.368136777757,
+        "jetHorizontalImpulse": [
+          -18212.40041574917,
+          1077.2808685013679
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 4.740272529056947,
+        "horizontalDisplacement": 16.933401356439063
+      }
+    },
+    {
+      "file": "inverted-20-frozen.json.gz",
+      "label": "倒置释放 · 9 m / 冻结等待",
+      "status": "body_contact",
+      "success": false,
+      "controlPeriod": 0.02,
+      "calls": 86,
+      "wallSeconds": 77.557504625,
+      "latency": {
+        "median": 857.3545830000003,
+        "p95": 1221.8629999999976
+      },
+      "cost": 0.015788850000000007,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.964538794029976,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": -220.29564160105014,
+        "fuelUsed": 0,
+        "fuelLeft": 260,
+        "duration": 1.7200000000000013,
+        "turnProgress": 0.0037728123467994945,
+        "peakHeight": 9,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 12.756304245782278,
+        "maxTotalContactForce": 4359637.945576839,
+        "stableSeconds": 0,
+        "bodyContact": true,
+        "hardContact": true,
+        "turnAngle": 0,
+        "turnComplete": true,
+        "finalTilt": 3.140064570740491,
+        "finalSpeed": 0.060773509439571785,
+        "finalLongitudinalSpeed": 0.0353857459712397,
+        "finalLateralSpeed": 7.299215690517959e-18,
+        "finalVerticalSpeed": 0.04935506378025717,
+        "peakJetHorizontalForce": 0,
+        "jetHorizontalImpulse": [
+          0,
+          0
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 0.05042011507613751,
+        "horizontalDisplacement": 3.9216777307474633
+      }
+    },
+    {
+      "file": "level-20-latency.json.gz",
+      "label": "正立下降 · 3 m / 真实延迟",
+      "status": "hard_contact",
+      "success": false,
+      "controlPeriod": 0.02,
+      "calls": 1,
+      "wallSeconds": 1.117540583,
+      "latency": {
+        "median": 1052.592083,
+        "p95": 1052.592083
+      },
+      "cost": 0.000181566,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 1.1281618653788301e-10,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": -423.3452818432571,
+        "fuelUsed": 0,
+        "fuelLeft": 260,
+        "duration": 1.0400000000000007,
+        "turnProgress": 0,
+        "peakHeight": 3,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 7.082199999999979,
+        "maxTotalContactForce": 2579898.189764706,
+        "stableSeconds": 0,
+        "bodyContact": false,
+        "hardContact": true,
+        "turnAngle": 0,
+        "turnComplete": true,
+        "finalTilt": 0,
+        "finalSpeed": 0.000001627752693174771,
+        "finalLongitudinalSpeed": 1.128161865360906e-10,
+        "finalLateralSpeed": 6.330431573802787e-16,
+        "finalVerticalSpeed": 0.0000016277526892652423,
+        "peakJetHorizontalForce": 0,
+        "jetHorizontalImpulse": [
+          0,
+          0
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 1.292603034131369e-15,
+        "horizontalDisplacement": 2.9457753405630935e-10
+      }
+    }
+  ]
+}

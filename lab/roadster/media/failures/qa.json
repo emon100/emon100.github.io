@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "id": "late-roll-start",
+      "sourceFramesExact": true,
+      "outputFrames": 97,
+      "allPngDimensions": [
+        1080,
+        1920
+      ],
+      "sameTimingBothVersions": true,
+      "unannotatedRegionPixelsIdentical": true,
+      "sourceTailAfterFailureSeconds": 0.42
+    },
+    {
+      "id": "early-roll-low-height",
+      "sourceFramesExact": true,
+      "outputFrames": 55,
+      "allPngDimensions": [
+        1080,
+        1920
+      ],
+      "sameTimingBothVersions": true,
+      "unannotatedRegionPixelsIdentical": true,
+      "sourceTailAfterFailureSeconds": 0.4
+    },
+    {
+      "id": "high-jump-hard-landing",
+      "sourceFramesExact": true,
+      "outputFrames": 152,
+      "allPngDimensions": [
+        1080,
+        1920
+      ],
+      "sameTimingBothVersions": true,
+      "unannotatedRegionPixelsIdentical": true,
+      "sourceTailAfterFailureSeconds": 0.42
+    }
+  ],
+  "limits": [
+    "Visual checks cover contact sheets and full-resolution key frames; all-frame checks cover dimensions, mapping and unchanged pixels outside annotation bands.",
+    "These are simulation failures, not documentary footage. Exterior and collision geometry differ."
+  ]
+}

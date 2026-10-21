@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "status": "measured_not_wcet",
+  "generatedAt": "2026-10-16T22:38:38.051Z",
+  "revision": "energy-coupled-r6",
+  "selectedGeneration": 74,
+  "engine": "Official MuJoCo 3.15.0 WebAssembly",
+  "environment": {
+    "runtime": "Node v26.11.1",
+    "platform": "darwin",
+    "release": "27.0.0",
+    "architecture": "arm64",
+    "cpuModel": "Apple M1 Pro",
+    "logicalCpuCount": 10,
+    "totalMemoryBytes": 34359738368,
+    "loadAverageBefore": [
+      4.94091796875,
+      8.037109375,
+      9.603515625
+    ],
+    "loadAverageAfter": [
+      6.787109375,
+      8.3681640625,
+      9.7109375
+    ]
+  },
+  "method": {
+    "controlWindowMs": 20,
+    "physicsStepMs": 2,
+    "physicsStepsPerControl": 10,
+    "warmupRoundsPerCase": 1,
+    "minimumMeasuredRounds": 4,
+    "minimumWindowsPerCase": 600,
+    "measuredRoundsRule": "max(4, ceil(600 / steps_in_warmup_episode))",
+    "warmup": "每个初态先完整运行一次，预热记录不计入百分位。每轮重置同一初态与最终参数；短失败轨迹重复至每个初态至少600个测量窗口。",
+    "controllerScope": "controllerStep 的同步调用：状态反馈、阶段切换、目标力矩、喷口分配；不包括传感器、数据传输或渲染。",
+    "stepScope": "完整 step(1)：控制器、10 次 MuJoCo 物理子步、阀门/供气/风机、接触与稳定判定、返回快照；包含计时包装开销。",
+    "excluded": "引擎加载、XML 模型创建、每轮 reset、文件读取、UI/Worker 通信与渲染另列或未测；没有实时调度、CPU绑核或强制GC。",
+    "percentiles": "nearest-rank：排序后取 ceil(p*N) 项；max 为本次观察最大值。",
+    "coverage": "三项标准任务及一个非轴对齐自由姿态；重复测时不等于更多独立物理初态。"
+  },
+  "engineLoadMs": 51.110833,
+  "benchmarkWallSeconds": 2.20900475,
+  "aggregate": {
+    "controller": {
+      "samples": 3248,
+      "p50Ms": 0.037624999999934516,
+      "p95Ms": 0.07695799999987685,
+      "p99Ms": 0.14983399999994162,
+      "maxMs": 0.4880829999999605,
+      "over20ms": 0
+    },
+    "step20ms": {
+      "samples": 3248,
+      "p50Ms": 0.44695900000010624,
+      "p95Ms": 0.9202500000001237,
+      "p99Ms": 1.120332999999846,
+      "maxMs": 6.398584000000028,
+      "over20ms": 0
+    }
+  },
+  "cases": [
+    {
+      "case": {
+        "id": "stationary_kickflip",
+        "task": "stationary_kickflip",
+        "mass": 2000,
+        "fuel": 260,
+        "thrust_scale": 1,
+        "pos": [
+          0,
+          0,
+          0.505
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          0,
+          0,
+          0
+        ],
+        "omega": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modelCreateMs": 33.684375,
+      "warmupSteps": 240,
+      "measuredRounds": 4,
+      "controller": {
+        "samples": 960,
+        "p50Ms": 0.0443339999999921,
+        "p95Ms": 0.09749999999996817,
+        "p99Ms": 0.16762500000004366,
+        "maxMs": 0.4880829999999605,
+        "over20ms": 0
+      },
+      "step20ms": {
+        "samples": 960,
+        "p50Ms": 0.4787090000000944,
+        "p95Ms": 0.9677090000000135,
+        "p99Ms": 1.1250420000000076,
+        "maxMs": 1.3732919999999922,
+        "over20ms": 0
+      },
+      "outcomes": [
+        {
+          "round": 0,
+          "steps": 240,
+          "status": "success",
+          "simulatedSeconds": 4.8,
+          "stableSeconds": 1.0040000000000007
+        },
+        {
+          "round": 1,
+          "steps": 240,
+          "status": "success",
+          "simulatedSeconds": 4.8,
+          "stableSeconds": 1.0040000000000007
+        },
+        {
+          "round": 2,
+          "steps": 240,
+          "status": "success",
+          "simulatedSeconds": 4.8,
+          "stableSeconds": 1.0040000000000007
+        },
+        {
+          "round": 3,
+          "steps": 240,
+          "status": "success",
+          "simulatedSeconds": 4.8,
+          "stableSeconds": 1.0040000000000007
+        }
+      ],
+      "overruns": []
+    },
+    {
+      "case": {
+        "id": "moving_kickflip",
+        "task": "moving_kickflip",
+        "mass": 2000,
+        "fuel": 260,
+        "thrust_scale": 1,
+        "pos": [
+          0,
+          0,
+          0.505
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          0
+        ],
+        "omega": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modelCreateMs": 4.0300829999999905,
+      "warmupSteps": 241,
+      "measuredRounds": 4,
+      "controller": {
+        "samples": 964,
+        "p50Ms": 0.038041999999904874,
+        "p95Ms": 0.07554199999981392,
+        "p99Ms": 0.1574590000000171,
+        "maxMs": 0.3964170000001559,
+        "over20ms": 0
+      },
+      "step20ms": {
+        "samples": 964,
+        "p50Ms": 0.45162500000014916,
+        "p95Ms": 1.003500000000031,
+        "p99Ms": 1.2107920000000831,
+        "maxMs": 6.398584000000028,
+        "over20ms": 0
+      },
+      "outcomes": [
+        {
+          "round": 0,
+          "steps": 241,
+          "status": "success",
+          "simulatedSeconds": 4.82,
+          "stableSeconds": 1.0140000000000007
+        },
+        {
+          "round": 1,
+          "steps": 241,
+          "status": "success",
+          "simulatedSeconds": 4.82,
+          "stableSeconds": 1.0140000000000007
+        },
+        {
+          "round": 2,
+          "steps": 241,
+          "status": "success",
+          "simulatedSeconds": 4.82,
+          "stableSeconds": 1.0140000000000007
+        },
+        {
+          "round": 3,
+          "steps": 241,
+          "status": "success",
+          "simulatedSeconds": 4.82,
+          "stableSeconds": 1.0140000000000007
+        }
+      ],
+      "overruns": []
+    },
+    {
+      "case": {
+        "id": "moving_recovery",
+        "task": "moving_recovery",
+        "mass": 2000,
+        "fuel": 260,
+        "thrust_scale": 1,
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "quat": [
+          6.123233995736766e-17,
+          1,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modelCreateMs": 6.128500000000031,
+      "warmupSteps": 118,
+      "measuredRounds": 6,
+      "controller": {
+        "samples": 708,
+        "p50Ms": 0.030583000000206084,
+        "p95Ms": 0.06095799999980045,
+        "p99Ms": 0.12875000000008185,
+        "maxMs": 0.21887500000002547,
+        "over20ms": 0
+      },
+      "step20ms": {
+        "samples": 708,
+        "p50Ms": 0.4232919999999467,
+        "p95Ms": 0.6086250000000746,
+        "p99Ms": 0.7977089999999407,
+        "maxMs": 1.1041250000000673,
+        "over20ms": 0
+      },
+      "outcomes": [
+        {
+          "round": 0,
+          "steps": 118,
+          "status": "body_contact",
+          "simulatedSeconds": 2.36,
+          "stableSeconds": 0
+        },
+        {
+          "round": 1,
+          "steps": 118,
+          "status": "body_contact",
+          "simulatedSeconds": 2.36,
+          "stableSeconds": 0
+        },
+        {
+          "round": 2,
+          "steps": 118,
+          "status": "body_contact",
+          "simulatedSeconds": 2.36,
+          "stableSeconds": 0
+        },
+        {
+          "round": 3,
+          "steps": 118,
+          "status": "body_contact",
+          "simulatedSeconds": 2.36,
+          "stableSeconds": 0
+        },
+        {
+          "round": 4,
+          "steps": 118,
+          "status": "body_contact",
+          "simulatedSeconds": 2.36,
+          "stableSeconds": 0
+        },
+        {
+          "round": 5,
+          "steps": 118,
+          "status": "body_contact",
+          "simulatedSeconds": 2.36,
+          "stableSeconds": 0
+        }
+      ],
+      "overruns": []
+    },
+    {
+      "case": {
+        "id": "free_attitude",
+        "task": "moving_recovery",
+        "mass": 2100,
+        "fuel": 260,
+        "thrust_scale": 1,
+        "pos": [
+          1,
+          -2,
+          8
+        ],
+        "quat": [
+          0.37237553965365505,
+          0.8610625287370218,
+          -0.03777283875342535,
+          -0.3442106792723933
+        ],
+        "vel": [
+          4,
+          -2,
+          -2
+        ],
+        "omega": [
+          0.2,
+          -0.4,
+          0.3
+        ]
+      },
+      "modelCreateMs": 2.5414160000000265,
+      "warmupSteps": 77,
+      "measuredRounds": 8,
+      "controller": {
+        "samples": 616,
+        "p50Ms": 0.02687500000001819,
+        "p95Ms": 0.05024999999977808,
+        "p99Ms": 0.08562499999970896,
+        "maxMs": 0.19274999999970532,
+        "over20ms": 0
+      },
+      "step20ms": {
+        "samples": 616,
+        "p50Ms": 0.42966599999999744,
+        "p95Ms": 0.6717920000000959,
+        "p99Ms": 0.8316669999999249,
+        "maxMs": 1.3154169999997976,
+        "over20ms": 0
+      },
+      "outcomes": [
+        {
+          "round": 0,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 1,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 2,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 3,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 4,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 5,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 6,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        },
+        {
+          "round": 7,
+          "steps": 77,
+          "status": "hard_contact",
+          "simulatedSeconds": 1.54,
+          "stableSeconds": 0
+        }
+      ],
+      "overruns": []
+    }
+  ],
+  "sourceHashes": {
+    "core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+    "controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a",
+    "browser-runtime.mjs": "552142cab13027b360f66022257e454bb0441afd2f6ebb8a1d995135ce16723e",
+    "world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+    "benchmark_timing.mjs": "e39bf680dae0cb1e1b068c06a3abcede3d9f65be0fbe04ae05a23d043b4990e7",
+    "policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6"
+  },
+  "limits": [
+    "本结果来自当前电脑上的 Node，不能替代浏览器 Worker 实测。",
+    "只覆盖列出的轨迹和实际经过的控制分支；快速算完不代表飞行任务成功。",
+    "p99 和观察最大值不是最坏执行时间 WCET；即使本次无超时，也不能保证每个 20 ms 窗口。",
+    "控制使用模拟器完整状态，尚未测 IMU 噪声、采样延迟、状态融合、真实计算机或执行器链路。"
+  ]
+}

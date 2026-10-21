@@ -1,0 +1,68 @@
+{
+  "kind": "development_evidence_provenance",
+  "notice": "Manual development before r6 freeze, separate from the 100-generation campaign. All retained trials are listed, including failures and out-of-search-range diagnostics. The CEM campaign itself has frozen source hashes and complete candidate/episode records.",
+  "chosenManualBaselineNotice": "Angular braking feedforward was an explicit engineering change. The handcrafted descent cap 4.5 m/s was chosen from nominal development trials; its successful trial was not a learned CEM policy. The 8 m/s diagnostic remained outside formal CEM bounds.",
+  "records": [
+    {
+      "path": "development-ascent-probe.json",
+      "sha256": "10346e94dc143c5ad38f783dc649c11d98b2def937f5f0382f411afe6874ce84",
+      "trialCount": 9,
+      "hasFullPoseFrames": false,
+      "savedParametersForEveryTrial": false,
+      "successCount": null,
+      "statusCounts": {
+        "diagnostic_no_terminal_status": 9
+      },
+      "campaignEvaluations": 0,
+      "sourceSnapshotPreserved": false,
+      "reproductionBoundary": "The original trial outcomes/records are preserved. The temporary development controller code was not frozen per probe, so exact source-level reruns are not guaranteed. Do not attribute these outcomes to the final frozen controller or to CEM.",
+      "taskSuccessAssessed": false
+    },
+    {
+      "path": "development-full-flight-probe.json",
+      "sha256": "23ec81774014a9be242341b250c8247b412b27c0d3e178074ecb612fba98a5d2",
+      "trialCount": 4,
+      "hasFullPoseFrames": false,
+      "savedParametersForEveryTrial": false,
+      "successCount": 0,
+      "statusCounts": {
+        "hard_contact": 4
+      },
+      "campaignEvaluations": 0,
+      "sourceSnapshotPreserved": false,
+      "reproductionBoundary": "The original trial outcomes/records are preserved. The temporary development controller code was not frozen per probe, so exact source-level reruns are not guaranteed. Do not attribute these outcomes to the final frozen controller or to CEM.",
+      "taskSuccessAssessed": true
+    },
+    {
+      "path": "development-controller-scan.json",
+      "sha256": "0de1c6398a0b3c1a0248df00d47f42a727a5b0de17fb10457061d38843dd8bb1",
+      "trialCount": 16,
+      "hasFullPoseFrames": true,
+      "savedParametersForEveryTrial": true,
+      "successCount": 0,
+      "statusCounts": {
+        "hard_contact": 16
+      },
+      "campaignEvaluations": 0,
+      "sourceSnapshotPreserved": false,
+      "reproductionBoundary": "The original trial outcomes/records are preserved. The temporary development controller code was not frozen per probe, so exact source-level reruns are not guaranteed. Do not attribute these outcomes to the final frozen controller or to CEM.",
+      "taskSuccessAssessed": true
+    },
+    {
+      "path": "development-braking-feedforward.json",
+      "sha256": "10479d04fed405b511cfaf0c297f99d1d1589b52d06673fa0874ee3af1671b4e",
+      "trialCount": 6,
+      "hasFullPoseFrames": true,
+      "savedParametersForEveryTrial": true,
+      "successCount": 2,
+      "statusCounts": {
+        "hard_contact": 4,
+        "success": 2
+      },
+      "campaignEvaluations": 0,
+      "sourceSnapshotPreserved": false,
+      "reproductionBoundary": "The original trial outcomes/records are preserved. The temporary development controller code was not frozen per probe, so exact source-level reruns are not guaranteed. Do not attribute these outcomes to the final frozen controller or to CEM.",
+      "taskSuccessAssessed": true
+    }
+  ]
+}

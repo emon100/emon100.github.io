@@ -1,0 +1,356 @@
+{
+  "kind": "development_evidence_index",
+  "notice": "Development comparisons and manual settings are not CEM training or held-out success. Recorded rollout counts exclude exceptions and are not a total execution counter. 003 computed one trajectory but serialization failed; 001 and006 interrupted on numerical solver errors. 006 world dependency was captured later, explicitly disclosed. Old failed LP and all physical failures remain available.",
+  "directories": [
+    {
+      "path": "development/001",
+      "files": {
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "develop_controller.py": "1ae7a21b90ffe400145f05831f01b164fc293f1b7461083deab60bc99331098b",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "b689ff7bb36877b0c25774c0ec59d8e0d7a94b4fec7b9407fbd86eef401649a6",
+        "recovery_controller.py": "21a520ebd4e3e2f1d66902ff9491f46125e9530101edcdf9d7a385c06c341644",
+        "FAILED.json": "b14fb5e3f8140839e45d5863836732145e9e68c7afbe6013f93f9386fc2d6e15",
+        "guidance.json": "02c800b4099c4715ec8bb42cb8523c189226b5d1500bab5d00afc24732940928",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 2,
+      "recordedSuccesses": 0,
+      "computationErrors": 0,
+      "kind": "manual_controller_development_not_training",
+      "FAILED.json": {
+        "kind": "partial_development_iteration",
+        "completedRecordedCases": 2,
+        "interruptedCase": "development-governor-inverted-7",
+        "reason": "SciPy/HiGHS infeasible status in final gas minimization after lexicographic scale constraints; no trajectory was fabricated for the interrupted case.",
+        "nextChange": "Normalize variables/rows and use finite lexicographic tolerance before switching to matching native/WASM solver for formal evaluation."
+      }
+    },
+    {
+      "path": "development/002",
+      "files": {
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "develop_controller.py": "37395cab1171cf0fc20dbf1b9e5c043c43a342da2343f1f8e0ab769f804b3815",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "9632c651b49d1494e3d3196ed24e9a373c68ef30cae0af83caa882558d7430bf",
+        "recovery_controller.py": "de2cca62fae8a2a5c33e0426799b1240a27c77a137062d7a2be28b398563d4ed",
+        "guidance.json": "e55f235d95833edfc294be5ddfc2fc0bad48aaa6f033e8563d2dcbbb70d5e9ba",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 8,
+      "recordedSuccesses": 5,
+      "computationErrors": 0,
+      "kind": "manual_controller_development_not_training"
+    },
+    {
+      "path": "development/003",
+      "files": {
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "develop_controller.py": "cb851a3c0b12c6d941a27142de14e6151cddebc80a2af287e5bc1788f5b4d677",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "recovery_controller.py": "49ff6cf77b7924882cb432c85ec0e16a39fd683aec9ec0271d6853126d16e7a8",
+        "FAILED.json": "cd5e8d17a47c4784d2b93f87e2864a4cf3d8d4a3073df04d262bafafe00920b3",
+        "guidance.json": "acdcd84fa119b7a9d32c3dc506b74a87ba85b414feb8d00a5cec7ede5f719dcf",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "FAILED.json": {
+        "kind": "development_serialization_failure",
+        "case": "development-governor-inverted-9",
+        "actualSimulationAttempts": 1,
+        "error": "NumPy boolean in forecast feasible field rejected by JSON serialization. Source snapshot retained; trajectory was not saved. Next iteration casts to builtin bool and reruns honestly."
+      }
+    },
+    {
+      "path": "development/004",
+      "files": {
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "develop_controller.py": "cb851a3c0b12c6d941a27142de14e6151cddebc80a2af287e5bc1788f5b4d677",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "eb5e2f2faf3add90282ed5d54397bbbc61a7132c54a03d636ca83897b4530990",
+        "recovery_controller.py": "1b3dc0402e6e587c7c49a90eb087bafb60a17571ca964e9e28985c2cc7b52af7",
+        "guidance.json": "acdcd84fa119b7a9d32c3dc506b74a87ba85b414feb8d00a5cec7ede5f719dcf",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 8,
+      "recordedSuccesses": 0,
+      "computationErrors": 0,
+      "kind": "manual_controller_development_not_training"
+    },
+    {
+      "path": "development/005",
+      "files": {
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "develop_controller.py": "cb851a3c0b12c6d941a27142de14e6151cddebc80a2af287e5bc1788f5b4d677",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "622d9e3591bfce6e6b1685b6d9d01a29061a06fff8e456ac991344f99127f6b1",
+        "recovery_controller.py": "a0880ec0a3f0d8ed338e3fe43f176904aa3e952df6bd409d93ed5258e1df7b7d",
+        "guidance.json": "47370beccd7b1f94b0f9e5f6ecd9abfeafe310de4c21feca35a800119e7eb692",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 8,
+      "recordedSuccesses": 0,
+      "computationErrors": 0,
+      "kind": "manual_controller_development_not_training"
+    },
+    {
+      "path": "development/006-solver-only-002",
+      "files": {
+        "world_dependency_late_capture.py": "9bf0b31681fa5c946c3a6546875adc4e65ffed36365dd6a42b0142c805ea9c1f",
+        "check_002_solver_only.py": "5b7a4f92d6cc3f6cac82a032c74de9285e040cb577dc6afc103e614e169b78e9",
+        "results.json": "fbf6120f7ffd6841baabbddd5078097d374d18c4e304e618b3962c5364b25c70",
+        "controller_002.py": "de2cca62fae8a2a5c33e0426799b1240a27c77a137062d7a2be28b398563d4ed",
+        "PROVENANCE-NOTE.json": "f4406af7c5d691717ec48d3e844f7904b82a374998cedcb4421119001debe190",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 5,
+      "recordedSuccesses": 3,
+      "computationErrors": 0,
+      "kind": "strict_solver_only_ablation",
+      "PROVENANCE-NOTE.json": {
+        "notice": "The 006 runner imported RecoveryWorld from the then-current recovery_controller.py. Its source was copied after the run as world_dependency_late_capture.py; 006 did not record that dependency hash before execution. The controller and solver were captured before execution. This partial run ended on a solver error after five completed cases; it is development evidence, not formal evaluation."
+      }
+    },
+    {
+      "path": "development/007-full-quaternion-gyro-ablation",
+      "files": {
+        "quaternion_candidate.py": "7a8027fe4b2439e7f46221d4d3bda24dd3a865339d7ee1bcf402a1b0b7d27af4",
+        "probe_quaternion.py": "9772a77af45e36c47ed14b7a2e353a0ad6502aed05fff93e43b5dd486f6499e0",
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "settings-gyro-False.json": "9db961bfdbe4a8269c84baa44bd176c5fe91afe7e09b10dd1ba22421f435afd3",
+        "settings-gyro-True.json": "9b8b5c92a9bca4880ba92bd7fc2dccbad370dcd7fd4cb6df8fa9165957dad94a",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "87ea9a12c88c53aca52b4c59bf7b56a6a463eaed4cff23dd44dd6ffdfa1c6d40",
+        "recovery_controller.py": "9bf0b31681fa5c946c3a6546875adc4e65ffed36365dd6a42b0142c805ea9c1f",
+        "landing_predictor.py": "bffb44043a73f203532b6024dc2fbf4ce95468c1a55260492b76395d2901c582",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 16,
+      "recordedSuccesses": 11,
+      "computationErrors": 0,
+      "kind": "manual_development_not_training"
+    },
+    {
+      "path": "development/008-002-prediction-only",
+      "files": {
+        "probe_002_prediction.py": "8f61dde265028a496694317d85636a3551b8a62f9298ac7ae695fc0ea323e5fc",
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "4f5daeb3a74f7e0957ffc6a00c125cb4e119b20c8fa48fa22962b0de4be0bdc1",
+        "recovery_controller.py": "9bf0b31681fa5c946c3a6546875adc4e65ffed36365dd6a42b0142c805ea9c1f",
+        "controller_002.py": "de2cca62fae8a2a5c33e0426799b1240a27c77a137062d7a2be28b398563d4ed",
+        "landing_predictor.py": "bffb44043a73f203532b6024dc2fbf4ce95468c1a55260492b76395d2901c582",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 7,
+      "recordedSuccesses": 6,
+      "computationErrors": 1,
+      "kind": "strict_single_factor_development_ablation"
+    },
+    {
+      "path": "development/009-full-quaternion-prediction",
+      "files": {
+        "quaternion_candidate.py": "7a8027fe4b2439e7f46221d4d3bda24dd3a865339d7ee1bcf402a1b0b7d27af4",
+        "probe_quaternion.py": "9772a77af45e36c47ed14b7a2e353a0ad6502aed05fff93e43b5dd486f6499e0",
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "settings-gyro-False.json": "7cbb5c8a37f2b3c5c35e196ab3bc4b3a8ec54e9b8be48f49a79a6d5a3039e192",
+        "settings-gyro-True.json": "f48cd84681fffb251b4d4694ef2b62e59b819cf1478bb53f9449dd504044b2d6",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "e5b009272bb49efc57d1b37e6c63ccf92c767fc2ccaad5276b37a4348ec7ab7e",
+        "recovery_controller.py": "9bf0b31681fa5c946c3a6546875adc4e65ffed36365dd6a42b0142c805ea9c1f",
+        "landing_predictor.py": "bffb44043a73f203532b6024dc2fbf4ce95468c1a55260492b76395d2901c582",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 16,
+      "recordedSuccesses": 13,
+      "computationErrors": 0,
+      "kind": "manual_development_not_training"
+    },
+    {
+      "path": "development/010-bounded-heading",
+      "files": {
+        "quaternion_candidate.py": "adb5fc76e68f60d9121cf5dcc951b971dd38810bb3f9f475cf6d492ddcb8494f",
+        "probe_quaternion.py": "03be4aa878cdb81fdab4ac13824d9b3ec985a8deb01db139eae824e988bb27dc",
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "settings-gyro-True.json": "31742e98651f51dafd1ba1e9ca2569e9036f9cffc79f2eb810b03331b5535219",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "c8094733c0e493b871baea2bdbe8404ad9a2f69023821e43b5fb7d71f8097dcc",
+        "recovery_controller.py": "9bf0b31681fa5c946c3a6546875adc4e65ffed36365dd6a42b0142c805ea9c1f",
+        "landing_predictor.py": "bffb44043a73f203532b6024dc2fbf4ce95468c1a55260492b76395d2901c582",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 8,
+      "recordedSuccesses": 7,
+      "computationErrors": 0,
+      "kind": "manual_development_not_training"
+    },
+    {
+      "path": "development/011-conservative-solver-only",
+      "files": {
+        "quaternion_candidate.py": "adb5fc76e68f60d9121cf5dcc951b971dd38810bb3f9f475cf6d492ddcb8494f",
+        "probe_quaternion.py": "39d41a266ab543ab0cc81a09d625c59dc8a1b1b0a69944ae79e3d1fa45af2832",
+        "parameters.json": "900c1bf14a787886367ab6568495a682f53c2f9a8e6d4f41d24ea9a235fb5044",
+        "settings-gyro-True.json": "88cd6128e17e35274ddf6b62fd397653340d3c92537c704e9d0182c68609dfeb",
+        "config.json": "83d717534b30a38869d8e1947e75961887de99d1b58298d413f9b0ea44b412d2",
+        "results.json": "6d934e2025c147c96d19bbf91c314c9e90355f7217bc5dc42b883f1d82ea6feb",
+        "recovery_controller.py": "9bf0b31681fa5c946c3a6546875adc4e65ffed36365dd6a42b0142c805ea9c1f",
+        "landing_predictor.py": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7",
+        "solver/canonical_allocation.py": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+        "solver/conservative_allocator.py": "b27fe8aa3c3c466cabbf5372f56acdf2c9fba1343b43eab07df43574936659a2",
+        "solver/native_allocator.py": "d846aba3c8677e3265e0dfc51af8628bc036512f85da58bbfce6520be8fa470f",
+        "baseline_r6/world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+        "baseline_r6/requirements.txt": "5463cceaf756f584f429b633fd9322f0e243cddb997626aeeda439f8eff8616d",
+        "baseline_r6/policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+        "baseline_r6/config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+        "baseline_r6/core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+        "baseline_r6/controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "recordedRollouts": 8,
+      "recordedSuccesses": 7,
+      "computationErrors": 0,
+      "kind": "manual_development_not_training"
+    },
+    {
+      "path": "development/browser-fixtures-first-contact",
+      "files": {
+        "browser-fixtures.json": "c7ba62c9b04922e7e27a9b3c2193e696591e7074450d07169e2014c20aa4319e",
+        "export-fixtures.log": "4616e146c203be75ccce95ef833b3a176a27048b8b7101e3797fa8bb20efdd77",
+        "export_fixtures.py": "b897841c5bbc031f623256f68b076381d37d50db96ab15a8eb48f4779eec163a"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations."
+    },
+    {
+      "path": "development/calibration-before-output-clarification",
+      "files": {
+        "calibrate_landing_prediction.py": "8d51ce9d3a131b7fa6c64c4e48810e78b1f1cbb04a1edfc4c7354bbcc20cf125",
+        "landing-prediction-calibration.json": "9a924e34c0005229a6ff4a90ca2479e0fd6a6c1435a76af7d0a17411d4ad6129",
+        "landing_predictor.py": "bffb44043a73f203532b6024dc2fbf4ce95468c1a55260492b76395d2901c582"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations."
+    },
+    {
+      "path": "development/calibration-floor-intrusion",
+      "files": {
+        "calibrate_landing_prediction.py": "1f53cb33c1c805e9e889bbafdc233ea25d935a2e7f7ee0674d7aea3b980b9119",
+        "landing-prediction-calibration.log": "14c936b2983ff434e3765c913d1951abd3171c0df8f70f9820b795bf9ade178e",
+        "FAILED.json": "d891a2fce48bee1ab793d4a6c483f09d4ccf20e24e72bf5e570b4730f90d100e"
+      },
+      "sourceCaptureNotice": "Per-directory source snapshots are preserved. Read FAILED/PROVENANCE files for incomplete capture or unsaved simulations.",
+      "FAILED.json": {
+        "reason": "Infeasible 6-second low-pressure bench fell from 100m and reached the floor; collision bounce crossed velocity threshold, invalidating that bench. Rerun at 1000m keeps all cases free of floor contact."
+      }
+    }
+  ],
+  "otherArtifacts": [
+    {
+      "path": "recovery-diagnosis-01.json",
+      "sha256": "0bcfc885ab7f2d0796cb33315a9702f4fdaaf2ddb24c4bf7b14acf291f84bf3b",
+      "bytes": 8520488
+    },
+    {
+      "path": "recovery-priority-ablation-02.json",
+      "sha256": "5d52bb05a4db8c9fedfee387b20e486a3f8cd43c98ddb04f66b9298e910a0e5a",
+      "bytes": 5454842
+    },
+    {
+      "path": "recovery-factorial-03.json",
+      "sha256": "8a2b7e56699e596069879cf0f879a478db9f9449032c0d997816e85a25fecae6",
+      "bytes": 17793341
+    },
+    {
+      "path": "development-contact-steps-04.json",
+      "sha256": "e23bbe8fa7f16c34352126722df510b9462d4b864bf68736ab3c66f6eeab7098",
+      "bytes": 4138641
+    },
+    {
+      "path": "landing-prediction-calibration.json",
+      "sha256": "9a924e34c0005229a6ff4a90ca2479e0fd6a6c1435a76af7d0a17411d4ad6129",
+      "bytes": 13108
+    },
+    {
+      "path": "frozen-predictor-calibration.json",
+      "sha256": "56520d2f46943833dad082727c4609ce60e75eb123b1161a1f42e7e72b2ab963",
+      "bytes": 16877
+    },
+    {
+      "path": "comparisons.json",
+      "sha256": "41b6a50c5a876a1f5fc9cb06a89879ef6e3bc2dd63faffe8c8198987a5a93c72",
+      "bytes": 13916954
+    },
+    {
+      "path": "browser-fixtures.json",
+      "sha256": "38971413a25463d38e842d1c33eaddbfcd1dd89bb4ed44c28809d7786fdda32c",
+      "bytes": 11975524
+    }
+  ]
+}

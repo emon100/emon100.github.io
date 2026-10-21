@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-10-16T19:45:49.482Z",
+  "loader": {
+    "library": "Three.js official GLTFLoader",
+    "revision": "r180 / 0.180.0",
+    "source": "https://github.com/mrdoob/three.js/blob/r180/examples/jsm/loaders/GLTFLoader.js",
+    "officialSourceSha256": {
+      "GLTFLoader.mjs": "67ac5551fdafa6e349bd80c8f8e5e39c136d6b2fb1ad647db9abb21dc86f9e4a",
+      "BufferGeometryUtils.mjs": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+    },
+    "modification": "Only import paths adapted to the existing Three.js r180 core; parser unchanged."
+  },
+  "checks": [
+    "Independent official GLTFLoader.parseAsync successfully loads both published GLBs",
+    "All source nodes and world matrices match",
+    "All mesh position, normal, UV and color values and indices match",
+    "PBR base color, metalness, roughness, opacity, sidedness, clearcoat and effective emissive match",
+    "Mesh/material counts and world-space envelopes match",
+    "No loader warning or error"
+  ],
+  "warnings": [],
+  "errors": [],
+  "models": [
+    {
+      "file": "roadster-kimi.glb",
+      "sha256": "bb690fad2302edd417bdbbddc270f5c765db1eae960b26dcab78613a9a65fcbe",
+      "loadedNodes": 87,
+      "sourceMeshNodes": 77,
+      "loadedRenderMeshes": 78,
+      "materials": 12,
+      "triangles": 98194,
+      "attributes": 202,
+      "attributeValuesCompared": 503152,
+      "bounds": {
+        "min": [
+          -2.049999952316284,
+          -0.8599999952316284,
+          1.0728836041806744e-8
+        ],
+        "max": [
+          2.049999952316284,
+          0.8599999952316284,
+          1.1999999284744263
+        ]
+      },
+      "sizeMetres": [
+        4.099999904632568,
+        1.7199999904632568,
+        1.1999999177455902
+      ],
+      "result": "pass"
+    },
+    {
+      "file": "roadster-reviewed.glb",
+      "sha256": "c4259efa85f05fe3826da275d72526f4a278531176faa5464e0723f0a33bb381",
+      "loadedNodes": 87,
+      "sourceMeshNodes": 77,
+      "loadedRenderMeshes": 78,
+      "materials": 12,
+      "triangles": 114934,
+      "attributes": 202,
+      "attributeValuesCompared": 589372,
+      "bounds": {
+        "min": [
+          -2.049999952316284,
+          -0.8599999952316284,
+          1.0728836041806744e-8
+        ],
+        "max": [
+          2.049999952316284,
+          0.8599999952316284,
+          1.1999937295913696
+        ]
+      },
+      "sizeMetres": [
+        4.099999904632568,
+        1.7199999904632568,
+        1.1999937188625336
+      ],
+      "result": "pass"
+    }
+  ],
+  "limits": "This verifies file interoperability in Three.js r180. It does not establish real-car accuracy, mesh manifold validity, or compatibility with every third-party viewer. The documented Z-up coordinates are preserved."
+}

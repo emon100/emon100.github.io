@@ -1,0 +1,160 @@
+{
+  "checked_at": "2026-10-17 Asia/Singapore",
+  "method": "ego-browser，复用root的space13 p1；未操作p2、未finish",
+  "status": "five-posts-directly-verified",
+  "quote_word_count": 9,
+  "posts": [
+    {
+      "id": "2110904290743402880",
+      "url": "https://x.com/Tesla/status/2110904290743402880",
+      "title": "喷口、控制与 COPV 储气容器",
+      "published_utc": "2026-10-16T01:22:56.000Z",
+      "published_singapore": "2026-10-16T09:22:56+08:00",
+      "author": "Tesla (@Tesla)",
+      "verification": "直接打开X单帖，切换显示英文原文，在ego-browser space13/p1读取article",
+      "summary_zh": "Tesla 称从真空中的航天器姿态控制移植到汽车，需要新的硬件与控制，并把车内可用空间用于复合材料压力容器；储气量影响可持续喷射时间。",
+      "short_quote_en": "More compressed gas on board = more flight time",
+      "limitation": "未公布此帖所述容器的工作压力、内衬结构或总容积。配图可见缠绕表面的容器和支架，不能据图反推全部系统尺寸。",
+      "images": [
+        {
+          "observed_url": "https://pbs.twimg.com/media/HUtwKmBa8AAzwAB?format=jpg&name=120x120",
+          "original_size_url": "https://pbs.twimg.com/media/HUtwKmBa8AAzwAB?format=jpg&name=orig",
+          "file": "media/x-official/2110904290743402880-2.jpg",
+          "width": 3840,
+          "height": 2880,
+          "type": "Tesla官方技术/产品宣传图",
+          "inspection": "已下载并查看",
+          "rights_holder": "Tesla",
+          "license": "未确认开放复用授权"
+        }
+      ]
+    },
+    {
+      "id": "2110904620948267152",
+      "url": "https://x.com/Tesla/status/2110904620948267152",
+      "title": "推力与轮胎抓地力",
+      "published_utc": "2026-10-16T01:24:15.000Z",
+      "published_singapore": "2026-10-16T09:24:15+08:00",
+      "author": "Tesla (@Tesla)",
+      "verification": "直接打开X单帖，切换显示英文原文，在ego-browser space13/p1读取article",
+      "summary_zh": "Tesla 声称喷口系统产生的力达到轮胎可传递力的 4–5 倍，并以相同质量下力增大解释加速改善。",
+      "short_quote_en": "",
+      "limitation": "这是厂商比较，原帖未交代轮胎、路面、速度、比较方向或测试工况；不是独立推力测量。",
+      "images": [
+        {
+          "observed_url": "https://pbs.twimg.com/media/HUtwi7TasAAfZIC?format=jpg&name=120x120",
+          "original_size_url": "https://pbs.twimg.com/media/HUtwi7TasAAfZIC?format=jpg&name=orig",
+          "file": "media/x-official/2110904620948267152-1.jpg",
+          "width": 3840,
+          "height": 2880,
+          "type": "Tesla官方技术/产品宣传图",
+          "inspection": "已下载并查看",
+          "rights_holder": "Tesla",
+          "license": "未确认开放复用授权"
+        }
+      ],
+      "claims": [
+        {
+          "name": "推力/轮胎可传递力",
+          "value": "4–5 倍",
+          "status": "Tesla宣称，工况未给"
+        }
+      ]
+    },
+    {
+      "id": "2110905133785829671",
+      "url": "https://x.com/Tesla/status/2110905133785829671",
+      "title": "赛道模式与主动翼",
+      "published_utc": "2026-10-16T01:26:17.000Z",
+      "published_singapore": "2026-10-16T09:26:17+08:00",
+      "author": "Tesla (@Tesla)",
+      "verification": "直接打开X单帖，切换显示英文原文，在ego-browser space13/p1读取article",
+      "summary_zh": "Tesla 说明赛道模式会改变车辆空气动力学形态，翼面由 Optimus 执行器系统驱动，并声称被动下压力接近 F1 水平。",
+      "short_quote_en": "",
+      "limitation": "本帖谈主动翼及被动下压力，不包含风扇吸附详细结构；不能以它替代车底风扇系统证据。",
+      "images": [],
+      "video": {
+        "post_url": "https://x.com/Tesla/status/2110905133785829671",
+        "poster_url": "https://pbs.twimg.com/amplify_video_thumb/2110904702766579712/img/wS6arVJwQ2eo8Q5x.jpg",
+        "local_file": null,
+        "note": "原帖含视频，未下载；不保存会话内blob播放地址"
+      }
+    },
+    {
+      "id": "2110905588402295283",
+      "url": "https://x.com/Tesla/status/2110905588402295283",
+      "title": "三种配置与性能目标",
+      "published_utc": "2026-10-16T01:28:05.000Z",
+      "published_singapore": "2026-10-16T09:28:05+08:00",
+      "author": "Tesla (@Tesla)",
+      "verification": "直接打开X单帖，切换显示英文原文，在ego-browser space13/p1读取article",
+      "summary_zh": "Performance、Thrust、Rocket 分别面向道路、赛道与短时空中动作；前两种两座，Rocket 单座。Thrust 使用车尾冷气喷口；Rocket 将喷口布置到车辆周边，用于前向、向上和横向转动。",
+      "short_quote_en": "",
+      "limitation": "加速和续航是厂商声明；原帖未披露测量标准、坡度、载荷或是否采用起步扣除。不能把演示能力当作已交付或可上公共道路的承诺。",
+      "images": [
+        {
+          "observed_url": "https://pbs.twimg.com/media/HUtxXA-bcAAl2pg?format=jpg&name=120x120",
+          "original_size_url": "https://pbs.twimg.com/media/HUtxXA-bcAAl2pg?format=jpg&name=orig",
+          "file": "media/x-official/2110905588402295283-1.jpg",
+          "width": 3840,
+          "height": 2560,
+          "type": "Tesla官方技术/产品宣传图",
+          "inspection": "已下载并查看",
+          "rights_holder": "Tesla",
+          "license": "未确认开放复用授权"
+        }
+      ],
+      "claims": [
+        {
+          "name": "0–60 mph",
+          "Performance_s": "<1.6",
+          "Thrust_s": "<0.9",
+          "Rocket_s": "<0.59",
+          "status": "Tesla宣称"
+        },
+        {
+          "name": "range",
+          "value": ">300 miles",
+          "status": "Tesla宣称，工况未给"
+        },
+        {
+          "name": "top speed Rocket",
+          "value": ">230 mph",
+          "status": "Tesla宣称"
+        },
+        {
+          "name": "seats",
+          "Performance": 2,
+          "Thrust": 2,
+          "Rocket": 1
+        }
+      ]
+    },
+    {
+      "id": "2110788059008819215",
+      "url": "https://x.com/Tesla/status/2110788059008819215",
+      "title": "官方发布会直播入口",
+      "published_utc": "2026-10-15T17:41:04.000Z",
+      "published_singapore": "2026-10-16T01:41:04+08:00",
+      "author": "Tesla (@Tesla)",
+      "verification": "直接打开X单帖，切换显示英文原文，在ego-browser space13/p1读取article",
+      "summary_zh": "Tesla 原帖直接嵌入 Roadster 直播回放，确认已收集的 X 直播地址属于官方发布。",
+      "short_quote_en": "",
+      "limitation": "页面回放控件显示 31:08，YouTube 剪辑版索引为 23:21。不可直接套用另一平台的时间码。",
+      "images": [],
+      "video": {
+        "url": "https://x.com/i/broadcasts/1yKAPwNggRaxb",
+        "displayed_duration_seconds": 1868,
+        "local_file": null
+      }
+    }
+  ],
+  "fan_evidence": {
+    "url": "https://www.tesla.com/roadster",
+    "note": "风扇与地面密封结构的官方文字证据在官网；已核验的主动翼帖不能充当吸附结构说明"
+  },
+  "limitations": [
+    "只核验厂商发布内容，未独立验证性能数据。",
+    "本文件只保留短引文与中文原创摘要，未复制全文帖子。"
+  ]
+}

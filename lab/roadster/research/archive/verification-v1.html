@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 旧版检查存档</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../notes.css" />
+<link rel="stylesheet" href="../../site-nav.css"><link rel="stylesheet" href="../../i18n.css"><script type="module" src="../../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../../index.html">原片与物理</a><a href="../../lab.html">飞行实验</a><a href="../../driving.html">驾驶沙盘</a><a href="../../jev.html">JEV 实验</a><a href="../../materials.html">素材库</a><a href="../README.html" aria-current="location">研究资料</a></nav></header>
+<h1 id="检查结果">检查结果</h1>
+<p>截至2026-10-17，新加坡时间。</p>
+<ul>
+<li><strong>资料</strong>：两段视频实为1920×1080；十帧已对齐时间码。官方产品图、宣传合成与现场帧分别标注。未找到官方审定逐字稿。</li>
+<li><strong>训练</strong>：8项核心测试通过；1,114帧、19,220次训练评估、喷口合力/力偶/耗气及风机功率审计通过。步长敏感性保留，不隐藏判定改变。</li>
+<li><strong>米制场景</strong>：车模外包尺寸不超过物理碰撞尺寸，轮胎底部与接触高度一致；回放读取各次试验的真实障碍位置。</li>
+<li><strong>40图</strong>：十景×四路线×三个进度点均可加载、无非有限数值。Kimi→Codex精修版有137个车体实体，另检查1,010姿态、110
+SVG、8处衔接；曲面离散最大穿入0.066示意单位，未声称严格零穿模。米制母模型另含209个可见网格，点击可查看部件。</li>
+<li><strong>浏览器</strong>：桌面和390px手机；训练检查点、失败轨迹、相机、播放暂停、减少动态、无WebGL降级均通过。选片进度/主题保存恢复及1080p原片定位通过，无横向溢出。</li>
+<li><strong>细线</strong>：Kimi→Codex场景08检查214个端点，0个悬空；不能外推为整套图的连续几何证明。</li>
+</ul>
+<p>保留原始模型候选及其已知问题。未做实车遥测标定、硬件控制验证、悬架冲击或落地后稳定验证；最终短视频等待选稿后剪辑。</p>
+<p>官网补查后，车高假设从1.35m修订为1.20m，已重新训练并同步模型。精修页支持原型/官网对照、部件点击与2400px
+PNG导出。</p>
+</body>
+</html>

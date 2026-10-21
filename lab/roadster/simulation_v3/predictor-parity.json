@@ -1,0 +1,210 @@
+{
+  "revision": "quaternion-recovery-v3-r1",
+  "status": "passed",
+  "cases": 10,
+  "maximumNumericDifference": 4.440892098500626e-16,
+  "nativePredictorSha256": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7",
+  "checks": [
+    {
+      "id": "braking-bench-0",
+      "feasible": true,
+      "predictionSeconds": 0.28800000000000003,
+      "iterations": 144,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-1",
+      "feasible": true,
+      "predictionSeconds": 0.756,
+      "iterations": 378,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-2",
+      "feasible": true,
+      "predictionSeconds": 1.168,
+      "iterations": 584,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-3",
+      "feasible": false,
+      "predictionSeconds": 6,
+      "iterations": 3000,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-4",
+      "feasible": true,
+      "predictionSeconds": 0.32,
+      "iterations": 160,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-5",
+      "feasible": true,
+      "predictionSeconds": 0.47600000000000003,
+      "iterations": 238,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 4.440892098500626e-16,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-6",
+      "feasible": false,
+      "predictionSeconds": 6,
+      "iterations": 3000,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 1.3877787807814457e-17,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "braking-bench-7",
+      "feasible": false,
+      "predictionSeconds": 6,
+      "iterations": 3000,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "empty_tank_full_horizon",
+      "feasible": false,
+      "predictionSeconds": 6,
+      "iterations": 3000,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    },
+    {
+      "id": "failed_jets_current_valves",
+      "feasible": false,
+      "predictionSeconds": 6,
+      "iterations": 3000,
+      "differences": {
+        "distance": 0,
+        "time": 0,
+        "gasUsed": 0,
+        "endFuel": 0,
+        "endPressure": 0,
+        "maximumZeroMomentLiftWeightRatio": 0,
+        "targetLiftWeightRatio": 0,
+        "lastPredictedActualLiftWeightRatio": 0,
+        "endLiftWeightRatio": 0,
+        "predictedFinalVz": 0,
+        "dt": 0,
+        "massUpdateInterval": 0
+      }
+    }
+  ],
+  "scope": "Frozen 2ms fixed-pose predictor parity, including current valve openings, failed jets and empty tank; not an attitude-changing future guarantee."
+}

@@ -1,0 +1,24 @@
+{
+  "artifact": "site/dist/figures/codex-kimi.mjs",
+  "raw_copy": "research/kimi/codex-kimi.raw.mjs",
+  "sha256": "77634df380f2e2ae5638517a5865ac9da5f12a11a4a9eec684ddd6cbcea12a9a",
+  "author": "Kimi k3 via Kimi Code CLI 2.2.0, thinkingEffort=max",
+  "status": "generation completed, exit 0; frozen before root integration changes",
+  "known_limit": "Scene10 landing overlaps Semi and nose extends past paved lane; fixed-radius wheel checks do not prove full polygon collision avoidance.",
+  "read_paths": [
+    "/Users/emon100/.agents/skills/anatomy/references/craft.md",
+    "research/kimi/codex-kimi.self-check.mjs",
+    "research/kimi/review-of-codex.md",
+    "site/dist/figures/codex.mjs",
+    "site/dist/kit/iso-kit.mjs"
+  ],
+  "tool_names": [
+    "Bash",
+    "Edit",
+    "Grep",
+    "Read",
+    "Skill",
+    "TodoList",
+    "Write"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "revision": "energy-coupled-r6",
+  "notice": "Paths are relative to simulation_v2. These are actual bundled dependencies; current results, policies, ledger and checkpoint files must also accompany the source.",
+  "files": {
+    "archive/attitude-only-blowdown-r4/core.py": {
+      "bytes": 36861,
+      "sha256": "771e97f74a1794f263b5faaf6f5238770f5ef4036007a104cddcddf6c40bb77a"
+    },
+    "archive/attitude-only-blowdown-r4/config.json": {
+      "bytes": 5456,
+      "sha256": "82ed86eab5f63d069a4a5c5513cdd528cba41a96f365235ebca9b88a8a2f54f8"
+    },
+    "archive/attitude-only-blowdown-r4/results.json": {
+      "bytes": 11707282,
+      "sha256": "2217cab0d1aa73070a6560ce0b2a3c82b1eebd2a127e958bf19cb394b4dcfce2"
+    },
+    "archive/launch-coupled-r5/core.py": {
+      "bytes": 36950,
+      "sha256": "4bf4dffbfc612613e445de998d72d3a08d94b1b7edf2acfd7c4a076253fe66fb"
+    },
+    "archive/launch-coupled-r5/config.json": {
+      "bytes": 5929,
+      "sha256": "4aecc5d3a5c0598815978f509c50ad708fb5b1ac57999d7117c80228c962500e"
+    },
+    "archive/launch-coupled-r5/results.json": {
+      "bytes": 9597927,
+      "sha256": "2258731f6b477d50224746f0046a9fddcf2feb49e5be5bd8453efb54dffd236c"
+    },
+    "archive/launch-coupled-r5/policies.json": {
+      "bytes": 15738,
+      "sha256": "6e3a0772ca36020fe1b0e96c2f811781183c80dd255e2b16aec46b3b85deb437"
+    },
+    "archive/launch-coupled-r5/launch-comparisons.json": {
+      "bytes": 1300511,
+      "sha256": "5167cd06eb80cadd76f784bf8bf3ffccd9b517b83e387d9d975f8781e0c96c70"
+    },
+    "archive/launch-coupled-r5/launch-timing-audit.json": {
+      "bytes": 41233,
+      "sha256": "1c57f1540e97cc7914245d942a6541d501c6b9c322201fd30d028f661df3f03d"
+    },
+    "archive/energy-coupled-r6-short-run/INTERRUPTION.json": {
+      "bytes": 617,
+      "sha256": "0552bec1b0e64cee791debefb2df985b94bddf3b6bd44e1076f315b18f13a05f"
+    },
+    "archive/energy-coupled-r6-short-run/results.json": {
+      "bytes": 9018251,
+      "sha256": "3b1483eaea2a2e0b43ef482819beb4ed0c7d436378755582322accb1ade22b63"
+    },
+    "history-timing-replays.json": {
+      "bytes": 1108697,
+      "sha256": "7450a5e0c621f348c57bde02186be881aa9a76f4544d56090e5b3d367965710e"
+    },
+    "../vendor/mujoco/mujoco.js": {
+      "bytes": 293619,
+      "sha256": "a5d5f00c4c16d327cf8275f88ddd47c857a5e9baec8ca4174d676fe299267a0c"
+    },
+    "../vendor/mujoco/mujoco.wasm": {
+      "bytes": 10370402,
+      "sha256": "d59c489dd521c80af6965756c5b90daff549fa281566544e4540c170d937633d"
+    },
+    "../vendor/mujoco/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  }
+}

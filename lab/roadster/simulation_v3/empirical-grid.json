@@ -1,0 +1,394 @@
+{
+  "revision": "quaternion-recovery-v3-r1",
+  "notice": "Post-hoc counts of sampled cases, not a reachability boundary or guaranteed safe height. Velocity, angular rate, mass and thrust vary inside every cell. Empty cells give no evidence. Not used to select this frozen policy.",
+  "groups": {
+    "old_fixed_SO3": [
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 1,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 6,
+        "successCount": 3
+      },
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 6,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 3,
+        "successCount": 0
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 3,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 10,
+        "successCount": 7
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 10,
+        "successCount": 3
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 2,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 2,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 11,
+        "successCount": 4
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 10,
+        "successCount": 3
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 2,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 3,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 4,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 6,
+        "successCount": 0
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 1,
+        "successCount": 0
+      }
+    ],
+    "new_seed_SO3": [
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 6,
+        "successCount": 4
+      },
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 4,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 8,
+        "successCount": 3
+      },
+      {
+        "heightRange": [
+          0,
+          5
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 0,
+        "successCount": 0
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 4,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 6,
+        "successCount": 3
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 8,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          5,
+          10
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 3,
+        "successCount": 0
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 5,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 9,
+        "successCount": 4
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 3,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          10,
+          15
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 8,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          0,
+          45
+        ],
+        "trials": 3,
+        "successCount": 2
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          45,
+          90
+        ],
+        "trials": 6,
+        "successCount": 1
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          90,
+          135
+        ],
+        "trials": 4,
+        "successCount": 0
+      },
+      {
+        "heightRange": [
+          15,
+          25
+        ],
+        "tiltDegreeRange": [
+          135,
+          180
+        ],
+        "trials": 3,
+        "successCount": 1
+      }
+    ]
+  }
+}

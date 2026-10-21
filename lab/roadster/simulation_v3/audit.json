@@ -1,0 +1,718 @@
+{
+  "revision": "quaternion-recovery-v3-r1",
+  "status": "complete",
+  "sourceSha256": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+  "controllerSha256": "5aa754c6891df657ddab8a583b5c9005adeedd531a982c83a3fcef9a695363a2",
+  "predictorSha256": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7",
+  "allocatorSha256": "b27fe8aa3c3c466cabbf5372f56acdf2c9fba1343b43eab07df43574936659a2",
+  "configSha256": "94bee63efcc80ad76b8b9bc8743aed501cbf56b9c71afcb41e919987a0296385",
+  "casesSha256": "f897d84a7fed1ab8270dbf001078cf734a942b05ae4aea049dc8c1c25c388387",
+  "nativeUnitTests": 7,
+  "nativeUnitTestStatus": "passed",
+  "frozenPredictorCalibration": {
+    "cases": 8,
+    "feasibleStops": 5,
+    "maximumDistanceErrorMeters": 1.4592771435673058e-12,
+    "scope": "Fixed attitude, zero moment jet target only; not a full closed-loop trajectory error bound."
+  },
+  "newFormalEvaluations": 360,
+  "reusedBaselineEpisodes": 120,
+  "dt1msEvaluations": 240,
+  "dtHalfmsEvaluations": 4,
+  "newFormalAndStepEvaluationTotal": 604,
+  "computationErrors": 0,
+  "stepSummary": {
+    "old_fixed_recovery": {
+      "dt2msSummary": {
+        "trials": 40,
+        "successCount": 39,
+        "successRate": 0.975,
+        "statusCounts": {
+          "success": 39,
+          "hard_contact": 1
+        }
+      },
+      "dt1msSummary": {
+        "trials": 40,
+        "successCount": 38,
+        "successRate": 0.95,
+        "statusCounts": {
+          "success": 38,
+          "hard_contact": 2
+        }
+      },
+      "successClassificationChanges": 1,
+      "successfulAtBoth2msAnd1ms": 38
+    },
+    "old_fixed_SO3": {
+      "dt2msSummary": {
+        "trials": 80,
+        "successCount": 31,
+        "successRate": 0.3875,
+        "statusCounts": {
+          "hard_contact": 43,
+          "success": 31,
+          "body_contact": 6
+        }
+      },
+      "dt1msSummary": {
+        "trials": 80,
+        "successCount": 29,
+        "successRate": 0.3625,
+        "statusCounts": {
+          "hard_contact": 45,
+          "success": 29,
+          "body_contact": 6
+        }
+      },
+      "successClassificationChanges": 2,
+      "successfulAtBoth2msAnd1ms": 29
+    },
+    "new_seed_recovery": {
+      "dt2msSummary": {
+        "trials": 40,
+        "successCount": 40,
+        "successRate": 1.0,
+        "statusCounts": {
+          "success": 40
+        }
+      },
+      "dt1msSummary": {
+        "trials": 40,
+        "successCount": 40,
+        "successRate": 1.0,
+        "statusCounts": {
+          "success": 40
+        }
+      },
+      "successClassificationChanges": 0,
+      "successfulAtBoth2msAnd1ms": 40
+    },
+    "new_seed_SO3": {
+      "dt2msSummary": {
+        "trials": 80,
+        "successCount": 29,
+        "successRate": 0.3625,
+        "statusCounts": {
+          "hard_contact": 45,
+          "body_contact": 6,
+          "success": 29
+        }
+      },
+      "dt1msSummary": {
+        "trials": 80,
+        "successCount": 30,
+        "successRate": 0.375,
+        "statusCounts": {
+          "hard_contact": 44,
+          "body_contact": 6,
+          "success": 30
+        }
+      },
+      "successClassificationChanges": 1,
+      "successfulAtBoth2msAnd1ms": 29
+    }
+  },
+  "classificationChanges": [
+    {
+      "group": "old_fixed_recovery",
+      "case": {
+        "id": "moving_recovery-20353017-10",
+        "seed": 20353027,
+        "task": "moving_recovery",
+        "mass": 1940.1626367163822,
+        "fuel": 260.0,
+        "thrust_scale": 0.8671350119400114,
+        "pos": [
+          0.0,
+          0.0,
+          8.213244265089637
+        ],
+        "quat": [
+          -0.09219897515648336,
+          0.2818555531551008,
+          0.8975736738337263,
+          0.32621817266417513
+        ],
+        "vel": [
+          -3.858512413303344,
+          2.2435352928668295,
+          -0.8300730273122225
+        ],
+        "omega": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "initialClearance": 6.726182385909218
+      },
+      "dt2ms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 598.6277478486539,
+          "fuelUsed": 153.72493686741709,
+          "fuelLeft": 106.27506313258365,
+          "duration": 4.0999999999997705,
+          "turnProgress": 1.0,
+          "turnAngle": -2.504847565081242,
+          "turnComplete": true,
+          "peakHeight": 8.213244265089637,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.1458369849832275,
+          "maxTotalContactForce": 19685.225787703243,
+          "stableSeconds": 1.0140000000000007,
+          "finalTilt": 0.0,
+          "finalSpeed": 4.4996766542523305,
+          "finalLongitudinalSpeed": 4.499676654252331,
+          "finalLateralSpeed": 1.7749889576087743e-15,
+          "finalVerticalSpeed": -9.591232679394432e-11,
+          "jetHorizontalImpulse": [
+            -367.29582973260875,
+            -570.2825921649281
+          ],
+          "fanHorizontalImpulse": [
+            -138.20357841234167,
+            65.94950823480656
+          ],
+          "peakJetHorizontalForce": 953.2004448211829,
+          "finalAngularSpeed": 4.508653547131151e-10,
+          "horizontalDisplacement": 18.35968434832338,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "dt1ms": {
+        "status": "hard_contact",
+        "success": false,
+        "metrics": {
+          "score": -107.6626488090953,
+          "fuelUsed": 109.29801303572684,
+          "fuelLeft": 150.7019869642732,
+          "duration": 1.959999999999895,
+          "turnProgress": 0.9964306147441755,
+          "turnAngle": -2.5542091629651718,
+          "turnComplete": true,
+          "peakHeight": 8.213244265089637,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 1.8813790639345354,
+          "maxTotalContactForce": 269452.10689430375,
+          "stableSeconds": 0.0,
+          "finalTilt": 0.032457091850483594,
+          "finalSpeed": 4.581680031750816,
+          "finalLongitudinalSpeed": 4.474575885384885,
+          "finalLateralSpeed": -0.6315112866751846,
+          "finalVerticalSpeed": -0.7345275783445853,
+          "jetHorizontalImpulse": [
+            -394.0578569939207,
+            -621.7295222138391
+          ],
+          "fanHorizontalImpulse": [
+            0.0,
+            0.0
+          ],
+          "peakJetHorizontalForce": 1024.3040594433967,
+          "finalAngularSpeed": 1.2983926890205164,
+          "horizontalDisplacement": 8.77884573984497,
+          "bodyContact": false,
+          "hardContact": true
+        }
+      },
+      "dtHalfms": {
+        "status": "hard_contact",
+        "success": false,
+        "metrics": {
+          "score": -98.81504964865869,
+          "fuelUsed": 125.69207730526678,
+          "fuelLeft": 134.30792269473278,
+          "duration": 2.399999999999969,
+          "turnProgress": 0.997298269061475,
+          "turnAngle": -2.4703030320156683,
+          "turnComplete": true,
+          "peakHeight": 8.213244265089637,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 1.5538064876201565,
+          "maxTotalContactForce": 216127.8101890004,
+          "stableSeconds": 0.0,
+          "finalTilt": 0.034428568443095706,
+          "finalSpeed": 4.4568046098033935,
+          "finalLongitudinalSpeed": 4.455509931920338,
+          "finalLateralSpeed": -0.08297605489749064,
+          "finalVerticalSpeed": -0.08040429963514914,
+          "jetHorizontalImpulse": [
+            -373.93492123024134,
+            -575.8751960633602
+          ],
+          "fanHorizontalImpulse": [
+            0.0,
+            0.0
+          ],
+          "peakJetHorizontalForce": 1061.6367133311742,
+          "finalAngularSpeed": 0.054725626222661576,
+          "horizontalDisplacement": 10.742803705791024,
+          "bodyContact": false,
+          "hardContact": true
+        }
+      },
+      "rolloutPath": "evaluation/old_fixed_recovery-halfms-000.json"
+    },
+    {
+      "group": "old_fixed_SO3",
+      "case": {
+        "id": "moving_recovery-20761017-29",
+        "seed": 20761046,
+        "task": "moving_recovery",
+        "mass": 2113.9529828714876,
+        "fuel": 260.0,
+        "thrust_scale": 1.032401739812013,
+        "pos": [
+          0.0,
+          0.0,
+          13.107312050000818
+        ],
+        "quat": [
+          -0.647150634436164,
+          0.6553331891993259,
+          0.2693595061071437,
+          0.28138927476438463
+        ],
+        "vel": [
+          -5.125802034012342,
+          -5.6505736247959515,
+          2.4092005472424898
+        ],
+        "omega": [
+          -1.389740999050504,
+          0.8158985848848324,
+          0.8527203865903119
+        ],
+        "initialClearance": 11.12604002079054
+      },
+      "dt2ms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 597.3377424911752,
+          "fuelUsed": 188.69925122064413,
+          "fuelLeft": 71.30074877935549,
+          "duration": 5.299999999999638,
+          "turnProgress": 1.0,
+          "turnAngle": 1.5748286769139948,
+          "turnComplete": true,
+          "peakHeight": 13.400637781339015,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.46212988095292473,
+          "maxTotalContactForce": 124969.1741662359,
+          "stableSeconds": 1.0080000000000007,
+          "finalTilt": 0.0,
+          "finalSpeed": 7.542598621061803,
+          "finalLongitudinalSpeed": -7.5425986210618055,
+          "finalLateralSpeed": -1.0116614159868908e-14,
+          "finalVerticalSpeed": -8.600856176695316e-11,
+          "jetHorizontalImpulse": [
+            -7.039536939813976,
+            -416.9494521344095
+          ],
+          "fanHorizontalImpulse": [
+            102.34264034117295,
+            117.69671724832166
+          ],
+          "peakJetHorizontalForce": 2027.2171554011577,
+          "finalAngularSpeed": 8.024204282866237e-10,
+          "horizontalDisplacement": 40.88032424767363,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "dt1ms": {
+        "status": "hard_contact",
+        "success": false,
+        "metrics": {
+          "score": -72.50018662822059,
+          "fuelUsed": 188.5235465524069,
+          "fuelLeft": 71.4764534475934,
+          "duration": 4.299999999999771,
+          "turnProgress": 0.9999725486095317,
+          "turnAngle": 1.5753176995733056,
+          "turnComplete": true,
+          "peakHeight": 13.401814981339017,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.4410229915138101,
+          "maxTotalContactForce": 134350.35685471568,
+          "stableSeconds": 0.0,
+          "finalTilt": 0.0003498265018642155,
+          "finalSpeed": 7.717234945267435,
+          "finalLongitudinalSpeed": -7.715813575871424,
+          "finalLateralSpeed": 0.02164788373992216,
+          "finalVerticalSpeed": -0.14706338633319677,
+          "jetHorizontalImpulse": [
+            -4.945086978845224,
+            -438.77946819812917
+          ],
+          "fanHorizontalImpulse": [
+            0.0,
+            0.0
+          ],
+          "peakJetHorizontalForce": 2090.5527311081955,
+          "finalAngularSpeed": 0.03615696198058699,
+          "horizontalDisplacement": 33.304715058434255,
+          "bodyContact": false,
+          "hardContact": true
+        }
+      },
+      "dtHalfms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 597.3116208854285,
+          "fuelUsed": 189.4352199687153,
+          "fuelLeft": 70.56478003128368,
+          "duration": 5.319999999999771,
+          "turnProgress": 1.0,
+          "turnAngle": 1.5748286770248416,
+          "turnComplete": true,
+          "peakHeight": 13.402403581339017,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.44364617928463307,
+          "maxTotalContactForce": 126108.17186749924,
+          "stableSeconds": 1.0094999999999443,
+          "finalTilt": 0.0,
+          "finalSpeed": 7.551803368502825,
+          "finalLongitudinalSpeed": -7.551803368502824,
+          "finalLateralSpeed": -8.103203024824836e-15,
+          "finalVerticalSpeed": -8.831222487586859e-11,
+          "jetHorizontalImpulse": [
+            -5.384449950279656,
+            -445.066658743045
+          ],
+          "fanHorizontalImpulse": [
+            102.22596126552376,
+            117.74146422225348
+          ],
+          "peakJetHorizontalForce": 2123.370431545486,
+          "finalAngularSpeed": 8.037601894134132e-10,
+          "horizontalDisplacement": 41.07579512339153,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "rolloutPath": "evaluation/old_fixed_SO3-halfms-001.json"
+    },
+    {
+      "group": "old_fixed_SO3",
+      "case": {
+        "id": "moving_recovery-20761017-41",
+        "seed": 20761058,
+        "task": "moving_recovery",
+        "mass": 2094.8973572542795,
+        "fuel": 260.0,
+        "thrust_scale": 1.0217467091039443,
+        "pos": [
+          0.0,
+          0.0,
+          2.91927587564548
+        ],
+        "quat": [
+          0.5744965654433665,
+          0.0617145767629828,
+          0.8127844236826305,
+          -0.07434035194721604
+        ],
+        "vel": [
+          6.4061708032180995,
+          7.824025092984252,
+          7.770735939169821
+        ],
+        "omega": [
+          0.6754909043839692,
+          0.7128059649172815,
+          1.0995354034116784
+        ],
+        "initialClearance": 0.7867679053292211
+      },
+      "dt2ms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 597.4022450369966,
+          "fuelUsed": 185.69703297055693,
+          "fuelLeft": 74.30296702944379,
+          "duration": 5.3799999999996295,
+          "turnProgress": 0.9999999843630137,
+          "turnAngle": 2.713335019818549,
+          "turnComplete": true,
+          "peakHeight": 7.1938045895283285,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.2853812313428615,
+          "maxTotalContactForce": 71436.61136776164,
+          "stableSeconds": 1.0180000000000007,
+          "finalTilt": 6.989264130329237e-08,
+          "finalSpeed": 9.957762912478415,
+          "finalLongitudinalSpeed": -9.957762912478392,
+          "finalLateralSpeed": 7.234150624147182e-16,
+          "finalVerticalSpeed": -8.710812307447031e-11,
+          "jetHorizontalImpulse": [
+            133.41482918102992,
+            175.72285596247596
+          ],
+          "fanHorizontalImpulse": [
+            -97.36119638852976,
+            -121.99945501166323
+          ],
+          "peakJetHorizontalForce": 762.1010070566065,
+          "finalAngularSpeed": 9.002193281971882e-10,
+          "horizontalDisplacement": 54.71946524643902,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "dt1ms": {
+        "status": "hard_contact",
+        "success": false,
+        "metrics": {
+          "score": -80.41846883325701,
+          "fuelUsed": 134.44925836236544,
+          "fuelLeft": 125.55074163763466,
+          "duration": 3.0199999999997784,
+          "turnProgress": 0.9986586303889068,
+          "turnAngle": 2.712452185030007,
+          "turnComplete": true,
+          "peakHeight": 7.250818878935823,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.5313045745360352,
+          "maxTotalContactForce": 286987.5730651176,
+          "stableSeconds": 0.0,
+          "finalTilt": 0.0036942909509556985,
+          "finalSpeed": 10.094316551057004,
+          "finalLongitudinalSpeed": -9.873491943420099,
+          "finalLateralSpeed": -2.0799680920520687,
+          "finalVerticalSpeed": 0.2802196530458295,
+          "jetHorizontalImpulse": [
+            142.7374882393031,
+            187.09626066870334
+          ],
+          "fanHorizontalImpulse": [
+            0.0,
+            0.0
+          ],
+          "peakJetHorizontalForce": 820.8320258177312,
+          "finalAngularSpeed": 0.5955468600391374,
+          "horizontalDisplacement": 30.825311300892427,
+          "bodyContact": false,
+          "hardContact": true
+        }
+      },
+      "dtHalfms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 597.4901012086315,
+          "fuelUsed": 183.29957130542775,
+          "fuelLeft": 76.7004286945714,
+          "duration": 5.299999999999782,
+          "turnProgress": 0.999999966828943,
+          "turnAngle": 2.713335019974121,
+          "turnComplete": true,
+          "peakHeight": 7.251830277289029,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.2095411888710375,
+          "maxTotalContactForce": 55947.16524746763,
+          "stableSeconds": 1.0169999999999435,
+          "finalTilt": 6.495265578539184e-08,
+          "finalSpeed": 9.96686586386984,
+          "finalLongitudinalSpeed": -9.966865863869819,
+          "finalLateralSpeed": 9.206714726434149e-16,
+          "finalVerticalSpeed": -8.879056056146021e-11,
+          "jetHorizontalImpulse": [
+            143.1560103591748,
+            190.70660445389265
+          ],
+          "fanHorizontalImpulse": [
+            -96.95315442982954,
+            -122.3959605545387
+          ],
+          "peakJetHorizontalForce": 832.666434140406,
+          "finalAngularSpeed": 8.987474222656471e-10,
+          "horizontalDisplacement": 53.94826839892268,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "rolloutPath": "evaluation/old_fixed_SO3-halfms-002.json"
+    },
+    {
+      "group": "new_seed_SO3",
+      "case": {
+        "id": "moving_recovery-30418017-52",
+        "seed": 30418069,
+        "task": "moving_recovery",
+        "mass": 1980.8566770515167,
+        "fuel": 260.0,
+        "thrust_scale": 0.9980501403286103,
+        "pos": [
+          0.0,
+          0.0,
+          12.846881448956237
+        ],
+        "quat": [
+          0.7928707465685958,
+          -0.16820504894217053,
+          0.5835571614818335,
+          0.05024022322188564
+        ],
+        "vel": [
+          6.33690357935831,
+          -0.8362389248930118,
+          -6.965849311611331
+        ],
+        "omega": [
+          0.7160531343521539,
+          1.0277446798406853,
+          0.2423546493621226
+        ],
+        "initialClearance": 10.72527648940804
+      },
+      "dt2ms": {
+        "status": "hard_contact",
+        "success": false,
+        "metrics": {
+          "score": -94.41113087230828,
+          "fuelUsed": 139.5603324027354,
+          "fuelLeft": 120.43966759726429,
+          "duration": 2.439999999999953,
+          "turnProgress": 0.9925440143239287,
+          "turnAngle": 1.1919714849584135,
+          "turnComplete": true,
+          "peakHeight": 12.846881448956237,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 1.4281999239485563,
+          "maxTotalContactForce": 172590.98241779875,
+          "stableSeconds": 0.0,
+          "finalTilt": 0.02181656811119317,
+          "finalSpeed": 5.940009976252398,
+          "finalLongitudinalSpeed": 5.939623002002569,
+          "finalLateralSpeed": 0.042067832820325564,
+          "finalVerticalSpeed": -0.08976490516018722,
+          "jetHorizontalImpulse": [
+            -832.0142731303408,
+            104.6158852147465
+          ],
+          "fanHorizontalImpulse": [
+            0.0,
+            0.0
+          ],
+          "peakJetHorizontalForce": 2153.063572909816,
+          "finalAngularSpeed": 0.07333813947276695,
+          "horizontalDisplacement": 14.74554233031404,
+          "bodyContact": false,
+          "hardContact": true
+        }
+      },
+      "dt1ms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 599.1518751455601,
+          "fuelUsed": 140.9941988122766,
+          "fuelLeft": 119.0058011877231,
+          "duration": 3.4199999999997344,
+          "turnProgress": 0.9999999720380498,
+          "turnAngle": 1.1713582454066955,
+          "turnComplete": true,
+          "peakHeight": 12.846881448956237,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.7085372368476599,
+          "maxTotalContactForce": 84016.07895665959,
+          "stableSeconds": 1.0020000000000004,
+          "finalTilt": 7.45058059692383e-08,
+          "finalSpeed": 5.964056066966335,
+          "finalLongitudinalSpeed": 5.964056066966319,
+          "finalLateralSpeed": 4.256019065693516e-16,
+          "finalVerticalSpeed": -9.09508396872346e-11,
+          "jetHorizontalImpulse": [
+            -869.7144348259737,
+            118.96781279453806
+          ],
+          "fanHorizontalImpulse": [
+            151.5452085689738,
+            -21.838553536762046
+          ],
+          "peakJetHorizontalForce": 2226.4833697549248,
+          "finalAngularSpeed": 3.7056739924953645e-10,
+          "horizontalDisplacement": 20.53701463531974,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "dtHalfms": {
+        "status": "success",
+        "success": true,
+        "metrics": {
+          "score": 599.1456798427386,
+          "fuelUsed": 141.06695806075317,
+          "fuelLeft": 118.93304193924641,
+          "duration": 3.440000000000316,
+          "turnProgress": 1.0,
+          "turnAngle": 1.1713582454379936,
+          "turnComplete": true,
+          "peakHeight": 12.846881448956237,
+          "minimumApexCG": 0.0,
+          "minimumHeightMet": true,
+          "maxContactClosingSpeed": 0.7216448484204763,
+          "maxTotalContactForce": 80995.39111051778,
+          "stableSeconds": 1.0194999999999432,
+          "finalTilt": 6.143906154658886e-08,
+          "finalSpeed": 5.958129521033664,
+          "finalLongitudinalSpeed": 5.958129521033652,
+          "finalLateralSpeed": 1.012157516076144e-15,
+          "finalVerticalSpeed": -9.165492180987999e-11,
+          "jetHorizontalImpulse": [
+            -883.4012584744544,
+            121.28499985655412
+          ],
+          "fanHorizontalImpulse": [
+            154.56255583333265,
+            -22.3527330465584
+          ],
+          "peakJetHorizontalForce": 2263.3765704310786,
+          "finalAngularSpeed": 3.709058960795836e-10,
+          "horizontalDisplacement": 20.63563941797722,
+          "bodyContact": false,
+          "hardContact": false
+        }
+      },
+      "rolloutPath": "evaluation/new_seed_SO3-halfms-003.json"
+    }
+  ],
+  "additionalEvidenceTrajectoryExecutions": {
+    "pairedDevelopmentComparisons": 16,
+    "firstContactParityFixtures": 8,
+    "fullTailParityFixtures": 8,
+    "nominalNativeRegression": 1,
+    "frozenPredictorPhysicalBench": 8
+  },
+  "artifacts": {
+    "results.json": "ef9515b453c137a2e4f17b2f890f14e9167e279275313896d8e011b64a5bbeca",
+    "comparisons.json": "41b6a50c5a876a1f5fc9cb06a89879ef6e3bc2dd63faffe8c8198987a5a93c72",
+    "evaluation-ledger.jsonl": "f8c0fd034b57df69ee1c0dd1799eeaeb83e8d5723e2a8a9cdb29c92af8d7d1f0",
+    "failure-audit.json": "4ffad546ef526c29fcee93bbb7ee4bb3d77fec9fb0e3f153590c846eaf8b4fb3",
+    "native-checks.json": "a0c2ee28d027fb5505f1a019a91d66d440e9ccd1d86ae40257b0cda1787e55fe",
+    "frozen-predictor-calibration.json": "56520d2f46943833dad082727c4609ce60e75eb123b1161a1f42e7e72b2ab963",
+    "step-audit.json": "7e4bd4422660a53b63f9ca52647b85766810f0024dc7fcf27dac49704d45e153",
+    "step-comparison.json": "e3135e787928d18fe3f26d0e2b07313980259ce834b5d785a315a33c6137ec5f",
+    "browser-fixtures.json": "38971413a25463d38e842d1c33eaddbfcd1dd89bb4ed44c28809d7786fdda32c",
+    "evaluation-run-manifest.json": "5fe956be48f8593da032b296d319edf47e1728834f6b777f20085a274f475049"
+  },
+  "notice": "No new CEM training. A fixed engineered repair was evaluated without tuning on its evaluation outcomes.2ms and1ms refine both plant and local preview;0.5ms is only the four changed cases. Extra evidence runs are separate from formal performance counts."
+}

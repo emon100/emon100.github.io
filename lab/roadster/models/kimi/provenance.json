@@ -1,0 +1,75 @@
+{
+  "candidate": "Kimi 官网多视角建模候选",
+  "created": "2026-10-17",
+  "model": "k3",
+  "thinking_effort": "max",
+  "method": "Kimi CLI实际读取四张官网图后独立编程建模；原始几何未被Codex替换。",
+  "reference_images": [
+    "Roadster-02-Pilot-Desktop.jpg",
+    "Roadster-08-End-Desktop.jpg",
+    "Roadster-03-Carousel-Slide-1-Desktop.jpg",
+    "Roadster-03-Carousel-Slide-2-Desktop.jpg"
+  ],
+  "source_url": "https://www.tesla.com/roadster",
+  "dimensions": {
+    "metres": [
+      4.1,
+      1.72,
+      1.2
+    ],
+    "status": "统一比较假设，不是厂家实测尺寸"
+  },
+  "coordinates": "+X前、+Y左、+Z上；GLB保留此坐标",
+  "configuration": "以收纳展示形态为主；灯组细节组合并非已确认生产配置。",
+  "geometry": {
+    "meshes": 77,
+    "triangles": 98194,
+    "materials": 12
+  },
+  "validation": "有限几何、尺寸、接地、索引和GLB结构检查通过；36条近侧射线未发现轮孔中车壳遮挡。",
+  "visible_limits": [
+    "前盖和风挡曲面有明显波纹，需重新调整曲率。",
+    "轮圈占胎径比例偏小，胎侧显得过厚。",
+    "多角度照片缺少标定，后部、灯槽和未见结构仍是近似。"
+  ],
+  "export_note": "GLB由Codex从同一Kimi几何导出，保留PBR材质。",
+  "source_sha256": "d220855d263b535006e7e2e3433803a0e5c6f65b5f9540873935ecdf6efe3f58",
+  "glb_sha256": "bb690fad2302edd417bdbbddc270f5c765db1eae960b26dcab78613a9a65fcbe",
+  "reviewed_candidate": {
+    "author": "Codex review of Kimi output",
+    "source_file": "roadster-reviewed.mjs",
+    "glb_file": "roadster-reviewed.glb",
+    "parent_source_sha256": "d220855d263b535006e7e2e3433803a0e5c6f65b5f9540873935ecdf6efe3f58",
+    "source_sha256": "1bc11cb4fe50f0cad8de6dbe6cc323789e8b8589504a213311871fd55cf40b70",
+    "glb_sha256": "c4259efa85f05fe3826da275d72526f4a278531176faa5464e0723f0a33bb381",
+    "changes": [
+      "修正逐段平滑导致的波纹，调整前盖与玻璃前缘。",
+      "玻璃和底下车壳共享侧面曲率，修复车漆穿出。",
+      "轮圈/胎径比从0.628调至0.820；轮拱保留真实开口。",
+      "保持收纳尾部，没有增添未见硬件。"
+    ],
+    "validation": {
+      "glassSamples": 126,
+      "minimumGlassAbovePaint": 0.0009590512147827912,
+      "paintBreakthroughSamples": 0,
+      "wellSamples": 54,
+      "minimumHoodAboveWell": 0.001549115895458364,
+      "rimToTireDiameter": 0.8197183588104021,
+      "hoodSlopeRange": [
+        -0.3504505800511719,
+        -0.32830656030306343
+      ],
+      "hoodSlopeSpread": 0.02214401974810848
+    },
+    "remaining_limits": [
+      "前脸、后肩与窗框仍有程序近似。",
+      "同组照片没有相机标定；轮廓改进不等于实测还原。",
+      "整体尺寸与轮距轴距仍是建模假设。"
+    ]
+  },
+  "external_loader_validation": {
+    "loader": "Three.js official GLTFLoader r180 / 0.180.0",
+    "result": "两份公开 GLB 实际载入通过；节点、材质、几何、变换及包络与源码一致，无警告或错误。",
+    "report": "external-loader-validation.json"
+  }
+}

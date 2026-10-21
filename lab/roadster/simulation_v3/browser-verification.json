@@ -1,0 +1,426 @@
+{
+  "revision": "quaternion-recovery-v3-r1",
+  "status": "passed",
+  "meaning": "Native and official MuJoCo 3.15.0 WASM run the same cases independently; successful landing is not assumed.",
+  "timestamp": "2026-10-16T23:44:09.148Z",
+  "engineVersion": "3.15.0",
+  "windows": 1855,
+  "checks": [
+    {
+      "id": "development-governor-inverted-9",
+      "status": "success",
+      "success": true,
+      "windows": 243,
+      "maximumTrajectoryDifferences": {
+        "pos": 5.773159728050814e-15,
+        "quat": 1.4372183998467847e-15,
+        "vel": 5.5172446472573355e-14,
+        "omega": 1.687538997430238e-14,
+        "wheelRates": 6.217248937900877e-14
+      },
+      "metrics": {
+        "score": 598.0345476614597,
+        "fuelUsed": 165.66247966864694,
+        "fuelLeft": 94.33752033135352,
+        "duration": 4.859999999999687,
+        "turnProgress": 1,
+        "peakHeight": 9,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.15664309024986353,
+        "maxTotalContactForce": 39477.46044814741,
+        "stableSeconds": 1.0000000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -3.14159265581832,
+        "turnComplete": true,
+        "finalTilt": 0,
+        "finalSpeed": 5.009017028541514,
+        "finalLongitudinalSpeed": 5.009017028541514,
+        "finalLateralSpeed": 1.665334536942326e-16,
+        "finalVerticalSpeed": -9.206732695784322e-11,
+        "peakJetHorizontalForce": 1322.1647685990733,
+        "jetHorizontalImpulse": [
+          5.366649899971849,
+          596.4199488628976
+        ],
+        "fanHorizontalImpulse": [
+          152.8033216055902,
+          9.158093042919598
+        ],
+        "finalAngularSpeed": 4.0858455298573825e-10,
+        "horizontalDisplacement": 24.30357563294247
+      }
+    },
+    {
+      "id": "development-governor-inverted-4",
+      "status": "success",
+      "success": true,
+      "windows": 251,
+      "maximumTrajectoryDifferences": {
+        "pos": 3.552713678800501e-15,
+        "quat": 1.1102230246251565e-15,
+        "vel": 2.852508219569066e-14,
+        "omega": 6.217248937900877e-15,
+        "wheelRates": 2.5934809855243657e-13
+      },
+      "metrics": {
+        "score": 597.9328018151075,
+        "fuelUsed": 170.64945643872818,
+        "fuelLeft": 89.3505435612715,
+        "duration": 5.019999999999669,
+        "turnProgress": 1,
+        "peakHeight": 5.529373609382074,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.1530640764950726,
+        "maxTotalContactForce": 35630.48850470421,
+        "stableSeconds": 1.0100000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -3.141592655285354,
+        "turnComplete": true,
+        "finalTilt": 0,
+        "finalSpeed": 5.003437972625007,
+        "finalLongitudinalSpeed": 5.003437972625009,
+        "finalLateralSpeed": 6.661338147751625e-16,
+        "finalVerticalSpeed": -9.30726954658593e-11,
+        "peakJetHorizontalForce": 1195.76662501918,
+        "jetHorizontalImpulse": [
+          4.6590945023016666,
+          453.70502577194765
+        ],
+        "fanHorizontalImpulse": [
+          152.94138982695245,
+          6.957283121673172
+        ],
+        "finalAngularSpeed": 4.1096624902298676e-10,
+        "horizontalDisplacement": 25.089427767714696
+      }
+    },
+    {
+      "id": "development-governor-inverted-7",
+      "status": "success",
+      "success": true,
+      "windows": 249,
+      "maximumTrajectoryDifferences": {
+        "pos": 7.105427357601002e-15,
+        "quat": 1.4432899320127035e-15,
+        "vel": 1.7756109083055804e-13,
+        "omega": 1.7319479184152442e-14,
+        "wheelRates": 9.592326932761353e-14
+      },
+      "metrics": {
+        "score": 597.8211533718415,
+        "fuelUsed": 171.97004676466437,
+        "fuelLeft": 88.02995323533612,
+        "duration": 4.979999999999674,
+        "turnProgress": 0.9999999905136262,
+        "peakHeight": 7.436709017431183,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.14660666497170566,
+        "maxTotalContactForce": 39389.3148065916,
+        "stableSeconds": 1.0000000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -3.1415926555788563,
+        "turnComplete": true,
+        "finalTilt": 2.9802322387695312e-8,
+        "finalSpeed": 5.0061054135899905,
+        "finalLongitudinalSpeed": 5.006105413589988,
+        "finalLateralSpeed": -2.2204460492521713e-16,
+        "finalVerticalSpeed": -9.334621708251386e-11,
+        "peakJetHorizontalForce": 1335.1848818324333,
+        "jetHorizontalImpulse": [
+          5.153595866253314,
+          532.6860610029977
+        ],
+        "fanHorizontalImpulse": [
+          152.86009067544506,
+          8.150253048078016
+        ],
+        "finalAngularSpeed": 4.1144171697538027e-10,
+        "horizontalDisplacement": 24.897113360820413
+      }
+    },
+    {
+      "id": "development-governor-inverted-20",
+      "status": "success",
+      "success": true,
+      "windows": 279,
+      "maximumTrajectoryDifferences": {
+        "pos": 1.7763568394002505e-14,
+        "quat": 1.6653345369377348e-15,
+        "vel": 4.1137232509314003e-14,
+        "omega": 1.5286383270307624e-14,
+        "wheelRates": 5.595524044110789e-14
+      },
+      "metrics": {
+        "score": 597.3662745842585,
+        "fuelUsed": 185.81969927324897,
+        "fuelLeft": 74.1803007267511,
+        "duration": 5.5799999999996075,
+        "turnProgress": 0.9999999883816123,
+        "peakHeight": 20,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.2216406243967973,
+        "maxTotalContactForce": 59895.614070341304,
+        "stableSeconds": 1.0100000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -3.1415926548489725,
+        "turnComplete": true,
+        "finalTilt": 4.712160915387242e-8,
+        "finalSpeed": 4.996678814706501,
+        "finalLongitudinalSpeed": 4.996678814706495,
+        "finalLateralSpeed": 6.938893903904645e-16,
+        "finalVerticalSpeed": -9.640880490300367e-11,
+        "peakJetHorizontalForce": 1629.414875686901,
+        "jetHorizontalImpulse": [
+          4.3912218075170175,
+          331.08684598214705
+        ],
+        "fanHorizontalImpulse": [
+          152.99090746016256,
+          5.129556716122057
+        ],
+        "finalAngularSpeed": 4.179113493886138e-10,
+        "horizontalDisplacement": 27.880336535760275
+      }
+    },
+    {
+      "id": "development-governor-attitude-4",
+      "status": "success",
+      "success": true,
+      "windows": 204,
+      "maximumTrajectoryDifferences": {
+        "pos": 8.881784197001252e-15,
+        "quat": 1.996666720849305e-15,
+        "vel": 3.68594044175552e-14,
+        "omega": 1.8207657603852567e-14,
+        "wheelRates": 7.283063041541027e-14
+      },
+      "metrics": {
+        "score": 598.6746991818064,
+        "fuelUsed": 149.64819501028674,
+        "fuelLeft": 110.3518049897129,
+        "duration": 4.079999999999773,
+        "turnProgress": 0.9999999855241275,
+        "peakHeight": 9,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.1366420468849569,
+        "maxTotalContactForce": 22956.824185857404,
+        "stableSeconds": 1.0000000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -2.5906497383143634,
+        "turnComplete": true,
+        "finalTilt": 3.6500241499888574e-8,
+        "finalSpeed": 5.000220398098039,
+        "finalLongitudinalSpeed": 5.000220398098035,
+        "finalLateralSpeed": 2.2204460492376e-16,
+        "finalVerticalSpeed": -8.907819786611464e-11,
+        "peakJetHorizontalForce": 1802.3030793732523,
+        "jetHorizontalImpulse": [
+          -38.776276459358414,
+          774.6534336196033
+        ],
+        "fanHorizontalImpulse": [
+          152.60494241022744,
+          12.194096784616296
+        ],
+        "finalAngularSpeed": 4.020371570182868e-10,
+        "horizontalDisplacement": 20.35374313483666
+      }
+    },
+    {
+      "id": "development-governor-attitude-5",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 211,
+      "maximumTrajectoryDifferences": {
+        "pos": 1.2101430968414206e-14,
+        "quat": 3.67544536472586e-15,
+        "vel": 1.3367085216486885e-13,
+        "omega": 1.1071699113074374e-13,
+        "wheelRates": 6.394884621840902e-13
+      },
+      "metrics": {
+        "score": -72.5351031826212,
+        "fuelUsed": 197.78775391778112,
+        "fuelLeft": 62.212246082218975,
+        "duration": 4.219999999999757,
+        "turnProgress": 0.9999130802706998,
+        "peakHeight": 12,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.2875737233091059,
+        "maxTotalContactForce": 186971.24110266357,
+        "stableSeconds": 0,
+        "bodyContact": false,
+        "hardContact": true,
+        "turnAngle": -1.959601534554949,
+        "turnComplete": true,
+        "finalTilt": 0.00036372959116224543,
+        "finalSpeed": 5.253795877014154,
+        "finalLongitudinalSpeed": -5.253052457453861,
+        "finalLateralSpeed": -0.08048751086904432,
+        "finalVerticalSpeed": -0.037862655180930106,
+        "peakJetHorizontalForce": 1657.7424735050095,
+        "jetHorizontalImpulse": [
+          -659.4228432327948,
+          326.87411769535635
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 0.0710318861878837,
+        "horizontalDisplacement": 23.323267379419057
+      }
+    },
+    {
+      "id": "development-governor-attitude-6",
+      "status": "success",
+      "success": true,
+      "windows": 207,
+      "maximumTrajectoryDifferences": {
+        "pos": 1.4210854715202004e-14,
+        "quat": 1.1102230246251565e-15,
+        "vel": 2.8095527206811743e-14,
+        "omega": 1.0658141036401503e-14,
+        "wheelRates": 7.105427357601002e-14
+      },
+      "metrics": {
+        "score": 599.21138613992,
+        "fuelUsed": 134.30045513268504,
+        "fuelLeft": 125.69954486731545,
+        "duration": 4.139999999999766,
+        "turnProgress": 1,
+        "peakHeight": 9,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.13340765288878842,
+        "maxTotalContactForce": 29549.48320465017,
+        "stableSeconds": 1.0040000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -1.5707963279340085,
+        "turnComplete": true,
+        "finalTilt": 0,
+        "finalSpeed": 5.007198935381277,
+        "finalLongitudinalSpeed": 5.007198935381281,
+        "finalLateralSpeed": 1.0824674490096878e-15,
+        "finalVerticalSpeed": -8.64814155016921e-11,
+        "peakJetHorizontalForce": 1609.847284872419,
+        "jetHorizontalImpulse": [
+          2.3435562232199185,
+          319.185671003034
+        ],
+        "fanHorizontalImpulse": [
+          153.02785488003946,
+          4.764368209431838
+        ],
+        "finalAngularSpeed": 3.953329612679706e-10,
+        "horizontalDisplacement": 20.68599264141629
+      }
+    },
+    {
+      "id": "development-governor-attitude-7",
+      "status": "success",
+      "success": true,
+      "windows": 211,
+      "maximumTrajectoryDifferences": {
+        "pos": 8.881784197001252e-15,
+        "quat": 9.992007221626409e-16,
+        "vel": 5.182659856828309e-14,
+        "omega": 1.3766765505351941e-14,
+        "wheelRates": 4.618527782440651e-14
+      },
+      "metrics": {
+        "score": 599.2676932785116,
+        "fuelUsed": 129.22475341632673,
+        "fuelLeft": 130.7752465836737,
+        "duration": 4.219999999999757,
+        "turnProgress": 0.9999999787878232,
+        "peakHeight": 9,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.14514256130157374,
+        "maxTotalContactForce": 34661.24768082786,
+        "stableSeconds": 1.0000000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -3.552713678800501e-15,
+        "turnComplete": true,
+        "finalTilt": 3.332000937312528e-8,
+        "finalSpeed": 4.747974971005816,
+        "finalLongitudinalSpeed": 4.747974971005814,
+        "finalLateralSpeed": 1.7895740222432016e-16,
+        "finalVerticalSpeed": -8.56696020276244e-11,
+        "peakJetHorizontalForce": 2047.62298788698,
+        "jetHorizontalImpulse": [
+          -461.98536595411946,
+          -4.971373685425042e-8
+        ],
+        "fanHorizontalImpulse": [
+          153.0807407229664,
+          -8.166908069226531e-10
+        ],
+        "finalAngularSpeed": 4.026598440878515e-10,
+        "horizontalDisplacement": 20.250856084462466
+      }
+    }
+  ],
+  "maxDifferences": {
+    "pos": 1.7763568394002505e-14,
+    "quat": 3.67544536472586e-15,
+    "vel": 1.7756109083055804e-13,
+    "omega": 1.1071699113074374e-13,
+    "wheelRates": 6.394884621840902e-13,
+    "fuel": 5.968558980384842e-13,
+    "actualNozzleThrottle": 6.543654507140673e-13,
+    "actualNozzleForces": 2.165506884921342e-9,
+    "final.pos": 1.7763568394002505e-14,
+    "final.quat": 3.746379291860724e-15,
+    "final.vel": 2.8044233602031454e-13,
+    "final.omega": 4.577406162442621e-13,
+    "final.wheelRates": 6.519229600598919e-13,
+    "metrics.score": 8.215440630010562e-7,
+    "metrics.fuelUsed": 4.831690603168681e-13,
+    "metrics.fuelLeft": 5.826450433232822e-13,
+    "metrics.duration": 0,
+    "metrics.turnProgress": 6.944507635608943e-9,
+    "metrics.turnAngle": 1.199040866595169e-14,
+    "metrics.peakHeight": 0,
+    "metrics.maxContactClosingSpeed": 6.356026815979021e-14,
+    "metrics.maxTotalContactForce": 6.121263140812516e-8,
+    "metrics.stableSeconds": 0,
+    "metrics.finalTilt": 2.580956827951785e-8,
+    "metrics.finalLongitudinalSpeed": 9.769962616701378e-15,
+    "metrics.finalLateralSpeed": 2.9715119254092315e-13,
+    "metrics.finalVerticalSpeed": 2.8044233602031454e-13,
+    "metrics.peakJetHorizontalForce": 3.979039320256561e-11,
+    "metrics.finalAngularSpeed": 1.4781231794103178e-13,
+    "metrics.horizontalDisplacement": 1.7763568394002505e-14,
+    "metrics.jetHorizontalImpulse": 1.1618705997307188e-11,
+    "metrics.fanHorizontalImpulse": 1.7053025658242404e-13
+  },
+  "issues": [],
+  "sourceHashes": {
+    "controller.py": "5aa754c6891df657ddab8a583b5c9005adeedd531a982c83a3fcef9a695363a2",
+    "controller.mjs": "89c0171dfac2dbb01f2d39278f304d3b260f7e4e762f96c2c741de008374f799",
+    "landing_predictor.py": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7",
+    "landing-predictor.mjs": "d2cc5be9df30a0ba70ca23b9958672f9b7e942ea8607609c87ab9f8615037b37",
+    "math.mjs": "b781466814d1200b7db3a702312d86c843674874b6028d034b4439abc571dab1",
+    "browser-runtime.mjs": "2a0d2618bed54626d9787190f040ca7b3c8118a66c07b4738cc48be613bfe450",
+    "world.xml": "905df17507d76128f48906ac1be1508a67b8c55c936aa990592216c104a662e1",
+    "config.json": "94bee63efcc80ad76b8b9bc8743aed501cbf56b9c71afcb41e919987a0296385",
+    "browser-fixtures.json": "38971413a25463d38e842d1c33eaddbfcd1dd89bb4ed44c28809d7786fdda32c",
+    "allocator/conservative_allocator.py": "b27fe8aa3c3c466cabbf5372f56acdf2c9fba1343b43eab07df43574936659a2",
+    "allocator/conservative_allocator.mjs": "6a4052e8cd533cc8323516fe7a8ed9f3f48dab35f99d8b7bbe95469dd67363e6"
+  }
+}

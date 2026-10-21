@@ -1,0 +1,14 @@
+{
+  "glassVertices": 11880,
+  "maxGlassFitError": 1.5592525659524625e-08,
+  "analyticGlassNormals": true,
+  "headlampRays": 72,
+  "maxHeadlampFitError": 2.2332945647615676e-05,
+  "glassFrameRays": 225,
+  "maxJointRayError": 0.0002553074418716883,
+  "rearFitP95Before": 0.00243869761296923,
+  "rearFitP95After": 4.921459786900866e-05,
+  "wheelsAndMaterialsUnchanged": true,
+  "introducedFlips": 0,
+  "backup": "backups/vehicle-fairing-20261021-233344"
+}

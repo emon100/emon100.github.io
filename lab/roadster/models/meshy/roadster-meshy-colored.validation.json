@@ -1,0 +1,41 @@
+{
+  "sourceSha256": "9c49fcd7f229099fb3012557adce609302ff6e3b33108ec9854ee0faee822b16",
+  "outputSha256": "e9ed120df616742c35f77976f276e1e68890cd65e2d79f5248966c389dc3ad80",
+  "sourceTriangles": 40564,
+  "outputTriangles": 40564,
+  "allTriangleCoordinatesAndWindingIdentical": true,
+  "nodeTransformIdentical": true,
+  "normalsUnitLength": true,
+  "uvRangeValid": true,
+  "images": [
+    {
+      "name": "base",
+      "width": 2048,
+      "height": 2392,
+      "bytes": 247224,
+      "sha256": "960f7afe33e337c40b8f6c1a6e713cf509986829ad236add6735f9327350f622"
+    },
+    {
+      "name": "metal",
+      "width": 2048,
+      "height": 2392,
+      "bytes": 251462,
+      "sha256": "06b6b6a5b028f62136c29657df4137b7b5167c1866b7e8af69b02f3a82edaeb1"
+    },
+    {
+      "name": "emissive",
+      "width": 2048,
+      "height": 2392,
+      "bytes": 32260,
+      "sha256": "200cd1540709fabce8373d7cc4ffa18ce95362d9352d621b371c20b4689c3299"
+    },
+    {
+      "name": "coat",
+      "width": 2048,
+      "height": 2392,
+      "bytes": 250524,
+      "sha256": "61697d17f68a491b563da8b090d1c74ddaf0ebb46e589915253e6ce178d76a7c"
+    }
+  ],
+  "surfaceUnchanged": "Source vertices are duplicated for UV seams; no triangle is subdivided, removed, moved or added."
+}

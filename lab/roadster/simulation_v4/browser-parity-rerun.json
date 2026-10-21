@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "id": "2026111801-0/initial",
+      "status": "success",
+      "success": true,
+      "windows": 203
+    },
+    {
+      "id": "2026111801-0/reference",
+      "status": "success",
+      "success": true,
+      "windows": 211
+    },
+    {
+      "id": "2026111801-0/final",
+      "status": "success",
+      "success": true,
+      "windows": 197
+    },
+    {
+      "id": "2026111801-1/initial",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 211
+    },
+    {
+      "id": "2026111801-1/reference",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 210
+    },
+    {
+      "id": "2026111801-1/final",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 217
+    },
+    {
+      "id": "2026111801-2/initial",
+      "status": "success",
+      "success": true,
+      "windows": 230
+    },
+    {
+      "id": "2026111801-2/reference",
+      "status": "success",
+      "success": true,
+      "windows": 208
+    },
+    {
+      "id": "2026111801-2/final",
+      "status": "success",
+      "success": true,
+      "windows": 204
+    },
+    {
+      "id": "2026111801-3/initial",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 190
+    },
+    {
+      "id": "2026111801-3/reference",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 239
+    },
+    {
+      "id": "2026111801-3/final",
+      "status": "hard_contact",
+      "success": false,
+      "windows": 163
+    }
+  ],
+  "maxDifferences": {
+    "force": 1.0186340659856796e-10,
+    "torque": 7.314611139008775e-10,
+    "pathRemaining": 1.7763568394002505e-15,
+    "spinMeasured": 1.7763568394002505e-15,
+    "trajectory.pos": 3.3717473257866004e-13,
+    "trajectory.quat": 4.185616061714204e-14,
+    "trajectory.vel": 9.973244452510244e-12,
+    "trajectory.omega": 2.856874025541911e-12,
+    "trajectory.fuel": 4.234834705130197e-12
+  },
+  "issues": []
+}

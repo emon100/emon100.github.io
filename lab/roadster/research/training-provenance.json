@@ -1,0 +1,27 @@
+{
+  "record": "simulation/results.json",
+  "sha256": "6e5f440e13367bf8ad8c9851fbbaa8d9c9b5fa523143ec853341e7879ac280c1",
+  "seed": 20261017,
+  "vehicleSize": [
+    4.1,
+    1.72,
+    1.2
+  ],
+  "trainingEpisodes": 19220,
+  "timeStep": 0.04,
+  "checkpoints": [
+    0,
+    12,
+    24
+  ],
+  "holdout": {
+    "flat_kickflip": 13,
+    "inverted_release": 40,
+    "attitude_recovery": 40
+  },
+  "pairedUnregulated": {
+    "flat_kickflip": 0,
+    "inverted_release": 13,
+    "attitude_recovery": 16
+  }
+}

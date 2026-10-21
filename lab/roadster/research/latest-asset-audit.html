@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="最新模型使用清单">最新模型使用清单</h1>
+<p>使用用户提供的 Meshy 去墙车体，以及 Kimi 分区、Codex
+修订的材质和色块贴图。汽车原有 40,564 个三角面保持；按车长 4.1 m
+等比缩放，包络约 4.100 × 1.806 × 1.037 m。这是模型尺寸，不是 Tesla
+实测尺寸。</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>位置</th>
+<th>当前素材</th>
+<th>保留的原记录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首页十个镜头</td>
+<td>最新着色车模、坡道和车列</td>
+<td>官方原片、高清帧；早期四路线折叠保留</td>
+</tr>
+<tr>
+<td>首页四个物理问题</td>
+<td>最新车模作为吸附、推力、转动和气动试件</td>
+<td>原公式与参数边界</td>
+</tr>
+<tr>
+<td>统一飞行实验</td>
+<td>同一份最新车模和实际喷力雾迹</td>
+<td>训练前后、各代参数与失败结果</td>
+</tr>
+<tr>
+<td>素材库</td>
+<td>最新车模默认展示，可导出 PNG 和 GLB</td>
+<td>白模、Kimi、Codex 旧模型及八段失败视频</td>
+</tr>
+<tr>
+<td>历史训练与倒置修复</td>
+<td>保留原数据，继续使用已接入的着色车模</td>
+<td>原算法、成绩、版本和来源</td>
+</tr>
+</tbody>
+</table>
+<p>首页十镜头是概念路径，进度不是秒，不能作为实车遥测。坡道半径 6.5
+m、车列间距等均是假设。坡道偏置按实际 GLB
+包络计算，避免穿入弧面；这不等于轮胎接触求解。</p>
+<p>四个物理试件复用原公式，数值、力箭头与画面同源。它们展示受约束的公式问题，不替代飞行实验的六自由度积分。烟雾只示意排气方向与相对强弱。</p>
+<p>飞行实验的接触仍由 4.10 × 1.72 × 1.20 m
+的近似碰撞体决定，可叠加查看。不能因为换了外观，就声称物理精度提高。</p>
+<p>几何检查覆盖 2,010 个姿态、8 个镜头衔接点、实际网格与坡面净空、5
+辆车的排列，以及 4
+个公式的一致性。浏览器另查实际材质、明暗主题、手机布局与 PNG 导出。</p>
+</body>
+</html>

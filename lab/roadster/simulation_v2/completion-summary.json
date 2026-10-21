@@ -1,0 +1,471 @@
+{
+  "revision": "energy-coupled-r6",
+  "campaignId": "energy-coupled-r6-100-generations",
+  "sourceSha256": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+  "controllerSha256": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a",
+  "resultsSha256": "0e842c7de451718be13be703be246deb6fc0033b2ac159f00ea26f3576e03213",
+  "completedGenerations": 100,
+  "selectedGeneration": 74,
+  "campaignEvaluations": 19039,
+  "candidateEvaluations": 2800,
+  "candidateCaseEvaluations": 16800,
+  "fixedDevelopmentEvaluations": 1212,
+  "checkpointReplays": 60,
+  "candidateCountNotice": "Candidate evaluations include reevaluated parameter vectors. Audit/diagnostic reruns below are separate from campaign totals.",
+  "wallSeconds": 2035.525867999997,
+  "tasks": {
+    "stationary_kickflip": {
+      "fixedEvaluation": {
+        "successes": 28,
+        "trials": 40,
+        "statuses": {
+          "success": 28,
+          "hard_contact": 12
+        }
+      },
+      "baselines": {
+        "no_control": 0,
+        "untuned": 0,
+        "handcrafted": 12,
+        "mid": 27,
+        "final": 28
+      },
+      "standardCase": {
+        "status": "success",
+        "peakCGHeight": 6.385373693204701,
+        "fuelUsed": 163.01445542165558,
+        "events": {
+          "takeoff": {
+            "t": 0.04,
+            "heightCG": 0.5089474739433333,
+            "riseAboveGroundCG": 0.008947473943333284,
+            "riseAboveInitialCG": 0.0039474739433332795,
+            "verticalVelocity": 0.3537265005403747,
+            "pressureRatio": 0.9883081256196787,
+            "fuel": 257.46428106372963,
+            "wheelCount": 0,
+            "bodyRollRate": -4.731955263074067e-22
+          },
+          "rollPhaseEntry": {
+            "t": 0.1,
+            "heightCG": 0.5710387159232686,
+            "riseAboveGroundCG": 0.0710387159232686,
+            "riseAboveInitialCG": 0.0660387159232686,
+            "verticalVelocity": 1.7180042039133685,
+            "pressureRatio": 0.9578255070244596,
+            "fuel": 250.8295388997366,
+            "wheelCount": 0,
+            "bodyRollRate": -5.3000101658929814e-20,
+            "requestedRollTorque": 340.082620600329,
+            "allocatedRollTorque": 302.59467520960607,
+            "realizedRollTorqueBeforeCommand": -1.4127806428640995e-15,
+            "realizedRollTorqueAfterFirstControlStep": 164.97677732484226,
+            "commandRollRate": 0.15535156455516422,
+            "commandRollRateSource": "recorded_goal",
+            "gateParameter": 0.05362964520564749,
+            "geometryLimited": false
+          },
+          "firstNonzeroRollCommand": {
+            "t": 0.1,
+            "heightCG": 0.5710387159232686,
+            "riseAboveGroundCG": 0.0710387159232686,
+            "riseAboveInitialCG": 0.0660387159232686,
+            "verticalVelocity": 1.7180042039133685,
+            "pressureRatio": 0.9578255070244596,
+            "fuel": 250.8295388997366,
+            "wheelCount": 0,
+            "bodyRollRate": -5.3000101658929814e-20,
+            "requestedRollTorque": 340.082620600329,
+            "allocatedRollTorque": 302.59467520960607,
+            "realizedRollTorqueBeforeCommand": -1.4127806428640995e-15,
+            "realizedRollTorqueAfterFirstControlStep": 164.97677732484226,
+            "commandRollRate": 0.15535156455516422,
+            "commandRollRateSource": "recorded_goal",
+            "gateParameter": 0.05362964520564749,
+            "geometryLimited": false
+          },
+          "firstRealizedRollTorque": {
+            "t": 0.12,
+            "heightCG": 0.6107160003644149,
+            "riseAboveGroundCG": 0.11071600036441487,
+            "riseAboveInitialCG": 0.10571600036441486,
+            "verticalVelocity": 2.20077399320711,
+            "pressureRatio": 0.9472696749308448,
+            "fuel": 248.52383309099076,
+            "wheelCount": 0,
+            "bodyRollRate": 0.0027922034598518984,
+            "realizedRollTorque": 164.97677732484226
+          },
+          "firstRollMotion": {
+            "t": 0.26,
+            "heightCG": 1.1481312510579749,
+            "riseAboveGroundCG": 0.6481312510579749,
+            "riseAboveInitialCG": 0.6431312510579749,
+            "verticalVelocity": 5.30612659036302,
+            "pressureRatio": 0.8780115824879321,
+            "fuel": 233.28682841936558,
+            "wheelCount": 0,
+            "bodyRollRate": 0.0531699655571247
+          },
+          "energyReadyEvent": {
+            "t": 0.48,
+            "heightCG": 2.6698638890893465,
+            "riseAboveGroundCG": 2.1698638890893465,
+            "riseAboveInitialCG": 2.1648638890893466,
+            "verticalVelocity": 8.126774772113324,
+            "pressureRatio": 0.799675091351404,
+            "fuel": 215.80822289364136,
+            "wheelCount": 0,
+            "bodyRollRate": 0.106123620634739,
+            "energyHeight": 6.036044734994421,
+            "estimatedRollTime": 1.3581317178278722,
+            "availableCoastTime": 1.8323111824734886
+          }
+        }
+      },
+      "heightGoal": {
+        "minimumCG": 5.0,
+        "reachedMinimum": 40,
+        "stableLandingSuccesses": 28,
+        "trials": 40,
+        "minimumObservedPeak": 6.353976375586746,
+        "maximumObservedPeak": 6.712427879160656
+      },
+      "sensitivity": {
+        "disable_four_downward_jets": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 12
+          }
+        },
+        "thrust_80_percent": {
+          "successes": 5,
+          "trials": 12,
+          "statuses": {
+            "success": 5,
+            "hard_contact": 7
+          }
+        },
+        "initial_charge_80_percent": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 12
+          }
+        }
+      }
+    },
+    "moving_kickflip": {
+      "fixedEvaluation": {
+        "successes": 28,
+        "trials": 40,
+        "statuses": {
+          "success": 28,
+          "hard_contact": 12
+        }
+      },
+      "baselines": {
+        "no_control": 0,
+        "untuned": 1,
+        "handcrafted": 12,
+        "mid": 26,
+        "final": 28
+      },
+      "standardCase": {
+        "status": "success",
+        "peakCGHeight": 6.385334331406088,
+        "fuelUsed": 163.9162940587932,
+        "events": {
+          "takeoff": {
+            "t": 0.04,
+            "heightCG": 0.5089474566974955,
+            "riseAboveGroundCG": 0.008947456697495526,
+            "riseAboveInitialCG": 0.003947456697495522,
+            "verticalVelocity": 0.3537244637848473,
+            "pressureRatio": 0.9883081518563053,
+            "fuel": 257.4642867594855,
+            "wheelCount": 0,
+            "bodyRollRate": 4.25106118601257e-18
+          },
+          "rollPhaseEntry": {
+            "t": 0.1,
+            "heightCG": 0.5710377270842684,
+            "riseAboveGroundCG": 0.07103772708426837,
+            "riseAboveInitialCG": 0.06603772708426836,
+            "verticalVelocity": 1.717966643583941,
+            "pressureRatio": 0.9578258484913964,
+            "fuel": 250.82961341747767,
+            "wheelCount": 0,
+            "bodyRollRate": -1.1123107246165593e-17,
+            "requestedRollTorque": 340.08263332979084,
+            "allocatedRollTorque": 302.59381490417945,
+            "realizedRollTorqueBeforeCommand": -2.019987095207316e-15,
+            "realizedRollTorqueAfterFirstControlStep": 164.9763063064911,
+            "commandRollRate": 0.15535156455516422,
+            "commandRollRateSource": "recorded_goal",
+            "gateParameter": 0.05362964520564749,
+            "geometryLimited": false
+          },
+          "firstNonzeroRollCommand": {
+            "t": 0.1,
+            "heightCG": 0.5710377270842684,
+            "riseAboveGroundCG": 0.07103772708426837,
+            "riseAboveInitialCG": 0.06603772708426836,
+            "verticalVelocity": 1.717966643583941,
+            "pressureRatio": 0.9578258484913964,
+            "fuel": 250.82961341747767,
+            "wheelCount": 0,
+            "bodyRollRate": -1.1123107246165593e-17,
+            "requestedRollTorque": 340.08263332979084,
+            "allocatedRollTorque": 302.59381490417945,
+            "realizedRollTorqueBeforeCommand": -2.019987095207316e-15,
+            "realizedRollTorqueAfterFirstControlStep": 164.9763063064911,
+            "commandRollRate": 0.15535156455516422,
+            "commandRollRateSource": "recorded_goal",
+            "gateParameter": 0.05362964520564749,
+            "geometryLimited": false
+          },
+          "firstRealizedRollTorque": {
+            "t": 0.12,
+            "heightCG": 0.6107140996906048,
+            "riseAboveGroundCG": 0.11071409969060475,
+            "riseAboveInitialCG": 0.10571409969060475,
+            "verticalVelocity": 2.2007234236503113,
+            "pressureRatio": 0.9472699884806662,
+            "fuel": 248.52390164292427,
+            "wheelCount": 0,
+            "bodyRollRate": 0.002792195364355489,
+            "realizedRollTorque": 164.9763063064911
+          },
+          "firstRollMotion": {
+            "t": 0.26,
+            "heightCG": 1.1481214606189654,
+            "riseAboveGroundCG": 0.6481214606189654,
+            "riseAboveInitialCG": 0.6431214606189654,
+            "verticalVelocity": 5.30607661179937,
+            "pressureRatio": 0.878011256139573,
+            "fuel": 233.28675616066047,
+            "wheelCount": 0,
+            "bodyRollRate": 0.05316968234150721
+          },
+          "energyReadyEvent": {
+            "t": 0.48,
+            "heightCG": 2.6698462534766216,
+            "riseAboveGroundCG": 2.1698462534766216,
+            "riseAboveInitialCG": 2.1648462534766217,
+            "verticalVelocity": 8.126749302679082,
+            "pressureRatio": 0.7996691693323502,
+            "fuel": 215.80689108066457,
+            "wheelCount": 0,
+            "bodyRollRate": 0.1061219010721334,
+            "energyHeight": 6.036006000092062,
+            "estimatedRollTime": 1.3581317483189743,
+            "availableCoastTime": 1.8322480309227265
+          }
+        }
+      },
+      "heightGoal": {
+        "minimumCG": 5.0,
+        "reachedMinimum": 40,
+        "stableLandingSuccesses": 28,
+        "trials": 40,
+        "minimumObservedPeak": 6.362249371181829,
+        "maximumObservedPeak": 6.639060431678279
+      },
+      "sensitivity": {
+        "disable_four_downward_jets": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 12
+          }
+        },
+        "thrust_80_percent": {
+          "successes": 2,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 10,
+            "success": 2
+          }
+        },
+        "initial_charge_80_percent": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 12
+          }
+        }
+      }
+    },
+    "moving_recovery": {
+      "fixedEvaluation": {
+        "successes": 0,
+        "trials": 40,
+        "statuses": {
+          "hard_contact": 26,
+          "body_contact": 14
+        }
+      },
+      "baselines": {
+        "no_control": 0,
+        "untuned": 0,
+        "handcrafted": 0,
+        "mid": 0,
+        "final": 0
+      },
+      "standardCase": {
+        "status": "body_contact",
+        "peakCGHeight": 9.0,
+        "fuelUsed": 112.41622963477883,
+        "events": null
+      },
+      "heightGoal": null,
+      "sensitivity": {
+        "disable_four_downward_jets": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "body_contact": 12
+          }
+        },
+        "thrust_80_percent": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 11,
+            "body_contact": 1
+          }
+        },
+        "initial_charge_80_percent": {
+          "successes": 0,
+          "trials": 12,
+          "statuses": {
+            "hard_contact": 11,
+            "body_contact": 1
+          }
+        }
+      }
+    }
+  },
+  "freeSO3": {
+    "untuned": {
+      "successes": 0,
+      "trials": 80,
+      "statuses": {
+        "hard_contact": 42,
+        "body_contact": 38
+      }
+    },
+    "handcrafted": {
+      "successes": 1,
+      "trials": 80,
+      "statuses": {
+        "hard_contact": 42,
+        "body_contact": 37,
+        "success": 1
+      }
+    },
+    "final": {
+      "successes": 0,
+      "trials": 80,
+      "statuses": {
+        "hard_contact": 36,
+        "body_contact": 44
+      }
+    }
+  },
+  "stepSensitivity": [
+    {
+      "task": "stationary_kickflip",
+      "dt": 0.001,
+      "cases": 40,
+      "successes": 27,
+      "changedClassifications": 1,
+      "changedFailureStatuses": 1,
+      "maximumPeakHeightDifference": 0.29221654582248835
+    },
+    {
+      "task": "moving_kickflip",
+      "dt": 0.001,
+      "cases": 40,
+      "successes": 27,
+      "changedClassifications": 1,
+      "changedFailureStatuses": 1,
+      "maximumPeakHeightDifference": 0.2928057689898669
+    },
+    {
+      "task": "moving_recovery",
+      "dt": 0.001,
+      "cases": 40,
+      "successes": 0,
+      "changedClassifications": 0,
+      "changedFailureStatuses": 0,
+      "maximumPeakHeightDifference": 0.0
+    }
+  ],
+  "additionalHalfMillisecondCases": 56,
+  "changedBoundaryCases": [
+    {
+      "caseId": "stationary_kickflip-20351017-17",
+      "steps": [
+        {
+          "dt": 0.002,
+          "status": "success"
+        },
+        {
+          "dt": 0.001,
+          "status": "hard_contact"
+        },
+        {
+          "dt": 0.0005,
+          "status": "hard_contact"
+        }
+      ]
+    },
+    {
+      "caseId": "moving_kickflip-20352017-24",
+      "steps": [
+        {
+          "dt": 0.002,
+          "status": "success"
+        },
+        {
+          "dt": 0.001,
+          "status": "hard_contact"
+        },
+        {
+          "dt": 0.0005,
+          "status": "hard_contact"
+        }
+      ]
+    }
+  ],
+  "recordAudit": {
+    "rolloutEntries": 82,
+    "frames": 17169,
+    "maximumRealizedHorizontalJetForceN": 4850.718167159414,
+    "sourceMatches": true,
+    "ledgerMatches": true
+  },
+  "nativeTests": 25,
+  "timingParserTests": 2,
+  "developmentEvidenceIndex": "development-evidence-index.json",
+  "developmentTrialCounts": {
+    "development-ascent-probe.json": 9,
+    "development-full-flight-probe.json": 4,
+    "development-controller-scan.json": 16,
+    "development-braking-feedforward.json": 6
+  },
+  "priorInterruptedCampaignEvaluationsRange": [
+    1821,
+    1989
+  ],
+  "limitations": [
+    "Fixed task/SO(3) sets reused across prior revisions, never used for this campaign selection.",
+    "Development controller prototypes lack complete per-trial frozen source; records retained but exact source reruns not guaranteed.",
+    "Manual structural changes and handcrafted baseline tuning are separate from CEM learning.",
+    "Two 2ms successes fail at 1ms and 0.5ms. Contact success is numerically sensitive; do not claim all original 28 per task are step-robust.",
+    "Current learned policy did not solve moving recovery or general SO(3) recovery."
+  ]
+}

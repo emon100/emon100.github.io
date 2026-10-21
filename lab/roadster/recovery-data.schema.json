@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Recovery recorded-comparison interface v1",
+  "description": "Static recorded trajectories. Renderer never solves physics or interpolates poses. Replace this dataset with final candidates without changing the UI. Preserve explicit provenance, experiment labels and the feedbackStructure branch. Browser API registerDataset({id,label,url},{select:true}) adds a dataset option and optionally loads it. Existing HTML options use data-url. The free-case button writes the exact currentCase.initialState to sessionStorage roadsterRecoveryCase.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "notice",
+    "source",
+    "config",
+    "nozzles",
+    "variants",
+    "cases"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "kind": {
+      "type": "string",
+      "examples": [
+        "development_ablation",
+        "candidate_evaluation"
+      ]
+    },
+    "notice": {
+      "type": "string",
+      "description": "User-facing provenance and evaluation limits; do not call development cases held-out validation."
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256",
+        "codeHashes",
+        "totalRuns",
+        "selectedRuns"
+      ],
+      "additionalProperties": true
+    },
+    "config": {
+      "type": "object",
+      "description": "Physical config consumed by the shared lab-world. Geometry and nozzle layout must match the stored trajectories."
+    },
+    "nozzles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "position",
+          "direction",
+          "maxForce"
+        ]
+      }
+    },
+    "factors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ]
+      }
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "initialState",
+          "runs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "initialState": {
+            "type": "object"
+          },
+          "runs": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/$defs/run"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "vector3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "number"
+      }
+    },
+    "run": {
+      "type": "object",
+      "required": [
+        "status",
+        "success",
+        "metrics",
+        "firstFailureTime",
+        "frames"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "firstFailureTime": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "metrics": {
+          "type": "object"
+        },
+        "sourceRow": {
+          "type": "integer"
+        },
+        "sourceFramesSha256": {
+          "type": "string"
+        },
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/frame"
+          }
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "required": [
+        "t",
+        "controlObservationTime",
+        "pos",
+        "quat",
+        "vel",
+        "omega",
+        "nozzleForces",
+        "goal",
+        "allocation"
+      ],
+      "properties": {
+        "t": {
+          "type": "number",
+          "description": "Physical snapshot time, seconds."
+        },
+        "controlObservationTime": {
+          "type": "number",
+          "description": "Time of the state used for this command. Requested and allocated torques belong here; actual nozzle forces are at t."
+        },
+        "pos": {
+          "$ref": "#/$defs/vector3",
+          "description": "Whole-vehicle CG in world meters."
+        },
+        "quat": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          },
+          "description": "w,x,y,z body-to-world quaternion."
+        },
+        "vel": {
+          "$ref": "#/$defs/vector3",
+          "description": "World m/s."
+        },
+        "omega": {
+          "$ref": "#/$defs/vector3",
+          "description": "Body rad/s."
+        },
+        "geometryClearance": {
+          "type": "number",
+          "description": "Actual snapshot collision-geometry lowest point above the floor, meters."
+        },
+        "nozzleForces": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "N, corresponding to top-level nozzles. Actual body torque is sum(position cross direction times force); excludes fan/contact/gyro."
+        },
+        "allocation": {
+          "type": "object",
+          "required": [
+            "requestedWrenchBody",
+            "achievedWrenchBody"
+          ],
+          "additionalProperties": true
+        },
+        "goal": {
+          "type": "object",
+          "description": "Retain raw diagnostic values and nulls. Missing or null stopping budgets must not become zero.",
+          "properties": {
+            "feedbackStructure": {
+              "type": "string",
+              "description": "Legacy PD, cascade_angle_rate_governor, or full_quaternion_PD_with_rate_envelope. The latter uses body rate reference/error and P+D+gyro+governorCorrection as the attitude torque request."
+            },
+            "PDtermsMeaning": {
+              "type": "string"
+            },
+            "PDProportionalTorque": {
+              "$ref": "#/$defs/vector3"
+            },
+            "PDDampingTorque": {
+              "$ref": "#/$defs/vector3"
+            },
+            "PDIntegralTorque": {
+              "$ref": "#/$defs/vector3"
+            },
+            "gyroscopicTorque": {
+              "$ref": "#/$defs/vector3"
+            },
+            "governorCorrectionTorque": {
+              "$ref": "#/$defs/vector3",
+              "description": "Body Nm. Include alongside P, D and gyroscopicTorque when explaining the recorded attitudeTorqueRequest. P/D alone are unconstrained references."
+            },
+            "attitudeTorqueRequest": {
+              "$ref": "#/$defs/vector3"
+            },
+            "outerTiltRateReferenceWorld": {
+              "$ref": "#/$defs/vector3",
+              "description": "World rad/s."
+            },
+            "innerTiltRateErrorWorld": {
+              "$ref": "#/$defs/vector3",
+              "description": "World rad/s."
+            },
+            "tiltAngularAccelerationRequestWorld": {
+              "$ref": "#/$defs/vector3",
+              "description": "World rad/s^2."
+            },
+            "yawAngularAccelerationRequestWorld": {
+              "$ref": "#/$defs/vector3",
+              "description": "World rad/s^2."
+            },
+            "recoveryBudget": {
+              "type": "object",
+              "description": "Local constant-capacity stopping references only. Legacy: attitudeAngle/angularStoppingAngle/angularBrakeMargin/verticalStoppingDistance/verticalBrakeMargin. Cascade may use tiltStopAngle/tiltBrakeMargin. Missing quantities display as unavailable."
+            },
+            "recoveryPreview": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "description": "Legacy 70ms gravity/rotation descent preview or candidate-specific prediction diagnostics; not guaranteed future state."
+            },
+            "outerBodyRateReference": {
+              "$ref": "#/$defs/vector3",
+              "description": "Requested body X/Y/Z angular velocity, rad/s."
+            },
+            "innerBodyRateError": {
+              "$ref": "#/$defs/vector3",
+              "description": "Requested minus observed body X/Y/Z angular velocity, rad/s."
+            },
+            "uprightRecovered": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "Latched once the controller reached upright recovery gate; not necessarily current attitude or landing success. Missing is unavailable."
+            },
+            "headingSettled": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "Current full orientation error and angular speed meet the controller thresholds; not merely yaw and not landing success. Missing is unavailable."
+            },
+            "verticalStoppingForecast": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "description": "Fixed-current-attitude vertical braking forecast, not MPC. Missing/null must display unavailable; feasible is not a contact or landing outcome. With feasible=false, distance is accumulated descent at prediction horizon, not a successful stopping distance.",
+              "properties": {
+                "feasible": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "distance": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "Meters."
+                },
+                "time": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "Seconds."
+                },
+                "gasUsed": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "kg."
+                },
+                "endFuel": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "kg."
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

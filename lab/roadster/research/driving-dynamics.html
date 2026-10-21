@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>驾驶模型、假设与验证</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<h1 id="驾驶模型假设与验证">驾驶模型、假设与验证</h1>
+<p>本页保留 2026-10-20 / v17 的 260 kg 供气参数和成绩。当前 400 kg
+供气及对应质量见<a href="driving-assistance.html">姿态辅助验证</a>。</p>
+<p>2026-10-20。返回<a href="../driving.html">驾驶沙盘</a>。</p>
+<h2 id="哪些来自官方">哪些来自官方</h2>
+<p><a href="https://www.tesla.com/roadster?redirect=no">Tesla Roadster
+官方页</a>描述了风机与底部密封、冷气体推进器和空中稳定，并区分
+Performance、Thrust 与 Rocket。页面的不到 1 秒 0–60 mph
+宣称属于带推进增强的配置，不能当成沙盘普通电驱的加速曲线。本文不补写未经核实的发布日期或交付承诺。</p>
+<p><a
+href="https://www.tesla.com/ownersmanual/model3/en_us/GUID-3DFFB071-C0F6-474D-8A45-17BE1A006365.html">Tesla
+Model 3
+车主手册</a>说明松开加速踏板会回收减速，回收能力受电池状态影响。这里只借鉴电动车的踏板行为，没有用
+Model 3 的规格代替新 Roadster。新 Roadster
+的完整轮端扭矩、回收和制动曲线未找到公开标定数据。</p>
+<h2 id="沙盘采用的假设">沙盘采用的假设</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>驾驶沙盘设定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>满气总质量</td>
+<td>2,000 kg，含 260 kg 气体</td>
+</tr>
+<tr>
+<td>轮胎半径、接触摩擦系数</td>
+<td>0.32 m、0.9</td>
+</tr>
+<tr>
+<td>电驱轮端总驱动力上限</td>
+<td>40 kN，仍受各轮实际载荷与摩擦限制</td>
+</tr>
+<tr>
+<td>机械功率上限</td>
+<td>600 kW</td>
+</tr>
+<tr>
+<td>回收力、回收功率上限</td>
+<td>6 kN、120 kW</td>
+</tr>
+<tr>
+<td>制动力上限</td>
+<td>26 kN，实际制动仍受附着限制</td>
+</tr>
+<tr>
+<td>空气阻力面积 CdA</td>
+<td>0.65 m²</td>
+</tr>
+<tr>
+<td>滚阻系数</td>
+<td>0.012</td>
+</tr>
+<tr>
+<td>下抓力风机</td>
+<td>180 kW、20 kPa 压差上限、3 m² 有效面积、4 cm 裙边</td>
+</tr>
+</tbody>
+</table>
+<p>油门请求轮端扭矩，扭矩按车速受功率上限约束。松油门请求回收减速，低速转入保持制动；刹车覆盖油门指令。接地坡面使用有限的电机扭矩补偿沿坡重力，超出功率或附着能力仍会滑落。轮载来自
+MuJoCo
+接触求解，悬空轮不获得虚构抓地力。纵向与横向摩擦由同一个接触摩擦锥约束。没有修改车身位置或速度来贴住坡道。</p>
+<p>前轮是物理转向关节，具有 Ackermann
+内外轮角度。轮胎对转向机构的冲击由转向刚度和隐式积分的阻尼抑制，渲染仍显示实际转角。没有把轮子锁死、隐藏偏摆或固定车辆运动轨迹。落地时，下抓力等轮胎稳定接触
+0.15 秒后再接入，避免最后一段下降被吸力加速。</p>
+<h2 id="可重复的验证结果">可重复的验证结果</h2>
+<p>关闭喷气辅助和下抓力，在平地从静止加速；停车距离不含驾驶员反应时间，低于
+0.1 m/s 记为停止。测试会拒绝把碰到边界后的回中当作停车。</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>场景</th>
+<th>模拟结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–60 km/h</td>
+<td>2.14 s</td>
+</tr>
+<tr>
+<td>0–100 km/h</td>
+<td>3.54 s</td>
+</tr>
+<tr>
+<td>约 60 km/h 松油门停车</td>
+<td>6.24 s、56.82 m</td>
+</tr>
+<tr>
+<td>约 60 km/h 踩刹车停车</td>
+<td>2.40 s、16.90 m</td>
+</tr>
+<tr>
+<td>90° / 170° 低速上坡，无转向输入</td>
+<td>最大前轮偏转 0.47° / 0.30°</td>
+</tr>
+<tr>
+<td>从出生点全油门驶上 170° 坡，无转向输入</td>
+<td>最大前轮偏转 1.55°以内，驶离时约 73 km/h</td>
+</tr>
+</tbody>
+</table>
+<p>这些是沙盘结果，不是 Tesla
+实车成绩。测试驾驶员调节油门，使低速爬坡保持约 2
+m/s；应用内没有慢行模式或目标车速控制。另有坡边自由驶出、坡上制动和倒车、连续
+kickflip、自由悬空回正、接地收气、5 秒等待加 2
+秒补气、输入取消以及镜头插值检查。</p>
+<p>第三人称默认位于车辆正后方，基础距离 20
+m。水平朝向、位置分别阻尼跟随，漂移时参考实际行进方向，极陡坡和翻转时保持稳定的水平朝向。支持鼠标和触屏拖动；停止拖动
+1.5 秒后，行驶中的镜头缓慢回到车后。停车观察不强制回正。</p>
+<h2 id="对物理与架构建议的核查">对物理与架构建议的核查</h2>
+<ul>
+<li>Physics Bench 已使用 <code>N = Δp A + mg cosθ</code>，再以
+<code>μ max(N, 0)</code> 计算可用摩擦。2,000 kg、4 m²、8 kPa、180°
+的教学算例为吸力 32 kN、净法向载荷 12.38 kN，不会把整个 32 kN
+当成轮胎载荷。Bench 的 4 m²、μ=1
+与驾驶沙盘参数属于不同实验，不能混用。</li>
+<li>现有系统已分离 MuJoCo WASM 物理、反馈控制和 Three.js 渲染。物理固定
+2 ms 步进，控制每 20 ms 更新，在 Web Worker
+中运行；画面使用插值。无需为满足这些条件改用 Rapier 或 React Three
+Fiber。</li>
+<li>喷流按阀门滞后、气压和总推力约束之后的实际喷力显示。轮胎旋转、转向与接触载荷也读取物理状态。已有飞行实验保存初态、参数、过程与回放记录。</li>
+<li>仍缺少独立悬架、轮胎变形与载荷敏感性、实测转向机构参数、电池温度和荷电状态模型。若要宣称实车拟真，需要这些模型及实测标定；增加画质或切换引擎不能替代验证。</li>
+</ul>
+<p>源代码与检查见站点源仓库的
+<code>driving-powertrain.mjs</code>、<code>driving-core.mjs</code>、<code>test-driving-dynamics.mjs</code>
+及 <code>qa-driving-dynamics-20261020.json</code>。修改前的线上 v16
+已保存在 Git 提交
+<code>3c0c50356e3691be984e329980ccadd1ddb7ba0f</code>，本地标签为
+<code>checkpoint/driving-20261020-before-vehicle-tuning</code>。</p>
+</body>
+</html>

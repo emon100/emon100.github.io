@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "early-roll-low-height",
+  "title": "r5 · 提前转，仍然太低",
+  "revision": "launch-coupled-r5",
+  "sourceFile": "simulation_v2/archive/launch-coupled-r5/results.json",
+  "sourceFileSha256": "2258731f6b477d50224746f0046a9fddcf2feb49e5be5bd8453efb54dffd236c",
+  "sourceJsonPath": "tasks.stationary_kickflip.comparisons.final",
+  "coreSourceSha256": "4bf4dffbfc612613e445de998d72d3a08d94b1b7edf2acfd7c4a076253fe66fb",
+  "controllerSourceSha256": "5d9c79c6fc5f560a917e74eafe1838933a9b6745b1c00c2cfd9b6e38001032e7",
+  "policyId": "final",
+  "generation": 20,
+  "manualDevelopmentOrUntuned": false,
+  "campaignComplete": true,
+  "note": "Frozen final parameter policy of this historical campaign.",
+  "frames": 91,
+  "framesCanonicalSha256": "0568c80b5076e741638dc067c655b2a16da38896492f5711235193bb12cc515c",
+  "trajectoryFileSha256": "0675244136b51c336bb63fbd4889932ed37bae36634a91942417df1f367a8dbd",
+  "firstFailureSeconds": 1.4,
+  "sourceEndSeconds": 1.8,
+  "tailAfterFailureSeconds": 0.4,
+  "sourceControlStepSeconds": 0.02,
+  "status": "body_contact",
+  "peakCGHeightMeters": 1.6005639471033397,
+  "reason": "起转提前至0.20秒，但实际峰值重心仅约1.60米，未留下足够时间完成滚转与制动。",
+  "rendering": {
+    "source": "recorded state frames only",
+    "sampling": "last recorded frame at or before n/30 seconds; no pose interpolation or resimulation",
+    "sourceFrameClockResolutionSeconds": 0.02,
+    "requestedOutput": [
+      1080,
+      1920,
+      30
+    ],
+    "addedEndingFreezeSeconds": 0,
+    "audio": "none",
+    "visualNotes": "Same colored Meshy exterior and illustrative exhaust as the lab. Exhaust is not CFD. Camera/lighting do not feed back into physics. Visual exterior differs from collision proxy.",
+    "rights": "Local simulation rendering and user-provided/generated model assets; not Tesla documentary footage. Preserve asset provenance when reusing.",
+    "status": "complete",
+    "video": {
+      "clean.mp4": {
+        "sha256": "e0b1991d6b2f4dc7fa5225d6c0a6ebf6ac1863ecf720dbbf9aa184ac8c114be8",
+        "bytes": 578201,
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "1.833333",
+        "nb_frames": "55"
+      },
+      "annotated.mp4": {
+        "sha256": "a2df7464491139d4357d2075863b18179571276ef7dea89955b71a339b2b0305",
+        "bytes": 623404,
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "1.833333",
+        "nb_frames": "55"
+      }
+    },
+    "frameMappingFile": "render-schedule.json",
+    "sourceTrajectoryUnchanged": true,
+    "durationSeconds": 1.8333333333333333,
+    "finalFrameCadencePaddingSeconds": 0.033333,
+    "annotation": "Text composited onto the exact same clean PNG sequence, without timing or crop changes.",
+    "rendererFiles": [
+      "site/dist/failure-capture.html",
+      "site/dist/failure-capture.mjs",
+      "scripts/capture-failure-frames.ego.mjs",
+      "scripts/encode-failure-videos.py"
+    ],
+    "captureEngine": "Existing authorized Ego TaskSpace 13, p1; direct PNG export from the actually rendered WebGL canvas.",
+    "sourceHashes": {
+      "site/dist/failure-capture.mjs": "323fd4bfcdefe6bccaf8260210f6f74963a417a82793267e4e7089cbe3c201d7",
+      "site/dist/meshy-model.mjs": "541ac6e63b1884fb19d34f10aac104ac681c5f6db18d808c7ddec2b3c11ae46e",
+      "site/dist/jet-smoke.mjs": "f6c673b41a2f49f2f4d5df5ff51daa4610661c494eb04c1e8237656b570e07fb",
+      "site/dist/models/meshy/roadster-meshy-colored.glb": "e9ed120df616742c35f77976f276e1e68890cd65e2d79f5248966c389dc3ad80",
+      "scripts/capture-failure-frames.ego.mjs": "1efc2c0cbeb952f1d69aee8431be5aaeff12bec443bb140c69b4fcbad190acd5",
+      "scripts/encode-failure-videos.py": "2886c85ce9e1bb45747c59fac9e8d66453a549d5a063084f8a149da1865f91f4"
+    }
+  }
+}

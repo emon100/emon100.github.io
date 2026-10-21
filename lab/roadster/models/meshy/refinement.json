@@ -1,0 +1,575 @@
+{
+  "sourceSha256": "e9ed120df616742c35f77976f276e1e68890cd65e2d79f5248966c389dc3ad80",
+  "outputSha256": "eeee55c0eaf28aaa26de4143e21b90de6e2ee20a703737b93373757c961cc443",
+  "sourceTriangles": 40564,
+  "shellTriangles": 36026,
+  "replacedWheelTriangles": 10561,
+  "wheelTrianglesEach": 22172,
+  "surfaceDisplacementSourceUnits": {
+    "median": 0.001313589088833392,
+    "p95": 0.005906585872139711,
+    "max": 0.017710016200233294
+  },
+  "regions": {
+    "canopy": {
+      "vertices": 811,
+      "maxAdjustmentSourceUnits": 0.006522210538300079
+    },
+    "hood": {
+      "vertices": 896,
+      "maxAdjustmentSourceUnits": 0.008157382565292502
+    },
+    "sideGlass-1": {
+      "vertices": 544,
+      "maxAdjustmentSourceUnits": 0.00915097191517433
+    },
+    "door-1": {
+      "vertices": 1079,
+      "maxAdjustmentSourceUnits": 0.007768746219551868
+    },
+    "shoulder-1": {
+      "vertices": 320,
+      "maxAdjustmentSourceUnits": 0.007344430078818207
+    },
+    "sideGlass1": {
+      "vertices": 532,
+      "maxAdjustmentSourceUnits": 0.007912377325783029
+    },
+    "door1": {
+      "vertices": 1050,
+      "maxAdjustmentSourceUnits": 0.008041036631665322
+    },
+    "shoulder1": {
+      "vertices": 333,
+      "maxAdjustmentSourceUnits": 0.007202957996013256
+    }
+  },
+  "references": [
+    "https://www.tesla.com/roadster",
+    "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-02-Pilot-Desktop.jpg",
+    "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-08-End-Desktop.jpg"
+  ],
+  "triangleOrientation": {
+    "protectedFaces": 56,
+    "introducedFlips": 0
+  },
+  "panelReconstruction": {
+    "maxAdjustmentSourceUnits": 0.029639042079723205,
+    "affectedVertices": 3971,
+    "introducedFlips": 0
+  },
+  "surfaceFinish": {
+    "hood": {
+      "vertices": 1326,
+      "fullyFittedVertices": 312,
+      "maxAdjustmentSourceUnits": 0.01609050478293395
+    },
+    "canopy": {
+      "vertices": 1264,
+      "fullyFittedVertices": 676,
+      "maxAdjustmentSourceUnits": 0.010157573627779356
+    },
+    "rearProfile": {
+      "vertices": 1599,
+      "fullyFittedVertices": 609,
+      "maxAdjustmentSourceUnits": 0.014864146605121639,
+      "profile": [
+        [
+          0.575,
+          0.205
+        ],
+        [
+          0.665,
+          0.193
+        ],
+        [
+          0.72,
+          0.185
+        ],
+        [
+          0.738,
+          0.181
+        ],
+        [
+          0.742,
+          0.175
+        ],
+        [
+          0.74,
+          0.155
+        ],
+        [
+          0.735,
+          0.125
+        ],
+        [
+          0.724,
+          0.104
+        ],
+        [
+          0.715,
+          0.093
+        ]
+      ]
+    },
+    "roofStations": [
+      [
+        -0.4,
+        0.144
+      ],
+      [
+        -0.27,
+        0.194
+      ],
+      [
+        -0.12,
+        0.247
+      ],
+      [
+        0.04,
+        0.272
+      ],
+      [
+        0.2,
+        0.266
+      ],
+      [
+        0.4,
+        0.241
+      ],
+      [
+        0.63,
+        0.195
+      ]
+    ],
+    "backup": "backups/vehicle-fairing-20261021-233344",
+    "protectedVertices": 72,
+    "introducedFlips": 0,
+    "maxDisplacementSourceUnits": 0.016090504782933952,
+    "headlightRebuild": {
+      "surfaceCoefficients": [
+        0.07141304130356611,
+        0.01764823014281202,
+        0.00678700065409579,
+        0.00048547106072156684,
+        0.004908082712457776,
+        0.001370938500363125
+      ],
+      "sides": [
+        {
+          "side": -1,
+          "removedTriangles": 57,
+          "generatedTriangles": 196,
+          "frameIntersections": 116
+        },
+        {
+          "side": 1,
+          "removedTriangles": 55,
+          "generatedTriangles": 196,
+          "frameIntersections": 120
+        }
+      ],
+      "triangleXZ": [
+        [
+          -0.62,
+          0.205
+        ],
+        [
+          -0.542,
+          0.22
+        ],
+        [
+          -0.548,
+          0.266
+        ]
+      ]
+    },
+    "glazingRebuild": {
+      "removedInteriorTriangles": 627,
+      "generatedTriangles": 3960,
+      "frameIntersections": 432,
+      "longitudinalRows": 84,
+      "crossSections": 25
+    }
+  },
+  "detailLayout": {
+    "coordinates": "Source X longitudinal, front -X; Y up; Z lateral. Photo-derived proportions, not measured dimensions.",
+    "beltline": {
+      "intercept": 0.145,
+      "slope": 0.1,
+      "shoulderHeight": 0.04
+    },
+    "glass": {
+      "frontX": -0.38,
+      "rearX": 0.565,
+      "roofWidths": [
+        [
+          -0.38,
+          0.224
+        ],
+        [
+          -0.345,
+          0.244
+        ],
+        [
+          -0.27,
+          0.235
+        ],
+        [
+          -0.14,
+          0.215
+        ],
+        [
+          0.0,
+          0.206
+        ],
+        [
+          0.15,
+          0.195
+        ],
+        [
+          0.3,
+          0.177
+        ],
+        [
+          0.44,
+          0.147
+        ],
+        [
+          0.565,
+          0.109
+        ]
+      ],
+      "sidePolygonXY": [
+        [
+          -0.215,
+          0.163
+        ],
+        [
+          -0.15,
+          0.211
+        ],
+        [
+          -0.085,
+          0.247
+        ],
+        [
+          -0.015,
+          0.259
+        ],
+        [
+          0.08,
+          0.259
+        ],
+        [
+          0.19,
+          0.254
+        ],
+        [
+          0.295,
+          0.244
+        ],
+        [
+          0.358,
+          0.234
+        ],
+        [
+          0.34,
+          0.221
+        ],
+        [
+          0.303,
+          0.213
+        ],
+        [
+          0.2,
+          0.203
+        ],
+        [
+          0.05,
+          0.188
+        ],
+        [
+          -0.11,
+          0.172
+        ]
+      ]
+    },
+    "sideSeams": [
+      {
+        "name": "door front and A-pillar",
+        "width": 0.00065,
+        "points": [
+          [
+            -0.069,
+            0.252
+          ],
+          [
+            -0.217,
+            0.158
+          ],
+          [
+            -0.239,
+            0.1211
+          ],
+          [
+            -0.22,
+            -0.052
+          ]
+        ]
+      },
+      {
+        "name": "door rear and window divider",
+        "width": 0.00065,
+        "points": [
+          [
+            0.195,
+            0.258
+          ],
+          [
+            0.15,
+            0.198
+          ],
+          [
+            0.145,
+            0.1595
+          ],
+          [
+            0.098,
+            -0.049
+          ]
+        ]
+      },
+      {
+        "name": "window divider seal",
+        "width": 0.0015,
+        "points": [
+          [
+            0.195,
+            0.258
+          ],
+          [
+            0.15,
+            0.198
+          ]
+        ]
+      },
+      {
+        "name": "front glass seal",
+        "width": 0.001,
+        "points": [
+          [
+            -0.045,
+            0.254
+          ],
+          [
+            -0.185,
+            0.166
+          ]
+        ]
+      },
+      {
+        "name": "rear quarter panel",
+        "width": 0.00055,
+        "points": [
+          [
+            0.61,
+            0.198
+          ],
+          [
+            0.63,
+            0.157
+          ],
+          [
+            0.682,
+            0.038
+          ]
+        ]
+      }
+    ],
+    "topSeams": [
+      {
+        "name": "hood left",
+        "width": 0.00055,
+        "points": [
+          [
+            -0.703,
+            -0.185
+          ],
+          [
+            -0.545,
+            -0.21
+          ],
+          [
+            -0.35,
+            -0.242
+          ]
+        ]
+      },
+      {
+        "name": "hood right",
+        "width": 0.00055,
+        "points": [
+          [
+            -0.703,
+            0.185
+          ],
+          [
+            -0.545,
+            0.21
+          ],
+          [
+            -0.35,
+            0.242
+          ]
+        ]
+      },
+      {
+        "name": "hood cross seam",
+        "width": 0.0005,
+        "points": [
+          [
+            -0.455,
+            -0.225
+          ],
+          [
+            -0.463,
+            0
+          ],
+          [
+            -0.455,
+            0.225
+          ]
+        ]
+      },
+      {
+        "name": "rear deck",
+        "width": 0.0006,
+        "points": [
+          [
+            0.63,
+            -0.3
+          ],
+          [
+            0.59,
+            -0.12
+          ],
+          [
+            0.59,
+            0.12
+          ],
+          [
+            0.63,
+            0.3
+          ]
+        ]
+      }
+    ],
+    "references": [
+      "media/official-images/Roadster-02-Pilot-Desktop.jpg",
+      "media/official-images/Roadster-08-End-Desktop.jpg",
+      "media/official-images/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "media/official-images/Roadster-03-Carousel-Slide-2-Desktop.jpg",
+      "media/official-images/Roadster-03-Carousel-Slide-3-Desktop.jpg",
+      "media/official-images/Roadster-01-Hero-Desktop.jpg",
+      "User-supplied rear and overhead video frames"
+    ]
+  },
+  "textureRefinement": {
+    "revision": "texture-refinement-20261021",
+    "backup": "backups/vehicle-textures-20261021-231241",
+    "exteriorReferences": [
+      "media/official-images/Roadster-02-Pilot-Desktop.jpg",
+      "media/official-images/Roadster-08-End-Desktop.jpg",
+      "media/official-images/Roadster-03-Carousel-Slide-2-Desktop.jpg"
+    ],
+    "exteriorChanges": [
+      "Higher useful texel density with tighter packing",
+      "Warm dark glass with antialiased inner perimeter seals",
+      "Triangular front lenses, dark lens housings, thin rear LED cores and restrained lens detail",
+      "Paint roughness grain only; no added displacement or photographed highlights",
+      "Satin sill trim; subdued rear-fascia weave supported by official rear photo"
+    ],
+    "underbody": {
+      "sourceVideo": "media/kickflip-1080p.mp4",
+      "sourceVideoSha256": "ee2bd4f9d317aa7e0b8cad52081acacb05da5155f5348cf60143bcfacb194277",
+      "officialPost": "https://x.com/Tesla/status/2110926164306931860",
+      "decodedFrameIndex": 813,
+      "ptsSeconds": 33.908875,
+      "sourceFrame": "references/underbody-frame-813.png",
+      "sourceFrameSha256": "d206db0ae5a528bd7fb464f49ced076ca23b87cb5e58d339e921db894415342c",
+      "crop": [
+        240,
+        160,
+        650,
+        380
+      ],
+      "editInput": "references/underbody-source-crop.png",
+      "texture": "underbody-albedo.png",
+      "textureSha256": "4a6306775ee0438c5c29615f5dd8257ef619afa20096d54165196870b17287eb",
+      "mode": "Built-in image_gen precise-object-edit",
+      "promptFile": "underbody-prompt.txt",
+      "orientation": "front at image left, rear at right; mapped to source -X front, +X rear",
+      "projection": "Shared continuous X/Z UV rectangle, only downward shell faces below Y=-0.035 and inside |Z|<0.28",
+      "limits": [
+        "AI-assisted approximate cleanup and perspective correction from a compressed video frame. Small brackets, fasteners and occluded parts are not verified.",
+        "Albedo with derived roughness/metalness, no recovered depth or physical mechanism.",
+        "Source shows prototype hardware; not claimed as the production vehicle underbody."
+      ]
+    },
+    "geometry": "Body positions/normals and wheels retained; only material maps and body UV layout changed."
+  },
+  "textureAtlas": {
+    "width": 2048,
+    "height": 3099,
+    "tilePixelDensity": 480,
+    "maps": [
+      "/Users/emon100/IdeaProjects/rodstar/models/meshy/refined/shell-baked.png",
+      "/Users/emon100/IdeaProjects/rodstar/models/meshy/refined/shell-baked-metal.png",
+      "/Users/emon100/IdeaProjects/rodstar/models/meshy/refined/shell-baked-emissive.png",
+      "/Users/emon100/IdeaProjects/rodstar/models/meshy/refined/shell-baked-coat.png"
+    ],
+    "padding": 2,
+    "underbody": {
+      "width": 1536,
+      "height": 640,
+      "triangles": 3790,
+      "sourceSha256": "4a6306775ee0438c5c29615f5dd8257ef619afa20096d54165196870b17287eb"
+    }
+  },
+  "wheelRefinement": {
+    "revision": "faceted-six-panel-wheel-20261021",
+    "panels": 6,
+    "openChannels": 6,
+    "outerRadius": 0.106,
+    "rimRadius": 0.0865,
+    "capRadius": 0.0096,
+    "panelDepthRange": [
+      0.023,
+      0.0295
+    ],
+    "bounds": {
+      "min": [
+        -0.10599999874830246,
+        -0.10599999874830246,
+        -0.028999999165534973
+      ],
+      "max": [
+        0.10599999874830246,
+        0.10599999874830246,
+        0.032099999487400055
+      ]
+    },
+    "trianglesEach": 22172,
+    "references": [
+      "media/official-images/Roadster-02-Pilot-Desktop.jpg",
+      "media/official-images/Roadster-08-End-Desktop.jpg"
+    ],
+    "checks": {
+      "finiteGeometry": true,
+      "unitNormals": true,
+      "sixPanelRaycasts": true
+    },
+    "limits": "Photo-derived exterior. Hidden brakes, fasteners and the small center emblem are not reconstructed."
+  }
+}

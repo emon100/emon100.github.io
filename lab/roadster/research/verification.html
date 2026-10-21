@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="r6-检查结果">r6 检查结果</h1>
+<p>2026-10-17，新加坡时间。<code>energy-coupled-r6</code>
+完成100代，选第74代；世界、核心与控制器在训练中保持冻结。</p>
+<ul>
+<li>25项原生物理测试、213条Python/JS控制器对照、2项起转事件测试通过。20项原生MuJoCo/WASM对照包含最终策略，最大位置差约2.84×10⁻¹⁴
+m、速度差约2.13×10⁻¹³ m/s。</li>
+<li>19,039次实际评估，含2,800组候选的16,800次案例评估。全部参数、种子、候选分数与逐次账本一致；20个检查点分片含60条真实回放。<a
+href="../simulation_v2/training-record-audit.json">完整账本审计</a></li>
+<li>82条轨迹、17,169帧审计通过。喷力无越限，耗气核算最大误差约1.14×10⁻¹²
+kg，压力随气量下降，配对初态一致。实际水平喷力峰值4.851
+kN，零水平反馈目标不等于零瞬态水平力。<a
+href="../simulation_v2/audit.json">物理审计</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>固定评估</th>
+<th style="text-align: right;">2 ms成功</th>
+<th style="text-align: right;">1 ms成功</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原地kickflip</td>
+<td style="text-align: right;">28/40</td>
+<td style="text-align: right;">27/40</td>
+</tr>
+<tr>
+<td>有初速kickflip</td>
+<td style="text-align: right;">28/40</td>
+<td style="text-align: right;">27/40</td>
+</tr>
+<tr>
+<td>倒置回正</td>
+<td style="text-align: right;">0/40</td>
+<td style="text-align: right;">0/40</td>
+</tr>
+</tbody>
+</table>
+<p>两例由成功变为硬接触。再以0.5
+ms检查原来56个成功案例，同样两例失败，另54例仍成功；未对全部失败另跑0.5
+ms。完整SO(3)姿态评估为0/80，未解决任意姿态落地。两项kickflip共80例的实际峰值均达到5
+m，高度达标不能代替落地验收。</p>
+<p>标准最终两项峰值约6.385 m，非零滚转指令0.10 s、真实喷口力矩0.12
+s、车体角速超过0.05 rad/s为0.26 s。事件来自20
+ms原始记录，不能把进入控制阶段当成已经转动。<a
+href="../simulation_v2/launch-timing-audit.json">时序审计</a></p>
+<p>固定开发集12例中2例也用于训练。120个任务留出和80个自由姿态留出不参与本轮选参数，但沿用研发中已使用过的初态，并非新盲测。另存中断短程的1,821–1,989次实际评估范围，未提交代的精确次数无法恢复，不能与本轮账本混为一笔。</p>
+<p>网页中期检查通过分代加载、错误训练批次拒绝、手机布局、初态箭头，以及自由计算与原生轨迹对照。最终100代页面也通过20检查点读取、风扇读数、步长差异提示、390px无横向溢出；浏览器重算最终标准原地案例成功，终态与原生位置差约3.01×10⁻¹⁵
+m。<a
+href="browser-timing.json">浏览器计时</a>记录240个控制窗，画面调度仍可能慢于现实时间。6段失败视频同为1080×1920、30
+fps，两版画面时序一致，<a
+href="../media/failures/qa.json">校验记录</a>保留采样与来源。</p>
+<p><a
+href="../simulation_v2/public-reproduction-check.json">复现包检查</a>使用隔离目录，未暗读原仓库源码。尚未做实车标定、传感器噪声或硬实时验证；几何预测和简化轮胎也不构成安全证明。<a
+href="simulation-v2.html">方法</a> · <a
+href="materials-and-control.html">耗时</a> · <a
+href="../failure-library.html">失败素材</a></p>
+</body>
+</html>

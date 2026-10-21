@@ -1,0 +1,44 @@
+{
+  "revision": "texture-refinement-20261021",
+  "backup": "backups/vehicle-textures-20261021-231241",
+  "exteriorReferences": [
+    "media/official-images/Roadster-02-Pilot-Desktop.jpg",
+    "media/official-images/Roadster-08-End-Desktop.jpg",
+    "media/official-images/Roadster-03-Carousel-Slide-2-Desktop.jpg"
+  ],
+  "exteriorChanges": [
+    "Higher useful texel density with tighter packing",
+    "Warm dark glass with antialiased inner perimeter seals",
+    "Triangular front lenses, dark lens housings, thin rear LED cores and restrained lens detail",
+    "Paint roughness grain only; no added displacement or photographed highlights",
+    "Satin sill trim; subdued rear-fascia weave supported by official rear photo"
+  ],
+  "underbody": {
+    "sourceVideo": "media/kickflip-1080p.mp4",
+    "sourceVideoSha256": "ee2bd4f9d317aa7e0b8cad52081acacb05da5155f5348cf60143bcfacb194277",
+    "officialPost": "https://x.com/Tesla/status/2110926164306931860",
+    "decodedFrameIndex": 813,
+    "ptsSeconds": 33.908875,
+    "sourceFrame": "references/underbody-frame-813.png",
+    "sourceFrameSha256": "d206db0ae5a528bd7fb464f49ced076ca23b87cb5e58d339e921db894415342c",
+    "crop": [
+      240,
+      160,
+      650,
+      380
+    ],
+    "editInput": "references/underbody-source-crop.png",
+    "texture": "underbody-albedo.png",
+    "textureSha256": "4a6306775ee0438c5c29615f5dd8257ef619afa20096d54165196870b17287eb",
+    "mode": "Built-in image_gen precise-object-edit",
+    "promptFile": "underbody-prompt.txt",
+    "orientation": "front at image left, rear at right; mapped to source -X front, +X rear",
+    "projection": "Shared continuous X/Z UV rectangle, only downward shell faces below Y=-0.035 and inside |Z|<0.28",
+    "limits": [
+      "AI-assisted approximate cleanup and perspective correction from a compressed video frame. Small brackets, fasteners and occluded parts are not verified.",
+      "Albedo with derived roughness/metalness, no recovered depth or physical mechanism.",
+      "Source shows prototype hardware; not claimed as the production vehicle underbody."
+    ]
+  },
+  "geometry": "Body positions/normals and wheels retained; only material maps and body UV layout changed."
+}

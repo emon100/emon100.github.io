@@ -1,0 +1,12 @@
+{
+  "frozenBeforeAudit": true,
+  "plan": "All 240 candidate evaluation cases at 1ms; any success classification changes checked again at0.5ms. No parameter selection.",
+  "files": {
+    "evaluate.py": "2c1a1a51592afcbe6391367a99e19e9345223070d0d5f5be15169c6cee08ad91",
+    "audit_steps.py": "edecb8d42e699c9857c2cd75c78d34b149b0358030482f8459ce9bd7025d85bb",
+    "evaluation-cases.json": "f897d84a7fed1ab8270dbf001078cf734a942b05ae4aea049dc8c1c25c388387",
+    "controller.py": "5aa754c6891df657ddab8a583b5c9005adeedd531a982c83a3fcef9a695363a2",
+    "config.json": "94bee63efcc80ad76b8b9bc8743aed501cbf56b9c71afcb41e919987a0296385",
+    "landing_predictor.py": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7"
+  }
+}

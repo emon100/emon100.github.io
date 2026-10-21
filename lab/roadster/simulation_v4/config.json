@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 3,
+  "notice": "可控性实验配置，所有尺寸、质量、喷力、气量和功率均为假设；12 个固定单向喷口不是 Tesla 实车布局复原。",
+  "seed": 20261017,
+  "physics": {
+    "dt": 0.002,
+    "control_dt": 0.02,
+    "max_time": 12.0,
+    "gravity": 9.81,
+    "contact_solref": [
+      0.012,
+      1.0
+    ],
+    "friction": [
+      0.9,
+      0.005,
+      0
+    ],
+    "contact_dimension": 4
+  },
+  "vehicle": {
+    "mass": 2000.0,
+    "mass_range": [
+      1800.0,
+      2200.0
+    ],
+    "length": 4.1,
+    "width": 1.72,
+    "height": 1.2,
+    "axle_half": 1.25,
+    "track_half": 0.7,
+    "wheel_radii": [
+      0.32,
+      0.16,
+      0.32
+    ],
+    "wheel_z": -0.18,
+    "ground_cg_height": 0.5,
+    "wheel_model": "4 个独立被动转动轮铰链，圆滑椭球轮胎；condim=4 保留切向及扭转摩擦，铰链阻尼表示转动损耗；未模拟橡胶有限元与独立悬架",
+    "collision_boxes": [
+      {
+        "name": "body",
+        "position": [
+          0,
+          0,
+          0.175
+        ],
+        "half_size": [
+          2.05,
+          0.73,
+          0.32
+        ]
+      },
+      {
+        "name": "roof",
+        "position": [
+          -0.25,
+          0,
+          0.495
+        ],
+        "half_size": [
+          0.75,
+          0.6,
+          0.205
+        ]
+      }
+    ],
+    "reference_frame": "whole_vehicle_center_of_mass",
+    "cg_notice": "整车重心离地 0.50 m、前后居中为实验假设；车壳惯性中心随燃料质量补偿四个轮体一阶矩。燃料假设位于整车重心，惯量按尺寸近似。"
+  },
+  "fuel": {
+    "initial_kg": 260.0,
+    "specific_impulse_s": 60.0,
+    "delivery_mode": "unregulated_blowdown",
+    "pressure_exponent": 1.2,
+    "mass_update": "每个控制步更新刚体质量及惯量；控制步内按该质量积分",
+    "pressure_notice": "全程 P/P0=(m/m0)^1.2，Isp/Isp0=(m/m0)^0.1；固定容积等效降压假设，未用实车罐压标定。"
+  },
+  "actuators": {
+    "vertical_max_force": 18000.0,
+    "horizontal_max_force": 10000.0,
+    "total_force_max": 90000.0,
+    "lag_seconds": 0.025,
+    "allocation_regularization": 0.002,
+    "description": "8 个四角正负竖直口 + 4 个水平偏心口；每个口只能沿固定方向推，0 至各自上限，另受总流量及剩余气量约束",
+    "vertical_arm_x": 1.55,
+    "vertical_arm_y": 0.5,
+    "vertical_nozzle_z": 0.36,
+    "nozzle_center_z": 0.175,
+    "horizontal_nozzle_z": 0.175
+  },
+  "fan": {
+    "electrical_power_w": 90000.0,
+    "efficiency": 0.7,
+    "disk_area": 0.5,
+    "exit_area": 0.3,
+    "air_density": 1.225,
+    "effective_floor_area": 3.0,
+    "pressure_limit_pa": 6000.0,
+    "gap_limit": 0.12,
+    "gap_decay": 0.025,
+    "seal_leak_area": 0.008,
+    "seal_perimeter": 10.0,
+    "discharge_coefficient": 0.65,
+    "alignment_cosine": 0.97,
+    "exhaust_up_tilt_deg": 8.0,
+    "position": [
+      -1.8,
+      0.0,
+      0.025
+    ],
+    "seal_body_z": -0.475
+  },
+  "landing": {
+    "stable_seconds": 1.0,
+    "max_tilt_deg": 8.0,
+    "max_angular_speed": 0.2,
+    "max_contact_closing_speed": 1.6,
+    "max_normal_force_weight_ratio": 7.0,
+    "minimum_wheel_contacts": 3,
+    "max_vertical_speed": 0.3,
+    "max_lateral_speed": 0.3,
+    "max_wheel_slip_speed": 0.5,
+    "notice": "允许向前滚动，不要求刹停或返回起点；连续 1 秒竖直速度、侧滑、轮胎接触滑移、姿态、角速度与接触均达标。"
+  },
+  "tasks": {
+    "moving_recovery": {
+      "label": "统一腾空目标",
+      "starts_on_ground": false,
+      "turn": "case.goal.turns",
+      "initial_velocity": [
+        5.0,
+        0.0,
+        -1.0
+      ],
+      "training_velocity_x": [
+        2.0,
+        7.0
+      ],
+      "training_roll_deg": [
+        140.0,
+        220.0
+      ],
+      "training_pitch_deg": [
+        -25.0,
+        25.0
+      ],
+      "training_height": [
+        7.0,
+        12.0
+      ],
+      "minimum_peak_cg_height": 0.0
+    }
+  },
+  "control_scope": "同一目标路径反馈；世界水平喷力目标为0，评价实际水平速度变化。",
+  "revision": "unified-airborne-v4"
+}

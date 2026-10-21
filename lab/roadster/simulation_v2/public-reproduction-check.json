@@ -1,0 +1,71 @@
+{
+  "revision": "energy-coupled-r6",
+  "status": "passed",
+  "generatedAt": "2026-10-16T22:40:41.998835+00:00",
+  "scope": "Isolated copy of the complete public simulation_v2 directory, with existing Python interpreter and installed third-party packages. Public ledger is transported as ZIP; extraction reproduces the exact native JSONL before the unchanged full ledger audit. No source-repository modules or data imported.",
+  "snapshotGenerations": 100,
+  "selectedGeneration": 74,
+  "campaignId": "energy-coupled-r6-100-generations",
+  "resultSha256": "0e842c7de451718be13be703be246deb6fc0033b2ac159f00ea26f3576e03213",
+  "policySha256": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6",
+  "filesVerifiedBeforeCheck": 90,
+  "historicalAndEngineDependenciesVerified": 15,
+  "checks": [
+    {
+      "command": [
+        "launch_timing_audit.py"
+      ],
+      "exitCode": 0,
+      "stdoutTail": "firstRealizedRollTorque': 0.1, 'firstRollMotion': 0.22}\nr6_learned moving_kickflip final {'takeoff': 0.04, 'rollPhaseEntry': 0.1, 'firstNonzeroRollCommand': 0.1, 'firstRealizedRollTorque': 0.12, 'firstRollMotion': 0.26}\n",
+      "stderrTail": ""
+    },
+    {
+      "command": [
+        "test_timing_audit.py"
+      ],
+      "exitCode": 0,
+      "stdoutTail": "",
+      "stderrTail": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.241s\n\nOK\n"
+    },
+    {
+      "command": [
+        "audit_training_records.py"
+      ],
+      "exitCode": 0,
+      "stdoutTail": "r-episode ledger. Its exact completed count cannot be recovered; do not present the committed count as the exact total. No candidate outcomes were fabricated.\",\n    \"archive\": \"archive/energy-coupled-r6-short-run\"\n  }\n}\n",
+      "stderrTail": ""
+    },
+    {
+      "command": [
+        "extract training-episodes.jsonl.zip",
+        "audit_training_records.py"
+      ],
+      "exitCode": 0,
+      "uncompressedSha256": "81f35d51c384ae883c865f5d5e1fc1341fd5e43b3feb0f22f976740b7e859aac",
+      "regeneratedAuditByteExact": true
+    }
+  ],
+  "ledgerEntries": 19039,
+  "checkpointShards": 20,
+  "actualCheckpointReplays": 60,
+  "limits": [
+    "Numerical native/WASM parity is recorded separately in browser-verification.json.",
+    "Node timing is recorded separately in timing-benchmark.json; final browser timing is a separate check.",
+    "Pre-freeze development probe source snapshots were not retained; their reproduction boundary remains in development-evidence-index.json."
+  ],
+  "ledgerTransport": {
+    "format": "zip",
+    "path": "training-episodes.jsonl.zip",
+    "member": "training-episodes.jsonl",
+    "zipBytes": 4504997,
+    "zipSha256": "55c13543404c225a1efff3de57646eb56d832029bb92e53d1edd26abf1188567",
+    "uncompressedBytes": 27703000,
+    "uncompressedSha256": "81f35d51c384ae883c865f5d5e1fc1341fd5e43b3feb0f22f976740b7e859aac",
+    "entries": 19039,
+    "verifiedExtractionByteExact": true,
+    "publicRawCopyRemoved": true,
+    "nativeRawFilePreserved": true,
+    "offlineBundleNotice": "The offline full package may additionally contain the original bare JSONL. Public-site audit commands require extracting this ZIP first."
+  },
+  "transportVerifiedAt": "2026-10-16T22:43:43.065230+00:00"
+}

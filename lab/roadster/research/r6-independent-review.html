@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="r6-独立工程复核">r6 独立工程复核</h1>
+<p>2026-10-17。复核冻结的 <code>energy-coupled-r6</code>，核心指纹
+<code>aaccd29a…ac13</code>，控制器指纹
+<code>c4dc09b5…3c63a</code>。未改算法，未重启训练。没有发现需要中断当前接地起步训练的错误。</p>
+<p>交付前需处理以下问题。</p>
+<ul>
+<li><strong>高空 kickflip 的阶段边界。</strong> 当前 kickflip 从
+<code>boost</code> 起步，只在向上运动时进入
+<code>flip</code>。人工基线在正立、20 m、竖直初速 0 时立即锁存
+<code>energyReady</code> 并请求零力，之后下坠仍停留在
+<code>boost</code>。8 m 初态也请求竖直目标速度
+0，不能保证进入滚转。纯控制调用已复现，输入状态未被修改。当前训练只包含接地正立起步，因此不影响本轮训练结论。网站应限定或明确标注
+kickflip 的起步范围，空中回正使用 <code>moving_recovery</code>。依据
+<code>core.py:320–351</code>、<code>controller.mjs:35–53</code>。</li>
+<li><strong>失败尾段与计分峰值显示不同。</strong>
+<code>lab.mjs:32–35</code> 从全部回放帧找最高点，包含失败后的 0.40
+s。核心的 <code>metrics.peakHeight</code>
+在首次失败后冻结。曲线可以保留尾段，但验收峰值应读该指标，避免反弹让观众误以为高度验收通过。</li>
+<li><strong>公开复现包尚待同步。</strong> 检查时本地源码为 r6、15
+参数；<code>site/dist/simulation_v2/</code> 为 r5、14 参数；现有 ZIP 为
+r4、14 参数。这些旧副本内部自洽，但不能以 r6
+名义发布。最终应整套同步配置、控制器、引擎文件、策略、结果及复核报告。<code>train.py:75</code>
+必须读取短程存档的
+<code>INTERRUPTION.json</code>；<code>audit_training_records.py</code>
+还读取该存档的 <code>results.json</code>，独立复现包需要两者。</li>
+</ul>
+<p>已核实的机制边界如下。</p>
+<ul>
+<li><code>energyHeight</code>、<code>availableCoastTime</code> 和
+<code>estimatedRollTime</code>
+只决定参考指令切换，没有参与成功判定。它们近似重力弹道与滚转耗时，没有证明未来气压、阀响应、轴对齐或落地耗气一定足够。<code>future_torque_fraction=0.6</code>
+是设计余量，不是保证或置信度。<code>energyReady</code>
+锁存后仍可能真实失败。</li>
+<li>几何预演只改变慢转角速参考，没有写入引擎位置、姿态或速度。整圈包络针对当前车体
+X 轴，短预测只采三个时刻，不能称任意动态姿态的碰撞安全证明。</li>
+<li>高度奖励读取物理计算后的峰值，首次失败后不再增加。接触稳定满 1 s
+且动作完成，仍须实际计分峰值达到 5 m，否则为
+<code>height_shortfall</code>。<code>goal.minimumHeightMet</code>
+是控制采样诊断，不能替代最终
+<code>metrics.minimumHeightMet</code>。</li>
+<li>滚转制动前馈在正向滚转减速段加入负的制动角加速度，符号正确。气量、降压、总推力和阀响应仍由物理步限制。目标世界水平力保持
+0；实际水平冲量可来自阀滞后、车身转动、风扇和接触，不能把“无水平反馈”解释成水平速度恒定。</li>
+<li>Python 与 JS 都拒绝旧 14 参数。<code>run_case.py</code>
+对学习策略检查核心与控制器指纹，没有把旧策略静默补成
+r6。历史版本只读回放不会调用新控制器。失败回放保留尾段，因此其总分可能与首次失败即停的训练评估不同，逐次账本已区分这两类记录。</li>
+</ul>
+<p>本次未重新跑完整测试或统计新成功率。100 代最终策略、原生/WASM
+最终对照和计时尚待训练完成，不能引用旧版结果作为本轮结论。</p>
+<p>处理状态，2026-10-17：上述发现保留为审阅历史。网站已提示高空 kickflip
+的适用边界；计分峰值改读
+<code>metrics.peakHeight</code>，最高点跳转排除失败尾段。检查点加载增加
+<code>campaignId</code>、参数名称和数量核对。公开目录已补齐历史依赖，并在隔离副本中通过起转提取、事件测试与中期账本审计，见
+<code>public-reproduction-check.json</code>。100 代搜索选中第 74
+代参数，20 项原生/WASM
+核验已通过，包括单独标注的合成高度判定测试。最终留出记录和整包同步仍等待完成，尚未据此宣称全部任务成功。</p>
+<p>最终目录复核，2026-10-17：100 代结果已冻结并同步到公开目录，含 19,039
+条试验账本、20 个检查点分片和 60 段检查点回放。最终策略的 20
+项双引擎核验通过，最大位置差为 2.84×10⁻¹⁴ m。两个 kickflip 留出均为
+28/40，回正为 0/40，自由姿态为 0/80；1 ms 复算时两个 kickflip 均变为
+27/40，差异与 0.5 ms
+边界复算均保留。隔离复制的公开目录通过完整账本和起转审计，重新生成文件与交付文件逐字节一致；90
+个交付文件哈希和 15 项历史/引擎依赖已核对。8
+份开发证据纳入清单，临时开发源码未冻结的限制保留。核验报告引用最终
+<code>complete</code>
+策略文件，公开目录没有继续使用旧版最终结果。压缩包与在线部署仍由发布步骤核对。</p>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="飞行控制试验场">飞行控制试验场</h1>
+<p><code>energy-coupled-r6</code> 使用 MuJoCo 3.15.0，每 2 ms 积分、20
+ms 反馈。位置与姿态由物理引擎产生。控制器读取当前模拟器真值，尚无 IMU
+噪声、测距误差或姿态融合。</p>
+<h2 id="任务和高度">任务和高度</h2>
+<p>任务为零初速一周滚转、有初速一周滚转、空中倒置回正。两项 kickflip
+还要求实际重心峰值达到 5
+m。这是本轮工程目标，不是实车或所有姿态的安全高度。首次失败后冻结计分峰值，碰撞反弹不补分。逐时几何净空另行显示。</p>
+<p>完成动作后须无车身触地、接触闭合速度≤1.6
+m/s、法向总力≤当时车重7倍，并连续1秒满足：至少三轮接触、倾角&lt;8°、角速&lt;0.20
+rad/s、竖直速度和车体侧向速度各&lt;0.30 m/s、轮胎接地点滑移&lt;0.50
+m/s。允许向前滚动，不要求刹停或回起点。</p>
+<h2 id="怎么控制喷气">怎么控制喷气</h2>
+<p>离地后先慢转，同时积累向上动量；估计高度与滞空时间足够后，以净力目标为零的力偶加快滚转，再制动角速度、缓冲下降。慢转、蓄能切换、制动前馈都是人工设计的结构，CEM只调整15个参数。重力能量参照
+<code>z+max(vz,0)²/(2g)</code>
+不是实际飞行高度，也不保证剩余推力足以落地。</p>
+<p>控制器不反馈水平位置或速度。12个固定单向喷口受单口上限、总流量、25
+ms阀滞后及气量约束；饱和时共同缩放合力和力矩目标。目标水平力为零，实际瞬态水平力仍可能非零。风扇只补偿姿态力矩，其压差吸力和轴向反作用保留，并共用功率。</p>
+<p>供气全程降压，<code>P/P0=(m/m0)^1.2</code>、<code>Isp/Isp0=(m/m0)^0.1</code>。初始气量260
+kg、比冲60 s、总推力上限90 kN、风扇90 kW都是实验假设。<a
+href="training-lessons.html">问题与对照</a></p>
+<h2 id="训练记录">训练记录</h2>
+<p>本轮100代，CEM每代采28组参数，以6个初态评估候选。固定开发集12例中2例也用于训练。最终参数由开发集选出，120个任务留出与80个自由姿态留出不参与本轮选择；它们沿用先前研发中的初态，不能称全新盲测。</p>
+<p>每代全部候选、逐案例结果与随机状态均保存；每5代保存三个任务的完整回放。中期为第50代，检查点标明策略最初被选中的代数。分数改善不等于全部初态成功，旧版奖励也不能与r6原始分数直接比较。</p>
+<p>100代完成，共19,039次真实评估，选第74代。标准两项kickflip峰值均约6.385
+m，落地闭合速度约0.23 m/s。</p>
+<table>
+<thead>
+<tr>
+<th>固定评估</th>
+<th style="text-align: right;">未调参</th>
+<th style="text-align: right;">人工基线</th>
+<th style="text-align: right;">r6最终</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>零初速一周滚转</td>
+<td style="text-align: right;">0/40</td>
+<td style="text-align: right;">12/40</td>
+<td style="text-align: right;">28/40</td>
+</tr>
+<tr>
+<td>有初速一周滚转</td>
+<td style="text-align: right;">1/40</td>
+<td style="text-align: right;">12/40</td>
+<td style="text-align: right;">28/40</td>
+</tr>
+<tr>
+<td>倒置回正</td>
+<td style="text-align: right;">0/40</td>
+<td style="text-align: right;">0/40</td>
+<td style="text-align: right;">0/40</td>
+</tr>
+<tr>
+<td>自由姿态</td>
+<td style="text-align: right;">0/80</td>
+<td style="text-align: right;">1/80</td>
+<td style="text-align: right;">0/80</td>
+</tr>
+</tbody>
+</table>
+<p>全120例以1
+ms复算后，两项kickflip各27/40，回正0/40。对原有56个成功再做0.5
+ms复算，同样两例变为硬接触，其余54例仍成功。</p>
+<p>回正和自由姿态仍未解决；r5的回正曾为4/40，本轮退至0/40。所有失败保留，不能把两项改善概括成任意姿态都能落地。<a
+href="verification.html">检查结果</a> · <a
+href="../failure-library.html">失败视频素材</a></p>
+<h2 id="边界与复现">边界与复现</h2>
+<p>两项 kickflip 按近地正立起步训练。高空选择 kickflip
+可能卡在起跳阶段；空中任意姿态使用回正任务测试。几何预演只限制指令，不改真实姿态，也不构成避碰保证。</p>
+<p>碰撞外包4.10×1.72×1.20 m、总质量2,000 kg、静置重心0.50
+m及喷口布局均未获实车标定。车壳与四轮共同满足重心位置，耗气对称。外观独立于碰撞盒和被动轮铰链；尚无真实悬架、轮胎变形、喷流CFD、完整气体热过程或传感器估计。<a
+href="ev-cg-sources.html">低重心依据</a> · <a
+href="fan-patents.html">风扇专利</a></p>
+<p>本地和浏览器均用<a
+href="https://mujoco.readthedocs.io/en/stable/computation/index.html">MuJoCo接触求解</a>与<a
+href="https://github.com/google-deepmind/mujoco/blob/main/wasm/README.md">官方WASM</a>。<a
+href="https://docs.taichi-lang.org/docs/differentiable_programming">Taichi</a>适合并行数值计算，本轮没有加入。复现代码在
+<code>simulation_v2/</code>。历史见<a
+href="archive/launch-coupled-r5.zip">r5存档</a>、<a
+href="archive/attitude-only-blowdown-r4.zip">r4存档</a>、<a
+href="archive/contact-grip-r3.zip">r3存档</a>。</p>
+</body>
+</html>

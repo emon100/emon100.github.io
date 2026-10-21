@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<blockquote>
+<p>旧版存档。首次接触验收与等效喷口配置已由<a
+href="simulation-v2.html">新版 MuJoCo
+试验</a>替代。以下数字仅属于旧版。</p>
+</blockquote>
+<h1 id="训练结果">训练结果</h1>
+<p><strong>明示假设下，能找到回正并达到落地接触条件的策略；不能据此证明
+Tesla 实车可行，也不能保证任意低高度。</strong></p>
+<p>实际运行6自由度刚体仿真与CEM参数搜索：每项任务24代，共19,220次训练评估。优化反馈增益、参考轨迹和翻转时序，未训练神经网络。网页的早期/中期/最终与失败轨迹均来自积分器。</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th style="text-align: right;">新样本测试</th>
+<th style="text-align: right;">同样本、改为无调压降压</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平地起飞＋一周kickflip</td>
+<td style="text-align: right;">13/40</td>
+<td style="text-align: right;">0/40</td>
+</tr>
+<tr>
+<td>高处倒悬释放</td>
+<td style="text-align: right;">40/40</td>
+<td style="text-align: right;">13/40</td>
+</tr>
+<tr>
+<td>随机三维姿态回正</td>
+<td style="text-align: right;">40/40</td>
+<td style="text-align: right;">16/40</td>
+</tr>
+</tbody>
+</table>
+<p>三项任务分别优化策略。第三项共用一组参数，但40个样本不能覆盖所有姿态；高度网格仍有低空失败与初始车身穿地。无调压列使用同一策略、同一初态，未另行训练，不能证明别的策略也不可能成功。</p>
+<h2 id="模型边界">模型边界</h2>
+<ul>
+<li>Roadster取4.1×1.72×1.20m、初始2吨，测试1.8–2.4吨。比例受视频约束，绝对尺寸和质量是假设。</li>
+<li>平地目标24m是<a
+href="measurement.html">场地等价任务</a>，不是官方跳距。参照车并排、前脸共面；飞行轴距前脸3m及20m倒悬高度均是假设。</li>
+<li>250kg气量来自待回听的发布会转写；60s初始比冲、90kN总正喷力、18个虚拟喷口及力矩上限均是假设，不是Tesla10喷口复原。</li>
+<li>主模型假设前70%气量可调压，后30%降压并冷却。供气曲线未知，测试结果对此敏感。</li>
+<li>风机80kW、有效面积4m²等为假设。密封吸力随间隙/朝向消失；排气反力固定于车身。两者共享流体功率，附着受法向载荷和摩擦限制。</li>
+</ul>
+<h2 id="成功具体指什么">“成功”具体指什么</h2>
+<p>触地瞬间：姿态偏差≤12°、角速度≤0.65rad/s、质心及四底角接地点竖速≤1.5m/s、横速≤3m/s、水平目标误差≤3m，无障碍/平台碰撞。它不包含轮胎、悬架冲击和落地后的稳定。</p>
+<p>名义24m任务从早期接触失败改善为达标；最终实际姿态展开359.73°，接地点最大竖速0.83m/s，剩余气体34.12kg。翻转还限制纵轴偏离指定方向不超过15°，不把角速度积分当作任意三维回转证明。</p>
+<p>步长从0.04s缩到0.01s，本轮三项留出判定均不变。这只是数值一致性检查，不是实车验证。</p>
+<p>未模拟阵风、观测误差、真实喷口可达性、地效流场和实车储气过程。失败不等于物理不可能，成功也不等于可在实车部署。</p>
+<p><a href="../simulation/results.json">全部记录</a> · <a
+href="../simulation/README.html">复现说明</a> · <a
+href="physics.html">简明物理</a></p>
+</body>
+</html>

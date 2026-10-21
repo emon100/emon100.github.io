@@ -1,0 +1,241 @@
+{
+  "source": "Meshy_AI_Silver_Wedge_Concept_1016195900_generate.glb",
+  "sourceSha256": "7618981f62b20e4841f03128601e9ed5e430d31913a125875340e245fd1b632c",
+  "decision": "Remove component 1 in its entirety; retain component 0 in its entirety.",
+  "evidence": {
+    "disconnectedComponents": 2,
+    "sharedVertices": 0,
+    "car": {
+      "id": 0,
+      "triangles": 40564,
+      "vertices": 20264,
+      "bounds": {
+        "min": [
+          -0.7272210121154785,
+          -0.09805475175380707,
+          -0.3254976272583008
+        ],
+        "max": [
+          0.7417927980422974,
+          0.27347531914711,
+          0.32155972719192505
+        ]
+      },
+      "span": [
+        1.4690138101577759,
+        0.37153007090091705,
+        0.6470573544502258
+      ],
+      "area": 2.704508708984936,
+      "areaWeightedCenter": [
+        0.06812963068480628,
+        0.053365544921548824,
+        -0.0018297973378631842
+      ],
+      "absoluteNormalArea": [
+        0.533775430780933,
+        1.8742440606976596,
+        0.8696859662350983
+      ]
+    },
+    "wall": {
+      "id": 1,
+      "triangles": 25882,
+      "vertices": 12941,
+      "bounds": {
+        "min": [
+          -0.9514994621276855,
+          -0.30404195189476013,
+          -0.9510949850082397
+        ],
+        "max": [
+          0.9476348757743835,
+          0.2998100519180298,
+          0.947571873664856
+        ]
+      },
+      "span": [
+        1.899134337902069,
+        0.6038520038127899,
+        1.8986668586730957
+      ],
+      "area": 9.150895252017767,
+      "areaWeightedCenter": [
+        -0.0018882357959625964,
+        -0.0021714180894322594,
+        -0.001729238018256782
+      ],
+      "absoluteNormalArea": [
+        4.573866397586699,
+        0.05048272175577837,
+        4.573590824448315
+      ]
+    },
+    "wallSides": [
+      {
+        "side": "-X",
+        "id": 0,
+        "triangles": 6840,
+        "vertices": 3518,
+        "bounds": {
+          "min": [
+            -0.9514994621276855,
+            -0.30404195189476013,
+            -0.9506250023841858
+          ],
+          "max": [
+            -0.9406099319458008,
+            0.2995957136154175,
+            0.9474170207977295
+          ]
+        },
+        "span": [
+          0.010889530181884766,
+          0.6036376655101776,
+          1.8980420231819153
+        ],
+        "area": 2.2910245774789573,
+        "areaWeightedCenter": [
+          -0.9497668524128136,
+          -0.002285960147861272,
+          -0.0005360047357179024
+        ],
+        "absoluteNormalArea": [
+          2.2820307999997245,
+          0.013375368297983165,
+          0.009210293873097988
+        ]
+      },
+      {
+        "side": "+X",
+        "id": 1,
+        "triangles": 6232,
+        "vertices": 3216,
+        "bounds": {
+          "min": [
+            0.941920280456543,
+            -0.3036794066429138,
+            -0.950677752494812
+          ],
+          "max": [
+            0.9476348757743835,
+            0.2998100519180298,
+            0.9471173882484436
+          ]
+        },
+        "span": [
+          0.005714595317840576,
+          0.6034894585609436,
+          1.8977951407432556
+        ],
+        "area": 2.284607430650842,
+        "areaWeightedCenter": [
+          0.9459123400516782,
+          -0.002133346661212494,
+          -0.0005997993521873753
+        ],
+        "absoluteNormalArea": [
+          2.278622849968785,
+          0.01221720838601877,
+          0.004757112265131633
+        ]
+      },
+      {
+        "side": "-Z",
+        "id": 2,
+        "triangles": 6565,
+        "vertices": 3387,
+        "bounds": {
+          "min": [
+            -0.9506504535675049,
+            -0.3037972152233124,
+            -0.9510949850082397
+          ],
+          "max": [
+            0.9476348757743835,
+            0.2995089590549469,
+            -0.941297709941864
+          ]
+        },
+        "span": [
+          1.8982853293418884,
+          0.6033061742782593,
+          0.009797275066375732
+        ],
+        "area": 2.2904557798797565,
+        "areaWeightedCenter": [
+          -0.0005068885449143905,
+          -0.0022337479453605658,
+          -0.9494752940038838
+        ],
+        "absoluteNormalArea": [
+          0.008466633239355578,
+          0.012611909312143066,
+          2.28137413074908
+        ]
+      },
+      {
+        "side": "+Z",
+        "id": 3,
+        "triangles": 6245,
+        "vertices": 3216,
+        "bounds": {
+          "min": [
+            -0.9507770538330078,
+            -0.3035149574279785,
+            0.9417158365249634
+          ],
+          "max": [
+            0.9470624923706055,
+            0.2997310161590576,
+            0.947571873664856
+          ]
+        },
+        "span": [
+          1.8978395462036133,
+          0.6032459735870361,
+          0.005856037139892578
+        ],
+        "area": 2.284807464008171,
+        "areaWeightedCenter": [
+          -0.0005327369047538116,
+          -0.0020321485067684554,
+          0.9460339390355363
+        ],
+        "absoluteNormalArea": [
+          0.004746114378833124,
+          0.012278235759633382,
+          2.278249287561013
+        ]
+      }
+    ],
+    "wallVerticesOutsideSquareHalfWidth": 0.9423484206199646,
+    "carMaxSquareRadius": 0.7417927980422974,
+    "minimumHorizontalSeparationBound": 0.20055562257766724
+  },
+  "sourceAttributes": [
+    "POSITION"
+  ],
+  "sourceHasUV": false,
+  "sourceMaterials": 0,
+  "sourceImages": 0,
+  "preservation": "Retained source attribute bytes and triangle ordering/winding preserved exactly. Node transform, coordinates and any existing non-geometry payloads retained. Source has no UV, images or materials to preserve.",
+  "outputs": [
+    {
+      "file": "roadster-meshy-clean.glb",
+      "sha256": "9c49fcd7f229099fb3012557adce609302ff6e3b33108ec9854ee0faee822b16",
+      "bytes": 731164,
+      "triangles": 40564,
+      "vertices": 20264
+    },
+    {
+      "file": "roadster-meshy-removed-walls.glb",
+      "sha256": "c964a3ad7bcb098e74b7d44c6f6fca57c18ac75f4f726f0c0be7df8ff75ead4e",
+      "bytes": 467096,
+      "triangles": 25882,
+      "vertices": 12941
+    }
+  ],
+  "indexMap": "cleanup-index-map.json",
+  "limits": "No real-world scale calibration, shape accuracy or collision suitability established by component cleanup."
+}

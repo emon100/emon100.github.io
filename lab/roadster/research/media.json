@@ -1,0 +1,1121 @@
+{
+  "collected_at": "2026-10-17 Asia/Singapore",
+  "scope": "Tesla 2026-10-15 McGregor Roadster reveal, media research",
+  "videos": [
+    {
+      "id": "7p5LxFdc-Qg",
+      "title": "The Ramp | Roadster",
+      "channel": "Tesla",
+      "channel_id": "UC5WjFrtBdufl6CZojX3D8dQ",
+      "channel_url": "https://www.youtube.com/channel/UC5WjFrtBdufl6CZojX3D8dQ",
+      "uploader": "Tesla",
+      "duration": 46,
+      "upload_date": "20261016",
+      "webpage_url": "https://www.youtube.com/watch?v=7p5LxFdc-Qg",
+      "local_file": "media/ramp.mp4",
+      "downloaded_width": 640,
+      "downloaded_height": 360,
+      "quality_status": "低清选片代理，非高清母版",
+      "frame_rate": "24000/1001",
+      "rights_holder": "Tesla",
+      "retrieval": "公开官方YouTube页面；yt-dlp format 18",
+      "license": "未发现开放复用授权"
+    },
+    {
+      "id": "r5vsHHPVhJg",
+      "title": "The Kickflip | Roadster",
+      "channel": "Tesla",
+      "channel_id": "UC5WjFrtBdufl6CZojX3D8dQ",
+      "channel_url": "https://www.youtube.com/channel/UC5WjFrtBdufl6CZojX3D8dQ",
+      "uploader": "Tesla",
+      "duration": 44,
+      "upload_date": "20261016",
+      "webpage_url": "https://www.youtube.com/watch?v=r5vsHHPVhJg",
+      "local_file": "media/kickflip.mp4",
+      "downloaded_width": 640,
+      "downloaded_height": 360,
+      "quality_status": "低清选片代理，非高清母版",
+      "frame_rate": "24000/1001",
+      "rights_holder": "Tesla",
+      "retrieval": "公开官方YouTube页面；yt-dlp format 18",
+      "license": "未发现开放复用授权"
+    }
+  ],
+  "official_event": {
+    "title": "Roadster Event",
+    "url": "https://www.youtube.com/watch?v=qt5p-_tE8d0",
+    "duration": "23:21",
+    "x_broadcast": "https://x.com/i/broadcasts/1yKAPwNggRaxb",
+    "verification": "YouTube标题、第三方嵌入及两处索引交叉对应；未下载全长母版",
+    "chapters": [
+      {
+        "title": "Ramp Demo",
+        "start": "6:03",
+        "end": "10:55"
+      },
+      {
+        "title": "Kickflip Demo",
+        "start": "10:56",
+        "end": "12:43"
+      },
+      {
+        "title": "Design",
+        "start": "12:47",
+        "end": "14:38"
+      },
+      {
+        "title": "Aero",
+        "start": "14:38",
+        "end": "15:57"
+      },
+      {
+        "title": "0–60 Demo",
+        "start": "15:58",
+        "end": "19:26"
+      }
+    ]
+  },
+  "transcript": {
+    "url": "https://www.elonmuskarchive.org/video/tesla-roadster-event-2026-10-16",
+    "status": "第三方带逐词时间码的转写；不是Tesla正式准备稿",
+    "full_text_local": false,
+    "warning": "需逐段对听原声。网页转写存在术语和语法误识别，不应作为无误原稿。",
+    "anchors": [
+      {
+        "start_seconds": 490.94,
+        "speaker": "Lars Moravy",
+        "topic": "车底风扇吸附、最多约2g（官方口述，非独立测试）"
+      },
+      {
+        "start_seconds": 600.69,
+        "speaker": "Elon Musk",
+        "topic": "姿态控制喷口和车尾主喷口"
+      },
+      {
+        "start_seconds": 723.9,
+        "speaker": "Lars Moravy",
+        "topic": "两个储气容器、合计600L、约250kg空气、10个喷口（官方口述）"
+      }
+    ]
+  },
+  "shots": [
+    {
+      "id": "01",
+      "title": "弯坡入口",
+      "video": "ramp",
+      "video_id": "7p5LxFdc-Qg",
+      "source_url": "https://www.youtube.com/watch?v=7p5LxFdc-Qg&t=0s",
+      "seek_seconds": 0.5,
+      "frame_pts_seconds": 0.5005,
+      "frame_file": "media/frames/01-ramp-000.50.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "车尾对准坡道入口，车身尚在平地。",
+      "limitation": "原视频近景；风扇内部不可见。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "02",
+      "title": "过垂直吸附",
+      "video": "ramp",
+      "video_id": "7p5LxFdc-Qg",
+      "source_url": "https://www.youtube.com/watch?v=7p5LxFdc-Qg&t=9s",
+      "seek_seconds": 9.0,
+      "frame_pts_seconds": 9.009,
+      "frame_file": "media/frames/02-ramp-009.00.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "车辆贴着弯坡上段前进。",
+      "limitation": "可见贴坡行驶；不能仅由这一帧反推出吸力、角度或轮胎载荷。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "03",
+      "title": "倒置脱离坡顶",
+      "video": "ramp",
+      "video_id": "7p5LxFdc-Qg",
+      "source_url": "https://www.youtube.com/watch?v=7p5LxFdc-Qg&t=27s",
+      "seek_seconds": 27.5,
+      "frame_pts_seconds": 27.5275,
+      "frame_file": "media/frames/03-ramp-027.50.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "俯视回放中，倒置车辆已经离开坡顶，并出现多股喷流。",
+      "limitation": "这是同一次坡道演示的另一机位回放，不是第二次跳跃。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "04",
+      "title": "空中姿态回正",
+      "video": "ramp",
+      "video_id": "7p5LxFdc-Qg",
+      "source_url": "https://www.youtube.com/watch?v=7p5LxFdc-Qg&t=28s",
+      "seek_seconds": 28.5,
+      "frame_pts_seconds": 28.5285,
+      "frame_file": "media/frames/04-ramp-028.50.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "俯视回放中车身滚转，车轮逐渐转向地面。",
+      "limitation": "一帧只能证明姿态；不能量出完整旋转角速度。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "05",
+      "title": "坡道演示着陆",
+      "video": "ramp",
+      "video_id": "7p5LxFdc-Qg",
+      "source_url": "https://www.youtube.com/watch?v=7p5LxFdc-Qg&t=40s",
+      "seek_seconds": 40.5,
+      "frame_pts_seconds": 40.5405,
+      "frame_file": "media/frames/05-ramp-040.50.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "宽幅俯视回放中车辆在地面喷流云里着陆。",
+      "limitation": "这一帧落地过程可见；首个轮胎接触时刻受喷流遮挡。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "06",
+      "title": "平地喷流起跳",
+      "video": "kickflip",
+      "video_id": "r5vsHHPVhJg",
+      "source_url": "https://www.youtube.com/watch?v=r5vsHHPVhJg&t=32s",
+      "seek_seconds": 32.3,
+      "frame_pts_seconds": 32.323958,
+      "frame_file": "media/frames/06-kickflip-032.30.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "侧向回放显示车辆在平坦跑道离地，下面出现喷流云。",
+      "limitation": "机位中的地面未见起跳坡；不得把所选回放秒数当作实时飞行时间。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "07",
+      "title": "爬升越过车列",
+      "video": "kickflip",
+      "video_id": "r5vsHHPVhJg",
+      "source_url": "https://www.youtube.com/watch?v=r5vsHHPVhJg&t=13s",
+      "seek_seconds": 13.65,
+      "frame_pts_seconds": 13.680333,
+      "frame_file": "media/frames/07-kickflip-013.65.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "全景中车辆喷流朝下，在车列上方爬升。",
+      "limitation": "约五辆展示车辆含Semi；高度和水平距离未测量。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "08",
+      "title": "Semi上方倒转",
+      "video": "kickflip",
+      "video_id": "r5vsHHPVhJg",
+      "source_url": "https://www.youtube.com/watch?v=r5vsHHPVhJg&t=14s",
+      "seek_seconds": 14.25,
+      "frame_pts_seconds": 14.26425,
+      "frame_file": "media/frames/08-kickflip-014.25.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "全景显示车辆倒置经过Semi上方，喷流方向随车体转动。",
+      "limitation": "可见翻转；画面透视不能直接确定净空。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "09",
+      "title": "回正后制动下降",
+      "video": "kickflip",
+      "video_id": "r5vsHHPVhJg",
+      "source_url": "https://www.youtube.com/watch?v=r5vsHHPVhJg&t=34s",
+      "seek_seconds": 34.5,
+      "frame_pts_seconds": 34.5345,
+      "frame_file": "media/frames/09-kickflip-034.50.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "近景回放中车辆恢复车轮朝下，向下喷流仍明显。",
+      "limitation": "喷流与姿态可见；具体喷口时序、推力未公开。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    },
+    {
+      "id": "10",
+      "title": "车列后着陆",
+      "video": "kickflip",
+      "video_id": "r5vsHHPVhJg",
+      "source_url": "https://www.youtube.com/watch?v=r5vsHHPVhJg&t=35s",
+      "seek_seconds": 35.0,
+      "frame_pts_seconds": 35.035,
+      "frame_file": "media/frames/10-kickflip-035.00.jpg",
+      "width": 640,
+      "height": 360,
+      "verification": "viewed-extracted-frame",
+      "observation": "近景回放中车辆落入地面喷流云。",
+      "limitation": "轮胎接触被喷流部分遮挡；不要把云团形态当作火焰或燃料证据。",
+      "rights_holder": "Tesla",
+      "license": "未确认开放许可；研究/选片参考副本，发布前另行处理版权"
+    }
+  ],
+  "thumbnails": [
+    {
+      "file": "media/official-thumbnails/7p5LxFdc-Qg-maxres1.jpg",
+      "url": "https://i.ytimg.com/vi/7p5LxFdc-Qg/maxres1.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/7p5LxFdc-Qg-maxres2.jpg",
+      "url": "https://i.ytimg.com/vi/7p5LxFdc-Qg/maxres2.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/7p5LxFdc-Qg-maxres3.jpg",
+      "url": "https://i.ytimg.com/vi/7p5LxFdc-Qg/maxres3.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/7p5LxFdc-Qg-maxresdefault.jpg",
+      "url": "https://i.ytimg.com/vi/7p5LxFdc-Qg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/7p5LxFdc-Qg-maxresdefault.webp",
+      "url": "https://i.ytimg.com/vi_webp/7p5LxFdc-Qg/maxresdefault.webp",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/r5vsHHPVhJg-maxres1.jpg",
+      "url": "https://i.ytimg.com/vi/r5vsHHPVhJg/maxres1.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/r5vsHHPVhJg-maxres2.jpg",
+      "url": "https://i.ytimg.com/vi/r5vsHHPVhJg/maxres2.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/r5vsHHPVhJg-maxres3.jpg",
+      "url": "https://i.ytimg.com/vi/r5vsHHPVhJg/maxres3.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/r5vsHHPVhJg-maxresdefault.jpg",
+      "url": "https://i.ytimg.com/vi/r5vsHHPVhJg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    },
+    {
+      "file": "media/official-thumbnails/r5vsHHPVhJg-maxresdefault.webp",
+      "url": "https://i.ytimg.com/vi_webp/r5vsHHPVhJg/maxresdefault.webp",
+      "width": 1280,
+      "height": 720,
+      "type": "official-video-thumbnail",
+      "rights_holder": "Tesla",
+      "frame_time": "未验证；maxresN编号不是准确时间码",
+      "license": "未确认开放许可"
+    }
+  ],
+  "discovery_sources": [
+    "https://roadsterflies.com/",
+    "https://postcutoff.com/v/tesla-roadster-event-livestream-2026-10-15/",
+    "https://www.notateslaapp.com/news/4818/tesla-roadster-event-how-to-watch-what-to-expect"
+  ],
+  "limitations": [
+    "两个短片含慢动作、剪辑和多机位回放；短片时间差不能用作真实飞行时间。",
+    "已取得两段1920×1080官方动作画面与十张对齐选帧；坡道高清文件静音。另保留初版360p素材与时间清单。",
+    "没有官方工程图、推力遥测、车辆质量或原始高速摄影标定。",
+    "选帧只证明画面内容，不独立验证拍摄真实性、车辆自动驾驶控制策略或商业化可行性。"
+  ],
+  "official_images": [
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "alt": "Hidden Aero",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 2200,
+      "height": 1040,
+      "caption": "车头正视图",
+      "limitation": "官方产品宣传图；未获拍摄或渲染制作信息，不能作为演示现场照片。"
+    },
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-2-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-03-Carousel-Slide-2-Desktop.jpg",
+      "alt": "Ano White",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 2200,
+      "height": 1040,
+      "caption": "车尾面板与四个后向喷口细节",
+      "limitation": "官方产品宣传图；可用于外形参考，不提供内部结构尺寸。"
+    },
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-3-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-03-Carousel-Slide-3-Desktop.jpg",
+      "alt": "Gold Glazed",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 2200,
+      "height": 1040,
+      "caption": "开启车门的前上方视图",
+      "limitation": "官方产品宣传图；可用于车身与门机构外观参考。"
+    },
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-4-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-03-Carousel-Slide-4-Desktop.jpg",
+      "alt": "Supersonic",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 2200,
+      "height": 1040,
+      "caption": "座舱、双座与方向盘展示",
+      "limitation": "官方产品宣传图；此图不能证明Rocket演示车有两个座位。"
+    },
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-04-World-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-04-World-Desktop.jpg",
+      "alt": "Out of this world",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 2200,
+      "height": 1782,
+      "caption": "星空下开门展示车",
+      "limitation": "官方场景宣传图；星空与展示场景制作方式未说明，不标作发布会现场实拍。"
+    },
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-05-Graph-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-05-Graph-Desktop.jpg",
+      "alt": "Beyond Physics",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 2200,
+      "height": 1238,
+      "caption": "下压力与速度概念图",
+      "limitation": "无数值刻度；可比较风扇、高下压力和低阻力模式概念，不能反算性能参数。"
+    },
+    {
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-06-Gravity-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "file": "media/official-images/Roadster-06-Gravity-Desktop.jpg",
+      "alt": "Defying Gravity",
+      "rights_holder": "Tesla",
+      "type": "official-product-image",
+      "verification": "官方页面URL下载、sips尺寸核验、图像内容人工查看",
+      "license": "未确认开放复用授权；官方宣传图不自动等同未经处理现场照片",
+      "width": 3456,
+      "height": 3456,
+      "caption": "倒置与向下喷流两状态组合图",
+      "limitation": "同图展示两种状态；按官方组合示意图使用，不冒充一次实拍的连续动作。"
+    }
+  ],
+  "x_links": [
+    {
+      "url": "https://x.com/Tesla/status/2110903770838384773",
+      "topic": "设计变化与灵感",
+      "source_url": "https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/",
+      "verification": "从第三方公开报道HTML链接引出；原帖正文未直接核验"
+    },
+    {
+      "url": "https://x.com/Tesla/status/2110905588402295283",
+      "topic": "Performance / Thrust / Rocket配置线程",
+      "source_url": "https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/",
+      "verification": "已通过ego-browser直接读取英文原帖；详情见research/x-posts.json"
+    },
+    {
+      "url": "https://x.com/Tesla/status/2110904290743402880",
+      "topic": "喷口、控制与储气容器",
+      "source_url": "https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/",
+      "verification": "已通过ego-browser直接读取英文原帖；详情见research/x-posts.json"
+    },
+    {
+      "url": "https://x.com/Tesla/status/2110904620948267152",
+      "topic": "喷射推力与轮胎抓地上限比较",
+      "source_url": "https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/",
+      "verification": "已通过ego-browser直接读取英文原帖；详情见research/x-posts.json"
+    },
+    {
+      "url": "https://x.com/Tesla/status/2110905133785829671",
+      "topic": "Track Mode、主动翼与下压力",
+      "source_url": "https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/",
+      "verification": "已通过ego-browser直接读取英文原帖；详情见research/x-posts.json"
+    },
+    {
+      "url": "https://x.com/Tesla/status/2110788059008819215",
+      "topic": "Roadster event livestream",
+      "source_url": "https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/",
+      "verification": "已通过ego-browser直接读取英文原帖；详情见research/x-posts.json"
+    }
+  ],
+  "x_direct_verification": "research/x-posts.json",
+  "x_official_images": [
+    {
+      "observed_url": "https://pbs.twimg.com/media/HUtwKmBa8AAzwAB?format=jpg&name=120x120",
+      "original_size_url": "https://pbs.twimg.com/media/HUtwKmBa8AAzwAB?format=jpg&name=orig",
+      "file": "media/x-official/2110904290743402880-2.jpg",
+      "width": 3840,
+      "height": 2880,
+      "type": "Tesla官方技术/产品宣传图",
+      "inspection": "已下载并查看",
+      "rights_holder": "Tesla",
+      "license": "未确认开放复用授权"
+    },
+    {
+      "observed_url": "https://pbs.twimg.com/media/HUtwi7TasAAfZIC?format=jpg&name=120x120",
+      "original_size_url": "https://pbs.twimg.com/media/HUtwi7TasAAfZIC?format=jpg&name=orig",
+      "file": "media/x-official/2110904620948267152-1.jpg",
+      "width": 3840,
+      "height": 2880,
+      "type": "Tesla官方技术/产品宣传图",
+      "inspection": "已下载并查看",
+      "rights_holder": "Tesla",
+      "license": "未确认开放复用授权"
+    },
+    {
+      "observed_url": "https://pbs.twimg.com/media/HUtxXA-bcAAl2pg?format=jpg&name=120x120",
+      "original_size_url": "https://pbs.twimg.com/media/HUtxXA-bcAAl2pg?format=jpg&name=orig",
+      "file": "media/x-official/2110905588402295283-1.jpg",
+      "width": 3840,
+      "height": 2560,
+      "type": "Tesla官方技术/产品宣传图",
+      "inspection": "已下载并查看",
+      "rights_holder": "Tesla",
+      "license": "未确认开放复用授权"
+    }
+  ],
+  "hd_videos": [
+    {
+      "id": "ramp",
+      "local_file": "media/ramp-1080p-silent.mp4",
+      "official_post": "https://x.com/Tesla/status/2110913438293647789",
+      "public_video_manifest": "https://video.twimg.com/amplify_video/2110913252045545472/pl/avc1/1920x1080/VE8p9W_ZZ3dgaGmH.m3u8",
+      "public_audio_manifest": null,
+      "width": 1920,
+      "height": 1080,
+      "frame_rate": "24000/1001",
+      "duration_seconds": 45.628916,
+      "bytes": 13790607,
+      "audio_present": false,
+      "sha256": "ae3ed2f417ceba2dc9c7c60003cf78a7bf1a8e76712f0eb231e2e1fa542f6acb",
+      "retrieval": "ego-browser正常播放官方单帖；CDP仅记录公开video.twimg.com媒体URL；HTTP直接读取未加密HLS并封装MP4；没有使用Cookie、认证令牌或DRM绕过",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "24000/1001",
+            "duration": "45.628916",
+            "nb_frames": "1094"
+          }
+        ],
+        "format": {
+          "duration": "45.628916",
+          "size": "13790607"
+        }
+      },
+      "rights_holder": "Tesla",
+      "license": "未确认开放复用授权"
+    },
+    {
+      "id": "kickflip",
+      "local_file": "media/kickflip-1080p.mp4",
+      "official_post": "https://x.com/Tesla/status/2110926164306931860",
+      "public_video_manifest": "https://video.twimg.com/amplify_video/2110926020517732352/pl/avc1/1920x1080/UIC0rFYJNqIkNWqG.m3u8",
+      "public_audio_manifest": "https://video.twimg.com/amplify_video/2110926020517732352/pl/mp4a/128000/o3nCyK22CGQPrRg4.m3u8",
+      "width": 1920,
+      "height": 1080,
+      "frame_rate": "24000/1001",
+      "duration_seconds": 43.925333,
+      "bytes": 17038133,
+      "audio_present": true,
+      "sha256": "ee2bd4f9d317aa7e0b8cad52081acacb05da5155f5348cf60143bcfacb194277",
+      "retrieval": "ego-browser正常播放官方单帖；CDP仅记录公开video.twimg.com媒体URL；HTTP直接读取未加密HLS并封装MP4；没有使用Cookie、认证令牌或DRM绕过",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "24000/1001",
+            "duration": "43.877166",
+            "nb_frames": "1052"
+          },
+          {
+            "codec_name": "aac",
+            "r_frame_rate": "0/0",
+            "duration": "43.925333",
+            "nb_frames": "2059"
+          }
+        ],
+        "format": {
+          "duration": "43.925333",
+          "size": "17038133"
+        }
+      },
+      "rights_holder": "Tesla",
+      "license": "未确认开放复用授权"
+    }
+  ],
+  "hd_shots": [
+    {
+      "id": "01",
+      "title": "弯坡入口",
+      "youtube_seek_seconds": 0.5,
+      "youtube_frame_index": 12,
+      "youtube_frame_pts_seconds": 0.5005,
+      "hd_seek_seconds": 0.458792,
+      "hd_frame_pts_seconds": 0.458792,
+      "hd_frame_index": 11,
+      "hd_file": "media/frames-hd/01-ramp-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110913438293647789",
+      "video_file": "media/ramp-1080p-silent.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 1.79576,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 2.79931
+        },
+        {
+          "offset": -2,
+          "gray_mae": 2.15042
+        },
+        {
+          "offset": -1,
+          "gray_mae": 1.79576
+        },
+        {
+          "offset": 0,
+          "gray_mae": 2.34063
+        },
+        {
+          "offset": 1,
+          "gray_mae": 2.67667
+        },
+        {
+          "offset": 2,
+          "gray_mae": 3.29014
+        },
+        {
+          "offset": 3,
+          "gray_mae": 3.58944
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "过垂直吸附",
+      "youtube_seek_seconds": 9.0,
+      "youtube_frame_index": 216,
+      "youtube_frame_pts_seconds": 9.009,
+      "hd_seek_seconds": 8.967292,
+      "hd_frame_pts_seconds": 8.967292,
+      "hd_frame_index": 215,
+      "hd_file": "media/frames-hd/02-ramp-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110913438293647789",
+      "video_file": "media/ramp-1080p-silent.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 0.38979,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 0.73056
+        },
+        {
+          "offset": -2,
+          "gray_mae": 0.50458
+        },
+        {
+          "offset": -1,
+          "gray_mae": 0.38979
+        },
+        {
+          "offset": 0,
+          "gray_mae": 0.67222
+        },
+        {
+          "offset": 1,
+          "gray_mae": 0.78597
+        },
+        {
+          "offset": 2,
+          "gray_mae": 0.96618
+        },
+        {
+          "offset": 3,
+          "gray_mae": 1.01132
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "倒置脱离坡顶",
+      "youtube_seek_seconds": 27.5,
+      "youtube_frame_index": 660,
+      "youtube_frame_pts_seconds": 27.5275,
+      "hd_seek_seconds": 27.485792,
+      "hd_frame_pts_seconds": 27.485792,
+      "hd_frame_index": 659,
+      "hd_file": "media/frames-hd/03-ramp-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110913438293647789",
+      "video_file": "media/ramp-1080p-silent.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 2.22063,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 16.57917
+        },
+        {
+          "offset": -2,
+          "gray_mae": 7.95243
+        },
+        {
+          "offset": -1,
+          "gray_mae": 2.22063
+        },
+        {
+          "offset": 0,
+          "gray_mae": 9.31944
+        },
+        {
+          "offset": 1,
+          "gray_mae": 14.33146
+        },
+        {
+          "offset": 2,
+          "gray_mae": 20.90979
+        },
+        {
+          "offset": 3,
+          "gray_mae": 20.90993
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "空中姿态回正",
+      "youtube_seek_seconds": 28.5,
+      "youtube_frame_index": 684,
+      "youtube_frame_pts_seconds": 28.5285,
+      "hd_seek_seconds": 28.486792,
+      "hd_frame_pts_seconds": 28.486792,
+      "hd_frame_index": 683,
+      "hd_file": "media/frames-hd/04-ramp-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110913438293647789",
+      "video_file": "media/ramp-1080p-silent.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 1.94312,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 12.85681
+        },
+        {
+          "offset": -2,
+          "gray_mae": 12.85819
+        },
+        {
+          "offset": -1,
+          "gray_mae": 1.94312
+        },
+        {
+          "offset": 0,
+          "gray_mae": 8.17278
+        },
+        {
+          "offset": 1,
+          "gray_mae": 8.16917
+        },
+        {
+          "offset": 2,
+          "gray_mae": 12.69694
+        },
+        {
+          "offset": 3,
+          "gray_mae": 16.27924
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "坡道演示着陆",
+      "youtube_seek_seconds": 40.5,
+      "youtube_frame_index": 972,
+      "youtube_frame_pts_seconds": 40.5405,
+      "hd_seek_seconds": 40.498792,
+      "hd_frame_pts_seconds": 40.498792,
+      "hd_frame_index": 971,
+      "hd_file": "media/frames-hd/05-ramp-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110913438293647789",
+      "video_file": "media/ramp-1080p-silent.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 2.32458,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 2.84583
+        },
+        {
+          "offset": -2,
+          "gray_mae": 2.69014
+        },
+        {
+          "offset": -1,
+          "gray_mae": 2.32458
+        },
+        {
+          "offset": 0,
+          "gray_mae": 2.61813
+        },
+        {
+          "offset": 1,
+          "gray_mae": 2.72812
+        },
+        {
+          "offset": 2,
+          "gray_mae": 3.09847
+        },
+        {
+          "offset": 3,
+          "gray_mae": 3.29194
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "平地喷流起跳",
+      "youtube_seek_seconds": 32.3,
+      "youtube_frame_index": 775,
+      "youtube_frame_pts_seconds": 32.323958,
+      "hd_seek_seconds": 32.28225,
+      "hd_frame_pts_seconds": 32.28225,
+      "hd_frame_index": 774,
+      "hd_file": "media/frames-hd/06-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "video_file": "media/kickflip-1080p.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 2.04479,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 4.41889
+        },
+        {
+          "offset": -2,
+          "gray_mae": 3.63347
+        },
+        {
+          "offset": -1,
+          "gray_mae": 2.04479
+        },
+        {
+          "offset": 0,
+          "gray_mae": 4.44833
+        },
+        {
+          "offset": 1,
+          "gray_mae": 5.43215
+        },
+        {
+          "offset": 2,
+          "gray_mae": 5.57771
+        },
+        {
+          "offset": 3,
+          "gray_mae": 6.48104
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "爬升越过车列",
+      "youtube_seek_seconds": 13.65,
+      "youtube_frame_index": 328,
+      "youtube_frame_pts_seconds": 13.680333,
+      "hd_seek_seconds": 13.638625,
+      "hd_frame_pts_seconds": 13.638625,
+      "hd_frame_index": 327,
+      "hd_file": "media/frames-hd/07-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "video_file": "media/kickflip-1080p.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 1.58389,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 5.89819
+        },
+        {
+          "offset": -2,
+          "gray_mae": 4.63681
+        },
+        {
+          "offset": -1,
+          "gray_mae": 1.58389
+        },
+        {
+          "offset": 0,
+          "gray_mae": 3.81854
+        },
+        {
+          "offset": 1,
+          "gray_mae": 5.13187
+        },
+        {
+          "offset": 2,
+          "gray_mae": 5.74958
+        },
+        {
+          "offset": 3,
+          "gray_mae": 5.96507
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "title": "Semi上方倒转",
+      "youtube_seek_seconds": 14.25,
+      "youtube_frame_index": 342,
+      "youtube_frame_pts_seconds": 14.26425,
+      "hd_seek_seconds": 14.222542,
+      "hd_frame_pts_seconds": 14.222542,
+      "hd_frame_index": 341,
+      "hd_file": "media/frames-hd/08-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "video_file": "media/kickflip-1080p.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 1.70132,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 3.90243
+        },
+        {
+          "offset": -2,
+          "gray_mae": 3.01882
+        },
+        {
+          "offset": -1,
+          "gray_mae": 1.70132
+        },
+        {
+          "offset": 0,
+          "gray_mae": 3.23813
+        },
+        {
+          "offset": 1,
+          "gray_mae": 4.15389
+        },
+        {
+          "offset": 2,
+          "gray_mae": 5.16104
+        },
+        {
+          "offset": 3,
+          "gray_mae": 5.84382
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "title": "回正后制动下降",
+      "youtube_seek_seconds": 34.5,
+      "youtube_frame_index": 828,
+      "youtube_frame_pts_seconds": 34.5345,
+      "hd_seek_seconds": 34.492792,
+      "hd_frame_pts_seconds": 34.492792,
+      "hd_frame_index": 827,
+      "hd_file": "media/frames-hd/09-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "video_file": "media/kickflip-1080p.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 2.00479,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 10.8266
+        },
+        {
+          "offset": -2,
+          "gray_mae": 8.54597
+        },
+        {
+          "offset": -1,
+          "gray_mae": 2.00479
+        },
+        {
+          "offset": 0,
+          "gray_mae": 7.44444
+        },
+        {
+          "offset": 1,
+          "gray_mae": 10.79042
+        },
+        {
+          "offset": 2,
+          "gray_mae": 12.91035
+        },
+        {
+          "offset": 3,
+          "gray_mae": 16.79174
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "车列后着陆",
+      "youtube_seek_seconds": 35.0,
+      "youtube_frame_index": 840,
+      "youtube_frame_pts_seconds": 35.035,
+      "hd_seek_seconds": 34.993292,
+      "hd_frame_pts_seconds": 34.993292,
+      "hd_frame_index": 839,
+      "hd_file": "media/frames-hd/10-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "video_file": "media/kickflip-1080p.mp4",
+      "frame_offset": -1,
+      "alignment": "每张原选帧单独在X版本±3帧中按160x90灰度误差匹配；从选定解码帧序号抽图，保留两条独立时间轴。",
+      "gray_mae": 2.1475,
+      "candidate_errors": [
+        {
+          "offset": -3,
+          "gray_mae": 12.70396
+        },
+        {
+          "offset": -2,
+          "gray_mae": 9.47521
+        },
+        {
+          "offset": -1,
+          "gray_mae": 2.1475
+        },
+        {
+          "offset": 0,
+          "gray_mae": 7.66215
+        },
+        {
+          "offset": 1,
+          "gray_mae": 13.62889
+        },
+        {
+          "offset": 2,
+          "gray_mae": 16.98875
+        },
+        {
+          "offset": 3,
+          "gray_mae": 22.09444
+        }
+      ]
+    }
+  ],
+  "hd_detail": "research/hd-media.json"
+}

@@ -1,0 +1,59 @@
+{
+  "summary": "四路图稿已完成。Kimi通过CLI请求k3/max独立生成与交叉修改；原件、后续修订和检查分别存档。四栏是早期解释风格比较，米制场景及实际训练在飞行实验。",
+  "reviews": {
+    "codex": "独立初稿：保留弯坡轮缘与Semi对位等已知问题，供风格比较。",
+    "kimi": "真实Kimi独立稿：宿主补齐主题容器。动作分段和回正轴问题保留。",
+    "codex-kimi": "Kimi修正弯坡接触、卡车对位和力偶；Codex集成时延长落地区。车列仍是早期示意。",
+    "kimi-codex": "按官网与原片细化为137个车体实体；修正轮拱、玻璃、上下两排出口、接触和遮挡。示意图非实测。"
+  },
+  "artifacts": {
+    "codex": {
+      "file": "figures/codex.mjs",
+      "sha256": "0150a0acbab74022aab5743f3b237b01b9e240a47730cae0ae1d9b06e74231a4"
+    },
+    "kimi": {
+      "file": "figures/kimi.mjs",
+      "sha256": "2875e6f3872f7eef0e0f83e7bc78f6e4f54adfc689be1e18199c394015edb510"
+    },
+    "codex-kimi": {
+      "file": "figures/codex-kimi.mjs",
+      "sha256": "eb01fc96d77646566f02100cddd1688833b08a21a153d9ef5c5f2eab986fa14a"
+    },
+    "kimi-codex": {
+      "file": "figures/kimi-codex.mjs",
+      "sha256": "361c6860672a12598ec1858a18149fad8cf810020d9ec2bb35f421402313a5b0"
+    }
+  },
+  "detailModel": {
+    "file": "roadster-model.mjs",
+    "author": "Codex",
+    "reference": "research/model-reference.json",
+    "dimensions_m": [
+      4.1,
+      1.72,
+      1.2
+    ],
+    "sha256": "c78fa197dcee7b1ce4d716a0cc2934cc899cec905bd4e3dab0004ef2a3de2468",
+    "visibleMeshes": 209
+  },
+  "modelCandidates": {
+    "kimi": "models/kimi/roadster-model.mjs",
+    "kimi_codex": "models/kimi/roadster-reviewed.mjs",
+    "original_codex": "roadster-model.mjs",
+    "evidence": "models/kimi/provenance.json",
+    "meshy": "models/meshy/roadster-meshy-clean.glb",
+    "third_party": "本轮未确认可用的新车型下载",
+    "meshyEvidence": "models/meshy/clean-validation.json",
+    "meshy_colored": "models/meshy/roadster-meshy-colored.glb",
+    "materialsEvidence": "models/meshy/material-provenance.json",
+    "meshy_refined": "models/meshy/roadster-refined.glb",
+    "surfaceRefinementEvidence": "models/meshy/refinement.json"
+  },
+  "physicsV2": {
+    "engine": "MuJoCo 3.15.0",
+    "entry": "lab.html",
+    "configuration": "simulation_v2/config.json",
+    "notice": "12个固定单向喷口的假设可控性实验，非Tesla实车复原"
+  },
+  "activeVisualModel": "meshy_refined"
+}

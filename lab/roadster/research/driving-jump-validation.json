@@ -1,0 +1,87 @@
+{
+  "vehicles": [
+    {
+      "id": "modelx",
+      "label": "MODEL X",
+      "x": 4,
+      "y": 15.4715,
+      "height": 1.68
+    },
+    {
+      "id": "semi",
+      "label": "TESLA SEMI",
+      "x": 10,
+      "y": 14.1,
+      "height": 3.7
+    },
+    {
+      "id": "cybertruck",
+      "label": "CYBERTRUCK",
+      "x": 16,
+      "y": 15.15855,
+      "height": 1.794
+    }
+  ],
+  "trials": [
+    {
+      "kmh": 80,
+      "kickEnabled": false,
+      "launched": null,
+      "contact": {
+        "t": 3.66,
+        "pos": [
+          1.026082207177139,
+          16.000765033904344,
+          0.5018065256115303
+        ],
+        "body": true
+      },
+      "passed": 0,
+      "lowestOverSemi": null,
+      "finalPos": [
+        1.026082207177139,
+        16.000765033904344,
+        0.5018065256115303
+      ],
+      "runout": 266.7739177928229
+    },
+    {
+      "kmh": 80,
+      "kickEnabled": true,
+      "launched": {
+        "x": -16.961531832861446,
+        "t": 2.84,
+        "speed": 80.0887676285582
+      },
+      "contact": null,
+      "passed": 3,
+      "lowestOverSemi": 4.617894562257252,
+      "landing": "success",
+      "finalPos": [
+        85.09240116887315,
+        15.637632685589091,
+        0.5019571833523232
+      ],
+      "runout": 182.70759883112686
+    },
+    {
+      "kmh": 100,
+      "kickEnabled": true,
+      "launched": {
+        "x": -16.598660656439606,
+        "t": 2.28,
+        "speed": 100.35205667508252
+      },
+      "contact": null,
+      "passed": 3,
+      "lowestOverSemi": 3.912510610834575,
+      "landing": "success",
+      "finalPos": [
+        108.01510022925288,
+        15.664683400725643,
+        0.5019571811988178
+      ],
+      "runout": 159.78489977074713
+    }
+  ]
+}

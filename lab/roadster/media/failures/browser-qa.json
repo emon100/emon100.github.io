@@ -1,0 +1,49 @@
+{
+  "url": "http://127.0.0.1:8767/failure-library.html",
+  "videos": [
+    {
+      "src": "media/failures/late-roll-start/clean.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 3.233333,
+      "error": null
+    },
+    {
+      "src": "media/failures/late-roll-start/annotated.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 3.233333,
+      "error": null
+    },
+    {
+      "src": "media/failures/early-roll-low-height/clean.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 1.833333,
+      "error": null
+    },
+    {
+      "src": "media/failures/early-roll-low-height/annotated.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 1.833333,
+      "error": null
+    },
+    {
+      "src": "media/failures/high-jump-hard-landing/clean.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 5.066667,
+      "error": null
+    },
+    {
+      "src": "media/failures/high-jump-hard-landing/annotated.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 5.066667,
+      "error": null
+    }
+  ],
+  "firstVideoPlayedToEnd": true,
+  "overflow": false
+}

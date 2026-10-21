@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "sourceFramesExact": true,
+  "sourceMetricsExact": true,
+  "sourceFrames": 266,
+  "outputFrames": 160,
+  "sameTimingBothVersions": true,
+  "unannotatedPixelsIdentical": true,
+  "output": [
+    1080,
+    1920,
+    30
+  ],
+  "firstFailureSeconds": 4.88,
+  "sourceTailSeconds": 0.42,
+  "criterion": "normal_contact_force_exceeded; closing_speed_did_not_exceed_limit",
+  "sourceSnapshotFiles": 12,
+  "browserVerificationFile": "browser-qa.json",
+  "visualCheck": "Full-resolution peak/impact samples and contact sheet reviewed; no trajectory interpolation."
+}

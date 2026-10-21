@@ -1,0 +1,24 @@
+{
+  "artifact": "site/dist/figures/kimi.mjs",
+  "raw_copy": "research/kimi/kimi.raw.mjs",
+  "sha256": "2875e6f3872f7eef0e0f83e7bc78f6e4f54adfc689be1e18199c394015edb510",
+  "author": "Kimi k3 via Kimi Code CLI 2.2.0, thinkingEffort=max",
+  "status": "module generation completed; Codex took over postprocessing; owned CLI processes terminated with SIGTERM after basic checks, exit 143, not a natural session completion",
+  "checks": "node --check and Codex 10 scenes × 5 progress values basic export check passed",
+  "read_paths": [
+    "/Users/emon100/.agents/skills/anatomy/SKILL.md",
+    "/Users/emon100/.agents/skills/anatomy/examples/dial-indicator/build.mjs",
+    "/Users/emon100/.agents/skills/anatomy/references/craft.md",
+    "/Users/emon100/.agents/skills/anatomy/references/kit.md",
+    "/Users/emon100/.agents/skills/anatomy/references/motion.md",
+    "/Users/emon100/IdeaProjects/rodstar/site/dist/kit/iso-kit.mjs",
+    "/Users/emon100/IdeaProjects/rodstar/site/dist/kit/iso.css"
+  ],
+  "known_limits": [
+    "Unverified illustrative scene proportions and trajectories; no telemetry or trained controller.",
+    "Scene 2 uses complete inverted horizontal attachment, inconsistent with source-confirmed over-vertical framing.",
+    "Scene 4 shows pitch recovery rather than source-confirmed roll; scene continuity is not guaranteed.",
+    "CSS root scoping likely omits theme variables; requires browser review.",
+    "Full Anatomy clearance/depth/line-end/4x audits were not completed."
+  ]
+}

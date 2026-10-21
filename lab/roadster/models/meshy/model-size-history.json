@@ -1,0 +1,198 @@
+[
+  {
+    "version": "原着色模型",
+    "bytes": 4678276,
+    "MB": 4.68,
+    "MiB": 4.46,
+    "uniqueTriangles": 40564,
+    "displayTriangles": 40564,
+    "textures": [
+      [
+        2048,
+        2392
+      ],
+      [
+        2048,
+        2392
+      ],
+      [
+        2048,
+        2392
+      ],
+      [
+        2048,
+        2392
+      ]
+    ],
+    "file": "backups/vehicle-model-20261021-201335/models/meshy/materials-reviewed/roadster-meshy-colored.glb",
+    "sha256": "e9ed120df616742c35f77976f276e1e68890cd65e2d79f5248966c389dc3ad80"
+  },
+  {
+    "version": "第一轮 曲面/独立轮组",
+    "bytes": 4742752,
+    "MB": 4.74,
+    "MiB": 4.52,
+    "uniqueTriangles": 45036,
+    "displayTriangles": 86196,
+    "textures": [
+      [
+        2048,
+        3088
+      ],
+      [
+        2048,
+        3088
+      ],
+      [
+        2048,
+        3088
+      ],
+      [
+        2048,
+        3088
+      ]
+    ],
+    "file": "backups/vehicle-detail-20261021-204842/models/meshy/refined/roadster-refined.glb",
+    "sha256": "f1dd7115a52889e6be0ce256a5a06ff11f5ee6ecd097442fc4a5b92b10f3693d"
+  },
+  {
+    "version": "第二轮 腰线/玻璃/门缝",
+    "bytes": 5031588,
+    "MB": 5.03,
+    "MiB": 4.8,
+    "uniqueTriangles": 45948,
+    "displayTriangles": 87108,
+    "textures": [
+      [
+        2048,
+        3160
+      ],
+      [
+        2048,
+        3160
+      ],
+      [
+        2048,
+        3160
+      ],
+      [
+        2048,
+        3160
+      ]
+    ],
+    "file": "backups/vehicle-wheels-20261021-211355/models/meshy/refined/roadster-refined.glb",
+    "sha256": "6a8b771ce896ea6ffcf9af29966800d1f703c0b20966a3bf049aa2f26f73d450"
+  },
+  {
+    "version": "第三轮 轮毂细化",
+    "bytes": 5640904,
+    "MB": 5.64,
+    "MiB": 5.38,
+    "uniqueTriangles": 54400,
+    "displayTriangles": 120916,
+    "textures": [
+      [
+        2048,
+        3160
+      ],
+      [
+        2048,
+        3160
+      ],
+      [
+        2048,
+        3160
+      ],
+      [
+        2048,
+        3160
+      ]
+    ],
+    "file": "backups/vehicle-textures-20261021-231241/models/meshy/refined/roadster-refined.glb",
+    "sha256": "8589a14adab0b5a9d62271276862cd3144ac7dee51d35dc280a308becda25e57"
+  },
+  {
+    "version": "第四轮 贴图/底盘",
+    "bytes": 8680564,
+    "MB": 8.68,
+    "MiB": 8.28,
+    "uniqueTriangles": 54400,
+    "displayTriangles": 120916,
+    "textures": [
+      [
+        2048,
+        2991
+      ],
+      [
+        2048,
+        2991
+      ],
+      [
+        2048,
+        2991
+      ],
+      [
+        2048,
+        2991
+      ]
+    ],
+    "file": "backups/vehicle-fairing-20261021-233344/models/meshy/refined/roadster-refined.glb",
+    "sha256": "192f5f310667b9e3ea2d0f3247155179119606ac835718b9de6e32261e86ee61"
+  },
+  {
+    "version": "第五轮 连续曲面/玻璃重建",
+    "bytes": 8944652,
+    "MB": 8.94,
+    "MiB": 8.53,
+    "uniqueTriangles": 57856,
+    "displayTriangles": 124372,
+    "textures": [
+      [
+        2048,
+        3081
+      ],
+      [
+        2048,
+        3081
+      ],
+      [
+        2048,
+        3081
+      ],
+      [
+        2048,
+        3081
+      ]
+    ],
+    "file": "backups/driving-lights-water-20261022-000659/models/meshy/refined/roadster-refined.glb",
+    "sha256": "3ff75c49ec4235926c915f10b4ea7f282b826857bbe4fe1e4466ff84a6e3ba7f"
+  },
+  {
+    "version": "第六轮 灯罩修复",
+    "bytes": 8975944,
+    "MB": 8.98,
+    "MiB": 8.56,
+    "uniqueTriangles": 58198,
+    "displayTriangles": 124714,
+    "textures": [
+      [
+        2048,
+        3099
+      ],
+      [
+        2048,
+        3099
+      ],
+      [
+        2048,
+        3099
+      ],
+      [
+        2048,
+        3099
+      ]
+    ],
+    "file": "models/meshy/refined/roadster-refined.glb",
+    "sha256": "eeee55c0eaf28aaa26de4143e21b90de6e2ee20a703737b93373757c961cc443"
+  }
+]

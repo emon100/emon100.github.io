@@ -1,0 +1,483 @@
+{
+  "checked_at": "2026-10-17 Asia/Singapore",
+  "official_pages": [
+    "https://www.tesla.com/roadster",
+    "https://www.tesla.com/roadster/reserve"
+  ],
+  "recommendation": "以发布会 Rocket 飞行原型为主。官网展示车用于共同车壳细化；圆盘轮面、下沿和喷口状态以实际帧为准。",
+  "trim_facts": [
+    {
+      "trim": "Performance",
+      "seats": 2,
+      "systems": [
+        "active aero",
+        "multi-mode suction"
+      ],
+      "source": "https://www.tesla.com/roadster"
+    },
+    {
+      "trim": "Thrust",
+      "seats": 2,
+      "systems": [
+        "multi-mode suction",
+        "rear cold-gas thrusters"
+      ],
+      "source": "https://www.tesla.com/roadster"
+    },
+    {
+      "trim": "Rocket",
+      "seats": 1,
+      "systems": [
+        "multi-mode suction",
+        "perimeter cold-gas thrusters",
+        "flight system"
+      ],
+      "source": "https://www.tesla.com/roadster/reserve"
+    }
+  ],
+  "page_caveat": "官网页脚说明页面常规配置/规格反映 Thrust 可选升级；各官方图片未逐张标注具体配置。",
+  "sources": [
+    {
+      "id": "side",
+      "path": "media/official-images/Roadster-02-Pilot-Desktop.jpg",
+      "width": 3440,
+      "height": 1024,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-02-Pilot-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "近侧视，全车比例、轮拱、玻璃轮廓与展示版轮毂",
+      "sha256": "133de595f3cb7742f5bb2c24d8e9c41aef06dcd1a63507e2daaddc1c4a71c16a",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "front_three_quarter",
+      "path": "media/official-images/Roadster-08-End-Desktop.jpg",
+      "width": 2800,
+      "height": 2074,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-08-End-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "前3/4，车头折线、肩部曲面和风挡",
+      "sha256": "342e862f7239479b0d1994d1f842e50d05e926b8fd4c9158c02cc9f011bcc71b",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "front",
+      "path": "media/official-images/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "width": 2200,
+      "height": 1040,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-1-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "正前，灯、鼻部、宽度分区",
+      "sha256": "ba430d2177eba7f84f8d70d16af95ae758e2323d8c4d22df08ce58c0844aa647",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "rear_stowed",
+      "path": "media/official-images/Roadster-03-Carousel-Slide-2-Desktop.jpg",
+      "width": 2200,
+      "height": 1040,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-2-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "后上视，尾灯、上盖折线、收纳形态",
+      "sha256": "b2ab468329d48c98f959a5c8f02cdefe5a6ae784020e767e621b4cc2f2d12603",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "doors",
+      "path": "media/official-images/Roadster-03-Carousel-Slide-3-Desktop.jpg",
+      "width": 2200,
+      "height": 1040,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-3-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "前上视开门，车门和玻璃整体关系",
+      "sha256": "5c764c276ccc528a48292359974c0b9b560e3ee88b02a5cac1703c38b134da45",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "interior",
+      "path": "media/official-images/Roadster-03-Carousel-Slide-4-Desktop.jpg",
+      "width": 2200,
+      "height": 1040,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-4-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "双座展示内饰，不当作Rocket单座参考",
+      "sha256": "ff5202948ce91631a5a9cf290c844baaa9cb739db74a9080488da1705552bfd2",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "suspension",
+      "path": "media/official-images/Roadster-03-Carousel-Slide-5-Desktop.jpg",
+      "width": 2200,
+      "height": 1040,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-03-Carousel-Slide-5-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "横置弹簧减震器、摇臂、连杆，非完整尺寸图",
+      "sha256": "d61c54c1da18a36e7bb2a55c828a7a059c9bd90c6757e58d739ab2c091c16246",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "rear_deployed",
+      "path": "media/official-images/Roadster-06-Gravity-Desktop.jpg",
+      "width": 3456,
+      "height": 3456,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-06-Gravity-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "后部展开组合图，风扇舱/小喷口/朝下喷口/尾翼",
+      "sha256": "c3299bce3d5c5b9d2dc348456dd18dd7643d821a349b0754dd586f25ec060377",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "rear_detail",
+      "path": "media/official-images/Roadster-07-Augments-Desktop.jpg",
+      "width": 3456,
+      "height": 2800,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-07-Augments-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "尾翼双支座和四个小喷口、四个下舱的正后特写",
+      "sha256": "c3889604c5f24c5150392aa87010186f599f0e11ea42fb0811c6248a0492b0e6",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "rear_overview",
+      "path": "media/official-images/Roadster-01-Hero-Desktop.jpg",
+      "width": 4200,
+      "height": 1698,
+      "source_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Roadster-01-Hero-Desktop.jpg",
+      "source_page": "https://www.tesla.com/roadster",
+      "kind": "official_product_visual",
+      "role": "高位后视，尾部收放形态与车壳轮廓",
+      "sha256": "146fa8e72191775d53c6fa59325a1e4b97958a53621c03dd7b30c6a1a8a8a3eb",
+      "limitation": "官方宣传图，拍摄/渲染方法与对应具体车辆未披露；不是标定三视图。",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "x_tail",
+      "path": "media/x-official/2110904620948267152-1.jpg",
+      "width": 3840,
+      "height": 2880,
+      "source_url": "https://x.com/Tesla/status/2110904620948267152",
+      "source_page": "https://x.com/Tesla/status/2110904620948267152",
+      "kind": "official_product_visual",
+      "role": "高分辨率尾部喷口/风扇舱外观",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "x_copv",
+      "path": "media/x-official/2110904290743402880-2.jpg",
+      "width": 3840,
+      "height": 2880,
+      "source_url": "https://x.com/Tesla/status/2110904290743402880",
+      "source_page": "https://x.com/Tesla/status/2110904290743402880",
+      "kind": "official_product_visual",
+      "role": "复合材料压力容器与安装支架局部，不足以恢复容积",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "prototype_side",
+      "path": "media/frames-hd/09-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "source_page": "https://x.com/Tesla/status/2110926164306931860",
+      "kind": "official_video_frame",
+      "role": "实际Rocket飞行侧视，圆盘轮面、裙边、尾部外露硬件",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "prototype_takeoff",
+      "path": "media/frames-hd/06-kickflip-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110926164306931860",
+      "source_page": "https://x.com/Tesla/status/2110926164306931860",
+      "kind": "official_video_frame",
+      "role": "实际平地离地，车壳与喷流状态",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    },
+    {
+      "id": "prototype_inverted",
+      "path": "media/frames-hd/03-ramp-x-aligned.jpg",
+      "width": 1920,
+      "height": 1080,
+      "source_url": "https://x.com/Tesla/status/2110913438293647789",
+      "source_page": "https://x.com/Tesla/status/2110913438293647789",
+      "kind": "official_video_frame",
+      "role": "实际倒悬脱离，车底和周边喷流",
+      "rights_holder": "Tesla",
+      "reuse_license": "未确认开放复用授权"
+    }
+  ],
+  "parts": [
+    {
+      "id": "body_shell",
+      "name": "车壳与腰线",
+      "refs": [
+        "side",
+        "front_three_quarter",
+        "prototype_side"
+      ],
+      "observations": [
+        "低鼻楔形；前翼子板隆起后接沿侧面上扬的清晰肩线。",
+        "门板主体是大平缓面，肩部有折线；风挡与车顶是连续弧面，不能把全车都画成平板楔块。",
+        "后轮上方宽肩延伸到平直尖尾，车头比尾部低。"
+      ],
+      "confidence": "高：共用车壳轮廓；具体截面中等",
+      "modeling": "独立截面放样车壳；肩线保留折痕，轮拱与玻璃边缘用平滑曲面。",
+      "limits": "未提供CAD或正交三视图，不可据此宣布毫米级尺寸。"
+    },
+    {
+      "id": "nose",
+      "name": "车头与灯",
+      "refs": [
+        "front",
+        "front_three_quarter"
+      ],
+      "observations": [
+        "宽梯形中央鼻板，左右外侧为向内收的折角翼子板。",
+        "前沿有细横向白灯线；隐藏灯位于两侧内收角，呈小型斜切灯腔。",
+        "下部是黑色开口与贴近地面的薄分流唇，不是竖直厚保险杠。"
+      ],
+      "confidence": "高：轮廓与分区",
+      "modeling": "中央鼻板、左右肩块、灯槽、黑色下腔和薄前唇分别建模。",
+      "limits": "灯源数量/光学细节未知；可见亮斑不能当作灯珠数。"
+    },
+    {
+      "id": "arches",
+      "name": "轮拱",
+      "refs": [
+        "side",
+        "front_three_quarter",
+        "prototype_side"
+      ],
+      "observations": [
+        "四个轮拱是车壳中的近半圆切口，外侧薄白边。",
+        "车轮大部分嵌在车宽内，不能做成四个完全外贴圆柱。"
+      ],
+      "confidence": "高",
+      "modeling": "真实切出圆弧轮洞并加内衬；胎肩与车壳之间留窄间隙。",
+      "limits": "悬架行程和动态间隙未标定。"
+    },
+    {
+      "id": "wheels",
+      "name": "演示版轮罩与展示版轮毂",
+      "refs": [
+        "prototype_side",
+        "side",
+        "front_three_quarter"
+      ],
+      "observations": [
+        "飞行原片的可见轮面呈连续浅灰圆盘外观，外圈有同心环，中心为小深色圆。",
+        "官网近侧视展示图可见六向主辐条及六个浅色扇区，胎壁较薄。"
+      ],
+      "confidence": "高：两组图的可见外观不同；中：原型是否实体轮罩",
+      "modeling": "Rocket动作主体用圆盘轮面；可另切换官网展示轮毂，勿混为同一状态。",
+      "limits": "移动帧不能排除旋转模糊；不据此确定实体轮罩、材料、旋转方式或隐藏辐条数量。"
+    },
+    {
+      "id": "glass",
+      "name": "座舱、风挡和玻璃顶",
+      "refs": [
+        "side",
+        "front_three_quarter",
+        "doors",
+        "interior",
+        "prototype_side"
+      ],
+      "observations": [
+        "风挡宽大而倾斜，深铜金色玻璃连到低圆弧车顶。",
+        "侧窗是前宽后窄的长楔形，白色细框沿顶缘延伸，后端向车肩内收。",
+        "官网内饰为双座；官网与预订页均写Rocket单座。"
+      ],
+      "confidence": "高：外部轮廓和座位区别",
+      "modeling": "风挡、玻璃顶、侧窗做连续但可分区的透明壳；飞行原型不展示未经证实的双座内饰。",
+      "limits": "实际飞行车内座椅位置不能从这些外图唯一确定。"
+    },
+    {
+      "id": "doors",
+      "name": "车门与折线",
+      "refs": [
+        "doors",
+        "side",
+        "front_three_quarter"
+      ],
+      "observations": [
+        "开启时门板连同侧窗整体向上抬起。",
+        "关闭时门前接缝斜接风挡柱，门后接缝位于车身中段之后。"
+      ],
+      "confidence": "高：外形；低：精确铰链轴",
+      "modeling": "门板独立网格，接缝细且贴面；若动画开门须标示意铰链。",
+      "limits": "不凭单张开门图还原真实铰链机构。"
+    },
+    {
+      "id": "rear_wing",
+      "name": "主动尾翼",
+      "refs": [
+        "rear_deployed",
+        "rear_detail",
+        "rear_stowed",
+        "prototype_side"
+      ],
+      "observations": [
+        "展开是接近车宽的一片翼板，由左右两根细弯支座抬起。",
+        "展开翼与下方贯穿红尾灯是不同零件。",
+        "不同素材有收纳/展开状态，不能一律画成高固定赛车翼。"
+      ],
+      "confidence": "高：官网两状态；中等：逐帧原型位置",
+      "modeling": "翼板、两支座、车尾灯条独立；按实际帧设置收放程度。",
+      "limits": "翼型、角度和驱动机构尺寸未披露。"
+    },
+    {
+      "id": "rear_thrusters_fans",
+      "name": "尾部风扇与喷口",
+      "refs": [
+        "rear_deployed",
+        "rear_detail",
+        "x_tail"
+      ],
+      "observations": [
+        "上排四个小圆形金属色后向喷口。",
+        "下排四个较大的分隔涵道/风扇舱，具有中央锥形轮毂和可见叶片区域。",
+        "两排在黑色复合材料框中分层布置；左右外侧还有独立的朝下喷口。"
+      ],
+      "confidence": "高：可见外部数量和分层；中等：叶片形态",
+      "modeling": "四个上排短喷管与四个下排深风扇舱分开；用有厚度的框、隔板、内凹面与中央锥体表现深度。",
+      "limits": "不从图片推定实际总喷口数、叶片数、风道路径、推力和电机参数。"
+    },
+    {
+      "id": "underbody",
+      "name": "底盘与侧裙",
+      "refs": [
+        "prototype_side",
+        "prototype_inverted",
+        "rear_deployed"
+      ],
+      "observations": [
+        "实际飞行原型有较厚深色下沿、可见的周边外露喷流硬件。",
+        "官网平地展示车下沿更整洁；吸力系统的完整密封裙结构未清楚暴露。"
+      ],
+      "confidence": "中：轮廓可见，底部局部被阴影/喷流遮挡",
+      "modeling": "深色底盘板、薄边裙、局部喷口舱做独立层；未观察部分用中性简化面。",
+      "limits": "不要把整圈密封裙、管路或喷口布局画成已证实结构。"
+    },
+    {
+      "id": "suspension",
+      "name": "悬架可见结构",
+      "refs": [
+        "suspension"
+      ],
+      "observations": [
+        "官方局部图展示横向/近横向的弹簧减震器、摇臂、连杆及轮胎。"
+      ],
+      "confidence": "高：图中形态；低：Rocket实车同构关系",
+      "modeling": "仅用于可选机械细节或剖面提示，外观视图不必露出整套内部结构。",
+      "limits": "不据此确定悬架运动学、弹簧刚度或轮端安装尺寸。"
+    }
+  ],
+  "proportion_guide": {
+    "basis": "仅官网近侧视图的图像平面手工读点，非正交标定；不能作为原型真实尺寸。",
+    "reference": "side",
+    "image_size": [
+      3440,
+      1024
+    ],
+    "pixel_points_approx": {
+      "nose_tip": [
+        1335,
+        638
+      ],
+      "tail_tip": [
+        3287,
+        447
+      ],
+      "roof_top": [
+        2301,
+        333
+      ],
+      "ground_line_y": 848,
+      "front_wheel_center": [
+        1703,
+        700
+      ],
+      "rear_wheel_center": [
+        2966,
+        685
+      ]
+    },
+    "point_uncertainty_px": 30,
+    "projected_ratios": {
+      "wheelbase_over_length": [
+        0.62,
+        0.67
+      ],
+      "roof_height_over_length": [
+        0.24,
+        0.29
+      ],
+      "wheel_diameter_over_length": [
+        0.145,
+        0.175
+      ],
+      "front_axle_from_nose_over_length": [
+        0.17,
+        0.21
+      ],
+      "rear_axle_from_nose_over_length": [
+        0.81,
+        0.86
+      ]
+    },
+    "interpretation": "用作车壳美术比例检查；前后轮透视大小不同、车头/车尾不同深度，未反解相机。不能替代 measurement.md 的原型画面估计。",
+    "not_available": [
+      "官方长宽高",
+      "轴距",
+      "轮径",
+      "质量",
+      "压力容器容量",
+      "风扇或喷口精确直径",
+      "正交CAD三视图"
+    ],
+    "recommended_assumed_dimensions_m": [
+      4.1,
+      1.72,
+      1.2
+    ],
+    "recommendation_basis": "1.20/4.1=.293，与原型09帧修订目测H/L .27–.30相容，接近官网侧视.24–.29。旧1.35m来自含错误底点的较宽高度包络。该尺寸为统一建模假设，不是相机标定或官方尺寸。"
+  },
+  "browser_notes": [
+    "只使用既有 TaskSpace 13 的 p1；p2 未操作。",
+    "预订页只读；尝试选择 Rocket 单选项时元素不可见，未改变选择或提交。",
+    "已回到官网 Roadster 页面；未 finish。"
+  ],
+  "copyright": "原图版权归 Tesla；此处为建模研究引用，未确认开放商用或再发布授权。"
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="物理与证据">物理与证据</h1>
+<p><strong>贴坡靠压差，离地靠喷气，回正靠力矩。</strong>
+Tesla官网已确认风机、底部密封和冷气推进，但没有公布完整质量、推力曲线或控制遥测。<a
+href="https://www.tesla.com/roadster">官方说明</a></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>问题</th>
+<th>最小模型</th>
+<th>必须保留的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>起飞</td>
+<td><code>az = Tz/m − g</code></td>
+<td>Tz是世界竖直分量；车身翻转会改变喷口方向</td>
+</tr>
+<tr>
+<td>耗气</td>
+<td><code>ṁ = T/(Isp·g0)</code></td>
+<td>比冲、储气质量是模型假设；随排气更新总质量</td>
+</tr>
+<tr>
+<td>吸附</td>
+<td><code>D = Δp·Aeff</code></td>
+<td>仅近表面、密封有效时成立；离面后迅速衰减</td>
+</tr>
+<tr>
+<td>斜坡抓地</td>
+<td><code>N = D + mg cosθ</code>；<code>mg|sinθ| ≤ μN</code></td>
+<td>静态局部平面；曲坡运动另需法向加速度</td>
+</tr>
+<tr>
+<td>回正</td>
+<td><code>τ = r × F</code>；<code>Iω̇ + ω×(Iω) = τ</code></td>
+<td>机体系方程；单轴可简化为Iα=τ；回正后仍需制动</td>
+</tr>
+<tr>
+<td>落地</td>
+<td><code>N平均 ≈ mg − Tz平均 + mv²/(2s)</code></td>
+<td>一维制动近似；喷口竖直力、接触点速度、悬架行程共同决定结果</td>
+</tr>
+</tbody>
+</table>
+<p>唯一保留的直觉算例：<strong>假设2吨、有效面积4
+m²，水平倒挂临界压差约4.9 kPa</strong>；μ=1、135°斜面则约6.94
+kPa。两者均不是Tesla实测。</p>
+<p>风扇的压差吸附与排气反作用共享能量，不能各算一份完整功率。<a
+href="fan-patents.html">风扇模型与专利</a></p>
+<p>任意姿态都能回正，需要足够时间、空间、控制力矩和剩余气量。<strong>任意低高度保证成功不可能</strong>。训练页面展示有限样本与失败案例。静止起转并刹停的理想下界为
+<code>t ≥ 2√(Iθ/τmax)</code>；向下速度v还需至少
+<code>v²/(2a向上净)</code>
+的制动余量。这些是必要约束，不是充分保证。</p>
+<p>来源：<a
+href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/rocket-thrust/">NASA推力</a>
+· <a
+href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/specific-impulse/">比冲</a>
+· <a
+href="https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure">OpenStax压力</a>
+· <a
+href="https://openstax.org/books/university-physics-volume-1/pages/6-2-friction">摩擦</a>
+· <a
+href="https://openstax.org/books/university-physics-volume-1/pages/10-key-equations">转动</a>
+· <a
+href="https://mcmurtry.com/upside-down-driving/">McMurtry倒置先例</a>。</p>
+</body>
+</html>

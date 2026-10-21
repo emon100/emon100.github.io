@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="电动车低重心的工程假设">电动车低重心的工程假设</h1>
+<p>建议本项目把<strong>整车重心离地 0.50
+m</strong>设为低重心基准，并检验 <strong>0.45–0.55
+m</strong>。这个范围是围绕已有量级选取的敏感性假设，不是电动车总体统计区间，更不是
+Tesla Rocket
+原型的测量结果。载荷、驾驶员、气罐及燃料消耗均会改变重心。</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>一手依据</th>
+<th>能支持的结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://mdpi-res.com/d_attachment/applsci/applsci-14-09328/article_deploy/applsci-14-09328.pdf#page=22">Synák、Nedeliaková，2024，原文
+PDF</a></td>
+<td>论文标识为 BMW i3s 的纯电车，表13测得空载重心高 <strong>0.52
+m</strong>，带驾驶员 <strong>0.53 m</strong>。表12前后轴荷分别为
+<strong>47.74:52.26</strong>、<strong>47.88:52.12</strong>；重心距前轴约1.34
+m、距后轴约1.23 m。这是单车、指定载荷的实测，不代表全部纯电车。</td>
+</tr>
+<tr>
+<td><a
+href="https://www.mdpi.com/2032-6653/15/6/266">Previati、Mastinu、Gobbi，2024，整车质量与惯量测量研究</a></td>
+<td>米兰理工的台架数据将重心高度与三轴转动惯量分别研究。纯电车型相对同车顶高度的燃油车重心较低；不能把“低重心”直接替换成较小的三轴惯量。摘要及研究结论可核验，个体原始数据因保密未公开。</td>
+</tr>
+<tr>
+<td><a
+href="https://www.volkswagen-newsroom.com/en/press-releases/long-range-and-rapid-charging-the-battery-system-is-at-the-heart-of-the-volkswagen-id3-id4-and-id4-gtx-7130/download">Volkswagen，2021，ID.3/ID.4
+电池系统资料</a></td>
+<td>电池布置于两轴之间、车身低处；资料给出约320–500 kg、约14
+cm厚的电池包，以及接近50:50的前后配重。这解释低重心的结构原因，但该资料没有给出整车CG高度。</td>
+</tr>
+</tbody>
+</table>
+<p>纵向可先假设前后轴荷50:50，即重心在轴距中点，再用45:55至55:45检验敏感性。轴距为L时，这对应中点前后约0.05L的变化。此范围由项目选择，不是上述论文测得的总体范围。</p>
+<p>横向先取中线
+y=0，是左右近似对称的建模假设，不是已找到的实测结果。可另测 y=±0.05 m
+的扰动。驾驶员和气罐可能破坏对称；例：75 kg驾驶员位于中线旁0.35
+m，在最终总质量2,000 kg时仅该偏载贡献约13
+mm横向偏移，这是质量加权计算示例。</p>
+<p>车顶高度H、车宽W、轮距T和重心高h是不同量。H=1.20 m不意味着h=0.60
+m；静态侧翻的简单力臂是T/2与h，不能用车宽替代轮距。重心由质量一阶矩决定，惯量由离重心距离的平方积分决定。底置电池降低h，但电池在纵横方向铺得宽，仍可能增加相应惯量。绕纵轴的惯量为
+<code>Ixx=∫[(y−yc)²+(z−zc)²]dm</code>。</p>
+<p>应用时应移动真实质量分布或惯性参考点，并重新核对整车CG、三轴惯量和喷口力臂；只移动可视车壳没有物理意义。低CG主要改变地面载荷转移与接触力矩；均匀重力对空中整车CG的净力矩为零，不会自动帮助车辆翻正。</p>
+<p>核查于2026-10-17。上述量级用于通用电动车对照；本轮没有获得Tesla喷气原型的实测CG或惯量。</p>
+</body>
+</html>

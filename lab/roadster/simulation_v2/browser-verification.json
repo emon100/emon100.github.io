@@ -1,0 +1,452 @@
+{
+  "revision": "energy-coupled-r6",
+  "status": "validated_final",
+  "validationMeaning": "Native/WASM numerical parity; individual task success or failure is recorded separately.",
+  "engine": "MuJoCo 3.15.0 native Python vs official WebAssembly",
+  "timestamp": "2026-10-16T22:38:31.557Z",
+  "runtimeWallSeconds": 1.3003045000000002,
+  "finalPolicyTested": true,
+  "finalPolicyGeneration": 74,
+  "sourceHashes": {
+    "core.py": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+    "config.json": "72e813f2e69ff915e3d4a31c817b9c6497374b9d1d5fdaa2202d348cee51ff2e",
+    "controller.mjs": "c4dc09b58d263afc9d79c8472596a0d7ecaedbd7c07ff704fd58576331c3c63a",
+    "browser-runtime.mjs": "552142cab13027b360f66022257e454bb0441afd2f6ebb8a1d995135ce16723e",
+    "policies.json": "ca1ff81f974321f1920ecc2e2beb4313b3c485a452fa739469a2c382e904a2b6"
+  },
+  "checks": [
+    {
+      "name": "free_fall",
+      "deltas": {
+        "pos": 0,
+        "quat": 2.0161978072733422e-19,
+        "vel": 1.978845094446168e-34,
+        "omega": 2.7867413043769012e-18,
+        "wheelRates": 3.552713678800501e-15
+      }
+    },
+    {
+      "name": "single_jet",
+      "deltas": {
+        "pos": 1.1102230246251565e-16,
+        "quat": 3.608224830031759e-16,
+        "vel": 4.440892098500626e-16,
+        "omega": 1.7763568394002505e-15,
+        "wheelRates": 7.993605777301127e-15
+      }
+    },
+    {
+      "name": "fan_airborne",
+      "deltas": {
+        "pos": 1.734723475976807e-18,
+        "quat": 8.326672684688674e-17,
+        "vel": 2.7755575615628914e-17,
+        "omega": 1.3988717697238893e-18,
+        "wheelRates": 1.0477729794899915e-15
+      }
+    },
+    {
+      "name": "fan_near_floor",
+      "deltas": {
+        "pos": 8.043036908210582e-19,
+        "quat": 9.620772268481754e-19,
+        "vel": 2.8445738061051717e-16,
+        "omega": 2.2378336504239737e-16,
+        "wheelRates": 3.469446951953614e-16
+      }
+    },
+    {
+      "name": "low_gas_disabled_jets",
+      "deltas": {
+        "pos": 6.950902084859661e-22,
+        "quat": 1.1102230246251565e-16,
+        "vel": 3.102589041563896e-20,
+        "omega": 1.3877787807814457e-16,
+        "wheelRates": 1.1571350973758887e-15
+      }
+    },
+    {
+      "name": "rolling",
+      "deltas": {
+        "pos": 1.1102230246251565e-16,
+        "quat": 1.7454503541603948e-19,
+        "vel": 3.915657542701703e-15,
+        "omega": 2.0400995197941052e-16,
+        "wheelRates": 3.552713678800501e-15
+      }
+    },
+    {
+      "name": "settle_preserves_fan_force",
+      "deltas": {
+        "combinedExtraForce": 0
+      },
+      "downforceN": 3704.5813091004597
+    },
+    {
+      "name": "no_horizontal_feedback",
+      "deltas": {
+        "throttle": 0
+      }
+    },
+    {
+      "name": "height_shortfall_gate",
+      "kind": "criterion_test_with_synthetic_completion_flags_not_a_flight",
+      "status": "height_shortfall",
+      "deltas": {},
+      "peakHeight": 0.505,
+      "minimumApexCG": 5
+    },
+    {
+      "name": "stationary_kickflip/untuned",
+      "status": "hard_contact",
+      "deltas": {
+        "pos": 1.4432899320127035e-15,
+        "quat": 5.551115123125783e-16,
+        "vel": 3.434072667769964e-15,
+        "omega": 2.682872860245504e-16,
+        "wheelRates": 1.6553605616489852e-16,
+        "jetForceWorld": 1.4094628242311558e-18,
+        "jetHorizontalImpulse": 1.3358203432289883e-12,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": {
+        "t": 0.1,
+        "heightCG": 0.5665464569409999,
+        "clearance": 0.06654645694099992,
+        "verticalVelocity": 1.5935351121832395,
+        "wheelCount": 0,
+        "bodyContact": false,
+        "requestedRollTorque": 875.8324778260837,
+        "allocatedRollTorque": 875.832477826083,
+        "actualRollTorque": 477.907283789089,
+        "requestedForceWorld": [
+          0,
+          0,
+          61382.67105904463
+        ],
+        "actualJetForceWorld": [
+          1.524454603487387e-15,
+          -3.2119196807753045,
+          61460.93568357129
+        ]
+      },
+      "coastSteps": 81,
+      "peakHeight": 8.793864055724148,
+      "minimumApexCG": 5,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "stationary_kickflip/handcrafted",
+      "status": "success",
+      "deltas": {
+        "pos": 3.3306690738754696e-16,
+        "quat": 3.3306690738754696e-16,
+        "vel": 1.0053375244623593e-15,
+        "omega": 1.7469610717148906e-15,
+        "wheelRates": 7.771561172376096e-16,
+        "jetForceWorld": 5.329070518200688e-15,
+        "jetHorizontalImpulse": 1.6768808563938364e-12,
+        "fanHorizontalImpulse": 2.2737367544323206e-13
+      },
+      "grip": {
+        "fanDownforce": 4082.455347375905,
+        "normalGain": 4123.542407207449,
+        "jetVertical": 9.237055564881302e-14
+      },
+      "launch": {
+        "t": 0.1,
+        "heightCG": 0.5710387157102613,
+        "clearance": 0.07103871571026132,
+        "verticalVelocity": 1.7180041873524492,
+        "wheelCount": 0,
+        "bodyContact": false,
+        "requestedRollTorque": 2189.116161036029,
+        "allocatedRollTorque": 1419.5686856394823,
+        "actualRollTorque": 774.0390429862928,
+        "requestedForceWorld": [
+          0,
+          0,
+          101970.24730380214
+        ],
+        "actualJetForceWorld": [
+          -2.853178690529912e-15,
+          -5.604801348038396,
+          66176.16787242833
+        ]
+      },
+      "coastSteps": 59,
+      "peakHeight": 7.517279421344665,
+      "minimumApexCG": 5,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "stationary_kickflip/final",
+      "status": "success",
+      "deltas": {
+        "pos": 2.7200464103316335e-15,
+        "quat": 8.881784197001252e-16,
+        "vel": 3.1273085712251753e-16,
+        "omega": 6.528038297864041e-16,
+        "wheelRates": 5.551115123125783e-17,
+        "jetForceWorld": 8.881784196999864e-16,
+        "jetHorizontalImpulse": 3.623767952376511e-13,
+        "fanHorizontalImpulse": 3.979039320256561e-13
+      },
+      "grip": {
+        "fanDownforce": 2138.477346832717,
+        "normalGain": 2160.0067839451876,
+        "jetVertical": 7.815970093361102e-14
+      },
+      "launch": {
+        "t": 0.1,
+        "heightCG": 0.5710387159232686,
+        "clearance": 0.0710387159232686,
+        "verticalVelocity": 1.7180042039133685,
+        "wheelCount": 0,
+        "bodyContact": false,
+        "requestedRollTorque": 340.082620600329,
+        "allocatedRollTorque": 302.59467520960607,
+        "actualRollTorque": 164.97677732484226,
+        "requestedForceWorld": [
+          0,
+          0,
+          76827.03471144638
+        ],
+        "actualJetForceWorld": [
+          -6.459230777476922e-16,
+          -1.216547050083807,
+          67387.28910941894
+        ]
+      },
+      "coastSteps": 73,
+      "peakHeight": 6.385373693204699,
+      "minimumApexCG": 5,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "moving_kickflip/untuned",
+      "status": "hard_contact",
+      "deltas": {
+        "pos": 6.716849298982197e-15,
+        "quat": 3.8638254921952164e-17,
+        "vel": 4.770764786741434e-16,
+        "omega": 9.680559887935218e-16,
+        "wheelRates": 3.552713678800501e-15,
+        "jetForceWorld": 6.943552585117127e-18,
+        "jetHorizontalImpulse": 8.952838470577262e-12,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": {
+        "t": 0.1,
+        "heightCG": 0.5665464551110088,
+        "clearance": 0.06654645511100876,
+        "verticalVelocity": 1.5935350122298357,
+        "wheelCount": 0,
+        "bodyContact": false,
+        "requestedRollTorque": 875.8324562506122,
+        "allocatedRollTorque": 875.8324562506132,
+        "actualRollTorque": 477.90718017553627,
+        "requestedForceWorld": [
+          0,
+          0,
+          61382.67004451004
+        ],
+        "actualJetForceWorld": [
+          0.9018334665264267,
+          -3.2119184947960653,
+          61460.91842184511
+        ]
+      },
+      "coastSteps": 81,
+      "peakHeight": 8.793830088265317,
+      "minimumApexCG": 5,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "moving_kickflip/handcrafted",
+      "status": "hard_contact",
+      "deltas": {
+        "pos": 3.552713678800501e-15,
+        "quat": 7.771561172376096e-16,
+        "vel": 1.5181290245418388e-14,
+        "omega": 1.7593615786765201e-15,
+        "wheelRates": 8.881784197001252e-15,
+        "jetForceWorld": 5.3273357947247746e-15,
+        "jetHorizontalImpulse": 3.154809746774845e-12,
+        "fanHorizontalImpulse": 1.4210854715202004e-14
+      },
+      "grip": null,
+      "launch": {
+        "t": 0.1,
+        "heightCG": 0.5710375320305956,
+        "clearance": 0.0710375320305956,
+        "verticalVelocity": 1.7179594463621484,
+        "wheelCount": 0,
+        "bodyContact": false,
+        "requestedRollTorque": 2189.1162699739525,
+        "allocatedRollTorque": 1419.5634065406812,
+        "actualRollTorque": 774.0361868484097,
+        "requestedForceWorld": [
+          0,
+          0,
+          101970.69773663879
+        ],
+        "actualJetForceWorld": [
+          0.9734893497832435,
+          -5.60469451574521,
+          66175.15444655671
+        ]
+      },
+      "coastSteps": 59,
+      "peakHeight": 7.517209744333078,
+      "minimumApexCG": 5,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "moving_kickflip/final",
+      "status": "success",
+      "deltas": {
+        "pos": 7.105427357601002e-15,
+        "quat": 1.9759584593548318e-17,
+        "vel": 5.329070518200751e-15,
+        "omega": 1.1242085751757847e-15,
+        "wheelRates": 2.1316282072803006e-14,
+        "jetForceWorld": 1.7763568394002252e-15,
+        "jetHorizontalImpulse": 9.592326932761353e-13,
+        "fanHorizontalImpulse": 2.2737367544323206e-13
+      },
+      "grip": {
+        "fanDownforce": 2138.4775436874856,
+        "normalGain": 2160.0071189796618,
+        "jetVertical": 3.730349362764357e-14
+      },
+      "launch": {
+        "t": 0.1,
+        "heightCG": 0.5710377270842684,
+        "clearance": 0.07103772708426837,
+        "verticalVelocity": 1.717966643583941,
+        "wheelCount": 0,
+        "bodyContact": false,
+        "requestedRollTorque": 340.08263332979084,
+        "allocatedRollTorque": 302.59381490417945,
+        "actualRollTorque": 164.9763063064911,
+        "requestedForceWorld": [
+          0,
+          0,
+          76827.28594636836
+        ],
+        "actualJetForceWorld": [
+          1.0003683758089523,
+          -1.2165279118328978,
+          67386.42294178918
+        ]
+      },
+      "coastSteps": 73,
+      "peakHeight": 6.3853343314060975,
+      "minimumApexCG": 5,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "moving_recovery/untuned",
+      "status": "hard_contact",
+      "deltas": {
+        "pos": 4.6629367034256575e-15,
+        "quat": 3.9968028886505635e-15,
+        "vel": 2.1287138718406595e-13,
+        "omega": 1.7516890715718603e-13,
+        "wheelRates": 2.9700686354772188e-12,
+        "jetForceWorld": 3.001332515850663e-11,
+        "jetHorizontalImpulse": 3.183231456205249e-12,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": null,
+      "coastSteps": 0,
+      "peakHeight": 9,
+      "minimumApexCG": 0,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "moving_recovery/handcrafted",
+      "status": "body_contact",
+      "deltas": {
+        "pos": 2.842170943040401e-14,
+        "quat": 9.880984919163893e-15,
+        "vel": 1.1278131206715614e-13,
+        "omega": 7.283063041541027e-14,
+        "wheelRates": 1.5657197760532426e-12,
+        "jetForceWorld": 2.5011104298755527e-11,
+        "jetHorizontalImpulse": 1.5916157281026244e-12,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": null,
+      "coastSteps": 0,
+      "peakHeight": 9,
+      "minimumApexCG": 0,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "moving_recovery/final",
+      "status": "body_contact",
+      "deltas": {
+        "pos": 1.509903313490213e-14,
+        "quat": 5.218048215738236e-15,
+        "vel": 6.578071420904053e-14,
+        "omega": 2.7977620220553945e-14,
+        "wheelRates": 6.838973831690964e-14,
+        "jetForceWorld": 2.000888343900442e-11,
+        "jetHorizontalImpulse": 2.5366375666635577e-12,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": null,
+      "coastSteps": 0,
+      "peakHeight": 9,
+      "minimumApexCG": 0,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "free_attitude/final",
+      "status": "hard_contact",
+      "deltas": {
+        "pos": 2.020605904817785e-14,
+        "quat": 9.076073226310655e-15,
+        "vel": 6.405986852087153e-14,
+        "omega": 5.290212712338871e-14,
+        "wheelRates": 4.707345624410664e-13,
+        "jetForceWorld": 3.637978807091713e-10,
+        "jetHorizontalImpulse": 2.1600499167107046e-12,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": null,
+      "coastSteps": 0,
+      "peakHeight": 8,
+      "minimumApexCG": 0,
+      "minimumHeightMet": true
+    },
+    {
+      "name": "too_low/final",
+      "status": "body_contact",
+      "deltas": {
+        "pos": 3.3306690738754696e-16,
+        "quat": 2.220446049250313e-16,
+        "vel": 4.440892098500626e-16,
+        "omega": 7.105427357601002e-15,
+        "wheelRates": 5.773159728050814e-15,
+        "jetForceWorld": 4.547473508864641e-12,
+        "jetHorizontalImpulse": 3.979039320256561e-13,
+        "fanHorizontalImpulse": 0
+      },
+      "grip": null,
+      "launch": null,
+      "coastSteps": 0,
+      "peakHeight": 0.7200000000000001,
+      "minimumApexCG": 0,
+      "minimumHeightMet": true
+    }
+  ]
+}

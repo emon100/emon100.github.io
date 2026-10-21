@@ -1,0 +1,81 @@
+{
+  "source": "用户提供的Meshy去墙模型",
+  "sourceSha256": "9c49fcd7f229099fb3012557adce609302ff6e3b33108ec9854ee0faee822b16",
+  "kimi": {
+    "model": "kimi-code/k3",
+    "thinking": "max",
+    "status": "completed",
+    "imageReads": [
+      {
+        "file": "Roadster-08-End-Desktop.jpg",
+        "sourceSha256": "342e862f7239479b0d1994d1f842e50d05e926b8fd4c9158c02cc9f011bcc71b",
+        "actualImagePayloadSha256": "350bd0e1423c6387f1f0fe20e5fb298f1b65ded18b6e6f488e1e1d494b01f75e"
+      },
+      {
+        "file": "Roadster-03-Carousel-Slide-1-Desktop.jpg",
+        "sourceSha256": "ba430d2177eba7f84f8d70d16af95ae758e2323d8c4d22df08ce58c0844aa647",
+        "actualImagePayloadSha256": "ec35cbb87477fa4e7de62905e279e7a1ba2e29da1a7e8918c2ea9347b7f0db5d"
+      },
+      {
+        "file": "clean-preview.png",
+        "sourceSha256": "9772841cc43f0196436ed74738de52393f87cbc6fee9f708762fc3809b9414a2",
+        "actualImagePayloadSha256": "9772841cc43f0196436ed74738de52393f87cbc6fee9f708762fc3809b9414a2"
+      },
+      {
+        "file": "Roadster-03-Carousel-Slide-2-Desktop.jpg",
+        "sourceSha256": "b2ab468329d48c98f959a5c8f02cdefe5a6ae784020e767e621b4cc2f2d12603",
+        "actualImagePayloadSha256": "ed691f4f64822591b9b4b4ed3f258185f9f4da889596f05e7f448f65c09a1b35"
+      },
+      {
+        "file": "Roadster-02-Pilot-Desktop.jpg",
+        "sourceSha256": "133de595f3cb7742f5bb2c24d8e9c41aef06dcd1a63507e2daaddc1c4a71c16a",
+        "actualImagePayloadSha256": "2ec0dd7fc288aebf53b44c59ba69e59f158aee5b8a66c8c771527676cbc9bd68"
+      }
+    ],
+    "rulesSha256": "6789dca14a1aea620e708e4a40e751de372790c9ef8e446635a4cc22c01deb53"
+  },
+  "codex": {
+    "rulesSha256": "8e340e1d69467e91945ebdc343ca70430de412ccab07beed7f33780882fed2b8",
+    "changes": [
+      "连续挡风顶棚与单一窄侧窗，移除粗窗柱",
+      "缩小轮胎与轮圈分区，避免误染轮拱",
+      "收窄灯块和下护板，保留银色车壳",
+      "按像素烘焙四张PBR贴图并嵌入GLB"
+    ]
+  },
+  "output": {
+    "file": "roadster-meshy-colored.glb",
+    "sha256": "e9ed120df616742c35f77976f276e1e68890cd65e2d79f5248966c389dc3ad80",
+    "triangles": 40564,
+    "vertices": 121692,
+    "images": [
+      {
+        "name": "base",
+        "width": 2048,
+        "height": 2392
+      },
+      {
+        "name": "metal",
+        "width": 2048,
+        "height": 2392
+      },
+      {
+        "name": "emissive",
+        "width": 2048,
+        "height": 2392
+      },
+      {
+        "name": "coat",
+        "width": 2048,
+        "height": 2392
+      }
+    ],
+    "geometry": "原40564面及坐标、绕向、变换逐项相同；顶点仅为UV分离而重复"
+  },
+  "simulation": "三个训练视窗使用同一模型；MuJoCo碰撞体、喷口位置、控制器和原训练结果不变",
+  "limits": [
+    "材质边界按官网图片近似，非原厂UV",
+    "原网格细小凹凸仍存在",
+    "烟雾是方向与推力强弱示意，不是CFD"
+  ]
+}

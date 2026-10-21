@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<h1 id="roadster-研究与训练">Roadster 研究与训练</h1>
+<p>当前入口是<a href="unified-airborne.html">统一腾空控制</a>。回正和完整
+kickflip
+使用同一个反馈器与同一组训练参数。页面可以比较训练前后、选择各代检查点，并改变初态重新做物理试验。</p>
+<p>网站入口包括<a href="../index.html">原片与物理</a>、<a
+href="../lab.html">飞行实验</a>、<a
+href="../driving.html">驾驶沙盘</a>、<a href="../jev.html">JEV
+实验</a>、<a
+href="../materials.html">素材库</a>与本资料页。车模与失败视频合并到素材库；旧入口保留跳转。</p>
+<ul>
+<li><a
+href="driving-assistance.html">姿态喷气辅助的对照验证与供气</a>。</li>
+<li><a href="driving-dynamics.html">驾驶模型、假设与验证</a>。</li>
+<li><a href="physics.html">物理事实与边界</a>、<a
+href="measurement.html">尺度估计</a>、<a
+href="fan-patents.html">风扇专利</a>、<a
+href="ev-cg-sources.html">低重心依据</a>。</li>
+<li><a href="media.html">官方素材</a>、<a
+href="transcript-index.html">发布会原文入口</a>、<a
+href="content-plan.html">90 秒视频计划</a>。</li>
+<li><a href="latest-asset-audit.html">最新车模使用清单</a>、<a
+href="materials-and-control.html">材质与排气</a>、<a
+href="cross-review.html">四路线评审</a>。</li>
+<li><a href="../materials.html#failures">失败视频</a>、<a
+href="training-lessons.html">训练问题</a>、<a href="../r6-lab.html">原 100
+代训练</a>、<a href="recovery-repair.html">v3 回正修复</a>、<a
+href="../legacy-training.html">早期试验</a>。</li>
+</ul>
+<p>最新 Meshy
+着色模型已用于首页十镜头、四个物理试件、统一飞行实验和素材库。原片与照片仍是原始证据。首页镜头路径是教学重建；飞行实验的位置和姿态来自
+MuJoCo 积分，两者有明确区分。</p>
+<p>动力与接触参数仍为假设。仿真成功不能证明 Tesla
+实车采用同样布局或能完成同样动作。历史报告保留原数字和原参数，不把新的控制结构当成旧训练的后续代数。</p>
+</body>
+</html>

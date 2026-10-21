@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="训练中的两个问题">训练中的两个问题</h1>
+<p>2026-10-17。用户先指出“应在升空时配合滚转”，随后指出“原地翻转飞得不够高”。这两条反馈分别暴露了启动门槛与实际高度的问题。r6完成100代，选第74代；两项kickflip固定评估各28/40，倒置回正0/40，自由姿态0/80。</p>
+<h2 id="r4人为门槛限制了搜索">r4：人为门槛限制了搜索</h2>
+<p>r4先保持正立，CG较平地基准升高到门槛才滚转。搜索范围0.7–4.0
+m，最终1.863 m。标准动作在1.14 s、CG约2.402 m、仍以2.499
+m/s上升时起转，并未等到最高点。“必须先升高”是人工状态机限制，不是训练发现的物理规律。</p>
+<h2 id="r5目标高度不等于实际高度">r5：目标高度不等于实际高度</h2>
+<p>r5把门槛缩至2–15
+cm，另要求无轮接触、无车身接触、正在上升。只改旧策略的启动门槛，与完整重训分开比较：</p>
+<table>
+<thead>
+<tr>
+<th>标准动作</th>
+<th style="text-align: right;">首次滚转命令</th>
+<th style="text-align: right;">实际峰值CG</th>
+<th style="text-align: right;">首次返回接触</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r4最终</td>
+<td style="text-align: right;">1.14 s</td>
+<td style="text-align: right;">约3.65 m</td>
+<td style="text-align: right;">2.78 s</td>
+</tr>
+<tr>
+<td>旧参数，仅改门槛为5 cm</td>
+<td style="text-align: right;">0.20 s</td>
+<td style="text-align: right;">约1.32 m</td>
+<td style="text-align: right;">1.22 s</td>
+</tr>
+<tr>
+<td>r5重训</td>
+<td style="text-align: right;">0.20 s</td>
+<td style="text-align: right;">约1.60 m</td>
+<td style="text-align: right;">1.38–1.40 s</td>
+</tr>
+</tbody>
+</table>
+<p>三者均车身触地。时序按20 ms观察；0.20 s控制命令对应0.22
+s输出帧。提前启动成功改变了动作时机，却没有解决落地。</p>
+<p>r5期望峰值CG原本约5.78 m，但竖直速度目标被4.30
+m/s封顶，实际最高点只转到约98°。原地动作在207°时，车顶最低点距地约16
+mm，仍在下落；随后触地。抬高期望值不会自动增加已受限制的实际升力。</p>
+<p>左右竖直差动可以产生零合力的纯滚转力矩；维持侧立姿态下的世界竖直升力则是另一件事。此布局的侧口还要抵消偏航，r5在约90°时向上喷力仅5.14
+kN、重量约19.18 kN。静态扫掠包络最高约0.922
+m，也不能代替转完一周、制动与着陆所需的动态高度。</p>
+<h2 id="r6人工结构与参数搜索分开">r6：人工结构与参数搜索分开</h2>
+<p>人工写入的结构为：厘米级门槛后小角慢转、建立上升动量；参照能量与时间预算满足后，以零净推力目标做力偶滚转；随后进行滚转制动前馈与下降反馈。CEM只调整15个参数，不负责发明这些阶段、公式或制动前馈。</p>
+<p>慢转角速范围0.1–0.6 rad/s，峰值CG目标6–8 m、上升速度目标8–12
+m/s。早期加入0.15 s几何净空预估与5
+cm余量；这仍是有限预测，不是安全保证。喷口硬件、单向分配与降压供气保留；零净推力目标也不等于实际瞬态合力始终精确为零。</p>
+<p><code>z + max(vz,0)²/(2g)</code>是忽略后续喷力的参照能量高度，滞空时间同样只是规划估计。计分与验收使用积分记录中的实际峰值；两项kickflip新增实际峰值CG≥5
+m要求，并继续检查几何接触和着陆。5
+m是本轮工程任务目标，不是普适安全最低高度，也不要求全程保持5
+m以上。达到高度仍可能硬着陆。</p>
+<p>本轮未调参策略本来就能飞高，却常常硬着陆。相同40例中，人工基线两项kickflip各12例成功，CEM最终各28例。标准最终峰值约6.385
+m，首次滚转请求0.10 s、实际力矩0.12 s、角速超过0.05 rad/s为0.26 s。</p>
+<h2 id="保留失败作为素材">保留失败作为素材</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>案例</th>
+<th>无文字版</th>
+<th>说明版</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r4晚启动</td>
+<td><a href="../media/failures/late-roll-start/clean.mp4">MP4</a></td>
+<td><a
+href="../media/failures/late-roll-start/annotated.mp4">MP4</a></td>
+<td><a
+href="../media/failures/late-roll-start/provenance.json">版本与轨迹</a></td>
+</tr>
+<tr>
+<td>r5提前转但太低</td>
+<td><a
+href="../media/failures/early-roll-low-height/clean.mp4">MP4</a></td>
+<td><a
+href="../media/failures/early-roll-low-height/annotated.mp4">MP4</a></td>
+<td><a
+href="../media/failures/early-roll-low-height/provenance.json">版本与轨迹</a></td>
+</tr>
+<tr>
+<td>r6高飞硬着陆</td>
+<td><a
+href="../media/failures/high-jump-hard-landing/clean.mp4">MP4</a></td>
+<td><a
+href="../media/failures/high-jump-hard-landing/annotated.mp4">MP4</a></td>
+<td><a
+href="../media/failures/high-jump-hard-landing/provenance.json">版本与轨迹</a></td>
+</tr>
+</tbody>
+</table>
+<p>六段均1080×1920、30
+fps、无音轨。两版共用底图与时序，保留失败后约0.4秒；未插值姿态、未重模拟。r6片段是归档短程中的未调参开发样例，峰值8.79
+m而硬着陆，不能称为100代最终结果。<a
+href="../failure-library.html">网页素材库</a> · <a
+href="../media/failures/index.json">本地素材索引</a> · <a
+href="../media/failures/roadster-failure-materials.zip">完整ZIP</a></p>
+<p>另保留35次人工开发试验，<a
+href="../simulation_v2/development-evidence-index.json">开发证据索引</a>逐项列出来源。临时控制器未逐试验保存源码的部分，只保留原记录，不承诺精确重跑。</p>
+<p>六段视频依据为各版本归档源码、参数与真实轨迹；每例含文件/源码哈希、失败时刻和30fps采样映射，可复核复制关系。所有画面均为本项目仿真，不是Tesla实拍或实车性能证据。</p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="四种图稿">四种图稿</h1>
+<p>“A+B”表示A起稿、B审阅修改。十个镜头均可切换进度、保存SVG并选择版本；选择保存在当前浏览器，可导出。</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>路线</th>
+<th>保留与修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codex</td>
+<td>独立初稿保留。弯坡轮缘、Semi对位与旧车列布局存在已知简化，供比较</td>
+</tr>
+<tr>
+<td>Kimi k3 / max</td>
+<td>真实CLI独立生成。主站补齐宿主主题容器；原始动作分段和回正轴问题保留</td>
+</tr>
+<tr>
+<td>Codex + Kimi</td>
+<td>Kimi修正弯坡轮心半径、Semi上方位置、车轮细节与力偶表达。集成时由Codex延长落地区，避免末帧与卡车相交</td>
+</tr>
+<tr>
+<td>Kimi + Codex</td>
+<td>Codex修正接触、滚转、五车并排与镜头衔接；按官网和原片把车体细化为137个实体，修正遮挡排序，保留Kimi图面风格</td>
+</tr>
+</tbody>
+</table>
+<p>四栏是解释图的风格比较，不是实测轨迹。209个网格的独立米制母模型见<a
+href="../model.html">精修外形</a>。尺寸一致的场景、风机和真实控制结果见<a
+href="../training.html">飞行实验</a>。</p>
+<p>Kimi Code CLI
+2.2.0，实际请求<code>kimi-code/k3</code>，<code>thinking.effort=max</code>。两条会话隔离。独立模块完成后停止后处理、由Codex检查（退出143）；交叉评审自然结束。没有把其他模型结果标成Kimi。</p>
+<p>原始文件与哈希：<a href="kimi/kimi.freeze.json">Kimi</a> / <a
+href="kimi/codex-kimi.freeze.json">Codex→Kimi</a>。原件留档，集成文件另计哈希。<a
+href="kimi/config-evidence.json">调用配置</a></p>
+</body>
+</html>

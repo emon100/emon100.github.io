@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>姿态喷气辅助验证</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<h1 id="姿态喷气辅助怎样验证">姿态喷气辅助怎样验证</h1>
+<p>2026-10-21 · <a href="../driving.html">返回驾驶沙盘</a> · <a
+href="driving-assistance.json">下载逐帧记录</a></p>
+<p>仅看车辆回正或喷流画面不足以证明控制器有效。这里同时检查控制链路，并在没有
+Three.js、车模或动画的环境中运行同一套驾驶物理代码。</p>
+<h2
+id="最关键的对照保留控制器禁用喷嘴">最关键的对照：保留控制器，禁用喷嘴</h2>
+<p>三组实验使用相同初态：离地 10 m、滚转倾角 150°、向前 5 m/s、下降 1
+m/s，角速度为 [0.7, 0.2, 0.1] rad/s。满气 400 kg，总质量 2,140
+kg。下抓力关闭，运行期间不补气，不触碰地图边界。</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>条件</th>
+<th>实际喷力峰值</th>
+<th>接触闭合速度</th>
+<th>结果</th>
+<th>运行期间复位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>姿态辅助开启</td>
+<td>58.98 kN</td>
+<td>0.285 m/s</td>
+<td>平稳落地</td>
+<td>0 次</td>
+</tr>
+<tr>
+<td>姿态辅助关闭</td>
+<td>0 N</td>
+<td>13.885 m/s</td>
+<td>车身撞地</td>
+<td>0 次</td>
+</tr>
+<tr>
+<td>辅助仍开启，但物理引擎禁用全部喷嘴</td>
+<td>0 N</td>
+<td>13.885 m/s</td>
+<td>车身撞地</td>
+<td>0 次</td>
+</tr>
+</tbody>
+</table>
+<p>后两组每一帧的位置、姿态、速度和角速度完全一致，最大数值差为
+0。第三组控制器仍在计算和发出命令，但没有实际喷力就无法回正。这比观察辅助开关或喷流动画更能说明因果关系。</p>
+<p>这些是指定初态下可重复的仿真证据，不是 Tesla
+实车认证，也不能保证所有高度、速度和姿态都能救回。</p>
+<h2 id="控制器能改变什么">控制器能改变什么</h2>
+<p><a href="../driving-core.mjs">驾驶控制代码</a>每 20 ms
+读取实际姿态、角速度、速度和剩余气体，计算 12
+个喷嘴的阀门命令。它把命令送到<a
+href="../simulation_v4/browser-runtime.mjs">MuJoCo
+运行时</a>，不把目标姿态写回车身。</p>
+<p>运行时计算阀门滞后、剩余压力、实际喷力和耗气，把喷力施加到固定喷嘴位置，由
+MuJoCo 每 2 ms
+积分一次。力臂产生力矩。风机、轮轴和空气阻力也以力或力矩进入求解器。<a
+href="../lab-world.mjs">渲染层</a>只读取物理姿态并插值显示。</p>
+<p>代码中的目标四元数是反馈控制器追踪的目标，不是车身姿态。质量更新时的
+<code>mj_getState</code> / <code>mj_setState</code>
+原样保存并恢复积分状态，不会把车摆正。测试还检查相邻帧的姿态变化是否与角速度相容。</p>
+<p>确实会主动复位的入口是初始化、R /
+回中、触碰地图边界，以及实验装入初态。驾驶帧包含
+<code>resetSerial</code> 与
+<code>resetReason</code>；边界复原会显示“已到边界 ·
+返回起点”。触边回中不能算作辅助救车成功。物理计算异常现在只报错，等待手动回中，不再自动重置姿态。</p>
+<h2 id="自己复现">自己复现</h2>
+<p>在站点源仓库根目录执行
+<code>node test-driving-assistance.mjs</code>。它直接运行发布用的驾驶核心和
+MuJoCo
+WASM，不加载渲染器。初态、控制参数、每帧姿态、角速度、实际喷力、阀门开度、气量、压力和复位计数都保存在上方可下载的
+JSON 中。</p>
+<p>也可以在远离地图边界的空中按 M 关闭辅助：阀门以 25 ms
+的时间常数逐渐关闭，HUD
+总喷力会衰减，车辆继续按惯性和重力运动。再次开启时，控制器从当下真实状态重新计算。手动操作只能作直观检查；严格比较应使用上面的相同初态对照。</p>
+<h2
+id="气量为何看着还有却越来越无力">气量为何看着还有，却越来越无力</h2>
+<p>驾驶采用未调压供气假设，压力比例为
+<code>(剩余气量 / 初始气量)^1.2</code>。剩一半气体时，压力及单喷嘴可用推力上限只剩约
+43.5%。因此“还有气”不等于“仍有足够推力”。</p>
+<table>
+<thead>
+<tr>
+<th>同一 kickflip 测试</th>
+<th>原配置</th>
+<th>当前配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始气体</td>
+<td>260 kg</td>
+<td>400 kg</td>
+</tr>
+<tr>
+<td>满气总质量</td>
+<td>2,000 kg</td>
+<td>2,140 kg</td>
+</tr>
+<tr>
+<td>动作后剩余气体</td>
+<td>103.7 kg</td>
+<td>237.1 kg</td>
+</tr>
+<tr>
+<td>最低压力比例</td>
+<td>33.2%</td>
+<td>53.4%</td>
+</tr>
+<tr>
+<td>落地结果</td>
+<td>成功</td>
+<td>成功</td>
+</tr>
+</tbody>
+</table>
+<p>30 m 高、倾斜 150° 的测试中，原配置最低压力约
+21.8%，因接触力峰值超标判为硬着陆；400 kg 配置最低压力约
+47.6%，落地通过。这不是“耗尽才失败”的情况。</p>
+<p>扩大气量保留了原来的喷嘴峰值、总流量上限、比冲和压力衰减模型，同时增加气体质量。没有空中补气或无限喷力。520
+kg
+的另一个试配在全油门坡道测试中仍出现硬着陆，因此更多气体不保证所有控制过程更好。</p>
+<p>400 kg
+气罐与喷嘴参数是沙盘假设。额外气体质量已计入，气罐容积和结构重量尚未按真实硬件重新设计。正式飞行实验与
+JEV 的历史配置和结果保留原样。</p>
+</body>
+</html>

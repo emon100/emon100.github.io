@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "scope": "Shipped worker executes with official MuJoCo WASM in Node. UI error and export handlers execute from shipped source against minimal DOM/Worker stubs; not a browser visual test.",
+  "timestamp": "2026-10-17T00:06:03.271Z",
+  "checks": [
+    {
+      "id": "settings_missing",
+      "status": "rejected",
+      "message": "控制说明与实际算法版本不一致，请刷新页面。"
+    },
+    {
+      "id": "settings_altered_value",
+      "status": "rejected",
+      "message": "控制说明与实际算法版本不一致，请刷新页面。"
+    },
+    {
+      "id": "settings_missing_key",
+      "status": "rejected",
+      "message": "控制说明与实际算法版本不一致，请刷新页面。"
+    },
+    {
+      "id": "settings_extra_key",
+      "status": "rejected",
+      "message": "控制说明与实际算法版本不一致，请刷新页面。"
+    },
+    {
+      "id": "settings_wrong_type",
+      "status": "rejected",
+      "message": "控制说明与实际算法版本不一致，请刷新页面。"
+    },
+    {
+      "id": "matched_settings_v3_starts",
+      "status": "passed",
+      "lastTime": 0.06
+    },
+    {
+      "id": "r6_does_not_require_v3_settings",
+      "status": "passed"
+    },
+    {
+      "id": "before_start_error_recorded",
+      "status": "passed"
+    },
+    {
+      "id": "midrun_error_preserved_in_download",
+      "status": "passed",
+      "frames": 4,
+      "lastTime": 0.06,
+      "error": "Invalid impulse"
+    },
+    {
+      "id": "old_run_error_ignored",
+      "status": "passed"
+    },
+    {
+      "id": "completion_metadata",
+      "status": "passed"
+    }
+  ],
+  "sourceHashes": {
+    "lab-worker.mjs": "c6f30eda98a441464c1cf0fd19ebb298339543d011b686f5f4143f3dc701dcb6",
+    "lab.mjs": "132c215df706a3f7fd89ff26b0076468c76e52aa3b5706ddb7e996fe8db8ffea"
+  }
+}

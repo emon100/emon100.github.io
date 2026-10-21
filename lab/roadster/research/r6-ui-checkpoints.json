@@ -1,0 +1,26 @@
+{
+  "revision": "energy-coupled-r6",
+  "snapshotGeneration": 50,
+  "checkpointLoading": "passed",
+  "wrongCampaignRejected": true,
+  "peaks": "第5代检查点 · 选于第1代 · 计分峰值 6.53 m第50代检查点 · 选于第48代 · 计分峰值 6.59 m",
+  "peakTime": 1.38,
+  "results": [
+    {
+      "task": "moving_kickflip",
+      "status": "最终：平稳落地",
+      "hidden": false
+    },
+    {
+      "task": "moving_recovery",
+      "status": "最终：车身触地",
+      "hidden": true
+    },
+    {
+      "task": "stationary_kickflip",
+      "status": "最终：平稳落地",
+      "hidden": false
+    }
+  ],
+  "overflow": false
+}

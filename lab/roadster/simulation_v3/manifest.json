@@ -1,0 +1,177 @@
+{
+  "revision": "quaternion-recovery-v3-r1",
+  "kind": "engineered_repair",
+  "status": "complete",
+  "parameters": [
+    5.5,
+    0.05362964520564749,
+    10.529456275047036,
+    1.6043482505064568,
+    3.3213668828904064,
+    6.875633825343467,
+    12.240409405842126,
+    3.0,
+    3.079598615616265,
+    9.618341804637755,
+    3.66025472576611,
+    2.9212432349213566,
+    1.724789480798923,
+    0.09480383834597753,
+    0.15535156455516422
+  ],
+  "settings": {
+    "rate_cap": 4.0,
+    "capacity_fraction": 0.55,
+    "acceleration_cap": 15.0,
+    "brake_cap": 12.0,
+    "early_rate": 0.15,
+    "landing_reserve": 0.25,
+    "boost_speed_cap": 10.0,
+    "support_ratio": 1.4,
+    "descent_speed": 4.5,
+    "maximum_descent_speed": 8.0,
+    "descent_acceleration_cap": 4.0,
+    "vertical_gain": 5.5,
+    "touchdown_speed": 0.12,
+    "ground_margin": 0.2,
+    "heading_slew": 0.6,
+    "gyro_feedforward": true,
+    "prediction_overlay": true
+  },
+  "sourceSha256": "aaccd29a34c10f18c866e079000f4432f65e60e45b3f2e8f6f3f8dcaf619ac13",
+  "controllerSha256": "5aa754c6891df657ddab8a583b5c9005adeedd531a982c83a3fcef9a695363a2",
+  "allocatorSha256": "b27fe8aa3c3c466cabbf5372f56acdf2c9fba1343b43eab07df43574936659a2",
+  "canonicalizerSha256": "b74da3e388df7cc6872268bd74af29c6a7be74a1358bcb6c97df5eb249895581",
+  "predictorSha256": "81d09e6b66e0f50ae177fd58030855ffe358b5adbaa404c3a2158df973dc1db7",
+  "configSha256": "94bee63efcc80ad76b8b9bc8743aed501cbf56b9c71afcb41e919987a0296385",
+  "engine": {
+    "name": "MuJoCo",
+    "version": "3.15.0",
+    "dt": 0.002,
+    "controlDt": 0.02
+  },
+  "task": "moving_recovery",
+  "notice": "Artificial engineered controller repair. Legacy 15 parameters unchanged from r6 selected generation 74; new explicit settings selected from logged manual development cases. Not generation 101 and not a new CEM training result.",
+  "evaluation": {
+    "status": "complete",
+    "oldFixedRecoveryCount": 40,
+    "oldFixedSO3Count": 80,
+    "newRecoverySeed": 30417017,
+    "newRecoveryCount": 40,
+    "newSO3Seed": 30418017,
+    "newSO3Count": 80,
+    "selection": "Candidate frozen before new seeds were sampled or evaluated. Old fixed evaluation sets have been inspected across versions; they are not novel holdout.",
+    "resultsPath": "results.json",
+    "casesPath": "evaluation-cases.json",
+    "evaluationCount": 360,
+    "groups": {
+      "old_fixed_recovery": {
+        "baselineSummary": {
+          "trials": 40,
+          "successCount": 0,
+          "successRate": 0.0,
+          "statusCounts": {
+            "hard_contact": 26,
+            "body_contact": 14
+          }
+        },
+        "candidateSummary": {
+          "trials": 40,
+          "successCount": 39,
+          "successRate": 0.975,
+          "statusCounts": {
+            "success": 39,
+            "hard_contact": 1
+          }
+        }
+      },
+      "old_fixed_SO3": {
+        "baselineSummary": {
+          "trials": 80,
+          "successCount": 0,
+          "successRate": 0.0,
+          "statusCounts": {
+            "hard_contact": 36,
+            "body_contact": 44
+          }
+        },
+        "candidateSummary": {
+          "trials": 80,
+          "successCount": 31,
+          "successRate": 0.3875,
+          "statusCounts": {
+            "hard_contact": 43,
+            "success": 31,
+            "body_contact": 6
+          }
+        }
+      },
+      "new_seed_recovery": {
+        "baselineSummary": {
+          "trials": 40,
+          "successCount": 0,
+          "successRate": 0.0,
+          "statusCounts": {
+            "hard_contact": 27,
+            "body_contact": 13
+          }
+        },
+        "candidateSummary": {
+          "trials": 40,
+          "successCount": 40,
+          "successRate": 1.0,
+          "statusCounts": {
+            "success": 40
+          }
+        }
+      },
+      "new_seed_SO3": {
+        "baselineSummary": {
+          "trials": 80,
+          "successCount": 1,
+          "successRate": 0.0125,
+          "statusCounts": {
+            "body_contact": 40,
+            "hard_contact": 39,
+            "success": 1
+          }
+        },
+        "candidateSummary": {
+          "trials": 80,
+          "successCount": 29,
+          "successRate": 0.3625,
+          "statusCounts": {
+            "hard_contact": 45,
+            "body_contact": 6,
+            "success": 29
+          }
+        }
+      }
+    },
+    "ledgerPath": "evaluation-ledger.jsonl",
+    "ledgerSha256": "f8c0fd034b57df69ee1c0dd1799eeaeb83e8d5723e2a8a9cdb29c92af8d7d1f0",
+    "newExecutionCount": 360,
+    "reusedBaselineCount": 120,
+    "failureMetricWindowNotice": "Reused r6 failures stop at first failing window (record=False); new formal recordings retain0.4s after failure. Success/status are comparable. Failed fuelUsed/duration/final states/peak contact metrics must not be interpreted as matched-window savings. New-seed baseline/candidate and eight development comparisons both use record=True."
+  },
+  "resultsSha256": "ef9515b453c137a2e4f17b2f890f14e9167e279275313896d8e011b64a5bbeca",
+  "comparisonPath": "comparisons.json",
+  "comparisonsSha256": "41b6a50c5a876a1f5fc9cb06a89879ef6e3bc2dd63faffe8c8198987a5a93c72",
+  "failureAuditPath": "failure-audit.json",
+  "audit": {
+    "status": "complete",
+    "nativeChecksPath": "native-checks.json",
+    "nativeChecksPassed": 7,
+    "frozenPredictorCalibrationPath": "frozen-predictor-calibration.json",
+    "stepAuditPath": "step-audit.json",
+    "stepComparisonPath": "step-comparison.json",
+    "browserFixturesPath": "browser-fixtures.json",
+    "notice": "2ms evaluation is complete.1ms full suite and selected0.5ms follow-up are separate audits; see their final status.",
+    "path": "audit.json",
+    "sha256": "a7772d42313a01703c000419ac9366ff7875104f8ae4974dc457ae60944290f3",
+    "dt1msEvaluations": 240,
+    "dtHalfmsEvaluations": 4,
+    "successClassificationChanges": 4
+  },
+  "developmentIndexPath": "development-index.json"
+}

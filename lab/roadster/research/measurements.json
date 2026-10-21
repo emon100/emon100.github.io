@@ -1,0 +1,715 @@
+{
+  "checked_at": "2026-10-17 Asia/Singapore",
+  "summary": "五辆展示车并排，跳跃横跨各车宽度与间隔。可估前脸平面尺度与车体比例；绝对车长/高度/完整跳距仍受未标定深度和相机参数限制。",
+  "coordinate_system": {
+    "image": "1920×1080，原点左上，x向右、y向下，单位像素",
+    "world": "示意地面X沿车列左右，Y沿展示车纵轴向车尾，Z向上；展示车朝-Y，Roadster朝-X",
+    "jump_vs_parked_heading_degrees_approx": 90,
+    "angle_status": "布局判读，不是精确相机外参解算"
+  },
+  "official_references": [
+    {
+      "id": "model3",
+      "url": "https://www.tesla.com/ownersmanual/model3/en_th/GUID-56562137-FC31-4110-A13C-9A9FC6657BF0.html",
+      "width_m": 1.85,
+      "height_m": [
+        1.431,
+        1.44
+      ],
+      "length_m": [
+        4.72,
+        4.724
+      ],
+      "wheelbase_m": 2.875,
+      "status": "Tesla官方尺寸；现场具体配置未辨认"
+    },
+    {
+      "id": "modely",
+      "url": "https://www.tesla.com/ownersmanual/modely/en_pr/GUID-1E76B638-7B12-4D9A-8767-94B7F1E92A0E.html",
+      "width_m": 1.92,
+      "height_m": 1.621,
+      "length_m": [
+        4.79,
+        4.794
+      ],
+      "wheelbase_m": 2.89,
+      "status": "Tesla官方尺寸；现场配置/年款未完全辨认"
+    },
+    {
+      "id": "cybertruck",
+      "url": "https://www.tesla.com/ownersmanual/cybertruck/en_us/GUID-12A976DD-EB60-431B-AFF1-5A37E95006DB.html",
+      "width_m": 2.0316,
+      "height_m": [
+        1.7388,
+        1.9438
+      ],
+      "length_m": 5.6829,
+      "wheelbase_m": 3.635,
+      "status": "Tesla官方尺寸；高度随悬架档位改变，未用作现场垂直尺"
+    }
+  ],
+  "frames": [
+    {
+      "id": "front",
+      "file": "/Users/emon100/IdeaProjects/rodstar/media/frames-hd/08-kickflip-x-aligned.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/kickflip-1080p.mp4",
+      "time_seconds": 14.222542,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "固定正面机位，车列尺度、并排布局与顶点附近位置",
+      "points": {
+        "model3_front_left": [
+          345,
+          978
+        ],
+        "model3_front_right": [
+          509,
+          984
+        ],
+        "modely_front_left": [
+          594,
+          972
+        ],
+        "modely_front_right": [
+          763,
+          977
+        ],
+        "cybertruck_front_left": [
+          1180,
+          951
+        ],
+        "cybertruck_front_right": [
+          1357,
+          956
+        ],
+        "lineup_outer_left": [
+          345,
+          1000
+        ],
+        "lineup_outer_right": [
+          1583,
+          1005
+        ],
+        "roadster_bbox_top_left": [
+          789,
+          372
+        ],
+        "roadster_bbox_bottom_right": [
+          1099,
+          458
+        ],
+        "roadster_silhouette_center": [
+          944,
+          415
+        ],
+        "ground_y_reference": [
+          944,
+          995
+        ]
+      },
+      "point_error_px": 8,
+      "notes": "点为人工读图近似，前脸外轮廓排除后视镜与延伸至远端的车侧。车辆最宽截面不一定正好在所取前脸平面。"
+    },
+    {
+      "id": "side",
+      "file": "/Users/emon100/IdeaProjects/rodstar/media/frames-hd/09-kickflip-x-aligned.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/kickflip-1080p.mp4",
+      "time_seconds": 34.492792,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "近侧视回放，车体比例",
+      "points": {
+        "body_nose": [
+          802,
+          691
+        ],
+        "body_tail": [
+          1352,
+          653
+        ],
+        "roof_top": [
+          1090,
+          565
+        ],
+        "tire_bottom": [
+          895,
+          723
+        ],
+        "front_wheel_center": [
+          895,
+          682
+        ],
+        "rear_wheel_center": [
+          1223,
+          666
+        ],
+        "front_wheel_upper": [
+          895,
+          640
+        ],
+        "front_wheel_lower": [
+          895,
+          723
+        ]
+      },
+      "point_error_px": 12,
+      "notes": "2026-10-17复核：旧轮胎底点y743/738偏低，曾把高度包络写成180px；更正可见下缘约y723。沿轮心/支撑线法向的目测高度约150–160px、长度540–550px，H/L约.27–.30。没有相机标定；不把跟拍像素尺用于固定机位。旧值已归档research/archive/pre-detail/measurements.json。"
+    },
+    {
+      "id": "ramp_wide",
+      "file": "/Users/emon100/IdeaProjects/rodstar/media/frames-hd/02-ramp-x-aligned.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/ramp-1080p-silent.mp4",
+      "time_seconds": 8.967292,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "坡道全景，上段贴坡和曲线轮廓",
+      "points": {
+        "top_left": [
+          820,
+          48
+        ],
+        "top_right": [
+          980,
+          25
+        ],
+        "bottom_left": [
+          905,
+          915
+        ],
+        "bottom_right": [
+          1160,
+          915
+        ]
+      },
+      "point_error_px": 12,
+      "notes": "坡顶和坡脚深度不同，宽度变化明显。没有足够同平面已知尺寸，不能用此图给坡道真实高度。"
+    },
+    {
+      "id": "ramp_rear",
+      "file": "/Users/emon100/IdeaProjects/rodstar/media/frames-hd/01-ramp-x-aligned.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/ramp-1080p-silent.mp4",
+      "time_seconds": 0.458792,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "车尾近景，坡道与车辆的横向容纳关系",
+      "points": {
+        "roadster_left_outer_tire": [
+          667,
+          746
+        ],
+        "roadster_right_outer_tire": [
+          1190,
+          747
+        ],
+        "ramp_left_at_ground": [
+          575,
+          744
+        ],
+        "ramp_right_at_ground": [
+          1490,
+          744
+        ]
+      },
+      "point_error_px": 20,
+      "notes": "坡道宽约车辆后轮外缘跨度1.75倍，仅为近似比例。不可把RDSTR道具牌当已知12英寸尺。"
+    },
+    {
+      "id": "quarter_roll",
+      "file": "/private/tmp/measurement-roll-quarter.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/kickflip-1080p.mp4",
+      "time_seconds": 13.972292,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "接近正对车顶的滚转姿态，用于宽长比",
+      "points": {
+        "body_left": [
+          964,
+          449
+        ],
+        "body_right": [
+          1265,
+          447
+        ],
+        "body_top": [
+          1120,
+          386
+        ],
+        "body_bottom": [
+          1120,
+          512
+        ]
+      },
+      "point_error_px": 10,
+      "notes": "临时抽帧可从原视频按秒数重建。车顶未证明完全正对镜头，给宽长比宽范围。"
+    },
+    {
+      "id": "flight_right",
+      "file": "/private/tmp/measurement-side-front.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/kickflip-1080p.mp4",
+      "time_seconds": 13.430083,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "同一固定镜头内完全可见的右端空中位置",
+      "points": {
+        "body_left": [
+          1450,
+          645
+        ],
+        "body_right": [
+          1785,
+          637
+        ],
+        "silhouette_center": [
+          1618,
+          642
+        ]
+      },
+      "point_error_px": 15,
+      "notes": "已经离地，不是起跳接触点。"
+    },
+    {
+      "id": "flight_left",
+      "file": "/private/tmp/measurement-flight-left-full.jpg",
+      "source_video": "/Users/emon100/IdeaProjects/rodstar/media/kickflip-1080p.mp4",
+      "time_seconds": 14.889875,
+      "size": [
+        1920,
+        1080
+      ],
+      "role": "同一固定镜头内完全可见的左端空中位置",
+      "points": {
+        "body_left": [
+          154,
+          515
+        ],
+        "body_right": [
+          512,
+          518
+        ],
+        "silhouette_center": [
+          333,
+          517
+        ]
+      },
+      "point_error_px": 15,
+      "notes": "仍在空中，不是落地点。不能把此段播放时长作为真实飞行时间。"
+    }
+  ],
+  "scale": {
+    "reference_plane": "展示车前脸近似共同平面",
+    "terms_px_per_m": [
+      88.64864864864865,
+      88.02083333333334,
+      87.12344949793265
+    ],
+    "mean_px_per_m": 87.93097715997153,
+    "working_range_px_per_m": [
+      80,
+      98
+    ],
+    "status": "人工轮廓标点和车型宽度得到的条件尺度，不是摄影测量标定",
+    "assumptions": [
+      "现场车体宽度可用官方该车型尺寸代表",
+      "取点接近车体最大宽度且排除后视镜",
+      "前脸近似共面，画面附近镜头畸变和透视变化较小"
+    ],
+    "error_note": "端点误差约±8px、截面选择、配置及不完全共面主导；区间是保守工作范围，非统计置信区间"
+  },
+  "parameters": [
+    {
+      "name": "车列外缘横向宽度",
+      "pixel_value": 1238,
+      "pixel_error": 20,
+      "conditional_range_m": [
+        12.4,
+        15.8
+      ],
+      "status": "前脸平面条件估计",
+      "formula": "(1238±20)/s；s=80…98 px/m"
+    },
+    {
+      "name": "Roadster长高比",
+      "ratio_center": 3.5,
+      "ratio_range": [
+        3.33,
+        3.7
+      ],
+      "status": "2026-10-17修订人工视觉范围；未做相机标定",
+      "formula": "车身法线目测高度150–160px、长度540–550px；H/L约.27–.30。旧550/180停用。"
+    },
+    {
+      "name": "Roadster宽/长",
+      "ratio_center": 0.42,
+      "ratio_range": [
+        0.35,
+        0.55
+      ],
+      "status": "近正对车顶姿态的比例估计；仍有滚转角误差",
+      "formula": "126/301，并留投影误差"
+    },
+    {
+      "name": "Roadster轴距/长",
+      "ratio_center": 0.596,
+      "ratio_range": [
+        0.55,
+        0.65
+      ],
+      "status": "侧视比例估计",
+      "formula": "328/550"
+    },
+    {
+      "name": "Roadster绝对车长",
+      "conditional_range_m": [
+        3.0,
+        5.6
+      ],
+      "status": "仅为敏感性包络，不是测得尺寸",
+      "formula": "L≈pL*q/(s*cos(yaw)); pL=310±20px,s=80…98,q=1…1.3,|yaw|≤15°",
+      "unresolved": "q=Zfly/Zrow和yaw未被标定，真实值可落在此包络之外"
+    },
+    {
+      "name": "顶点附近轮廓中心高度",
+      "conditional_range_m": [
+        5.7,
+        9.8
+      ],
+      "status": "仅为同平面/深度敏感性包络，不等于质心测量",
+      "formula": "H≈(995-415)*q/s；像素差580±20,q=1…1.3,s=80…98",
+      "unresolved": "正下方地面点、相机俯仰、飞行平面深度和真实最高帧未完全确定；不能把7m写成独立实测"
+    },
+    {
+      "name": "清晰可见空中段水平位移",
+      "pixel_value": 1525,
+      "pixel_error": 30,
+      "conditional_range_m": [
+        15.3,
+        25.3
+      ],
+      "status": "补查13.3至15.0秒更长的全车可见子段；两端均在空中，不是起落总距",
+      "formula": "(1729-206)≈1525px，乘q/s；q=1…1.3,s=80…98"
+    },
+    {
+      "name": "完整跳跃距离",
+      "value": null,
+      "status": "未测得",
+      "reason": "固定镜头中的真实起跳/落地点受画外、云团和机位切换影响；不可用车列总宽替代完整跳距"
+    },
+    {
+      "name": "坡道宽/车辆后轮外缘跨度",
+      "ratio_center": 1.75,
+      "ratio_range": [
+        1.6,
+        2.0
+      ],
+      "status": "车尾近景比例估计，非坡道实测"
+    },
+    {
+      "name": "坡道实际高度",
+      "value": null,
+      "status": "未测得",
+      "reason": "坡顶/坡脚透视深度不同，缺少同平面实物尺寸或相机标定"
+    },
+    {
+      "name": "车辆质量",
+      "value": null,
+      "what_if_range_kg": [
+        1500,
+        2500
+      ],
+      "what_if_default_kg": 2000,
+      "status": "假设输入，不是视频估计",
+      "reason": "相同轨迹可由同比例的质量和推力产生；没有推力遥测就不能独立求质量"
+    }
+  ],
+  "layout": [
+    {
+      "vehicle": "Model 3",
+      "front_center_pixel": [
+        427,
+        1000
+      ],
+      "conditional_front_center_x_m": -6.18,
+      "front_y_m": 0,
+      "forward_direction": [
+        0,
+        -1,
+        0
+      ],
+      "status": "x坐标依赖前脸共面与尺度s；不是测绘坐标。Y=0是前保险杠参考线，非车体中心。"
+    },
+    {
+      "vehicle": "Model Y",
+      "front_center_pixel": [
+        679,
+        1000
+      ],
+      "conditional_front_center_x_m": -3.31,
+      "front_y_m": 0,
+      "forward_direction": [
+        0,
+        -1,
+        0
+      ],
+      "status": "x坐标依赖前脸共面与尺度s；不是测绘坐标。Y=0是前保险杠参考线，非车体中心。"
+    },
+    {
+      "vehicle": "Semi",
+      "front_center_pixel": [
+        970,
+        1000
+      ],
+      "conditional_front_center_x_m": 0.0,
+      "front_y_m": 0,
+      "forward_direction": [
+        0,
+        -1,
+        0
+      ],
+      "status": "x坐标依赖前脸共面与尺度s；不是测绘坐标。Y=0是前保险杠参考线，非车体中心。"
+    },
+    {
+      "vehicle": "Cybertruck",
+      "front_center_pixel": [
+        1269,
+        1000
+      ],
+      "conditional_front_center_x_m": 3.4,
+      "front_y_m": 0,
+      "forward_direction": [
+        0,
+        -1,
+        0
+      ],
+      "status": "x坐标依赖前脸共面与尺度s；不是测绘坐标。Y=0是前保险杠参考线，非车体中心。"
+    },
+    {
+      "vehicle": "Cybercab",
+      "front_center_pixel": [
+        1502,
+        1000
+      ],
+      "conditional_front_center_x_m": 6.05,
+      "front_y_m": 0,
+      "forward_direction": [
+        0,
+        -1,
+        0
+      ],
+      "status": "x坐标依赖前脸共面与尺度s；不是测绘坐标。Y=0是前保险杠参考线，非车体中心。"
+    }
+  ],
+  "depth_scenarios": [
+    {
+      "depth_ratio_q": 1,
+      "roadster_length_m": 3.53,
+      "silhouette_center_height_m": 6.6,
+      "observed_airborne_horizontal_span_m": 17.34,
+      "status": "深度敏感性情景，q未由画面标定，不是三组实测"
+    },
+    {
+      "depth_ratio_q": 1.15,
+      "roadster_length_m": 4.05,
+      "silhouette_center_height_m": 7.59,
+      "observed_airborne_horizontal_span_m": 19.94,
+      "status": "深度敏感性情景，q未由画面标定，不是三组实测"
+    },
+    {
+      "depth_ratio_q": 1.3,
+      "roadster_length_m": 4.58,
+      "silhouette_center_height_m": 8.57,
+      "observed_airborne_horizontal_span_m": 22.55,
+      "status": "深度敏感性情景，q未由画面标定，不是三组实测"
+    }
+  ],
+  "timebase": {
+    "hd_fps": "24000/1001",
+    "independent_clip_warning": "剪辑、慢动作与多机位回放不能直接作为真实时间尺度",
+    "attempted_full_event_url": "https://www.youtube.com/watch?v=qt5p-_tE8d0&t=656s",
+    "attempted_range_seconds": [
+      656,
+      685
+    ],
+    "result": "公开下载返回403，未绕过；未完成连续正常速段逐帧核验",
+    "true_flight_time_seconds": null,
+    "do_not_compute": [
+      "不能用独立短片播放时长直接算真实速度、加速度、冲量或峰值推力"
+    ]
+  },
+  "physics_notes": [
+    "在相同位置和已知成像深度，透视近似p=fL/Z；不同深度不能共用像素尺。",
+    "有离地并继续向上加速的阶段，净竖直力大于零；若只有重力和喷口，则Tz>mg。",
+    "给定假设质量1500–2500kg，mg约14.7–24.5kN；这是情景换算，不是已测喷口推力。",
+    "空气中的姿态转动需要力矩；图像缺少已标定真实时间和惯量，不能反推出准确扭矩。"
+  ],
+  "limitations": [
+    "未执行相机内外参标定、立体摄影测量或地面单应性精确求解。",
+    "多个镜头并不自动构成多视角三维重建：镜头焦距/位置、同步关系和慢动作倍数未知。",
+    "已给的米制区间依赖显式假设。不能标为95%置信区间或官方规格。",
+    "临时补充帧仅保存在/private/tmp；JSON提供源文件和秒数以便重建。三个主要视角使用项目内已保存高清原帧。"
+  ],
+  "wide_shot_endpoint_check": {
+    "source_video": "/Users/emon100/IdeaProjects/rodstar/media/kickflip-1080p.mp4",
+    "range_seconds": [
+      12,
+      16
+    ],
+    "method": "同一固定宽幅机位按0.1秒附近抽帧检查车辆轮廓、轮胎与画面边界；慢动作不影响此空间可见性判断。",
+    "takeoff_visible": false,
+    "takeoff_reason": "12.9秒只有车头尖端进入右边界；13.0–13.2秒车体仍被右边界裁掉且已上升，无法看到最后轮胎离地。",
+    "first_touchdown_visible": false,
+    "touchdown_reason": "15.0秒整车仍在空中；15.1–15.3秒向左出画；15.4秒起只见左边界喷流云，首次轮胎接地在画外或被遮挡。",
+    "true_com_projection_measured": false,
+    "center_proxy": "以下取可见车身外轮廓中心作质心投影代理；真实质心位置未公开。",
+    "visible_start": {
+      "time_seconds": 13.3,
+      "file": "/private/tmp/landing-check-13.3.jpg",
+      "bbox_px": [
+        1555,
+        650,
+        1904,
+        756
+      ],
+      "center_px": [
+        1729,
+        703
+      ],
+      "state": "整车已在空中，尚未翻转"
+    },
+    "visible_end": {
+      "time_seconds": 15.0,
+      "file": "/private/tmp/landing-check-15.0.jpg",
+      "bbox_px": [
+        15,
+        510,
+        397,
+        635
+      ],
+      "center_px": [
+        206,
+        572
+      ],
+      "state": "整车仍在空中且已跨越车列，未接地"
+    },
+    "visible_horizontal_displacement_px": 1525,
+    "displacement_error_px": 30,
+    "conditional_visible_displacement_range_m": [
+      15.3,
+      25.3
+    ],
+    "formula": "Dvisible=(1525±30)*q/s，q=1…1.3、s=80…98px/m",
+    "interpretation": "该区间仅换算可见空中子段；对应假设下完整起落位移还要更长。25.3m不是完整跳距上界。",
+    "endpoint_frames": [
+      {
+        "time_seconds": 12.9,
+        "file": "/private/tmp/landing-check-12.9.jpg"
+      },
+      {
+        "time_seconds": 13.0,
+        "file": "/private/tmp/landing-check-13.0.jpg"
+      },
+      {
+        "time_seconds": 13.1,
+        "file": "/private/tmp/landing-check-13.1.jpg"
+      },
+      {
+        "time_seconds": 13.2,
+        "file": "/private/tmp/landing-check-13.2.jpg"
+      },
+      {
+        "time_seconds": 13.3,
+        "file": "/private/tmp/landing-check-13.3.jpg"
+      },
+      {
+        "time_seconds": 15.0,
+        "file": "/private/tmp/landing-check-15.0.jpg"
+      },
+      {
+        "time_seconds": 15.1,
+        "file": "/private/tmp/landing-check-15.1.jpg"
+      },
+      {
+        "time_seconds": 15.2,
+        "file": "/private/tmp/landing-check-15.2.jpg"
+      },
+      {
+        "time_seconds": 15.3,
+        "file": "/private/tmp/landing-check-15.3.jpg"
+      },
+      {
+        "time_seconds": 15.4,
+        "file": "/private/tmp/landing-check-15.4.jpg"
+      },
+      {
+        "time_seconds": 15.6,
+        "file": "/private/tmp/landing-check-15.6.jpg"
+      }
+    ]
+  },
+  "geometric_task_proxy": {
+    "name": "完整车辆跨过并排车列所需的场地等价起落位移",
+    "formula": "Dproxy=Wrow+Lroadster+margin_before+margin_after",
+    "lineup_width_range_m": [
+      12.4,
+      15.8
+    ],
+    "roadster_length_conditional_range_m": [
+      3.0,
+      5.6
+    ],
+    "assumed_clearance_each_end_m": [
+      1,
+      3
+    ],
+    "proxy_range_m": [
+      17.4,
+      27.4
+    ],
+    "default_task_distance_m": 24,
+    "default_decomposition_m": {
+      "lineup": 14.1,
+      "roadster": 4.1,
+      "margin_before": 2.9,
+      "margin_after": 2.9
+    },
+    "status": "构造的几何任务，余量为设计选择，不是官方实际jump distance。",
+    "assumptions": [
+      "车辆全长沿跳跃轴投影近似L",
+      "起跳前整车位于车列之外，接地时整车已越过车列",
+      "横向足够净空，飞行路线笔直；转动不增加纵向外廓超过L"
+    ]
+  },
+  "height_assumption_review": {
+    "date": "2026-10-17",
+    "frame": "media/frames-hd/09-kickflip-x-aligned.jpg",
+    "old_reading_status": "旧180px高度/.29–.37比例混入偏低轮胎端点，已更正。旧JSON归档research/archive/pre-detail/measurements.json。",
+    "recheck": "图中车顶约y565、前轮可见下缘约y723；轮心连线略倾斜。沿车身法线的粗略高度约150–160px，长度约540–550px。",
+    "conditional_visual_ratio_H_over_L": [
+      0.27,
+      0.3
+    ],
+    "status": "人工合理性复核，无相机标定，不是实测车高",
+    "recommended_model_dimensions_m": [
+      4.1,
+      1.72,
+      1.2
+    ],
+    "recommendation_status": "主线程已采用4.1×1.72×1.20m作为统一外形/仿真的明示假设；不是实测尺寸。1.35m仅可作为较大包络敏感性值。",
+    "limitations": [
+      "视角、俯仰、细小滚转及外露硬件影响投影包络。",
+      "官网Thrust展示车与实际Rocket原型不必完全同高。",
+      "此检查不改变质量或其他动力学参数。"
+    ]
+  }
+}

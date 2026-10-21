@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-10-16T20:03:29.121Z",
+  "loader": "Official Three.js GLTFLoader r180 / 0.180.0; parser unchanged, only import URLs adapted to local r180 core",
+  "officialLoaderSource": "https://github.com/mrdoob/three.js/blob/r180/examples/jsm/loaders/GLTFLoader.js",
+  "loaderOfficialSha256": "67ac5551fdafa6e349bd80c8f8e5e39c136d6b2fb1ad647db9abb21dc86f9e4a",
+  "source": {
+    "file": "Meshy_AI_Silver_Wedge_Concept_1016195900_generate.glb",
+    "sha256": "7618981f62b20e4841f03128601e9ed5e430d31913a125875340e245fd1b632c",
+    "loadedMeshes": 1,
+    "vertices": 33205,
+    "triangles": 66446,
+    "bounds": {
+      "min": [
+        -0.9514994621276855,
+        -0.30404195189476013,
+        -0.9510949850082397
+      ],
+      "max": [
+        0.9476348757743835,
+        0.2998100519180298,
+        0.947571873664856
+      ]
+    },
+    "attributes": [
+      "position"
+    ],
+    "authoredMaterials": 0,
+    "authoredImages": 0,
+    "rendererDefaultMaterial": "MeshStandardMaterial",
+    "flatShading": true
+  },
+  "outputs": [
+    {
+      "file": "roadster-meshy-clean.glb",
+      "sha256": "9c49fcd7f229099fb3012557adce609302ff6e3b33108ec9854ee0faee822b16",
+      "loadedMeshes": 1,
+      "vertices": 20264,
+      "triangles": 40564,
+      "bounds": {
+        "min": [
+          -0.7272210121154785,
+          -0.09805475175380707,
+          -0.3254976272583008
+        ],
+        "max": [
+          0.7417927980422974,
+          0.27347531914711,
+          0.32155972719192505
+        ]
+      },
+      "attributes": [
+        "position"
+      ],
+      "authoredMaterials": 0,
+      "authoredImages": 0,
+      "rendererDefaultMaterial": "MeshStandardMaterial",
+      "flatShading": true,
+      "exactSourceVerticesAndFacesRetained": true,
+      "transformUnchanged": true,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0,
+      "edgeTopologyNote": "Edge incidence only; self-intersections and physical/collision suitability are not checked."
+    },
+    {
+      "file": "roadster-meshy-removed-walls.glb",
+      "sha256": "c964a3ad7bcb098e74b7d44c6f6fca57c18ac75f4f726f0c0be7df8ff75ead4e",
+      "loadedMeshes": 1,
+      "vertices": 12941,
+      "triangles": 25882,
+      "bounds": {
+        "min": [
+          -0.9514994621276855,
+          -0.30404195189476013,
+          -0.9510949850082397
+        ],
+        "max": [
+          0.9476348757743835,
+          0.2998100519180298,
+          0.947571873664856
+        ]
+      },
+      "attributes": [
+        "position"
+      ],
+      "authoredMaterials": 0,
+      "authoredImages": 0,
+      "rendererDefaultMaterial": "MeshStandardMaterial",
+      "flatShading": true,
+      "exactSourceVerticesAndFacesRetained": true,
+      "transformUnchanged": true,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "degenerateTriangles": 0,
+      "edgeTopologyNote": "Edge incidence only; self-intersections and physical/collision suitability are not checked."
+    }
+  ],
+  "partition": "Clean car and removed walls exactly partition all original vertices and triangles; nothing modified or lost within retained car.",
+  "warnings": [],
+  "errors": [],
+  "result": "pass"
+}

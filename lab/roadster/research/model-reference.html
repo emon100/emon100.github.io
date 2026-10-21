@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="roadster-车模参考">Roadster 车模参考</h1>
+<p>应以发布会 Rocket 原型为主体。官网普通展示图主要反映
+Thrust；双座、展示轮毂和整洁底部不能直接套入飞行动作。官网与预订页均把
+Rocket 列为单座。此轮未找到长宽高、轴距、轮径、质量或 CAD 文件。<a
+href="https://www.tesla.com/roadster">官网</a>、<a
+href="https://www.tesla.com/roadster/reserve">车型配置</a></p>
+<p>最值得先看的新图是 <a
+href="../media/official-images/Roadster-02-Pilot-Desktop.jpg">近侧视，3440×1024</a>
+和 <a href="../media/official-images/Roadster-08-End-Desktop.jpg">前
+3/4，2800×2074</a>。它们适合修车壳；实际零件状态以 <a
+href="../media/frames-hd/09-kickflip-x-aligned.jpg">飞行侧视帧</a>
+为准。</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>部位</th>
+<th>建模依据</th>
+<th>可靠度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>车壳</td>
+<td>低鼻楔形、上扬腰线、宽后肩；门板较平，轮肩与车顶圆滑。避免整车都是硬折平板</td>
+<td>高</td>
+</tr>
+<tr>
+<td>车头</td>
+<td>宽梯形鼻板、两侧斜切灯槽、黑色下腔与薄前唇</td>
+<td>高</td>
+</tr>
+<tr>
+<td>轮拱</td>
+<td>车壳内的圆弧切口，薄白边；车轮嵌入壳体</td>
+<td>高</td>
+</tr>
+<tr>
+<td>车轮</td>
+<td>官网六向主辐条；原型飞行帧呈浅灰圆盘面、双环与小黑圆心</td>
+<td>外观高；实体轮罩待核</td>
+</tr>
+<tr>
+<td>座舱</td>
+<td>倾斜大风挡连低弧顶，铜金深色玻璃、白色细边，侧窗后端收窄</td>
+<td>高</td>
+</tr>
+<tr>
+<td>车门</td>
+<td>门板连侧窗向上抬起；精确铰链轴未知</td>
+<td>外形高；机构低</td>
+</tr>
+<tr>
+<td>尾翼</td>
+<td>整宽翼板由左右细支座抬起，尾灯在其下；收纳和展开分开处理</td>
+<td>官网形态高</td>
+</tr>
+<tr>
+<td>尾部</td>
+<td>上排四小喷口、下排四大风扇舱，另有左右朝下喷口；不能画成一排排气管</td>
+<td>可见分区高；内部低</td>
+</tr>
+<tr>
+<td>底盘</td>
+<td>原型下沿较厚，周边喷流硬件外露；完整密封裙和管路不可见</td>
+<td>中</td>
+</tr>
+<tr>
+<td>悬架</td>
+<td>新图可见横置弹簧减震器、摇臂与连杆，不足以恢复运动学</td>
+<td>图中形态高；原型对应低</td>
+</tr>
+</tbody>
+</table>
+<p>尾部细节用 <a
+href="../media/official-images/Roadster-06-Gravity-Desktop.jpg">展开组合图</a>、<a
+href="../media/official-images/Roadster-07-Augments-Desktop.jpg">正后特写，3456×2800</a>、<a
+href="../media/x-official/2110904620948267152-1.jpg">Tesla X
+尾部图</a>。<a
+href="../media/official-images/Roadster-03-Carousel-Slide-5-Desktop.jpg">新增悬架图</a>
+适合局部机械细节。</p>
+<p>近侧视的手工图像比例约为轴距/车长 0.62–0.67、车顶高度/车长
+0.24–0.29、轮径/车长
+0.145–0.175。这是透视图中的美术检查范围，不是真实尺寸。原型09帧复核为
+H/L .27–.30，旧180 px高度含错误底点。统一模型采用4.1×1.72×1.20
+m作为明确假设，H/L≈.293；不称官方或标定尺寸。读点和局限见
+<code>model-reference.json</code>。</p>
+<p>共新增 5 张官网原图，均保留原 URL
+与尺寸。未把太空合成图当作原型证据。图片版权归
+Tesla，未确认开放复用授权。完整部件记录与 15 项来源见 <a
+href="../research/model-reference.json">结构化清单</a>。</p>
+<h2 id="本轮车模路线">本轮车模路线</h2>
+<p>Kimi k3 以 max 思考读取四张官网实图，独立生成车壳。Codex
+派生版修正插值波纹、玻璃与车漆交叠、轮圈比例和风挡前缘，原件保留供比较。两份
+GLB 都可下载；前脸、后肩和窗框仍近似，不能视为精确 CAD。</p>
+<p>Meshy
+登录成功，但创建被免费套餐限制拒绝；用户选择暂不升级，未生成。第三方检索排除了名称含“2026”但实际发布于
+2023 年的旧车型，本轮未找到已验证可用的新车体下载。</p>
+<h2 id="用户提供的-meshy-模型">用户提供的 Meshy 模型</h2>
+<p>用户另行手动生成并提供
+GLB。已按完全独立的连通组件删除外围四墙，汽车40,564面原样保留。它适合作为外形与中远景运动底稿；车侧、轮圈和封闭底部仍简化，文件没有UV、贴图或材质。网页新增“Meshy
+去墙白模”供比较，未替换物理碰撞模型。</p>
+</body>
+</html>

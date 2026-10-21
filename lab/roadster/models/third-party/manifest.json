@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-10-17 Asia/Singapore",
+  "target": "Tesla 2026-10-15 reveal: redesigned Roadster Rocket prototype, not 2008 or 2017/2020 body",
+  "decision": "no_verified_compatible_download_selected",
+  "assets": [],
+  "official": {
+    "url": "https://www.tesla.com/roadster",
+    "status": "No public downloadable 3D asset was found in the checked page/resource observations; not a claim that none exists.",
+    "prior_observations": [
+      "../../research/model-reference-site-observation.json",
+      "../../research/model-reference-reserve-observation.json"
+    ],
+    "checked_formats": [
+      "glb",
+      "gltf",
+      "obj",
+      "fbx",
+      "usdz",
+      "blend"
+    ],
+    "followup_search": "site:tesla.com roadster 2026 3d model glb obj download",
+    "followup_public_html_request": "403 Forbidden; stopped without bypass",
+    "limit": "Did not enumerate hidden endpoints, private configurator services or all Tesla assets."
+  },
+  "sketchfab_search": {
+    "url": "https://api.sketchfab.com/v3/search?count=24&q=tesla+roadster&sort_by=-publishedAt&type=models",
+    "count_checked": 24,
+    "sort": "-publishedAt",
+    "newest_published_at": "2026-09-15T18:25:32.856999",
+    "local_response_sha256": "be78391acd2523604768cf734bce3201258922dad936aaec911f52263531f995",
+    "finding": "The saved newest 24 results predate the October 15 reveal. Titles mix original-generation cars, older concepts and unrelated objects. Publication date alone is not proof that a model was never updated."
+  },
+  "candidates": [
+    {
+      "source": "Sketchfab",
+      "uid": "110c3b2a7b144014b66ec328c3190bc5",
+      "title": "2026 Tesla Roadster",
+      "url": "https://sketchfab.com/3d-models/2026-tesla-roadster-110c3b2a7b144014b66ec328c3190bc5",
+      "metadata_url": "https://api.sketchfab.com/v3/models/110c3b2a7b144014b66ec328c3190bc5",
+      "published_at": "2023-11-09T20:25:31.812248",
+      "created_at": "2023-11-09T20:24:42.237156",
+      "downloadable_according_to_metadata": true,
+      "license": {
+        "label": "CC Attribution",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "face_count": 916210,
+      "decision": "rejected_wrong_vehicle_generation",
+      "reason": "Title says 2026, but publication is 2023-11-09. Parent visual inspection identified the older body. It is not evidence of the October 2026 Rocket prototype.",
+      "downloaded": false,
+      "local_response_sha256": "0d37005e992fef978dda0c34e6c428dc9d8fd55c22f430ac36f70e40a431900f"
+    },
+    {
+      "source": "ArtStation creator store",
+      "title": "Tesla Roadster Interior 3D Model & Physics Rig",
+      "url": "https://impylse.artstation.com/store/dVPg/tesla-roadster-interior-3d-model-physics-rig",
+      "decision": "rejected_wrong_vehicle_generation",
+      "reason": "Creator description identifies a 2020 prototype. Detailed interior and available formats do not make it the newly revealed car.",
+      "downloaded": false
+    },
+    {
+      "source": "DigiSim Museum",
+      "title": "Tesla Roadster in 3D — Fan Suction & Cold-Gas Thrusters",
+      "url": "https://digisim.io/museum/electric-roadster",
+      "decision": "reference_only_no_verified_model_download",
+      "observations": [
+        "Public HTML describes an original procedural exterior informed by six manufacturer press images.",
+        "It says dimensions, cabin and hidden packaging remain provisional.",
+        "No direct GLB/GLTF/OBJ/FBX/USDZ/BLEND link was found in the retrieved HTML."
+      ],
+      "followup_module": "https://digisim.io/_museum/ElectricRoadster.astro_astro_type_script_index_0_lang.tehknYeI.js",
+      "module_result": "403 Forbidden; stopped without bypass",
+      "model_reuse_license": "not established",
+      "downloaded": false,
+      "html_sha256": "8b1c9bd9eb6cffb0ecdc3bde623de197c2ce3958b78d22f7f5cf6e20cf432bec"
+    }
+  ],
+  "finite_search_scope": [
+    "Read two existing Sketchfab API records.",
+    "One two-query public web search, official product page and candidate source checks.",
+    "Read one new public third-party HTML page; one script request was denied.",
+    "No Ego operations, credentials, model extraction, paid acquisition, Meshy upgrade or old-vehicle download."
+  ],
+  "fallback": "Use the locally built reference mesh and the official image ledger until a compatible downloadable asset and license are verified."
+}

@@ -1,0 +1,52 @@
+{
+  "revision": "unified-airborne-v4",
+  "controllerSha256": "af6afff428209280458c0e8e3b973c25cbf048009adc11882b26602979fa01e8",
+  "timestamp": "2026-10-17T23:01:04.344Z",
+  "cpu": "Apple M1 Pro",
+  "engine": "MuJoCo 3.15.0 WASM",
+  "scope": "Six fixed demonstration cases in Node. Includes failure cases; excludes WebGL, communication and loading. Not a worst-case execution-time or hard real-time guarantee.",
+  "controller": {
+    "count": 1112,
+    "p95": 1.201791999999955,
+    "max": 8.49087499999996,
+    "over20ms": 0
+  },
+  "controlAndPhysics": {
+    "count": 1112,
+    "p95": 1.7056250000000546,
+    "max": 9.072167000000036,
+    "over20ms": 0
+  },
+  "cases": [
+    {
+      "id": "inverted",
+      "status": "success",
+      "success": true
+    },
+    {
+      "id": "stationary-spin",
+      "status": "success",
+      "success": true
+    },
+    {
+      "id": "moving-spin",
+      "status": "success",
+      "success": true
+    },
+    {
+      "id": "oblique",
+      "status": "success",
+      "success": true
+    },
+    {
+      "id": "oblique-spin",
+      "status": "hard_contact",
+      "success": false
+    },
+    {
+      "id": "low-boundary",
+      "status": "body_contact",
+      "success": false
+    }
+  ]
+}

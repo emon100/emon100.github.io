@@ -1,0 +1,198 @@
+{
+  "kind": "public_download_transport_only",
+  "verifiedAt": "2026-10-17T00:04:12.840550+00:00",
+  "notice": "Only public download transport changed. Every ZIP entry matches the prior public raw file byte for byte. This is not a new physics evaluation or a rerun of the historical reproduction checks. Local simulation_v2 sources, frozen records and existing offline ZIPs are untouched. Extract each ZIP into simulation_v2 to restore its original relative paths.",
+  "historicalReproductionCheck": {
+    "path": "public-reproduction-check.json",
+    "sha256": "01db98d58d0590e271360691d8f5a87c0241246ddb1f28173f970167c214f5ba",
+    "status": "historical_unchanged"
+  },
+  "archives": [
+    {
+      "path": "candidate-records.jsonl.zip",
+      "bytes": 4373652,
+      "sha256": "bf67cde1df21133362e0d1822af495e9a203ea17be6524bfbb3ce07a04cacc20",
+      "rawBytes": 23818645,
+      "files": 1,
+      "entries": [
+        {
+          "path": "candidate-records.jsonl",
+          "bytes": 23818645,
+          "sha256": "546e4bdbb90ecdfd3f9946a7097f1b04133a6283de7d40bd6d377537b75c5922",
+          "localSourceSha256": "546e4bdbb90ecdfd3f9946a7097f1b04133a6283de7d40bd6d377537b75c5922",
+          "matchesLocalSource": true
+        }
+      ]
+    },
+    {
+      "path": "archive-records.zip",
+      "bytes": 7483704,
+      "sha256": "a2900a1c5e287e09b4df67cfe3c9f4e18c37f4e26fde3f6b060b1b8dfd785a4c",
+      "rawBytes": 32107313,
+      "files": 18,
+      "entries": [
+        {
+          "path": "archive/attitude-only-blowdown-r4/config.json",
+          "bytes": 5456,
+          "sha256": "82ed86eab5f63d069a4a5c5513cdd528cba41a96f365235ebca9b88a8a2f54f8",
+          "localSourceSha256": "82ed86eab5f63d069a4a5c5513cdd528cba41a96f365235ebca9b88a8a2f54f8",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/attitude-only-blowdown-r4/core.py",
+          "bytes": 36861,
+          "sha256": "771e97f74a1794f263b5faaf6f5238770f5ef4036007a104cddcddf6c40bb77a",
+          "localSourceSha256": "771e97f74a1794f263b5faaf6f5238770f5ef4036007a104cddcddf6c40bb77a",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/attitude-only-blowdown-r4/results.json",
+          "bytes": 11707282,
+          "sha256": "2217cab0d1aa73070a6560ce0b2a3c82b1eebd2a127e958bf19cb394b4dcfce2",
+          "localSourceSha256": "2217cab0d1aa73070a6560ce0b2a3c82b1eebd2a127e958bf19cb394b4dcfce2",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/contact-grip-r3/baseline-replay.json",
+          "bytes": 97831,
+          "sha256": "7f7357e71239c0953e8810934420777e989e4da8c0b7bbfac21f3a4e6b6fdcd8",
+          "localSourceSha256": "7f7357e71239c0953e8810934420777e989e4da8c0b7bbfac21f3a4e6b6fdcd8",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/contact-grip-r3/manual-baseline-selected.json",
+          "bytes": 2009,
+          "sha256": "ea2dcc7601ee712ac9fb3741aed8b848cb2a007dd9f5aca8ef65b8dac6eff6ee",
+          "localSourceSha256": "ea2dcc7601ee712ac9fb3741aed8b848cb2a007dd9f5aca8ef65b8dac6eff6ee",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/energy-coupled-r6-midpoint/training-record-audit.partial.json",
+          "bytes": 1170,
+          "sha256": "e3b373c031a5afc877c3e2705153ad47dcd6123ac1bd08d70b394b63789e45e8"
+        },
+        {
+          "path": "archive/energy-coupled-r6-short-run/INTERRUPTION.json",
+          "bytes": 617,
+          "sha256": "0552bec1b0e64cee791debefb2df985b94bddf3b6bd44e1076f315b18f13a05f",
+          "localSourceSha256": "0552bec1b0e64cee791debefb2df985b94bddf3b6bd44e1076f315b18f13a05f",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/energy-coupled-r6-short-run/results.json",
+          "bytes": 9018251,
+          "sha256": "3b1483eaea2a2e0b43ef482819beb4ed0c7d436378755582322accb1ade22b63",
+          "localSourceSha256": "3b1483eaea2a2e0b43ef482819beb4ed0c7d436378755582322accb1ade22b63",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/browser-timing.json",
+          "bytes": 1087,
+          "sha256": "ba0cd0d3aa680849803631eaac96839da353d03ae07004c3de67c617e882a29e"
+        },
+        {
+          "path": "archive/launch-coupled-r5/config.json",
+          "bytes": 5929,
+          "sha256": "4aecc5d3a5c0598815978f509c50ad708fb5b1ac57999d7117c80228c962500e",
+          "localSourceSha256": "4aecc5d3a5c0598815978f509c50ad708fb5b1ac57999d7117c80228c962500e",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/control-scope-audit.json",
+          "bytes": 985,
+          "sha256": "b1faeed0e95603623b9955eff798f16f390f300b87bfbe82cd2c989a9547d562",
+          "localSourceSha256": "b1faeed0e95603623b9955eff798f16f390f300b87bfbe82cd2c989a9547d562",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/core.py",
+          "bytes": 36950,
+          "sha256": "4bf4dffbfc612613e445de998d72d3a08d94b1b7edf2acfd7c4a076253fe66fb",
+          "localSourceSha256": "4bf4dffbfc612613e445de998d72d3a08d94b1b7edf2acfd7c4a076253fe66fb",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/fan-grip-probe.json",
+          "bytes": 1195,
+          "sha256": "8487a629cea589a0de5f8c1a66c7c1fced41a81e47236ec490408498611d5284",
+          "localSourceSha256": "8487a629cea589a0de5f8c1a66c7c1fced41a81e47236ec490408498611d5284",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/fresh-final-example.json",
+          "bytes": 236281,
+          "sha256": "4d2ac685c22c9e9c475e116f005620e5fe4e2d84fd73ffefd91b9d6e14131119",
+          "localSourceSha256": "4d2ac685c22c9e9c475e116f005620e5fe4e2d84fd73ffefd91b9d6e14131119",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/launch-comparisons.json",
+          "bytes": 1300511,
+          "sha256": "5167cd06eb80cadd76f784bf8bf3ffccd9b517b83e387d9d975f8781e0c96c70",
+          "localSourceSha256": "5167cd06eb80cadd76f784bf8bf3ffccd9b517b83e387d9d975f8781e0c96c70",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/launch-timing-audit.json",
+          "bytes": 41233,
+          "sha256": "1c57f1540e97cc7914245d942a6541d501c6b9c322201fd30d028f661df3f03d",
+          "localSourceSha256": "1c57f1540e97cc7914245d942a6541d501c6b9c322201fd30d028f661df3f03d",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/policies.json",
+          "bytes": 15738,
+          "sha256": "6e3a0772ca36020fe1b0e96c2f811781183c80dd255e2b16aec46b3b85deb437",
+          "localSourceSha256": "6e3a0772ca36020fe1b0e96c2f811781183c80dd255e2b16aec46b3b85deb437",
+          "matchesLocalSource": true
+        },
+        {
+          "path": "archive/launch-coupled-r5/results.json",
+          "bytes": 9597927,
+          "sha256": "2258731f6b477d50224746f0046a9fddcf2feb49e5be5bd8453efb54dffd236c",
+          "localSourceSha256": "2258731f6b477d50224746f0046a9fddcf2feb49e5be5bd8453efb54dffd236c",
+          "matchesLocalSource": true
+        }
+      ]
+    },
+    {
+      "path": "development-controller-scan.json.zip",
+      "bytes": 2456247,
+      "sha256": "0e75ca2cfa48f6d9470d60be3416b5e3dc450018cac530f7449b0ff34ae23823",
+      "rawBytes": 10282085,
+      "files": 1,
+      "entries": [
+        {
+          "path": "development-controller-scan.json",
+          "bytes": 10282085,
+          "sha256": "0de1c6398a0b3c1a0248df00d47f42a727a5b0de17fb10457061d38843dd8bb1",
+          "localSourceSha256": "0de1c6398a0b3c1a0248df00d47f42a727a5b0de17fb10457061d38843dd8bb1",
+          "matchesLocalSource": true
+        }
+      ]
+    },
+    {
+      "path": "development-braking-feedforward.json.zip",
+      "bytes": 1111445,
+      "sha256": "6fdc8352b87b7ec304509c0de011da98b6fbd8758b8b0aea401ceb7eeb5d8f54",
+      "rawBytes": 4552472,
+      "files": 1,
+      "entries": [
+        {
+          "path": "development-braking-feedforward.json",
+          "bytes": 4552472,
+          "sha256": "10479d04fed405b511cfaf0c297f99d1d1589b52d06673fa0874ee3af1671b4e",
+          "localSourceSha256": "10479d04fed405b511cfaf0c297f99d1d1589b52d06673fa0874ee3af1671b4e",
+          "matchesLocalSource": true
+        }
+      ]
+    }
+  ],
+  "rawBytes": 70760515,
+  "compressedBytes": 15425048,
+  "savedBytes": 55335467,
+  "status": "byte_verified",
+  "localOriginalsVerifiedUnchanged": 19,
+  "documentationByteDelta": 1580,
+  "netWebsiteBytesSaved": 55325195
+}

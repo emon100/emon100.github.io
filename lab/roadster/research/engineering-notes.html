@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.12.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Roadster 研究资料</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notes.css" />
+<link rel="stylesheet" href="../site-nav.css"><link rel="stylesheet" href="../i18n.css"><script type="module" src="../i18n.mjs"></script></head>
+<body><header class="site-header"><div class="site-identity"><a class="site-brand" href="../index.html">R<span>／</span>ROADSTER LAB</a><small class="project-purpose" data-i18n-en="Personal learning &amp; research · Unaffiliated with Tesla">个人学习与研究 · 与 Tesla 无隶属关系</small></div><nav class="site-main-nav" aria-label="主导航"><a href="../index.html">原片与物理</a><a href="../lab.html">飞行实验</a><a href="../driving.html">驾驶沙盘</a><a href="../jev.html">JEV 实验</a><a href="../materials.html">素材库</a><a href="README.html" aria-current="location">研究资料</a></nav></header>
+<nav class="notes-nav"><a href="../index.html#evidence">← 返回 Roadster 选片室</a></nav>
+<h1 id="实现路径">实现路径</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>阶段</th>
+<th>可行机制</th>
+<th>仍缺证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贴坡</td>
+<td>风机、裙边维持压差；轮胎承担沿坡力</td>
+<td>风机曲线、密封面积、实际载荷</td>
+</tr>
+<tr>
+<td>离面</td>
+<td>退出吸附支撑，转入喷气控制</td>
+<td>切换时序、姿态/高度传感器</td>
+</tr>
+<tr>
+<td>滚转</td>
+<td>偏心喷力启动旋转，反向力矩制动</td>
+<td>喷口布局、阀门响应、惯量</td>
+</tr>
+<tr>
+<td>着陆</td>
+<td>同时降低下降速度与角速度</td>
+<td>接地载荷、悬架与控制遥测</td>
+</tr>
+</tbody>
+</table>
+<p>这是可行路径，不是Tesla控制程序复原。质量和完整结构不能仅凭视频唯一反演。</p>
+<p><a
+href="https://apnews.com/article/7d5f19665435b7408025bfb7a2f2f0b7">AP</a>强调展示与交付的距离；<a
+href="https://www.axios.com/2026/10/16/tesla-roadster-elon-musk-flying-car">Axios</a>质疑用途；<a
+href="https://www.caranddriver.com/news/a74145531/tesla-roadster-revealed/">Car
+and Driver</a>指出飞行原型与展示车外观不同；<a
+href="https://electrek.co/2026/10/15/tesla-unveils-cyberfied-new-roadster-kickflip/">Electrek</a>关注工程信息披露不足。</p>
+<p>公式见<a href="physics.html">物理</a>，定量边界以<a
+href="measurement.html">尺度估计</a>和<a
+href="simulation-v2.html">新版接触世界与训练</a>为准。</p>
+</body>
+</html>
