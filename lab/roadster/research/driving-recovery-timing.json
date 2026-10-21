@@ -1,0 +1,27 @@
+{
+  "scope": "Node controller only, two fixed observations, 50 warmup + 200 measured calls each; excludes physics, rendering, Worker scheduling and mobile hardware.",
+  "results": [
+    {
+      "omega": [
+        4,
+        8,
+        4
+      ],
+      "count": 200,
+      "p95Ms": 1.712333000000001,
+      "maxMs": 3.16537500000004,
+      "over20Ms": 0
+    },
+    {
+      "omega": [
+        0.01,
+        0.02,
+        0.03
+      ],
+      "count": 200,
+      "p95Ms": 1.5166250000000332,
+      "maxMs": 4.792915999999991,
+      "over20Ms": 0
+    }
+  ]
+}

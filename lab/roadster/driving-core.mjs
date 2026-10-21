@@ -1,5 +1,6 @@
 import {createSimulation} from './simulation_v4/browser-runtime.mjs?v=20261021-gas-proof';
 import {controllerStep,createMemory,fanModel} from './simulation_v4/controller.mjs';
+import {recoveryStep} from './driving-recovery.mjs';
 import {wheelDrive} from './driving-powertrain.mjs?v=20261021-gas-proof';
 import {MAP,RAMPS,SPAWN,drivingXML,probeRoad} from './driving-terrain.mjs?v=20261022-jump-final';
 export {MAP,RAMPS,SPAWN,rampPose,rampMeshData} from './driving-terrain.mjs?v=20261022-jump-final';
@@ -69,7 +70,7 @@ export async function createDrivingSimulation(cfg,params,{engine,xml,assist=true
    const touching=f.contact.wheelCount>=2&&aligned>.96&&Math.abs(normalSpeed)<1.2,nearFloor=f.R[2][2]>.985&&f.geometryClearance<.008&&f.vel[2]>-.45&&f.vel[2]<.25;
    if(rotationSlow&&(touching||(spinDone&&nearFloor)))action.handedOffAt=f.t;
   }
-  let control=null;if(action&&assist&&action.handedOffAt===null){control=controllerStep(f,action.memory,params,flightCfg);action.memory=control.memory;}
+  let control=null;if(action&&assist&&action.handedOffAt===null){control=(action.kind==='recovery'?recoveryStep:controllerStep)(f,action.memory,params,flightCfg);action.memory=control.memory;}
   physical.advance(control?.nozzleThrottle??zero,0,{turnComplete:action?.memory.turnComplete??false,wasAirborne:action?.airborne??false});f=physical.snapshot();
   const loaded=(f.contact.averageWheelLoads??[]).reduce((sum,n)=>sum+n,0)>f.mass*cfg.physics.gravity*.03;
   airTime=f.contact.wheelCount===0&&!loaded&&suction.supportedPads<3?airTime+dt:0;contactTime=f.contact.wheelCount>0||loaded||f.contact.bodyContact?contactTime+dt:0;

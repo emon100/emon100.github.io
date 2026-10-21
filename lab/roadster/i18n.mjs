@@ -1,5 +1,5 @@
 import pages from './i18n-pages.mjs';
-import research from './i18n-research.mjs';
+import research from './i18n-research.mjs?v=20261022-recovery';
 
 const supported = ['zh-CN', 'en'];
 const storageKey = 'roadster-language';

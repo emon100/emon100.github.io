@@ -11,7 +11,7 @@ const lab='lab/roadster/';
 for(const path of readdirSync(new URL(lab,root),{recursive:true}).filter(path=>path.endsWith('.html')&&!path.startsWith('models/'))){
  const html=read(lab+path);
  assert(html.includes('个人学习与研究 · 与 Tesla 无隶属关系'),`${path}: research notice`);
- for(const [,asset] of html.matchAll(/(?:href|src)="([^"]*i18n\.(?:css|mjs))"/g)){
+ for(const [,asset] of html.matchAll(/(?:href|src)="([^"]*i18n\.(?:css|mjs))(?:\?[^"\s]*)?"/g)){
   const resolved=new URL(asset,new URL(lab+path,root));
   assert(resolved.href.startsWith(new URL(lab,root).href),`${path}: asset escapes Roadster directory`);
   assert(existsSync(resolved),`${path}: localization asset missing`);
