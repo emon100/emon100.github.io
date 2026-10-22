@@ -1,5 +1,5 @@
 import {loadEngine} from './simulation_v4/browser-runtime.mjs?v=20261019';
-import {createDrivingSimulation} from './driving-core.mjs?v=20261022-fan-assist';
+import {createDrivingSimulation} from './driving-core.mjs?v=20261022-render-refill';
 let sim,input={},kick=false,timer,last=0,accumulator=0,failed=false;
 async function tick(){
  const start=performance.now();

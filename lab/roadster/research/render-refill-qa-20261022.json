@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-22",
+  "kind": "controlled rendering comparison, same production meshes/materials and lights",
+  "test": "40–240 m on both Semi sides; 225 interior rear-window samples per view; bright hull fragments counted above RGB max 45; diagnostic zoom keeps distant window inspectable",
+  "views": [
+    {
+      "side": 1,
+      "distance": 180,
+      "dy": 0,
+      "before": 225,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 180,
+      "dy": 0,
+      "before": 210,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 120,
+      "dy": 0,
+      "before": 145,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 120,
+      "dy": -15,
+      "before": 136,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 120,
+      "dy": 0,
+      "before": 90,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 240,
+      "dy": 15,
+      "before": 48,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 240,
+      "dy": -15,
+      "before": 46,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 240,
+      "dy": 15,
+      "before": 44,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 120,
+      "dy": -15,
+      "before": 31,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 180,
+      "dy": 15,
+      "before": 15,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 120,
+      "dy": 15,
+      "before": 11,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 240,
+      "dy": -15,
+      "before": 4,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 80,
+      "dy": 15,
+      "before": 3,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 80,
+      "dy": 15,
+      "before": 2,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 40,
+      "dy": -15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 40,
+      "dy": 0,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 40,
+      "dy": 15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 80,
+      "dy": -15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 80,
+      "dy": 0,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 120,
+      "dy": 15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 180,
+      "dy": -15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": -1,
+      "distance": 240,
+      "dy": 0,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 40,
+      "dy": -15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 40,
+      "dy": 0,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 40,
+      "dy": 15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 80,
+      "dy": -15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 80,
+      "dy": 0,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 180,
+      "dy": -15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 180,
+      "dy": 15,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "side": 1,
+      "distance": 240,
+      "dy": 0,
+      "before": 0,
+      "after": 0
+    }
+  ],
+  "shadowOffsetM": 0.01795814967057099,
+  "physicsChange": {
+    "onlyChange": "Post-action/recenter refill delay 5 s to 3 s; same 2 s fill; flight controller and physical dynamics unchanged",
+    "previousDrivingCoreSha256": "b0cea81835c94b0db7542aa71dbd05728f71a6d80e56bf5ec469ff426045de74",
+    "drivingCoreSha256": "800915923ef73f743604747b625752c3670926fba6f238d5ea58f2f041640336",
+    "comparisonPassed": true
+  },
+  "liveBrowserRefill": {
+    "wait": {
+      "t": 47.82,
+      "remaining": 3,
+      "fuel": 199.80603419780888
+    },
+    "refill": {
+      "t": 50.82,
+      "fuel": 199.80603419780888
+    },
+    "ready": {
+      "t": 52.82,
+      "fuel": 400
+    },
+    "done": true
+  },
+  "movingCamera": {
+    "frames": 90,
+    "fov": 38,
+    "affected": 0
+  },
+  "checks": [
+    "test-experiments.mjs: repeated flips, 3-second refill start, 2-second fill, recenter timing, airborne behavior",
+    "test-night-range.mjs: 2610 full-map and ramp shadow coverage points, contact bias under 3 cm",
+    "test-driving-effects.mjs",
+    "test-driving-cockpit.mjs",
+    "test-driving-worker.mjs",
+    "test-publishing.mjs"
+  ],
+  "sourceHashes": {
+    "driving-core.mjs": "800915923ef73f743604747b625752c3670926fba6f238d5ea58f2f041640336",
+    "driving-recovery.mjs": "04870cdc7909e940d3ba4d7e95476d217557c1b03b8fc94290836b83207df269",
+    "driving-fan.mjs": "a239628f85f858fae44021e308db809da766380bc666f323cec8de285e18dc73",
+    "driving-worker.mjs": "326c3b94e87e5bc12752ceae73fe98f3e88a1ca17c534f34bab27c617511e8b8",
+    "driving.mjs": "999a8e5bebb73443c0a9582df226ddd3079d5831ff67a5d34f5a8222cf5d7d76",
+    "lab-world.mjs": "42d9eb736c6465001d39fcfa74098d0f89f4edf7dfd7166a8f7924710e212d70",
+    "parked-vehicles.mjs": "9c949aa4f61f32535db4ea7dfdd568b98e3fb8da4495e52fe9aa91a478ed568d",
+    "night-range.mjs": "18656a2919b43c7db5a6e82f9b6e6e9e4d32ab6fca41d75dcfa6207e5faabb2a"
+  },
+  "limits": [
+    "Desktop Chromium; narrow viewport emulation only, not a physical mobile device.",
+    "Prior recovery statistics were not rerun: the only core changes are the two post-action/recenter refill delays, verified by exact source comparison."
+  ]
+}

@@ -8,7 +8,9 @@ export function createParkedVehicles(){
  const materials={white:paint,glass,steel,dark};
  const mesh=(parent,g,m,pos=[0,0,0])=>{const o=new T.Mesh(g,m);o.position.set(...pos);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o;};
  const box=(parent,size,pos,mat)=>mesh(parent,new T.BoxGeometry(...size),mat,pos);
- function panel(parent,points,mat){const g=new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(...p))),indices=[];for(let i=1;i<points.length-1;i++)indices.push(0,i,i+1);g.setIndex(indices);g.computeVertexNormals();const m=mat.clone();m.side=T.DoubleSide;return mesh(parent,g,m);}
+ function panel(parent,points,mat){const g=new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(...p))),indices=[];for(let i=1;i<points.length-1;i++)indices.push(0,i,i+1);g.setIndex(indices);g.computeVertexNormals();const m=mat.clone();m.side=T.DoubleSide;
+  // Window overlays sit millimetres above the hull; separate their depth at long range.
+  if(mat===glass){m.polygonOffset=true;m.polygonOffsetFactor=-1;m.polygonOffsetUnits=-2;}return mesh(parent,g,m);}
  function line(parent,points,color=0x252b30){const g=new T.BufferGeometry().setFromPoints(points.map(p=>new T.Vector3(...p)));parent.add(new T.Line(g,new T.LineBasicMaterial({color})));}
  function sign(text,x,y,z,width=5){const canvas=document.createElement('canvas');canvas.width=768;canvas.height=96;const ctx=canvas.getContext('2d');ctx.font='500 32px system-ui';ctx.textAlign='center';ctx.lineWidth=5;ctx.strokeStyle='#06090ddd';ctx.strokeText(text,384,62,750);ctx.fillStyle='#f1f3f5';ctx.fillText(text,384,62,750);const sprite=new T.Sprite(new T.SpriteMaterial({map:new T.CanvasTexture(canvas),transparent:true,depthWrite:false}));sprite.position.set(x,y,z);sprite.scale.set(width,width/8,1);group.add(sprite);return sprite;}
  for(const car of PARKED_VEHICLES){

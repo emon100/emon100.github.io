@@ -1,12 +1,12 @@
 import {t as tr} from './i18n.mjs';
 import {createLoadingProgress} from './loading.mjs';
 import {assetFraction} from './asset-progress.mjs';
-import {createParkedVehicles} from './parked-vehicles.mjs?v=20261022-rocket10';
+import {createParkedVehicles} from './parked-vehicles.mjs?v=20261022-render-refill';
 import * as T from './vendor/three.module.min.js';
 import {bindDrivingControls} from './driving-input.mjs?v=20261021-gas-proof';
 import {createDrivingView} from './driving-camera.mjs?v=20261021-gas-proof';
 import {createDrivingAudio} from './driving-audio.mjs?v=20261021-gas-proof';
-import {createWorld} from './lab-world.mjs?v=20261022-i18n';
+import {createWorld} from './lab-world.mjs?v=20261022-render-refill';
 import {rigDrivingWheels} from './driving-model.mjs?v=20261021-gas-proof';
 import {loadMeshyModelFactory} from './meshy-model.mjs';
 import {drivingNozzles} from './driving-thrusters.mjs?v=20261022-rocket10';
@@ -58,7 +58,7 @@ const load=async(path,type)=>{const response=await fetch(path);if(!response.ok)t
 try{
  const [cfg,manifest,xml,factory]=await Promise.all([Promise.all([load('simulation_v4/config.json','json'),load('simulation_v4/manifest.json','json'),load('simulation_v4/world.xml','text')]).then(values=>{configProgress=.05;loading.update(configProgress+modelProgress,tr('下载车辆模型…','Downloading vehicle model…'));return values;}),loadMeshyModelFactory(progress=>{modelProgress=.5*assetFraction(progress);loading.update(configProgress+modelProgress,progress.phase==='prepare'?tr('准备车辆材质…','Preparing vehicle materials…'):tr('下载车辆模型…','Downloading vehicle model…'),progress);})]).then(([config,factory])=>[...config,factory]);
  loading.update(.55,tr('准备场景…','Preparing scene…'));
- world=createWorld(stage,cfg,()=>rigDrivingWheels(factory()),{driving:true,nozzles:drivingNozzles(cfg)});world.addObject(environment());world.addObject(createParkedVehicles());worker=new Worker(new URL('./driving-worker.mjs?v=20261022-fan-assist',import.meta.url),{type:'module'});
+ world=createWorld(stage,cfg,()=>rigDrivingWheels(factory()),{driving:true,nozzles:drivingNozzles(cfg)});world.addObject(environment());world.addObject(createParkedVehicles());worker=new Worker(new URL('./driving-worker.mjs?v=20261022-render-refill',import.meta.url),{type:'module'});
  await new Promise((resolve,reject)=>{worker.onerror=e=>reject(Error(e.message));worker.onmessage=({data:m})=>{if(m.type==='loading'){loading.update(.55+.4*assetFraction(m.progress),m.progress.phase==='download'?tr('下载物理引擎…','Downloading physics engine…'):tr('初始化物理引擎…','Initializing physics engine…'),m.progress);return;}if(m.type==='error'){physicsError=true;dirty=true;clearInput();$('#drive-state').hidden=false;$('#drive-state').textContent=tr('物理计算出错，请点击复位重试','Physics error. Select Reset to try again.');if(!frame)reject(Error(m.message));return;}if(!physicsError||m.frame.resetSerial!==frame?.resetSerial)physicsError=false;frame=m.frame;drivingView.push(frame,performance.now());dirty=true;if(m.type==='ready')resolve();};worker.postMessage({type:'init',config:cfg,params:manifest.final,xml,settings});});
  document.querySelectorAll('[data-assist]').forEach(b=>b.onclick=()=>setSettings({assist:b.dataset.assist==='true'}));$('#downforce').onclick=()=>setSettings({downforce:!frame.downforce.enabled});
  $('#sound').onclick=()=>setSettings({sound:!settings.sound});updateSoundButton();viewport.addEventListener('pointerdown',()=>audio.unlock());document.addEventListener('keydown',()=>audio.unlock());$('#kick').onclick=queueKick;$('#recenter').onclick=()=>worker.postMessage({type:'recenter'});document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));

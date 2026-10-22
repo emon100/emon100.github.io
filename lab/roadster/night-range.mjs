@@ -9,7 +9,8 @@ export function createRangeKeyLight(driving=false){
  light.position.set(-28,-38,48).normalize().multiplyScalar(extent*3);
  Object.assign(light.shadow.camera,{left:-extent,right:extent,top:extent,bottom:-extent,near:extent,far:extent*5});
  light.shadow.camera.updateProjectionMatrix();
- light.shadow.normalBias=driving?.08:.025;light.shadow.bias=-.00004;return light;
+ // Keep the full-map depth bias below a centimetre so tire shadows meet the ground.
+ light.shadow.normalBias=driving?.015:.025;light.shadow.bias=driving?-.000002:-.00004;return light;
 }
 
 // Scenery and lighting only. Nothing here enters the physics world.
