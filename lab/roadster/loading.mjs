@@ -3,7 +3,7 @@ import {t} from './i18n.mjs';
 export function createLoadingProgress(host) {
  const floating=!host;
  if(!host){host=document.createElement('div');host.className='loading-toast';document.body.append(host);}
- if(!document.querySelector('link[data-loading-style]')){const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('./loading.css',import.meta.url).href;link.dataset.loadingStyle='';document.head.append(link);}
+ if(!document.querySelector('link[data-loading-style]')){const link=document.createElement('link');link.rel='stylesheet';link.href=new URL('./loading.css?v=20261023-loading',import.meta.url).href;link.dataset.loadingStyle='';document.head.append(link);}
  const card=document.createElement('div');card.className='loading-card';
  const title=document.createElement('strong'),row=document.createElement('div'),percent=document.createElement('span'),label=document.createElement('span'),bar=document.createElement('progress'),detail=document.createElement('small');
  title.textContent='ROADSTER';row.className='loading-row';row.append(label,percent);bar.max=100;bar.value=0;bar.setAttribute('aria-label',t('加载进度','Loading progress'));detail.className='loading-detail';card.append(title,row,bar,detail);host.replaceChildren(card);host.setAttribute('aria-busy','true');label.setAttribute('role','status');label.setAttribute('aria-live','polite');

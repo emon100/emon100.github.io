@@ -1,5 +1,5 @@
 import {t as tr} from './i18n.mjs';
-import {createLoadingProgress} from './loading.mjs?v=20261023-loading';
+import {createLoadingProgress} from './loading.mjs?v=20261023-loading-r2';
 import {assetFraction} from './asset-progress.mjs?v=20261023-loading';
 import {MODEL_ASSET,MUJOCO_BYTES} from './asset-sizes.mjs';
 import {createParkedVehicles} from './parked-vehicles.mjs?v=20261022-render-refill';
@@ -10,7 +10,7 @@ import {createCockpitTelemetry} from './driving-cockpit.mjs?v=20261023-loading';
 import {createDrivingAudio} from './driving-audio.mjs?v=20261021-gas-proof';
 import {createWorld} from './lab-world.mjs?v=20261023-loading';
 import {rigDrivingWheels} from './driving-model.mjs?v=20261021-gas-proof';
-import {loadMeshyModelFactory} from './meshy-model.mjs?v=20261023-loading';
+import {loadMeshyModelFactory} from './meshy-model.mjs?v=20261023-loading-r2';
 import {drivingNozzles} from './driving-thrusters.mjs?v=20261022-rocket10';
 import {MAP,RAMPS,rampPose,rampMeshData} from './driving-core.mjs?v=20261022-dynamics';
 const $=s=>document.querySelector(s),drivingView=createDrivingView(),audio=createDrivingAudio();let driveInput={},worker,world,frame,dirty=false,physicsError=false,view='chase',settings={assist:true,downforce:false,sound:true};

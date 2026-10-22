@@ -1,7 +1,7 @@
 import * as T from './vendor/three.module.min.js';
 import {GLTFLoader} from './vendor/GLTFLoader.mjs';
 import {assetFraction,readResponseBytes} from './asset-progress.mjs?v=20261023-loading';
-import {createLoadingProgress} from './loading.mjs?v=20261023-loading';
+import {createLoadingProgress} from './loading.mjs?v=20261023-loading-r2';
 import {MODEL_ASSET} from './asset-sizes.mjs';
 import {t} from './i18n.mjs';
 
