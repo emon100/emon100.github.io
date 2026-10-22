@@ -1,13 +1,14 @@
 // Static jump targets. X/Cybertruck envelopes follow Tesla owner manuals; Semi's 7.8 × 2.5 × 3.7 m envelope is assumed.
-export const JUMP_LANE={y:16,start:-230,end:220,takeoff:-17,landingStart:50,halfWidth:5};
+// Move the complete obstacle group upstream to retain 150 m of runout with rearward exhaust.
+export const JUMP_LANE={y:16,start:-230,end:220,takeoff:-67,landingStart:0,halfWidth:5};
 export const PARKED_VEHICLES=[
- {id:'modelx',label:'MODEL X',x:4,y:15.4715,yaw:Math.PI/2,length:5.057,width:1.999,height:1.68,axles:[-1.4245,1.5405],wheelRadius:.38,wheelHalfWidth:.13,wheelTrack:.86,
+ {id:'modelx',label:'MODEL X',x:-46,y:15.4715,yaw:Math.PI/2,length:5.057,width:1.999,height:1.68,axles:[-1.4245,1.5405],wheelRadius:.38,wheelHalfWidth:.13,wheelTrack:.86,
   hulls:[{material:'white',smooth:true,sections:[[-2.5285,.76,.38,.82],[-2.30,.94,.30,1.02],[-1.5,.9995,.30,1.08],[.6,.9995,.30,1.06],[1.8,.94,.34,.93],[2.35,.80,.40,.80],[2.5285,.69,.45,.67]]},
    {material:'glass',smooth:true,sections:[[-2.12,.72,.92,1.06],[-1.65,.80,.95,1.42],[-.9,.80,.95,1.67],[.25,.79,.95,1.68],[.9,.76,.95,1.48],[1.55,.83,.95,1.04]]}]},
- {id:'semi',label:'TESLA SEMI',x:10,y:14.1,yaw:Math.PI/2,length:7.8,width:2.5,height:3.7,axles:[-2.95,-1.55,2.65],wheelRadius:.51,wheelHalfWidth:.19,wheelTrack:1.06,
+ {id:'semi',label:'TESLA SEMI',x:-40,y:14.1,yaw:Math.PI/2,length:7.8,width:2.5,height:3.7,axles:[-2.95,-1.55,2.65],wheelRadius:.51,wheelHalfWidth:.19,wheelTrack:1.06,
   hulls:[{material:'dark',sections:[[-3.9,1.13,.48,1.03],[3.9,1.13,.48,1.03]]},
    {material:'white',smooth:true,sections:[[-.65,1.24,.66,3.55],[.20,1.25,.60,3.7],[1.75,1.24,.55,3.7],[3.05,1.12,.55,3.15],[3.9,.96,.55,1.6]]}]},
- {id:'cybertruck',label:'CYBERTRUCK',x:16,y:15.15855,yaw:Math.PI/2,length:5.6829,width:2.0316,height:1.794,axles:[-1.6718,1.9632],wheelRadius:.43,wheelHalfWidth:.145,wheelTrack:.9,
+ {id:'cybertruck',label:'CYBERTRUCK',x:-34,y:15.15855,yaw:Math.PI/2,length:5.6829,width:2.0316,height:1.794,axles:[-1.6718,1.9632],wheelRadius:.43,wheelHalfWidth:.145,wheelTrack:.9,
   hulls:[{material:'steel',sections:[[-2.84145,1.0158,.38,1.10],[-.7,1.0158,.27,1.60],[.35,1.0158,.27,1.794],[2.84145,.96,.42,1.04]]}]}
 ];
 

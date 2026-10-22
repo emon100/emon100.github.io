@@ -1,6 +1,6 @@
 import {t as tr} from './i18n.mjs';
 import * as T from './vendor/three.module.min.js';
-import {PARKED_VEHICLES,JUMP_LANE,vehicleHull} from './driving-obstacles.mjs?v=20261022-jump-final';
+import {PARKED_VEHICLES,JUMP_LANE,vehicleHull} from './driving-obstacles.mjs?v=20261022-rocket10';
 
 export function createParkedVehicles(){
  const group=new T.Group();group.name='三车飞越测试区';
@@ -61,8 +61,8 @@ export function createParkedVehicles(){
  const lane=new T.Mesh(new T.PlaneGeometry(JUMP_LANE.end-JUMP_LANE.start,JUMP_LANE.halfWidth*2),new T.MeshStandardMaterial({color:0x34383d,roughness:.9}));lane.receiveShadow=true;lane.position.set((JUMP_LANE.start+JUMP_LANE.end)/2,JUMP_LANE.y,.006);group.add(lane);
  const marking=new T.MeshBasicMaterial({color:0xd8d8d8});
  for(const y of [-1,1].map(s=>JUMP_LANE.y+s*JUMP_LANE.halfWidth))for(let x=JUMP_LANE.start;x<JUMP_LANE.end;x+=12)box(group,[5,.1,.008],[x+2.5,y,.013],marking);
- for(const x of [-200,-140,-80,-25]){box(group,[3,.12,.008],[x-2,JUMP_LANE.y,.016],marking);panel(group,[[x+1,JUMP_LANE.y,.02],[x-1,JUMP_LANE.y+.7,.02],[x-1,JUMP_LANE.y-.7,.02]],marking).castShadow=false;}
+ for(const x of [-200,-160,-120,JUMP_LANE.takeoff-8]){box(group,[3,.12,.008],[x-2,JUMP_LANE.y,.016],marking);panel(group,[[x+1,JUMP_LANE.y,.02],[x-1,JUMP_LANE.y+.7,.02],[x-1,JUMP_LANE.y-.7,.02]],marking).castShadow=false;}
  box(group,[.18,JUMP_LANE.halfWidth*2,.008],[JUMP_LANE.takeoff,JUMP_LANE.y,.017],new T.MeshBasicMaterial({color:0xe82127}));
- sign(tr('三车飞越区  ←','CAR JUMP  ←'),-25,8,1.1,8);sign(tr('三车飞越区  →','CAR JUMP  →'),-55,24,1.5,8);sign(tr('80 km/h · 在红线按 K','80 km/h · Press K at red line'),JUMP_LANE.takeoff,25,1.4,8);sign(tr('落地区 · 继续直行','LANDING · Keep straight'),85,25,1.2,8);
+ sign(tr('三车飞越区  ←','CAR JUMP  ←'),JUMP_LANE.takeoff-8,8,1.1,8);sign(tr('三车飞越区  →','CAR JUMP  →'),JUMP_LANE.takeoff-38,24,1.5,8);sign(tr('80 km/h · 在红线按 K','80 km/h · Press K at red line'),JUMP_LANE.takeoff,25,1.4,8);sign(tr('落地区 · 继续直行','LANDING · Keep straight'),JUMP_LANE.landingStart+35,25,1.2,8);
  return group;
 }

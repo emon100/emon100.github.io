@@ -1,7 +1,7 @@
 import {t as tr} from './i18n.mjs';
 import {createLoadingProgress} from './loading.mjs';
 import {assetFraction} from './asset-progress.mjs';
-import {createParkedVehicles} from './parked-vehicles.mjs?v=20261022-i18n';
+import {createParkedVehicles} from './parked-vehicles.mjs?v=20261022-rocket10';
 import * as T from './vendor/three.module.min.js';
 import {bindDrivingControls} from './driving-input.mjs?v=20261021-gas-proof';
 import {createDrivingView} from './driving-camera.mjs?v=20261021-gas-proof';
@@ -9,7 +9,8 @@ import {createDrivingAudio} from './driving-audio.mjs?v=20261021-gas-proof';
 import {createWorld} from './lab-world.mjs?v=20261022-i18n';
 import {rigDrivingWheels} from './driving-model.mjs?v=20261021-gas-proof';
 import {loadMeshyModelFactory} from './meshy-model.mjs';
-import {MAP,RAMPS,rampPose,rampMeshData} from './driving-core.mjs?v=20261022-spin-recovery';
+import {drivingNozzles} from './driving-thrusters.mjs?v=20261022-rocket10';
+import {MAP,RAMPS,rampPose,rampMeshData} from './driving-core.mjs?v=20261022-fan-assist';
 const $=s=>document.querySelector(s),drivingView=createDrivingView(),audio=createDrivingAudio();let driveInput={},worker,world,frame,dirty=false,physicsError=false,view='chase',settings={assist:true,downforce:false,sound:true};
 try{const saved=JSON.parse(localStorage.getItem('roadster-driving-settings'));for(const key of ['assist','downforce','sound'])if(typeof saved?.[key]==='boolean')settings[key]=saved[key];localStorage.setItem('roadster-driving-settings',JSON.stringify(settings));}catch{}
 audio.setEnabled(settings.sound);
@@ -35,7 +36,7 @@ function status(){if(physicsError)return tr('物理计算出错，请点击复�
 function render(){
  const speed=frame.speed,fraction=frame.gas.fraction,gas=frame.gas;
  $('#mode-label').textContent=tr('喷气辅助','Jet assist');$('.assist-badge').dataset.enabled=String(frame.assist);$('#assist-state').textContent=!frame.assist?tr('已关闭','Off'):frame.recoveryActive?tr('已开启 · 介入','On · Active'):tr('已开启 · 待命','On · Standby');
- document.querySelectorAll('[data-assist]').forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.assist==='true')===frame.assist)));$('#downforce').setAttribute('aria-pressed',String(frame.downforce.enabled));$('#downforce-state').textContent=frame.downforce.enabled?tr('开','On'):tr('关','Off');$('#downforce-output').textContent=frame.downforce.active?(frame.downforce.force/1000).toFixed(1)+' kN':frame.downforce.enabled?tr('待贴地','Awaiting ground contact'):tr('已关闭','Off');$('#drive-speed').textContent=Math.round(speed);$('#drive-gear').textContent=frame.gear;$('#gas-percent').textContent=Math.round(fraction*100)+'%';$('#gas-fill').style.transform=`scaleX(${fraction})`;
+ document.querySelectorAll('[data-assist]').forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.assist==='true')===frame.assist)));$('#downforce').setAttribute('aria-pressed',String(frame.downforce.enabled));$('#downforce-state').textContent=frame.downforce.enabled?tr('开','On'):tr('关','Off');$('#downforce-output').textContent=frame.airFan?.power>500?tr('尾部排流','Tail exhaust'):frame.downforce.active?(frame.downforce.force/1000).toFixed(1)+' kN':frame.downforce.enabled?tr('待贴地','Awaiting ground contact'):tr('已关闭','Off');$('#drive-speed').textContent=Math.round(speed);$('#drive-gear').textContent=frame.gear;$('#gas-percent').textContent=Math.round(fraction*100)+'%';$('#gas-fill').style.transform=`scaleX(${fraction})`;
  $('#drive-state').textContent=status();$('#drive-state').hidden=!$('#drive-state').textContent;$('#gas-state').textContent=gas.phase==='waiting'?tr('{seconds} s 后补气','Refill in {seconds} s',{seconds:gas.secondsRemaining.toFixed(1)}):gas.phase==='refilling'?tr('补气中 · {seconds} s','Refilling · {seconds} s',{seconds:gas.secondsRemaining.toFixed(1)}):gas.phase==='using'?tr('供气中','Jets firing'):gas.phase==='settling'?tr('喷气停止','Jets stopped'):gas.phase==='coasting'?tr('喷气关闭','Jets off'):tr('气量充足','Gas ready');$('#hud-gas').dataset.phase=gas.phase;
  $('#kick').disabled=!frame.canKick;$('#kick-label').textContent=!frame.assist?tr('需开启喷气辅助','Enable jet assist'):frame.gas.phase==='settling'?tr('准备中','Preparing'):frame.kick?tr('翻转中','Flipping'):gas.phase==='waiting'||gas.phase==='refilling'?tr('补气中','Refilling'):'KICKFLIP';
 }
@@ -57,7 +58,7 @@ const load=async(path,type)=>{const response=await fetch(path);if(!response.ok)t
 try{
  const [cfg,manifest,xml,factory]=await Promise.all([Promise.all([load('simulation_v4/config.json','json'),load('simulation_v4/manifest.json','json'),load('simulation_v4/world.xml','text')]).then(values=>{configProgress=.05;loading.update(configProgress+modelProgress,tr('下载车辆模型…','Downloading vehicle model…'));return values;}),loadMeshyModelFactory(progress=>{modelProgress=.5*assetFraction(progress);loading.update(configProgress+modelProgress,progress.phase==='prepare'?tr('准备车辆材质…','Preparing vehicle materials…'):tr('下载车辆模型…','Downloading vehicle model…'),progress);})]).then(([config,factory])=>[...config,factory]);
  loading.update(.55,tr('准备场景…','Preparing scene…'));
- world=createWorld(stage,cfg,()=>rigDrivingWheels(factory()),{driving:true});world.addObject(environment());world.addObject(createParkedVehicles());worker=new Worker(new URL('./driving-worker.mjs?v=20261022-spin-recovery',import.meta.url),{type:'module'});
+ world=createWorld(stage,cfg,()=>rigDrivingWheels(factory()),{driving:true,nozzles:drivingNozzles(cfg)});world.addObject(environment());world.addObject(createParkedVehicles());worker=new Worker(new URL('./driving-worker.mjs?v=20261022-fan-assist',import.meta.url),{type:'module'});
  await new Promise((resolve,reject)=>{worker.onerror=e=>reject(Error(e.message));worker.onmessage=({data:m})=>{if(m.type==='loading'){loading.update(.55+.4*assetFraction(m.progress),m.progress.phase==='download'?tr('下载物理引擎…','Downloading physics engine…'):tr('初始化物理引擎…','Initializing physics engine…'),m.progress);return;}if(m.type==='error'){physicsError=true;dirty=true;clearInput();$('#drive-state').hidden=false;$('#drive-state').textContent=tr('物理计算出错，请点击复位重试','Physics error. Select Reset to try again.');if(!frame)reject(Error(m.message));return;}if(!physicsError||m.frame.resetSerial!==frame?.resetSerial)physicsError=false;frame=m.frame;drivingView.push(frame,performance.now());dirty=true;if(m.type==='ready')resolve();};worker.postMessage({type:'init',config:cfg,params:manifest.final,xml,settings});});
  document.querySelectorAll('[data-assist]').forEach(b=>b.onclick=()=>setSettings({assist:b.dataset.assist==='true'}));$('#downforce').onclick=()=>setSettings({downforce:!frame.downforce.enabled});
  $('#sound').onclick=()=>setSettings({sound:!settings.sound});updateSoundButton();viewport.addEventListener('pointerdown',()=>audio.unlock());document.addEventListener('keydown',()=>audio.unlock());$('#kick').onclick=queueKick;$('#recenter').onclick=()=>worker.postMessage({type:'recenter'});document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));

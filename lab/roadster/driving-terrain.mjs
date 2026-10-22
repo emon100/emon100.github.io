@@ -1,4 +1,4 @@
-import {parkedVehiclesXML} from './driving-obstacles.mjs?v=20261022-jump-final';
+import {parkedVehiclesXML} from './driving-obstacles.mjs?v=20261022-rocket10';
 import {qmat,qmul} from './simulation_v4/controller.mjs';
 export const MAP={halfX:270,halfY:216,edgeMargin:2.2};
 export const RAMP_THICKNESS=.6;

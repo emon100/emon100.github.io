@@ -1,27 +1,48 @@
 {
-  "scope": "Node controller only, two fixed observations, 50 warmup + 200 measured calls each; excludes physics, rendering, Worker scheduling and mobile hardware.",
-  "results": [
+  "date": "2026-10-22",
+  "layout": "rocket-ten-v1",
+  "warmup": 50,
+  "unit": "ms",
+  "scope": "Node controller only; four fixed full-pressure states, including active fan compensation. Excludes MuJoCo, rendering, browser scheduling and physical mobile hardware.",
+  "sourceHashes": {
+    "fan": "a239628f85f858fae44021e308db809da766380bc666f323cec8de285e18dc73",
+    "parameters": "94f3147ebce76cbe7ffda725bb72598e49d01e3d0b8b13cc847cb7cb7a0077c1",
+    "recovery": "04870cdc7909e940d3ba4d7e95476d217557c1b03b8fc94290836b83207df269",
+    "allocator": "3e3b70db9cad2e60dfbbb5c3671b089d50e1c9be6f2c3506d67b0aee7c700396",
+    "layout": "154f77bc2aef6b4f286130291d4e389384ac736843cf45827f11ef7fe2ebc87f"
+  },
+  "cases": [
     {
-      "omega": [
-        4,
-        8,
-        4
-      ],
-      "count": 200,
-      "p95Ms": 1.712333000000001,
-      "maxMs": 3.16537500000004,
-      "over20Ms": 0
+      "name": "high_coast",
+      "iterations": 200,
+      "p50": 0.3359170000000091,
+      "p95": 0.5224999999999937,
+      "max": 0.6708330000000018,
+      "over20ms": 0
     },
     {
-      "omega": [
-        0.01,
-        0.02,
-        0.03
-      ],
-      "count": 200,
-      "p95Ms": 1.5166250000000332,
-      "maxMs": 4.792915999999991,
-      "over20Ms": 0
+      "name": "full_brake",
+      "iterations": 200,
+      "p50": 0.8623750000000427,
+      "p95": 1.2117090000000132,
+      "max": 5.265540999999985,
+      "over20ms": 0
+    },
+    {
+      "name": "spin_brake",
+      "iterations": 200,
+      "p50": 0.07058299999999917,
+      "p95": 0.14408300000002328,
+      "max": 0.320459000000028,
+      "over20ms": 0
+    },
+    {
+      "name": "fan_recovery",
+      "iterations": 200,
+      "p50": 0.07058399999999665,
+      "p95": 0.18175000000002228,
+      "max": 0.306541999999979,
+      "over20ms": 0
     }
   ]
 }

@@ -1,4 +1,5 @@
 export default {
+  "风扇辅助": "Fan assist",
   "Roadster / 从失败到落地": "Roadster / From failure to landing",
   "主导航": "Main navigation",
   "原片与物理": "Footage & physics",

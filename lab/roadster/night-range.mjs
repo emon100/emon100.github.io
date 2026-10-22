@@ -1,5 +1,5 @@
 import * as T from './vendor/three.module.min.js';
-import {MAP} from './driving-terrain.mjs?v=20261022-jump-final';
+import {MAP} from './driving-terrain.mjs?v=20261022-rocket10';
 
 export const PERIMETER_LIGHTS=[...[-5,-3,-1,1,3,5].flatMap(x=>[-1,1].map(side=>[x*MAP.halfX/6,side*(MAP.halfY-8)])),...[-3,-1,1,3].flatMap(y=>[-1,1].map(side=>[side*(MAP.halfX-8),y*MAP.halfY*5/24]))];
 

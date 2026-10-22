@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-22",
+  "layout": "rocket-ten-v1",
+  "warmup": 50,
+  "unit": "ms",
+  "scope": "Node controller only; three fixed full-pressure states. Excludes MuJoCo, rendering, browser scheduling and physical mobile hardware.",
+  "sourceHashes": {
+    "recovery": "6f6f577dc27bd50bd456049656a169cbcc43ec1343201c86d834613087ad3973",
+    "allocator": "def84206ebceeccc5719a6952bff9d70db4372f096b1acf5aff56a1a8b24516c",
+    "layout": "154f77bc2aef6b4f286130291d4e389384ac736843cf45827f11ef7fe2ebc87f"
+  },
+  "cases": [
+    {
+      "name": "high_coast",
+      "iterations": 200,
+      "p50": 0.429916999999989,
+      "p95": 0.6209999999999951,
+      "max": 0.8080420000000004,
+      "over20ms": 0
+    },
+    {
+      "name": "full_brake",
+      "iterations": 200,
+      "p50": 0.9895840000000362,
+      "p95": 1.209541999999999,
+      "max": 1.7712080000000014,
+      "over20ms": 0
+    },
+    {
+      "name": "spin_brake",
+      "iterations": 200,
+      "p50": 0.06620900000001484,
+      "p95": 0.13245800000004238,
+      "max": 0.2033749999999941,
+      "over20ms": 0
+    }
+  ]
+}
