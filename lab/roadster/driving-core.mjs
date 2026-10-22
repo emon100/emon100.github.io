@@ -5,9 +5,9 @@ import {createMemory,fanModel} from './simulation_v4/controller.mjs';
 import {recoveryStep} from './driving-recovery.mjs?v=20261022-fan-assist';
 import {drivingKickflipStep} from './driving-kickflip.mjs?v=20261022-fan-assist';
 import {drivingNozzles,drivingNozzleXML} from './driving-thrusters.mjs?v=20261022-rocket10';
-import {wheelDrive} from './driving-powertrain.mjs?v=20261021-gas-proof';
-import {MAP,RAMPS,SPAWN,drivingXML,probeRoad} from './driving-terrain.mjs?v=20261022-rocket10';
-export {MAP,RAMPS,SPAWN,rampPose,rampMeshData} from './driving-terrain.mjs?v=20261022-rocket10';
+import {wheelDrive} from './driving-powertrain.mjs?v=20261022-dynamics';
+import {MAP,RAMPS,SPAWN,drivingXML,probeRoad} from './driving-terrain.mjs?v=20261022-dynamics';
+export {MAP,RAMPS,SPAWN,rampPose,rampMeshData} from './driving-terrain.mjs?v=20261022-dynamics';
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),mix=(a,b,dt,tau)=>a+(b-a)*(1-Math.exp(-dt/tau)),dot=(a,b)=>a.reduce((v,x,i)=>v+x*b[i],0),norm=v=>Math.hypot(...v);
 
 export function updateKickGround(state,frame,gravity,dt){
@@ -45,7 +45,7 @@ export async function createDrivingSimulation(cfg,params,{engine,xml,assist=true
   joints??={body:mj.mj_name2id(model,mj.mjtObj.mjOBJ_BODY.value,'car'),spin:[0,1,2,3].map(i=>mj.mj_name2id(model,mj.mjtObj.mjOBJ_JOINT.value,`wheelspin${i}`)),steer:[2,3].map(i=>mj.mj_name2id(model,mj.mjtObj.mjOBJ_JOINT.value,`steer${i}`))};
   const radius=Math.abs(steering)>.001?2*cfg.vehicle.axle_half/Math.tan(steering):1e6;
   // Rack stiffness counters tire scrub; joint damping is integrated implicitly by MuJoCo.
-  for(let k=0;k<2;k++){const j=joints.steer[k],y=(k===0?-1:1)*cfg.vehicle.track_half,target=Math.abs(steering)<.001?0:Math.atan(2*cfg.vehicle.axle_half/(radius-y)),dof=model.jnt_dofadr[j],angle=data.qpos[model.jnt_qposadr[j]];data.qfrc_applied[dof]+=clamp((target-angle)*60000,-6000,6000);}
+  for(let k=0;k<2;k++){const j=joints.steer[k],y=(k===0?-1:1)*cfg.vehicle.track_half,target=Math.abs(steering)<.001?0:Math.atan(2*cfg.vehicle.axle_half/(radius-y)),dof=model.jnt_dofadr[j],angle=data.qpos[model.jnt_qposadr[j]];data.qfrc_applied[dof]+=clamp((target-angle)*300000,-24000,24000);}
   // Wheel torques only: ground contact supplies traction and steering; airborne pose is never prescribed.
   // Reattach the fan after stable tire contact; suction during final descent would increase impact speed.
   fanPower+=(fanTarget*DRIVING_FAN.maxElectricalPower-fanPower)*(1-Math.exp(-cfg.physics.dt/DRIVING_FAN.responseSeconds));

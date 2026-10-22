@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-22",
+  "baseline": false,
+  "assumptions": {
+    "wheelRadius": 0.32,
+    "tireGrip": 1.8,
+    "peakForce": 46000,
+    "peakPower": 1000000,
+    "regenForce": 6000,
+    "regenPower": 120000,
+    "brakeForce": 40000,
+    "reverseSpeed": 6,
+    "dragArea": 0.65,
+    "rollingResistance": 0.012
+  },
+  "measurements": [
+    {
+      "downforce": false,
+      "brake": false,
+      "fromKmh": 100.26705142352446,
+      "stopSeconds": 11.02,
+      "meters": 169.85691026946708
+    },
+    {
+      "downforce": false,
+      "brake": true,
+      "fromKmh": 100.26705142352446,
+      "stopSeconds": 2.3200000000000003,
+      "meters": 24.31681117107705,
+      "acceleration": {
+        "times": {
+          "60kmh": 1.148591312913051,
+          "60mph": 1.7760950479521707,
+          "100kmh": 1.8353940710464096
+        },
+        "samples": [
+          {
+            "seconds": 0.2,
+            "kmh": 4.827544806056883
+          },
+          {
+            "seconds": 0.4,
+            "kmh": 16.073182593726603
+          },
+          {
+            "seconds": 0.6,
+            "kmh": 27.834800000448805
+          },
+          {
+            "seconds": 0.8,
+            "kmh": 39.57925696099338
+          },
+          {
+            "seconds": 1,
+            "kmh": 51.30377223833692
+          },
+          {
+            "seconds": 1.2,
+            "kmh": 63.0055838977434
+          },
+          {
+            "seconds": 1.4,
+            "kmh": 74.68195157916603
+          },
+          {
+            "seconds": 1.6,
+            "kmh": 86.33015902783508
+          },
+          {
+            "seconds": 1.8,
+            "kmh": 97.94751657659587
+          }
+        ]
+      }
+    },
+    {
+      "downforce": true,
+      "brake": false,
+      "fromKmh": 100.50621683884306,
+      "stopSeconds": 10.9,
+      "meters": 168.46647364207985
+    },
+    {
+      "downforce": true,
+      "brake": true,
+      "fromKmh": 100.50621683884306,
+      "stopSeconds": 2.14,
+      "meters": 21.763496169981508,
+      "acceleration": {
+        "times": {
+          "60kmh": 0.9961188093525659,
+          "60mph": 1.5133043461258153,
+          "100kmh": 1.5713123125223698
+        },
+        "samples": [
+          {
+            "seconds": 0.2,
+            "kmh": 4.811740211123227
+          },
+          {
+            "seconds": 0.4,
+            "kmh": 16.503222478210713
+          },
+          {
+            "seconds": 0.6,
+            "kmh": 30.582107762747402
+          },
+          {
+            "seconds": 0.8,
+            "kmh": 45.34752608692886
+          },
+          {
+            "seconds": 1,
+            "kmh": 60.29046270883503
+          },
+          {
+            "seconds": 1.2,
+            "kmh": 75.26039005150253
+          },
+          {
+            "seconds": 1.4,
+            "kmh": 89.44503845223392
+          }
+        ]
+      }
+    }
+  ],
+  "vertical": {
+    "climbSeconds": 7.32,
+    "maxSteeringDeg": 0.23249375658386437,
+    "maxStepDeg": 0.29573099967443345
+  },
+  "ceiling": {
+    "climbSeconds": 16.8,
+    "maxSteeringDeg": 0.01650789755571651,
+    "maxStepDeg": 0.010505119887208411
+  },
+  "fullPedalRamp": {
+    "maxSteeringDeg": 0.9674230529846785,
+    "maxStepDeg": 1.0974042221354754,
+    "exitKmh": 85.82841644766937
+  },
+  "status": "passed",
+  "scope": "2140 kg including 400 kg full tank; dry flat ground; no jets; fan off/on; elapsed time starts at full accelerator input with no rollout; stop below 0.1 m/s, no driver reaction time; MuJoCo 2 ms, control 20 ms. Tire grip, power and brake curves are simulation calibration, not measured Tesla specifications.",
+  "sourceHashes": {
+    "driving-core.mjs": "12772dd68206d9480edf63abd2b0385e0d3410eea0a46627d07aea066d583798",
+    "driving-terrain.mjs": "677b20318f6e8014733a8f9413a94bda24f6ab7670a0c61510b29607be097c49",
+    "driving-powertrain.mjs": "05a537e0f0555d0ab85b899c4b44c5ea54e931cadcc6b1ed604fb445c58e31f5"
+  }
+}

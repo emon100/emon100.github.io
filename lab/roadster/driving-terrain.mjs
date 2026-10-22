@@ -1,3 +1,4 @@
+import {DRIVE} from './driving-powertrain.mjs?v=20261022-dynamics';
 import {parkedVehiclesXML} from './driving-obstacles.mjs?v=20261022-rocket10';
 import {qmat,qmul} from './simulation_v4/controller.mjs';
 export const MAP={halfX:270,halfY:216,edgeMargin:2.2};
@@ -33,6 +34,8 @@ export function drivingXML(xml){
  const pieces=RAMP_PANELS.map(p=>`<geom name="${p.id}" type="box" pos="${p.surface.map((v,k)=>v-p.normal[k]*RAMP_THICKNESS/2).join(' ')}" quat="${p.quat.join(' ')}" size="${p.halfLength} 3 ${RAMP_THICKNESS/2}"/>`);
  const parked=parkedVehiclesXML();
  let model=xml.replace('<worldbody>',parked.assets+'<worldbody>'+pieces.join('')+parked.geoms);
- for(const i of [2,3])model=model.replace(new RegExp(`<body name="wheelbody${i}" pos="([^"]+)">([\\s\\S]*?)</body>`),(_,pos,content)=>`<body name="steeringhub${i}" pos="${pos}"><inertial pos="0 0 0" mass="1" diaginertia=".01 .01 .01"/><joint name="steer${i}" type="hinge" axis="0 0 1" damping="600" armature=".5" limited="true" range="-.8 .8"/><body name="wheelbody${i}">${content.replace('mass="20"','mass="19"')}</body></body>`);
+ // Apply the same dry-tire assumption to contact physics and wheel-torque limiting.
+ model=model.replace(/<geom name="wheel([0-3])"/g,`<geom name="wheel$1" friction="${DRIVE.tireGrip} 0.005 0"`);
+ for(const i of [2,3])model=model.replace(new RegExp(`<body name="wheelbody${i}" pos="([^"]+)">([\\s\\S]*?)</body>`),(_,pos,content)=>`<body name="steeringhub${i}" pos="${pos}"><inertial pos="0 0 0" mass="1" diaginertia=".01 .01 .01"/><joint name="steer${i}" type="hinge" axis="0 0 1" damping="1800" armature=".5" limited="true" range="-.8 .8"/><body name="wheelbody${i}">${content.replace('mass="20"','mass="19"')}</body></body>`);
  return model.replace('</worldbody>','</worldbody><contact><exclude body1="car" body2="wheelbody2"/><exclude body1="car" body2="wheelbody3"/></contact>');
 }

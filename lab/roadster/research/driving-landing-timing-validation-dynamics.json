@@ -1,0 +1,1243 @@
+{
+  "date": "2026-10-22",
+  "previous": false,
+  "fanEnabled": false,
+  "engine": "3.15.0",
+  "testEnvelope": {
+    "version": "20261022-full-pressure-rocket10-v1",
+    "layoutStatus": "Public 4-down / 4-rear / 2-side grouping; coordinates, thrust and 5-degree side cant are assumptions",
+    "evaluatedAt": "initial_state_only",
+    "initialFuelKg": 400,
+    "initialPressureFraction": 1,
+    "heightsM": [
+      20,
+      40,
+      80
+    ],
+    "headingDegrees": [
+      0,
+      60
+    ],
+    "yawRates": [
+      0,
+      1
+    ],
+    "verticalSpeed": -1,
+    "horizontalSpeed": 5,
+    "tiltRates": [
+      0.01,
+      0.01
+    ],
+    "gasCapacityKg": 400,
+    "dryMassKg": 1740,
+    "nozzles": "all healthy",
+    "ground": "clear flat ground",
+    "exclusionRule": "No initial pressure, or maximum upright lift no greater than weight: out of envelope, not a failed recovery. Reduced-pressure starts are not generated in this acceptance set.",
+    "depletionRule": "A qualified start remains in the denominator even if pressure or gas is depleted during flight. Qualification is never re-evaluated from the outcome."
+  },
+  "summary": {
+    "trials": 12,
+    "excludedTrials": 0,
+    "safeLandings": 12,
+    "failedLandings": 0,
+    "byHeight": [
+      {
+        "height": 20,
+        "trials": 4,
+        "safeLandings": 4
+      },
+      {
+        "height": 40,
+        "trials": 4,
+        "safeLandings": 4
+      },
+      {
+        "height": 80,
+        "trials": 4,
+        "safeLandings": 4
+      }
+    ],
+    "safeLandingRate": 1
+  },
+  "scope": "Deterministic full-pressure regression; public nozzle grouping with uncalibrated hardware assumptions, not a population success estimate: CG height 20/40/80 m × heading 0/60 degrees × yaw rate 0/1 rad/s; 400 kg full tank. The envelope was fixed before running this set. No reduced-pressure starts are generated; every qualified failure counts, including in-flight pressure depletion.",
+  "landingCriterion": "Unchanged driving success: stable tire support for one second, no body/hard contact. Lateral displacement alone is not a failure.",
+  "ignitionCriterion": "First sampled actual upward jet force exceeding half current weight.",
+  "sourceHashes": {
+    "powertrain": "05a537e0f0555d0ab85b899c4b44c5ea54e931cadcc6b1ed604fb445c58e31f5",
+    "terrain": "677b20318f6e8014733a8f9413a94bda24f6ab7670a0c61510b29607be097c49",
+    "fan": "a239628f85f858fae44021e308db809da766380bc666f323cec8de285e18dc73",
+    "recoveryParameters": "94f3147ebce76cbe7ffda725bb72598e49d01e3d0b8b13cc847cb7cb7a0077c1",
+    "drivingCore": "12772dd68206d9480edf63abd2b0385e0d3410eea0a46627d07aea066d583798",
+    "recovery": "04870cdc7909e940d3ba4d7e95476d217557c1b03b8fc94290836b83207df269",
+    "config": "2a80ef48d1917dfc0c962f1e2c8309080134ddf8f82eabdfbb0f9e210bcdef21",
+    "test": "7a373bdf1b0bd0081ffe7bf34881dd76af1c5ee2b3fcc2d28a7d46b916a5c14f",
+    "layout": "154f77bc2aef6b4f286130291d4e389384ac736843cf45827f11ef7fe2ebc87f",
+    "allocator": "3e3b70db9cad2e60dfbbb5c3671b089d50e1c9be6f2c3506d67b0aee7c700396"
+  },
+  "results": [
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          20
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          0
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 1.54,
+        "height": 6.8470731740762,
+        "vz": -15.834522348938716,
+        "fuel": 399.114310087985
+      },
+      "firstContact": {
+        "time": 3.14,
+        "height": 0.501725359512548,
+        "fuel": 286.12680157073913,
+        "closingSpeed": 0.09780989695082012
+      },
+      "gasAbove10": 0.0575216613090106,
+      "fuelLeft": 285.284919676106,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 3.1667152451218645,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 114.71508032389502,
+        "fuelLeft": 285.284919676106,
+        "duration": 4.159999999999764,
+        "turnProgress": 0,
+        "peakHeight": 19.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.09780989695082012,
+        "maxTotalContactForce": 28120.00380007865,
+        "stableSeconds": 1.0280000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0008913957012606679,
+        "turnComplete": true,
+        "finalTilt": 0.00000425894373427829,
+        "finalSpeed": 1.8332847587463548,
+        "finalLongitudinalSpeed": 1.8332847587297285,
+        "finalLateralSpeed": -1.4993160792710035e-16,
+        "finalVerticalSpeed": -6.063894320076944e-11,
+        "peakJetHorizontalForce": 20.405497608268917,
+        "jetHorizontalImpulse": [
+          12.02036233822527,
+          3.658651924011506
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.006178118863635e-8,
+        "horizontalDisplacement": 19.11062473503232,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          20
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          1
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 1.54,
+        "height": 7.074599056844116,
+        "vz": -15.648943135123236,
+        "fuel": 389.62130535060805
+      },
+      "firstContact": {
+        "time": 3.16,
+        "height": 0.5019272672286686,
+        "fuel": 276.7889889283348,
+        "closingSpeed": 0.0984760438351814
+      },
+      "gasAbove10": 9.557173897814778,
+      "fuelLeft": 275.9469645292914,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.063199296702268,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 124.05303547070966,
+        "fuelLeft": 275.9469645292914,
+        "duration": 4.159999999999764,
+        "turnProgress": 0,
+        "peakHeight": 19.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.0984760438351814,
+        "maxTotalContactForce": 28715.889909532143,
+        "stableSeconds": 0.9860000000000008,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0016118054261947598,
+        "turnComplete": true,
+        "finalTilt": 0.000004285476551490796,
+        "finalSpeed": 2.9542186760344573,
+        "finalLongitudinalSpeed": 2.95421867600733,
+        "finalLateralSpeed": 1.665334536947703e-16,
+        "finalVerticalSpeed": -6.153429224333163e-11,
+        "peakJetHorizontalForce": 21240.065420364735,
+        "jetHorizontalImpulse": [
+          2263.0466825897124,
+          -920.0795578311049
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.022475931587221e-8,
+        "horizontalDisplacement": 23.438458002998782,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          40
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          0
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 2.22,
+        "height": 13.665675142236688,
+        "vz": -22.454170060975994,
+        "fuel": 399.1080952102027
+      },
+      "firstContact": {
+        "time": 4.26,
+        "height": 0.50168304388742,
+        "fuel": 247.37219880812614,
+        "closingSpeed": 0.09969157845415759
+      },
+      "gasAbove10": 18.64427277410539,
+      "fuelLeft": 246.53368003596586,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 3.181452419222499,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 153.46631996403366,
+        "fuelLeft": 246.53368003596586,
+        "duration": 5.259999999999643,
+        "turnProgress": 0,
+        "peakHeight": 39.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.09969157845415759,
+        "maxTotalContactForce": 29368.319011628686,
+        "stableSeconds": 0.9920000000000008,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0008900860301376442,
+        "turnComplete": true,
+        "finalTilt": 0.000004338413647994475,
+        "finalSpeed": 1.8185475872484393,
+        "finalLongitudinalSpeed": 1.8185475872313257,
+        "finalLateralSpeed": -1.7368918803236593e-16,
+        "finalVerticalSpeed": -6.412105821007032e-11,
+        "peakJetHorizontalForce": 28.082313448832522,
+        "jetHorizontalImpulse": [
+          17.2155962091099,
+          0.49154992436099565
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.082872363714892e-8,
+        "horizontalDisplacement": 24.573556741217715,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          40
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          1
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 2.22,
+        "height": 14.022965270601249,
+        "vz": -22.26891391170952,
+        "fuel": 389.61270370058105
+      },
+      "firstContact": {
+        "time": 4.32,
+        "height": 0.5016364339420007,
+        "fuel": 236.68950521418523,
+        "closingSpeed": 0.10142889830989495
+      },
+      "gasAbove10": 29.931105002626282,
+      "fuelLeft": 235.85133651735208,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.2489556118118736,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 164.14866348264806,
+        "fuelLeft": 235.85133651735208,
+        "duration": 5.339999999999634,
+        "turnProgress": 0,
+        "peakHeight": 39.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.10142889830989495,
+        "maxTotalContactForce": 28725.29038691263,
+        "stableSeconds": 1.0160000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.001611504955959199,
+        "turnComplete": true,
+        "finalTilt": 0.0000043670318327018635,
+        "finalSpeed": 2.766236460698219,
+        "finalLongitudinalSpeed": 2.7662364606718417,
+        "finalLateralSpeed": 3.3306690738456137e-16,
+        "finalVerticalSpeed": -6.516887396978028e-11,
+        "peakJetHorizontalForce": 21240.065420364735,
+        "jetHorizontalImpulse": [
+          2267.4168460839346,
+          -930.186715772346
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.1026186425747475e-8,
+        "horizontalDisplacement": 30.366908010177166,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          80
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          0
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 3.14,
+        "height": 28.692073615233443,
+        "vz": -31.348321136425785,
+        "fuel": 399.1012146711512
+      },
+      "firstContact": {
+        "time": 6.08,
+        "height": 0.5015997242911321,
+        "fuel": 184.94245245190572,
+        "closingSpeed": 0.10347714058443716
+      },
+      "gasAbove10": 85.51366046406031,
+      "fuelLeft": 184.10822106699774,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 3.3956482533396377,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 215.89177893300214,
+        "fuelLeft": 184.10822106699774,
+        "duration": 7.09999999999944,
+        "turnProgress": 0,
+        "peakHeight": 79.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.10347714058443716,
+        "maxTotalContactForce": 29113.315415735797,
+        "stableSeconds": 1.0180000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0008900432201713031,
+        "turnComplete": true,
+        "finalTilt": 0.000004471391317777161,
+        "finalSpeed": 1.604351756993962,
+        "finalLongitudinalSpeed": 1.604351756977924,
+        "finalLateralSpeed": 4.191796649361304e-16,
+        "finalVerticalSpeed": -7.048160328977423e-11,
+        "peakJetHorizontalForce": 27.15997165062158,
+        "jetHorizontalImpulse": [
+          17.13252967179056,
+          -0.00935663374654955
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.2233003554430493e-8,
+        "horizontalDisplacement": 33.43733378228332,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          80
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          1
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 3.12,
+        "height": 29.8508204409651,
+        "vz": -30.970742868102974,
+        "fuel": 389.5964186634065
+      },
+      "firstContact": {
+        "time": 6.24,
+        "height": 0.5016444136778688,
+        "fuel": 170.80999587014114,
+        "closingSpeed": 0.10329011795535437
+      },
+      "gasAbove10": 98.25567927695056,
+      "fuelLeft": 169.9766999849891,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.404341083236965,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 230.02330001500945,
+        "fuelLeft": 169.9766999849891,
+        "duration": 7.2599999999994225,
+        "turnProgress": 0,
+        "peakHeight": 79.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.10329011795535437,
+        "maxTotalContactForce": 28868.96952680182,
+        "stableSeconds": 1.0120000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0016140838289868753,
+        "turnComplete": true,
+        "finalTilt": 0.000004510278980311664,
+        "finalSpeed": 2.609351163224127,
+        "finalLongitudinalSpeed": 2.6093511631975863,
+        "finalLateralSpeed": 2.775557561538956e-17,
+        "finalVerticalSpeed": -7.189100567963627e-11,
+        "peakJetHorizontalForce": 21240.065420364735,
+        "jetHorizontalImpulse": [
+          2267.397133179779,
+          -931.8744611299393
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.2452981873558925e-8,
+        "horizontalDisplacement": 41.694320051195255,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          20
+        ],
+        "quat": [
+          0.8660254037844387,
+          0,
+          0,
+          0.49999999999999994
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          0
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 1.54,
+        "height": 7.205324178918806,
+        "vz": -15.52425509062609,
+        "fuel": 384.3708955698212
+      },
+      "firstContact": {
+        "time": 3.16,
+        "height": 0.5018847912847189,
+        "fuel": 272.0714697620785,
+        "closingSpeed": 0.09849216954903012
+      },
+      "gasAbove10": 14.808259004023796,
+      "fuelLeft": 271.2302302745949,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.2309799661603873,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 128.7697697254043,
+        "fuelLeft": 271.2302302745949,
+        "duration": 4.159999999999764,
+        "turnProgress": 0,
+        "peakHeight": 19.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.09849216954903012,
+        "maxTotalContactForce": 29711.1719445084,
+        "stableSeconds": 0.9880000000000008,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.00140147226624682,
+        "turnComplete": true,
+        "finalTilt": 0.000004295594104882746,
+        "finalSpeed": 3.0742454800991843,
+        "finalLongitudinalSpeed": 3.0742454800708208,
+        "finalLateralSpeed": -1.110223024629307e-16,
+        "finalVerticalSpeed": -6.194958345794857e-11,
+        "peakJetHorizontalForce": 21844.074277471536,
+        "jetHorizontalImpulse": [
+          2062.3559513411105,
+          3750.182372675257
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.0317268578016953e-8,
+        "horizontalDisplacement": 24.009702765230394,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          20
+        ],
+        "quat": [
+          0.8660254037844387,
+          0,
+          0,
+          0.49999999999999994
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          1
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 1.54,
+        "height": 7.361357178409101,
+        "vz": -15.38144771026818,
+        "fuel": 377.411080159001
+      },
+      "firstContact": {
+        "time": 3.22,
+        "height": 0.5017069426645797,
+        "fuel": 263.6367232618509,
+        "closingSpeed": 0.09857500278046921
+      },
+      "gasAbove10": 21.696726402357456,
+      "fuelLeft": 262.7975182649049,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.0568892649024852,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 137.20248173509694,
+        "fuelLeft": 262.7975182649049,
+        "duration": 4.239999999999755,
+        "turnProgress": 0,
+        "peakHeight": 19.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.09857500278046921,
+        "maxTotalContactForce": 33429.19571008893,
+        "stableSeconds": 0.9980000000000008,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.001309555382023073,
+        "turnComplete": true,
+        "finalTilt": 0.000004318561155858768,
+        "finalSpeed": 3.9040182726658377,
+        "finalLongitudinalSpeed": 3.904018272629434,
+        "finalLateralSpeed": -1.9984014443257267e-15,
+        "finalVerticalSpeed": -6.281361209809286e-11,
+        "peakJetHorizontalForce": 21844.35764778058,
+        "jetHorizontalImpulse": [
+          3494.5230175072547,
+          5891.845744823609
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.048814439404731e-8,
+        "horizontalDisplacement": 28.13993056331688,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          40
+        ],
+        "quat": [
+          0.8660254037844387,
+          0,
+          0,
+          0.49999999999999994
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          0
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 2.22,
+        "height": 14.240872088366661,
+        "vz": -22.143667021925467,
+        "fuel": 384.3397799706081
+      },
+      "firstContact": {
+        "time": 4.34,
+        "height": 0.5016145915910729,
+        "fuel": 231.29695169920447,
+        "closingSpeed": 0.10170138589457871
+      },
+      "gasAbove10": 37.118264829251245,
+      "fuelLeft": 230.45928469012713,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.3778604809965778,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 169.5407153098733,
+        "fuelLeft": 230.45928469012713,
+        "duration": 5.359999999999632,
+        "turnProgress": 0,
+        "peakHeight": 39.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.10170138589457871,
+        "maxTotalContactForce": 33814.41913707982,
+        "stableSeconds": 1.0180000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0013916087142788892,
+        "turnComplete": true,
+        "finalTilt": 0.000004379167083931133,
+        "finalSpeed": 2.8829344392967564,
+        "finalLongitudinalSpeed": 2.8829344392691136,
+        "finalLateralSpeed": -4.440892098505658e-16,
+        "finalVerticalSpeed": -6.57103630334764e-11,
+        "peakJetHorizontalForce": 21844.074277471536,
+        "jetHorizontalImpulse": [
+          2067.01416284123,
+          3727.6979082369194
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.113818006731066e-8,
+        "horizontalDisplacement": 31.219358120188186,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          40
+        ],
+        "quat": [
+          0.8660254037844387,
+          0,
+          0,
+          0.49999999999999994
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          1
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 2.22,
+        "height": 14.496278756272925,
+        "vz": -22.002139417236055,
+        "fuel": 377.36876458320717
+      },
+      "firstContact": {
+        "time": 4.44,
+        "height": 0.5016858227529759,
+        "fuel": 221.52468863728805,
+        "closingSpeed": 0.10095528149661052
+      },
+      "gasAbove10": 45.80264848148306,
+      "fuelLeft": 220.6892118384645,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.087808007812611,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 179.3107881615363,
+        "fuelLeft": 220.6892118384645,
+        "duration": 5.459999999999621,
+        "turnProgress": 0,
+        "peakHeight": 39.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.10095528149661052,
+        "maxTotalContactForce": 33272.980621895134,
+        "stableSeconds": 0.9920000000000008,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0012963568044593412,
+        "turnComplete": true,
+        "finalTilt": 0.00000440641219509658,
+        "finalSpeed": 3.805147097150736,
+        "finalLongitudinalSpeed": 3.8051470971137946,
+        "finalLateralSpeed": -4.440892098508522e-16,
+        "finalVerticalSpeed": -6.677675522115564e-11,
+        "peakJetHorizontalForce": 21844.35764778058,
+        "jetHorizontalImpulse": [
+          3507.5844678316703,
+          5866.911438243393
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.1347266781753707e-8,
+        "horizontalDisplacement": 36.74004234698355,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          80
+        ],
+        "quat": [
+          0.8660254037844387,
+          0,
+          0,
+          0.49999999999999994
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          0
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 3.12,
+        "height": 30.183344625226997,
+        "vz": -30.847459304486335,
+        "fuel": 384.3304387736285
+      },
+      "firstContact": {
+        "time": 6.28,
+        "height": 0.5015616638160271,
+        "fuel": 164.72687660054717,
+        "closingSpeed": 0.10373413659121554
+      },
+      "gasAbove10": 105.74050673755562,
+      "fuelLeft": 163.89361913762514,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.504448726386333,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 236.10638086237464,
+        "fuelLeft": 163.89361913762514,
+        "duration": 7.299999999999418,
+        "turnProgress": 0,
+        "peakHeight": 79.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.10373413659121554,
+        "maxTotalContactForce": 34515.20230073248,
+        "stableSeconds": 1.0140000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0013873297904673932,
+        "turnComplete": true,
+        "finalTilt": 0.000004524901437619616,
+        "finalSpeed": 2.726624916498001,
+        "finalLongitudinalSpeed": 2.726624916470088,
+        "finalLateralSpeed": -4.44089209850392e-16,
+        "finalVerticalSpeed": -7.257170483534618e-11,
+        "peakJetHorizontalForce": 21844.074277471536,
+        "jetHorizontalImpulse": [
+          2068.50320596323,
+          3727.0693900697734
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.2592361765570898e-8,
+        "horizontalDisplacement": 42.937878294847245,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    },
+    {
+      "initial": {
+        "pos": [
+          -100,
+          -100,
+          80
+        ],
+        "quat": [
+          0.8660254037844387,
+          0,
+          0,
+          0.49999999999999994
+        ],
+        "vel": [
+          5,
+          0,
+          -1
+        ],
+        "omega": [
+          0.01,
+          0.01,
+          1
+        ],
+        "fuel": 400,
+        "mass": 2140
+      },
+      "initialAuthority": {
+        "pressureFraction": 1,
+        "liftWeightRatio": 3.429649318357198,
+        "available": true
+      },
+      "qualifiedAtStart": true,
+      "success": true,
+      "status": "success",
+      "ignition": {
+        "time": 3.1,
+        "height": 31.186525339060537,
+        "vz": -30.51317942143591,
+        "fuel": 377.3629475749057
+      },
+      "firstContact": {
+        "time": 6.42,
+        "height": 0.5015462125772913,
+        "fuel": 153.5709510152525,
+        "closingSpeed": 0.1054875872528025
+      },
+      "gasAbove10": 114.33143872276537,
+      "fuelLeft": 152.73682864677164,
+      "metrics": {
+        "airborneHorizontalChange": 0,
+        "firstContactHorizontalChange": null,
+        "finalHorizontalChange": 2.155630254730464,
+        "requiredSpin": 0,
+        "measuredSpin": 0,
+        "pathRemaining": 0,
+        "score": 0,
+        "fuelUsed": 247.2631713532291,
+        "fuelLeft": 152.73682864677164,
+        "duration": 7.439999999999403,
+        "turnProgress": 0,
+        "peakHeight": 79.88782715567966,
+        "minimumApexCG": 0,
+        "minimumHeightMet": true,
+        "maxContactClosingSpeed": 0.1054875872528025,
+        "maxTotalContactForce": 35015.585706912396,
+        "stableSeconds": 1.0120000000000007,
+        "bodyContact": false,
+        "hardContact": false,
+        "turnAngle": -0.0012902787203703835,
+        "turnComplete": true,
+        "finalTilt": 0.000004556954410264578,
+        "finalSpeed": 3.6369134566812664,
+        "finalLongitudinalSpeed": 3.6369134566435055,
+        "finalLateralSpeed": -1.332267629549835e-15,
+        "finalVerticalSpeed": -7.394093843823771e-11,
+        "peakJetHorizontalForce": 21844.35764778058,
+        "jetHorizontalImpulse": [
+          3508.664300127064,
+          5860.737275078331
+        ],
+        "fanHorizontalImpulse": [
+          0,
+          0
+        ],
+        "finalAngularSpeed": 2.2854183954082777e-8,
+        "horizontalDisplacement": 50.567685866126965,
+        "fanEnergyJ": 0,
+        "fanPeakPower": 0,
+        "fanActiveSeconds": 0,
+        "fanImpulseWorld": [
+          0,
+          0,
+          0
+        ],
+        "groundContactSeconds": 1.0000000000000004
+      }
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # 姿态喷气辅助怎样验证
 
+<p><span data-i18n-en="Current driving calibration and regression results: ">当前驾驶校准与回归结果：</span><a href="roadster-dynamics-20261022.html" data-i18n-en="Acceleration and braking update">加速与制动更新</a><span data-i18n-en=". The records below describe the previous version and retain their original source hashes.">。以下记录属于修改前版本，保留原始源码哈希。</span></p>
+
 2026-10-22 · [返回驾驶沙盘](../driving.html) · [逐帧记录](driving-assistance.json)
 
 当前驾驶使用十喷口布局。物理执行器、阀门命令和烟雾位置共用同一套定义，公开分组及建模假设见 [喷口资料](tesla-thruster-layout.md)。

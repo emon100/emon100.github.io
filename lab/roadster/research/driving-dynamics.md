@@ -1,5 +1,7 @@
 # 驾驶模型、假设与验证
 
+<p><span data-i18n-en="Current driving calibration and regression results: ">当前驾驶校准与回归结果：</span><a href="roadster-dynamics-20261022.html" data-i18n-en="Acceleration and braking update">加速与制动更新</a><span data-i18n-en=". The records below describe the previous version and retain their original source hashes.">。以下记录属于修改前版本，保留原始源码哈希。</span></p>
+
 本页保留 2026-10-20 / v17 的 260 kg 供气参数和成绩。当前 400 kg 供气及对应质量见[姿态辅助验证](driving-assistance.html)。
 
 2026-10-20。返回[驾驶沙盘](../driving.html)。

@@ -1,6 +1,6 @@
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dot=(a,b)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
-// Hypothetical electric drivetrain; Tesla has not published this Roadster's wheel-torque/regen curves.
-export const DRIVE={wheelRadius:.32,peakForce:40000,peakPower:600000,regenForce:6000,regenPower:120000,brakeForce:26000,reverseSpeed:6,dragArea:.65,rollingResistance:.012};
+// Calibrated sandbox assumptions; Tesla publishes acceleration targets, not tire or brake curves.
+export const DRIVE={wheelRadius:.32,tireGrip:1.8,peakForce:46000,peakPower:1000000,regenForce:6000,regenPower:120000,brakeForce:40000,reverseSpeed:6,dragArea:.65,rollingResistance:.012};
 export function wheelDrive(s,contact,{pedal=0,brake=false,attached=false},cfg){
  const v=dot(s.vel,s.R.map(row=>row[0])),loads=contact.averageWheelLoads??[0,0,0,0],loadSum=loads.reduce((a,b)=>a+b,0),p=Math.abs(pedal),r=DRIVE.wheelRadius;
  const hill=attached?s.mass*cfg.physics.gravity*s.R[2][0]:0,hold=p<.01&&Math.abs(v)<.25;
@@ -15,7 +15,7 @@ export function wheelDrive(s,contact,{pedal=0,brake=false,attached=false},cfg){
   const powerLimit=(brake||hold)?Infinity:((requested*rate>=0?DRIVE.peakPower:DRIVE.regenPower)*share/Math.max(5,Math.abs(rate)));
   let torque=clamp(requested,-Math.min(DRIVE.peakForce*r*share,powerLimit),Math.min(DRIVE.peakForce*r*share,powerLimit));
   // Use measured tire loads, not fan suction. MuJoCo resolves the combined lateral/longitudinal friction cone.
-  const grip=.9*load*r*.95;torque=clamp(torque,-grip,grip);
+  const grip=DRIVE.tireGrip*load*r*.95;torque=clamp(torque,-grip,grip);
   if(Math.abs(rolling)>.5&&Math.sign(torque)*slip>.6)torque*=clamp(1-(Math.sign(torque)*slip-.6)/2,0,1);
   const power=torque*rate;if(power>0)motorPower+=power;else if(brake||hold)brakePower-=power;else regenPower-=power;
   return torque-Math.tanh(rate*r/.3)*DRIVE.rollingResistance*load*r;

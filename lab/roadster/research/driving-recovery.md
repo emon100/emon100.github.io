@@ -1,5 +1,7 @@
 # 驾驶回正：风扇排流协同与参数优化
 
+<p><span data-i18n-en="Current driving calibration and regression results: ">当前驾驶校准与回归结果：</span><a href="roadster-dynamics-20261022.html" data-i18n-en="Acceleration and braking update">加速与制动更新</a><span data-i18n-en=". The records below describe the previous version and retain their original source hashes.">。以下记录属于修改前版本，保留原始源码哈希。</span></p>
+
 2026-10-22 最新结果。已加入用户指定的条件排流：需要车尾向下受力、且原喷口分配也需要向前受力时，才考虑使用风扇。风扇只能沿固定安装方向作用，候选分配必须降低当拍喷口总力需求，并使受控力与力矩残差不超过停转方案加 0.02 的加权容差。水平位移仍允许。
 
 ## 当前实现与功率边界
