@@ -27,7 +27,7 @@ export function createCockpitTelemetry(gravity=9.81){
 
 export function createDrivingCockpit(container,gravity){
  const element=document.createElement('div');element.className='driving-cockpit';element.hidden=true;
- const asset=name=>new URL(`./images/cockpit/${name}.png`,import.meta.url).href;
+ const asset=name=>new URL(`./images/cockpit/${name}.webp`,import.meta.url).href;
  element.innerHTML=`
   <div class="cockpit-cabin" aria-hidden="true"><img src="${asset('cabin')}" alt="" draggable="false"></div>
   <div class="cockpit-console" role="group" aria-label="${tr('中控屏','Center display')}">

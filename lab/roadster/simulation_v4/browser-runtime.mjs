@@ -1,4 +1,5 @@
-import {readResponseBytes} from '../asset-progress.mjs';
+import {readResponseBytes} from '../asset-progress.mjs?v=20261023-loading';
+import {MUJOCO_BYTES} from '../asset-sizes.mjs';
 import {PARAMETER_NAMES,qmat,nozzleLayout,unitInertia,massProperties,geometryMinimumCG,delivery,fanModel,allocateFixedNozzles,controllerStep as defaultController,createControllerMemory} from './controller.mjs';
 export {qmat,nozzleLayout,unitInertia,delivery,fanModel,allocateFixedNozzles} from './controller.mjs';
 // MuJoCo is the sole pose integrator. Controller, valves, gas and fan models mirror core.py.
@@ -30,7 +31,8 @@ function validateCase(c,cfg,nozzles) {
 }
 
 export async function loadEngine(moduleUrl=new URL('../vendor/mujoco/mujoco.js',import.meta.url).href,onProgress) {
-  const binary=onProgress?readResponseBytes(await fetch(new URL('mujoco.wasm',moduleUrl)),onProgress):null;
+  const expectedTotal=moduleUrl===new URL('../vendor/mujoco/mujoco.js',import.meta.url).href?MUJOCO_BYTES:0;
+  const binary=onProgress?fetch(new URL('mujoco.wasm',moduleUrl)).then(response=>readResponseBytes(response,onProgress,expectedTotal)):null;
   const [{default:load},wasmBinary]=await Promise.all([import(moduleUrl),binary]);
   const engine=await load(wasmBinary?{wasmBinary}:{});
   if(engine.mj_versionString()!=='3.15.0')throw new Error('The experiment requires MuJoCo 3.15.0');

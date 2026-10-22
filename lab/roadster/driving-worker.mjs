@@ -1,4 +1,4 @@
-import {loadEngine} from './simulation_v4/browser-runtime.mjs?v=20261019';
+import {loadEngine} from './simulation_v4/browser-runtime.mjs?v=20261023-loading';
 import {createDrivingSimulation} from './driving-core.mjs?v=20261022-dynamics';
 let sim,input={},kick=false,timer,last=0,accumulator=0,failed=false;
 async function tick(){

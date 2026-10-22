@@ -1,15 +1,16 @@
 import {t as tr} from './i18n.mjs';
-import {createLoadingProgress} from './loading.mjs';
-import {assetFraction} from './asset-progress.mjs';
+import {createLoadingProgress} from './loading.mjs?v=20261023-loading';
+import {assetFraction} from './asset-progress.mjs?v=20261023-loading';
+import {MODEL_ASSET,MUJOCO_BYTES} from './asset-sizes.mjs';
 import {createParkedVehicles} from './parked-vehicles.mjs?v=20261022-render-refill';
 import * as T from './vendor/three.module.min.js';
 import {bindDrivingControls} from './driving-input.mjs?v=20261021-gas-proof';
 import {createDrivingView} from './driving-camera.mjs?v=20261021-gas-proof';
-import {createCockpitTelemetry} from './driving-cockpit.mjs?v=20261023-screen-fill';
+import {createCockpitTelemetry} from './driving-cockpit.mjs?v=20261023-loading';
 import {createDrivingAudio} from './driving-audio.mjs?v=20261021-gas-proof';
-import {createWorld} from './lab-world.mjs?v=20261023-screen-fill';
+import {createWorld} from './lab-world.mjs?v=20261023-loading';
 import {rigDrivingWheels} from './driving-model.mjs?v=20261021-gas-proof';
-import {loadMeshyModelFactory} from './meshy-model.mjs';
+import {loadMeshyModelFactory} from './meshy-model.mjs?v=20261023-loading';
 import {drivingNozzles} from './driving-thrusters.mjs?v=20261022-rocket10';
 import {MAP,RAMPS,rampPose,rampMeshData} from './driving-core.mjs?v=20261022-dynamics';
 const $=s=>document.querySelector(s),drivingView=createDrivingView(),audio=createDrivingAudio();let driveInput={},worker,world,frame,dirty=false,physicsError=false,view='chase',settings={assist:true,downforce:false,sound:true};
@@ -54,14 +55,26 @@ const toggleFullscreen=()=>isFullscreen()?exitFullscreen():enterFullscreen();
 $('#fullscreen').onclick=toggleFullscreen;document.addEventListener('fullscreenchange',fullscreenState);
 let tap;const stage=$('#drive-world');stage.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;if(tap){tap.moved=true;return;}tap={id:e.pointerId,x:e.clientX,y:e.clientY,moved:false};});stage.addEventListener('pointermove',e=>{if(tap&&Math.hypot(e.clientX-tap.x,e.clientY-tap.y)>6)tap.moved=true;});stage.addEventListener('pointerup',e=>{if(tap?.id!==e.pointerId)return;const open=!tap.moved;tap=null;if(open&&!isFullscreen())enterFullscreen();});for(const type of ['pointercancel','lostpointercapture'])stage.addEventListener(type,()=>tap=null);for(const type of ['contextmenu','selectstart'])viewport.addEventListener(type,()=>tap=null);
 const headerObserver=new ResizeObserver(()=>document.documentElement.style.setProperty('--game-header',document.querySelector('.site-header').offsetHeight+'px'));headerObserver.observe(document.querySelector('.site-header'));
-const loading=createLoadingProgress($('#drive-load'));let modelProgress=0,configProgress=0;
+const loading=createLoadingProgress($('#drive-load'));let modelProgress=0,engineProgress=0,configProgress=0;
+let modelBytes={loaded:0,total:MODEL_ASSET.bytes},engineBytes={loaded:0,total:MUJOCO_BYTES};
+const reportLoading=message=>loading.update(configProgress+modelProgress+engineProgress,message,[{label:tr('车辆模型','Vehicle model'),...modelBytes},{label:tr('物理引擎','Physics engine'),...engineBytes}]);
+reportLoading(tr('下载驾驶资源…','Downloading driving resources…'));
 const load=async(path,type)=>{const response=await fetch(path);if(!response.ok)throw Error(`HTTP ${response.status}: ${path}`);return response[type]();};
 try{
- const [cfg,manifest,xml,factory]=await Promise.all([Promise.all([load('simulation_v4/config.json','json'),load('simulation_v4/manifest.json','json'),load('simulation_v4/world.xml','text')]).then(values=>{configProgress=.05;loading.update(configProgress+modelProgress,tr('下载车辆模型…','Downloading vehicle model…'));return values;}),loadMeshyModelFactory(progress=>{modelProgress=.5*assetFraction(progress);loading.update(configProgress+modelProgress,progress.phase==='prepare'?tr('准备车辆材质…','Preparing vehicle materials…'):tr('下载车辆模型…','Downloading vehicle model…'),progress);})]).then(([config,factory])=>[...config,factory]);
- loading.update(.55,tr('准备场景…','Preparing scene…'));
- const cockpitTelemetry=createCockpitTelemetry(cfg.physics.gravity);
- world=createWorld(stage,cfg,()=>rigDrivingWheels(factory()),{driving:true,nozzles:drivingNozzles(cfg)});world.addObject(environment());world.addObject(createParkedVehicles());worker=new Worker(new URL('./driving-worker.mjs?v=20261022-dynamics',import.meta.url),{type:'module'});
- await new Promise((resolve,reject)=>{worker.onerror=e=>reject(Error(e.message));worker.onmessage=({data:m})=>{if(m.type==='loading'){loading.update(.55+.4*assetFraction(m.progress),m.progress.phase==='download'?tr('下载物理引擎…','Downloading physics engine…'):tr('初始化物理引擎…','Initializing physics engine…'),m.progress);return;}if(m.type==='error'){physicsError=true;dirty=true;clearInput();$('#drive-state').hidden=false;$('#drive-state').textContent=tr('物理计算出错，请点击复位重试','Physics error. Select Reset to try again.');if(!frame)reject(Error(m.message));return;}if(!physicsError||m.frame.resetSerial!==frame?.resetSerial)physicsError=false;frame={...m.frame,cockpitTelemetry:cockpitTelemetry(m.frame)};drivingView.push(frame,performance.now());dirty=true;if(m.type==='ready')resolve();};worker.postMessage({type:'init',config:cfg,params:manifest.final,xml,settings});});
+ const configuration=Promise.all([load('simulation_v4/config.json','json'),load('simulation_v4/manifest.json','json'),load('simulation_v4/world.xml','text')]).then(async([cfg,manifest,xml])=>{
+  configProgress=.05;reportLoading(tr('下载驾驶资源…','Downloading driving resources…'));
+  const cockpitTelemetry=createCockpitTelemetry(cfg.physics.gravity);
+  worker=new Worker(new URL('./driving-worker.mjs?v=20261023-loading',import.meta.url),{type:'module'});
+  await new Promise((resolve,reject)=>{worker.onerror=e=>reject(Error(e.message));worker.onmessage=({data:m})=>{
+   if(m.type==='loading'){engineProgress=.4*assetFraction(m.progress);if(Number.isFinite(m.progress.loaded))engineBytes=m.progress;reportLoading(tr('加载驾驶资源…','Loading driving resources…'));return;}
+   if(m.type==='error'){physicsError=true;dirty=true;clearInput();$('#drive-state').hidden=false;$('#drive-state').textContent=tr('物理计算出错，请点击复位重试','Physics error. Select Reset to try again.');if(!frame)reject(Error(m.message));return;}
+   if(!physicsError||m.frame.resetSerial!==frame?.resetSerial)physicsError=false;frame={...m.frame,cockpitTelemetry:cockpitTelemetry(m.frame)};drivingView.push(frame,performance.now());dirty=true;if(m.type==='ready')resolve();
+  };worker.postMessage({type:'init',config:cfg,params:manifest.final,xml,settings});});
+  return [cfg,manifest,xml];
+ });
+ const [[cfg],factory]=await Promise.all([configuration,loadMeshyModelFactory(progress=>{modelProgress=.5*assetFraction(progress);if(Number.isFinite(progress.loaded))modelBytes=progress;reportLoading(tr('加载驾驶资源…','Loading driving resources…'));})]);
+ loading.update(.95,tr('准备场景…','Preparing scene…'));
+ world=createWorld(stage,cfg,()=>rigDrivingWheels(factory()),{driving:true,nozzles:drivingNozzles(cfg)});world.addObject(environment());world.addObject(createParkedVehicles());
  document.querySelectorAll('[data-assist]').forEach(b=>b.onclick=()=>setSettings({assist:b.dataset.assist==='true'}));$('#downforce').onclick=()=>setSettings({downforce:!frame.downforce.enabled});
  $('#sound').onclick=()=>setSettings({sound:!settings.sound});updateSoundButton();viewport.addEventListener('pointerdown',()=>audio.unlock());document.addEventListener('keydown',()=>audio.unlock());$('#kick').onclick=queueKick;$('#recenter').onclick=()=>worker.postMessage({type:'recenter'});document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
  document.addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.code==='Escape'){clearInput();if(isFullscreen())exitFullscreen();return;}if(e.target.closest('input,select,textarea,[contenteditable=true]'))return;if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code)){e.preventDefault();inputControls.pressKey(e.code);}if(e.code==='KeyK'&&!e.repeat)queueKick();if(e.code==='KeyR'&&!e.repeat)worker.postMessage({type:'recenter'});if(e.code==='KeyF'&&!e.repeat){e.preventDefault();toggleFullscreen();}});

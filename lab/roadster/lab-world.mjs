@@ -1,7 +1,7 @@
 import {t as tr} from './i18n.mjs';
 import * as T from './vendor/three.module.min.js';
 
-import {createDrivingCockpit} from './driving-cockpit.mjs?v=20261023-screen-fill';
+import {createDrivingCockpit} from './driving-cockpit.mjs?v=20261023-loading';
 import {nozzleLayout} from './simulation_v2/controller.mjs';
 import {createJetSmoke} from './jet-smoke.mjs?v=20261021-night';
 import {createStateGuides} from './state-guides.mjs';

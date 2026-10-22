@@ -1,7 +1,8 @@
 import * as T from './vendor/three.module.min.js';
 import {GLTFLoader} from './vendor/GLTFLoader.mjs';
-import {assetFraction,readResponseBytes} from './asset-progress.mjs';
-import {createLoadingProgress} from './loading.mjs';
+import {assetFraction,readResponseBytes} from './asset-progress.mjs?v=20261023-loading';
+import {createLoadingProgress} from './loading.mjs?v=20261023-loading';
+import {MODEL_ASSET} from './asset-sizes.mjs';
 import {t} from './i18n.mjs';
 
 let loaded,lastProgress;const listeners=new Set();
@@ -10,8 +11,8 @@ export async function loadMeshyModelFactory(onProgress){
  const report=onProgress??(progress?event=>progress.update(assetFraction(event),event.phase==='prepare'?t('准备车辆材质…','Preparing vehicle materials…'):t('下载车辆模型…','Downloading vehicle model…'),event):null);
  if(report){listeners.add(report);if(lastProgress)report(lastProgress);}
  const emit=event=>{lastProgress=event;for(const listener of listeners)listener(event);};
- const url=new URL('./models/meshy/roadster-refined.glb?revision=lamps-eeee55c0eaf2',import.meta.url);
- loaded??=fetch(url).then(response=>readResponseBytes(response,emit)).then(bytes=>new GLTFLoader().parseAsync(bytes.buffer,new URL('.',url).href)).then(gltf=>{emit({phase:'ready'});return gltf;}).catch(error=>{loaded=null;lastProgress=null;throw error;});
+ const url=new URL(MODEL_ASSET.path,import.meta.url);url.searchParams.set('revision',MODEL_ASSET.revision);
+ loaded??=fetch(url).then(response=>readResponseBytes(response,emit,MODEL_ASSET.bytes)).then(bytes=>new GLTFLoader().parseAsync(bytes.buffer,new URL('.',url).href)).then(gltf=>{emit({...lastProgress,phase:'ready'});return gltf;}).catch(error=>{loaded=null;lastProgress=null;throw error;});
  let gltf;try{gltf=await loaded;progress?.finish();}catch(error){progress?.fail();throw error;}finally{if(report)listeners.delete(report);}
  return function createMeshyModel(){
   const root=new T.Group(),car=gltf.scene.clone(true),geometries=new Map(),materials=new Map(),textures=new Map();

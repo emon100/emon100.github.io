@@ -7,3 +7,5 @@
 - `display.png`：701 × 429，原附件 `codex-clipboard-9687c411-3a05-4881-b067-0873b6ec21e6.png`。
 
 `driving.css` 在显示时拉伸座舱、裁去方向盘素材的透明留白，并按左侧驾驶位调整横竖屏取景。方向盘保持自身宽高比。中控使用原屏幕边框及独立的背景动效，驾驶位 HUD 是实时 DOM / SVG。
+
+2026-10-23：新增同名 `.webp` 供页面加载，原 PNG 保留。使用 `site/scripts/optimize-loading-assets.py` 以 lossless / exact 模式压缩，解码后 RGBA 字节与原 PNG 完全一致；尺寸、透明度与投影角点不变。
