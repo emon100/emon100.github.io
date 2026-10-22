@@ -1,97 +1,80 @@
-import * as T from './vendor/three.module.min.js';
+import {t as tr} from './i18n.mjs';
+import {qmat} from './simulation_v2/controller.mjs';
+import {tmv} from './simulation_v3/math.mjs';
 
-// Top Gear JdkIOhFmbKI, 34:30–37:10: low dark dash, rectangular yoke, ivory grips.
-// shortcut: proportions are inferred from video, replace with measured cabin geometry when available.
-export function createDrivingCockpit(){
- const scene=new T.Scene(),camera=new T.PerspectiveCamera(55,1,.05,10);
- const shell=new T.Group(),wheel=new T.Group(),frame=new T.Group();scene.add(shell,wheel,frame);
- const leather=new T.MeshStandardMaterial({color:0x202329,roughness:.91});
- const weavePixels=new Uint8Array(32*32*4);
- for(let y=0;y<32;y++)for(let x=0;x<32;x++){const horizontal=((x>>3)+(y>>3))%2===0,strand=(horizontal?y:x)%8,shade=170+Math.round(45*Math.sin(strand*Math.PI/8));weavePixels.set([shade,shade,shade,255],(y*32+x)*4);}
- const weave=new T.DataTexture(weavePixels,32,32);weave.wrapS=weave.wrapT=T.RepeatWrapping;weave.repeat.set(24,24);weave.needsUpdate=true;
- const carbon=new T.MeshStandardMaterial({color:0x181c22,map:weave,roughness:.45,metalness:.32});
- const edge=new T.MeshStandardMaterial({color:0x525c65,roughness:.34,metalness:.72});
- const ivory=new T.MeshStandardMaterial({color:0xd9d7cb,roughness:.7});
- const black=new T.MeshStandardMaterial({color:0x080a0e,roughness:.56});
- const seam=new T.MeshStandardMaterial({color:0x7b807e,roughness:.9});
- const ambient=new T.HemisphereLight(0xdbe7f4,0x15151b,2.1);scene.add(ambient);
- const key=new T.DirectionalLight(0xe8e7dc,2.6);key.position.set(-2,3,2);scene.add(key);
- const fill=new T.DirectionalLight(0x879db9,.75);fill.position.set(3,.4,0);scene.add(fill);
+// Extend six pixels beneath the bezel so the supplied PNG leaves no transparent seams.
+export function cockpitScreenMatrix(width,height){
+ const [[x0,y0],[x1,y1],[x2,y2],[x3,y3]]=[[94,58],[632,48],[625,371],[53,317]].map(([x,y])=>[x/701,y/429]);
+ const dx1=x1-x2,dx2=x3-x2,dx3=x0-x1+x2-x3,dy1=y1-y2,dy2=y3-y2,dy3=y0-y1+y2-y3;
+ const denominator=dx1*dy2-dx2*dy1,g=(dx3*dy2-dx2*dy3)/denominator,h=(dx1*dy3-dx3*dy1)/denominator;
+ return [x1-x0+g*x1,(y1-y0+g*y1)*height/width,0,g/width,(x3-x0+h*x3)*width/height,y3-y0+h*y3,0,h/height,0,0,1,0,x0*width,y0*height,0,1];
+}
 
- function box(parent,size,pos,material){const m=new T.Mesh(new T.BoxGeometry(...size),material);m.position.set(...pos);parent.add(m);return m;}
- function panel(parent,points,depth,pos,material,bevel=.008){
-  const shape=new T.Shape();points.forEach(([x,y],i)=>i?shape.lineTo(x,y):shape.moveTo(x,y));shape.closePath();
-  const geometry=new T.ExtrudeGeometry(shape,{depth,bevelEnabled:bevel>0,bevelThickness:bevel,bevelSize:bevel,bevelSegments:2,steps:1,curveSegments:6});
-  const mesh=new T.Mesh(geometry,material);mesh.position.set(...pos);parent.add(mesh);return mesh;
- }
- function tube(parent,points,radius,material){
-  const path=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p)),false,'centripetal');
-  const mesh=new T.Mesh(new T.TubeGeometry(path,Math.max(4,points.length*4),radius,6,false),material);parent.add(mesh);return mesh;
- }
- // A broad, tapered dashboard with a very low windshield sill.
- const dash=panel(shell,[[-1.9,-.62],[2.3,-.62],[2.3,-.44],[1.5,-.33],[.6,-.305],[-.6,-.305],[-1.9,-.39]],.74,[0,0,-1.75],leather,.018);
- dash.rotation.x=-.065;
- tube(shell,[[-1.85,-.336,-1.72],[-.7,-.291,-1.7],[.5,-.29,-1.7],[1.6,-.32,-1.7],[2.2,-.4,-1.7]],.006,edge);
- box(shell,[3.9,.025,.13],[.2,-.465,-1.03],black);
- tube(shell,[[-1.85,-.46,-1.01],[-.5,-.442,-1.01],[.6,-.444,-1.01],[2.2,-.47,-1.01]],.0035,seam);
- panel(shell,[[-1.8,-1.1],[2.2,-1.1],[2.2,-.57],[.5,-.47],[-.6,-.48],[-1.8,-.57]],.10,[0,0,-1.02],carbon);
- // Passenger-side fold and pale door trim are visible only at the edge of the driver's view.
- panel(shell,[[.36,-1.1],[.69,-1.1],[.58,-.5],[.45,-.44],[.37,-.49]],.08,[0,0,-.94],carbon);
- panel(shell,[[-1.5,-1.1],[-.72,-1.1],[-.85,-.57],[-1.2,-.47],[-1.5,-.5]],.065,[0,0,-.82],ivory,.012);
- tube(shell,[[-1.35,-.54,-.72],[-1.0,-.59,-.72],[-.87,-.76,-.72]],.012,black);
+export function createCockpitTelemetry(gravity=9.81){
+ let previous=null,acceleration=null;
+ return f=>{
+  const R=qmat(f.quat),dt=previous?f.t-previous.t:0;
+  if(!previous||f.resetSerial!==previous.resetSerial||dt<0||dt>.25)acceleration=null;
+  else if(dt>1e-6){
+   const next=f.vel.map((v,i)=>(v-previous.vel[i])/dt),blend=1-Math.exp(-dt/.12);
+   acceleration=acceleration?next.map((v,i)=>acceleration[i]+(v-acceleration[i])*blend):next;
+  }
+  if(!previous||dt!==0||f.resetSerial!==previous.resetSerial)previous={t:f.t,vel:[...f.vel],resetSerial:f.resetSerial};
+  const force=acceleration?tmv(R,acceleration.map((v,i)=>(v+(i===2?gravity:0))/gravity)):null;
+  return {speed:Math.round(Math.abs(f.speed??0)),gear:f.gear??'D',roll:Math.atan2(R[2][1],R[2][2])*180/Math.PI,pitch:Math.atan2(R[2][0],Math.hypot(R[0][0],R[1][0]))*180/Math.PI,g:force?Math.hypot(...force):null,longitudinal:force?.[0]??null,lateral:force?.[1]??null};
+ };
+}
 
- // The thin windscreen surround leaves the horizon and ramp entry unobstructed.
- for(const side of [-1,1]){
-  const pillar=new T.Group();frame.add(pillar);
-  tube(pillar,[[side*1.26,-.34,-1.5],[side*1.12,.07,-1.35],[side*.73,.54,-1.08]],.035,carbon);
-  tube(pillar,[[side*1.235,-.34,-1.5],[side*1.095,.07,-1.35],[side*.705,.54,-1.08]],.006,edge);
- }
- tube(frame,[[-.74,.54,-1.08],[0,.56,-1.1],[.74,.54,-1.08]],.035,carbon);
-
- wheel.name='cockpit-yoke';wheel.position.set(0,-.27,-.86);wheel.rotation.x=-.14;
- box(wheel,[.115,.09,.25],[0,-.025,-.15],black);
- // Rounded, chamfered central pad and open shoulders; no conventional circular rim.
- panel(wheel,[[-.145,.076],[-.106,.103],[.106,.103],[.145,.076],[.128,-.065],[.087,-.095],[-.087,-.095],[-.128,-.065]],.045,[0,0,0],edge,.009);
- panel(wheel,[[-.136,.071],[-.101,.094],[.101,.094],[.136,.071],[.12,-.061],[.083,-.085],[-.083,-.085],[-.12,-.061]],.046,[0,0,.008],carbon,.009);
- for(const side of [-1,1]){
-  const grip=panel(wheel,[[-.034,-.115],[.027,-.109],[.04,.096],[.021,.128],[-.03,.119],[-.045,.077]],.058,[side*.214,0,.015],ivory,.014);
-  grip.scale.set(side*.72,.96,1);
-  tube(wheel,[[side*.14,.044,.006],[side*.183,.102,-.018],[side*.232,.139,-.024],[side*.26,.12,-.018],[side*.265,-.076,.004],[side*.224,-.125,.012]],.014,carbon);
-  tube(wheel,[[side*.264,.09,.014],[side*.262,-.075,.025],[side*.232,-.115,.034]],.0027,edge);
-  box(wheel,[.04,.025,.012],[side*.171,.03,.045],black);
- }
- // Small simulation display integrated into the yoke. It is not a claim about Tesla's UI.
- const canvas=document.createElement('canvas');canvas.width=512;canvas.height=192;
- const ctx=canvas.getContext('2d'),texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;
- const screen=new T.Mesh(new T.PlaneGeometry(.217,.081),new T.MeshBasicMaterial({map:texture,toneMapped:false}));screen.position.set(0,.026,.065);wheel.add(screen);
- tube(wheel,[[-.065,-.045,.065],[0,-.051,.069],[.065,-.045,.065]],.0015,seam);
- let lastDisplay='',visible=false,lastDrawCalls=0;
+export function createDrivingCockpit(container,gravity){
+ const element=document.createElement('div');element.className='driving-cockpit';element.hidden=true;
+ const asset=name=>new URL(`./images/cockpit/${name}.png`,import.meta.url).href;
+ element.innerHTML=`
+  <div class="cockpit-cabin" aria-hidden="true"><img src="${asset('cabin')}" alt="" draggable="false"></div>
+  <div class="cockpit-console" role="group" aria-label="${tr('中控屏','Center display')}">
+   <div class="cockpit-screen"><div class="cockpit-screen-glow"></div><div class="cockpit-screen-road"></div>
+    <div class="cockpit-gears" aria-label="${tr('挡位','Gear')}"><span>P</span><span>R</span><span>N</span><span>D</span></div>
+    <span class="cockpit-screen-caption">ROADSTER<span>${tr('驾驶沙盘','DRIVING LAB')}</span></span>
+   </div><img class="cockpit-screen-frame" src="${asset('display')}" alt="" draggable="false">
+  </div>
+  <div class="cockpit-yoke" aria-hidden="true"><div class="cockpit-yoke-crop"><img src="${asset('yoke')}" alt="" draggable="false"></div></div>
+  <section class="cockpit-hud" aria-label="${tr('驾驶抬头显示','Driving head-up display')}">
+   <div class="cockpit-attitude" role="img" aria-label="${tr('车身姿态','Vehicle attitude')}">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="cockpit-attitude-clip"><circle cx="50" cy="50" r="37"/></clipPath></defs>
+     <g clip-path="url(#cockpit-attitude-clip)"><g class="cockpit-horizon-roll"><g class="cockpit-horizon-pitch">
+      <path class="cockpit-sky" d="M-300-300H400V50H-300Z"/><path class="cockpit-ground" d="M-300 50H400V400H-300Z"/>
+      <path d="M-100 50H200M34 34H66M42 18H58M34 66H66M42 82H58"/>
+     </g></g></g><circle cx="50" cy="50" r="38" class="cockpit-dial"/>
+     <path d="M50 6V12M28 12L31 18M72 12L69 18M12 28L18 31M88 28L82 31" class="cockpit-ticks"/>
+     <path d="M23 50H40L45 55M77 50H60L55 55M50 46V51" class="cockpit-wings"/>
+    </svg><small class="cockpit-angles"></small>
+   </div>
+   <div class="cockpit-speed"><strong>0</strong><span>km/h</span></div>
+   <div class="cockpit-g" title="${tr('重力补偿后的车身过载，静止约 1 G，自由落体约 0 G','Body load with gravity compensation: about 1 G at rest, 0 G in free fall')}">
+    <div><strong class="cockpit-g-total">—</strong><span> G</span></div>
+    <small>${tr('纵向','LONG')} <b class="cockpit-g-long">—</b></small><small>${tr('横向','LAT')} <b class="cockpit-g-lat">—</b></small>
+   </div>
+  </section>`;
+ container.append(element);
+ const $=s=>element.querySelector(s),screen=$('.cockpit-screen'),display=$('.cockpit-console'),wheel=$('.cockpit-yoke-crop'),speed=$('.cockpit-speed strong'),total=$('.cockpit-g-total'),long=$('.cockpit-g-long'),lat=$('.cockpit-g-lat'),attitude=$('.cockpit-attitude'),roll=$('.cockpit-horizon-roll'),pitch=$('.cockpit-horizon-pitch'),angles=$('.cockpit-angles'),gears=[...element.querySelectorAll('.cockpit-gears span')],sample=createCockpitTelemetry(gravity);
+ let telemetry=null,steeringRotation=0;
+ const signed=v=>v===null?'—':`${v<-.05?'−':'+'}${Math.abs(v).toFixed(1)}`;
  function update(f){
-  wheel.rotation.z=(f.steeringAngle??0)*4;
-  const speed=Math.round(Math.abs(f.speed??0)),gear=f.gear??'D',gas=Math.round((f.gas?.fraction??1)*100),active=!!f.recoveryActive;
-  const text=`${speed}|${gear}|${gas}|${active}`;if(text===lastDisplay)return;lastDisplay=text;
-  ctx.fillStyle='#080c10';ctx.fillRect(0,0,512,192);
-  ctx.textAlign='left';ctx.fillStyle='#adc4bc';ctx.font='19px system-ui';ctx.fillText('ROADSTER  /  SIM',22,29);
-  ctx.fillStyle='#eaf2ef';ctx.font='300 82px system-ui';ctx.fillText(String(speed),20,119);
-  ctx.fillStyle='#a8b8b9';ctx.font='19px system-ui';ctx.fillText('km/h',180,116);
-  ctx.textAlign='right';ctx.font='38px system-ui';ctx.fillStyle='#cee0b0';ctx.fillText(gear,482,87);
-  ctx.font='18px system-ui';ctx.fillStyle=active?'#d7cfab':'#98aaa9';ctx.fillText(active?'JET ACTIVE':`GAS ${gas}%`,482,122);
-  ctx.fillStyle='#26343b';ctx.fillRect(22,155,460,3);ctx.fillStyle='#c7d9b2';ctx.fillRect(22,155,460*Math.min(1,speed/240),3);texture.needsUpdate=true;
+  telemetry=f.cockpitTelemetry??sample(f);if(element.hidden)return;
+  steeringRotation=-(f.steeringAngle??0)*4;wheel.style.transform=`rotate(${steeringRotation}rad)`;
+  speed.textContent=telemetry.speed;total.textContent=telemetry.g===null?'—':telemetry.g.toFixed(1);long.textContent=signed(telemetry.longitudinal);lat.textContent=signed(telemetry.lateral);
+  roll.setAttribute('transform',`rotate(${-telemetry.roll} 50 50)`);pitch.setAttribute('transform',`translate(0 ${telemetry.pitch*1.6})`);
+  const degrees=`${tr('俯仰','PITCH')} ${Math.round(telemetry.pitch)}° · ${tr('横滚','ROLL')} ${Math.round(telemetry.roll)}°`;
+  angles.textContent=degrees;attitude.setAttribute('aria-label',degrees);
+  for(const gear of gears){const active=gear.textContent===telemetry.gear;gear.classList.toggle('is-active',active);if(active)gear.setAttribute('aria-current','true');else gear.removeAttribute('aria-current');}
  }
- function resize(aspect){
-  camera.aspect=aspect;camera.updateProjectionMatrix();
-  frame.scale.x=aspect/(16/9);
-  const scale=Math.min(1,aspect/1.25);wheel.scale.setScalar(.72*scale);
-  wheel.position.y=-.27-(1-scale)*.055;
+ function resize(w,h){
+  // shortcut: stretch the supplied center-view cabin around the left seat; replace with a driver-eye render if supplied.
+  const cabinWidth=Math.max(w,h*1.25);
+  element.style.setProperty('--cabin-width',`${cabinWidth}px`);
+  element.style.setProperty('--yoke-width',`${Math.min(cabinWidth*.49,w*.88,h*.94)}px`);
+  element.classList.toggle('is-portrait',w/h<1);
+  const {width,height}=display.getBoundingClientRect();
+  if(width&&height)screen.style.transform=`matrix3d(${cockpitScreenMatrix(width,height).join(',')})`;
  }
- function render(renderer){
-  const autoClear=renderer.autoClear;renderer.autoClear=false;renderer.clearDepth();
-  try{renderer.render(scene,camera);lastDrawCalls=renderer.info.render.calls;}finally{renderer.autoClear=autoClear;}
- }
- function dispose(){
-  const geometries=new Set(),materials=new Set();scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)materials.add(o.material);});
-  geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());texture.dispose();weave.dispose();
- }
- update({});
- return {scene,camera,wheel,update,resize,render,dispose,setVisible(value){visible=value;},stats(){let triangles=0,meshes=0;scene.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3;}});return {visible,meshes,triangles,drawCalls:lastDrawCalls,steeringRotation:wheel.rotation.z,display:lastDisplay,textureSize:[512,192]};}};
+ return {update,resize,setVisible(value){element.hidden=!value;},dispose(){element.remove();},stats(){return {visible:!element.hidden,mode:'image-mask',steeringRotation,telemetry,assets:[...element.querySelectorAll('img')].map(img=>({loaded:img.complete&&img.naturalWidth>0,src:img.src}))};}};
 }
