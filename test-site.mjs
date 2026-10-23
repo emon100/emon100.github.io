@@ -3,8 +3,8 @@ import {existsSync,readFileSync,readdirSync} from 'node:fs';
 const root=new URL('./',import.meta.url),read=path=>readFileSync(new URL(path,root),'utf8');
 assert.equal(read('CNAME').trim(),'www.emon100.com');
 assert(existsSync(new URL('.nojekyll',root)));
-assert(read('index.html').includes('2022.07 - 2025.07'));
-assert(!/2022\.7 - (Present|至今)/.test(read('index.html')));
+assert(!/id="resume"|个人简历|Work Experience/.test(read('index.html')));
+assert(read('index.html').includes('id="skills"'));
 assert(!/2022年7月至今|Jul 2022 - Present/.test(read('resume.tex')));
 assert(read('index.html').includes('href="/lab/roadster/"'));
 const lab='lab/roadster/';
@@ -17,4 +17,4 @@ for(const path of readdirSync(new URL(lab,root),{recursive:true}).filter(path=>p
   assert(existsSync(resolved),`${path}: localization asset missing`);
  }
 }
-console.log('Resume dates, domain, Roadster entry, research notices and nested localization paths passed.');
+console.log('Homepage resume removal, skills link, domain, Roadster entry and nested localization paths passed.');
